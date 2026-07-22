@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#192332">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#192332">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#DA85B2">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ ARTICLE HEADER ═══════ -->
+<div data-screen-label="Article Header" style="padding:72px 48px 48px;background:#FFFFFF;border-bottom:1px solid #F1F1F1">
+  <div style="max-width:760px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both">
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;background:#EBA93D;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px">ARTICLE</span>
+      <span style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#73C1AE">CONCEPTS</span>
+    </div>
+    <h1 style="margin:0 0 22px;font:600 48px/54px 'Manrope',sans-serif;letter-spacing:-1.2px;color:#192332;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">Context engineering, explained for operators</h1>
+    <p style="margin:0 0 30px;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;animation:mzRise .8s .25s cubic-bezier(.2,.7,.2,1) both">Why the quality of what your AI sees matters more than which model you pick.</p>
+    <div style="display:flex;align-items:center;gap:14px;animation:mzRise .8s .35s cubic-bezier(.2,.7,.2,1) both">
+      <div style="width:42px;height:42px;border-radius:50%;background:#121D35;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 6px rgba(0,0,0,0.124)"><img src="assets/maslow-mark-white.svg" alt="" style="width:20px"></div>
+      <div>
+        <div style="font:700 14px 'Manrope',sans-serif;color:#1A1A1A">Maslow AI Team</div>
+        <div style="font:400 12px 'DM Sans',sans-serif;letter-spacing:.5px;color:#A5A5A5">JULY 2026 · 6 MIN READ</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ BODY ═══════ -->
+<div data-screen-label="Article Body" style="padding:56px 48px 40px;background:#FFFFFF">
+  <div style="max-width:700px;margin:0 auto;font:400 17px/29px 'Manrope',sans-serif;letter-spacing:.28px;color:#333333">
+    <p style="margin:0 0 26px">Every AI vendor will tell you their model is smarter. Almost none will ask the question that actually determines whether your deployment works: <strong>what does the model get to see?</strong></p>
+    <p style="margin:0 0 26px">A frontier model with poor context loses to a modest model with great context. Reliably, and by a wide margin. Context engineering is the discipline of making sure that at the moment your AI acts, it is looking at the right information: fresh, relevant, structured and complete.</p>
+    <h2 style="margin:44px 0 18px;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;color:#192332">The context window is a budget</h2>
+    <p style="margin:0 0 26px">A model's context window is finite. Think of it as a briefing you hand a new employee before a meeting. Stuff it with everything and the important sentence drowns. Curate it and even a junior performs like a veteran.</p>
+    <div style="margin:0 0 26px;display:flex;gap:18px;padding:8px 0">
+      <span style="font:800 56px/40px 'Manrope',sans-serif;color:#73C1AE;flex:none">“</span>
+      <span style="font:500 22px/33px 'Manrope',sans-serif;color:#192332">The model is the engine. Context is the fuel, and most enterprises are running on fumes.</span>
+    </div>
+    <p style="margin:0 0 26px">In practice, that budget is spent across retrieved documents, conversation history, tool outputs and instructions. Each one competes for space. The engineering question is a routing question: <em>which facts earn their place?</em></p>
+    <h2 style="margin:44px 0 18px;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;color:#192332">Three audits to run this quarter</h2>
+    <p style="margin:0 0 16px"><strong>1. The retrieval audit.</strong> Pick ten real questions your team asked last month. Trace what your system retrieved for each. Was the answer in there at all?</p>
+    <p style="margin:0 0 16px"><strong>2. The staleness audit.</strong> How old is the newest document your AI can see? If your knowledge base was last synced in March, your AI lives in March.</p>
+    <p style="margin:0 0 26px"><strong>3. The structure audit.</strong> Are you feeding raw PDF text, or chunks with titles, dates and ownership attached? Metadata is the difference between a pile and a library.</p>
+    <div style="margin:0 0 26px;background:#F6F7F9;border-left:2px solid #73C1AE;border-radius:0 4px 4px 0;padding:24px 28px">
+      <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#654C8F;margin-bottom:10px">RULE OF THUMB</div>
+      <div style="font:400 15.5px/25px 'Manrope',sans-serif;color:#333333">If a competent new hire couldn't answer the question from the same briefing, neither can the model. Fix the briefing before you blame the model.</div>
+    </div>
+    <h2 style="margin:44px 0 18px;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;color:#192332">Where this goes next</h2>
+    <p style="margin:0 0 26px">Context engineering is the foundation the rest of the stack stands on: the agentic harness, skills, and virtual employees all inherit their competence from it. Start here, and everything downstream gets easier and cheaper.</p>
+  </div>
+</div>
+
+<!-- ═══════ ARTICLE FOOTER ═══════ -->
+<div data-screen-label="Article Footer" style="padding:24px 48px 80px;background:#FFFFFF">
+  <div style="max-width:700px;margin:0 auto;border-top:1px solid #E1E1E1;padding-top:32px;display:flex;justify-content:space-between;align-items:center;gap:24px">
+    <div style="display:flex;gap:8px">
+      <span style="font:600 12px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 16px;border:1px solid #E1E1E1;border-radius:17px;color:#666666">Context engineering</span>
+      <span style="font:600 12px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 16px;border:1px solid #E1E1E1;border-radius:17px;color:#666666">Hybrid RAG</span>
+    </div>
+    <a href="Explainer - Context Engineering.dc.html" style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2;white-space:nowrap">OPEN THE INTERACTIVE EXPLAINER&nbsp;&nbsp;&gt;</a>
+  </div>
+</div>
+
+<!-- ═══════ CTA + FOOTER ═══════ -->
+<div data-screen-label="CTA" style="background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;padding:64px 48px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-bottom:1px solid #3A4A6B">
+    <h2 style="margin:0;font:400 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;max-width:560px">Want an audit of what your AI actually sees?</h2>
+    <a href="Contact.dc.html" style="flex:none;height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:24px;height:16px">
+      <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px">
+      <a href="Maslow Homepage.dc.html" style="color:#B8C4D9">Home</a>
+      <a href="Blog.dc.html" style="color:#B8C4D9">Blog</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

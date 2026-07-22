@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#DA85B2">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#192332">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="padding:80px 48px 64px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:400 13px 'Manrope',sans-serif;color:#838383;margin-bottom:22px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both"><a href="Maslow Homepage.dc.html#concepts" style="color:#838383">Concepts</a> / <span style="color:#DA85B2;font-weight:600">Context engineering</span> <span style="display:inline-flex;margin-left:12px;font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#73C1AE">TECHNOLOGY</span></div>
+    <h1 style="margin:0 0 22px;font:600 58px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;max-width:860px;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">Your AI is only as smart as its briefing.</h1>
+    <p style="margin:0;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:640px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">Before a model acts, it reads a briefing: the <strong>context</strong>. Context engineering decides what earns a place in it. Try it yourself: build the briefing below and watch the answer change.</p>
+  </div>
+</div>
+
+<!-- ═══════ BRIEFING BUILDER · navy band ═══════ -->
+<div data-screen-label="Briefing Builder" style="background:#121D35;color:#FFFFFF;padding:80px 48px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#73C1AE;margin-bottom:16px">INTERACTIVE · BUILD THE BRIEFING</div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:40px;margin-bottom:36px">
+      <h2 style="margin:0;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px">"What are our payment terms with Vendor X?"</h2>
+      <span style="font:400 13.5px 'Manrope',sans-serif;color:#B8C4D9;white-space:nowrap">Toggle sources → watch the answer</span>
+    </div>
+    <div style="display:grid;grid-template-columns:400px 1fr;gap:48px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="5">
+          <div onClick="{{ s.toggle }}" style="display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid {{ s.border }};border-radius:8px;background:{{ s.bg }};cursor:pointer;transition:all .25s">
+            <div style="width:22px;height:22px;border-radius:4px;border:1.5px solid {{ s.checkBorder }};background:{{ s.checkBg }};display:flex;align-items:center;justify-content:center;font:700 13px 'Manrope',sans-serif;color:#121D35;flex:none">{{ s.check }}</div>
+            <div style="flex:1;min-width:0">
+              <div style="font:700 14.5px 'Manrope',sans-serif;color:#FFFFFF">{{ s.name }}</div>
+              <div style="font:400 12px/17px 'Manrope',sans-serif;color:#B8C4D9">{{ s.meta }}</div>
+            </div>
+            <span style="font:500 9px 'IBM Plex Mono',monospace;letter-spacing:1px;color:{{ s.tagColor }};border:1px solid {{ s.tagBorder }};border-radius:2px;padding:4px 8px;white-space:nowrap">{{ s.tagLabel }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:#1A2847;border:1px solid #3A4A6B;border-radius:4px;padding:28px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px">
+            <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#B8C4D9">CONTEXT WINDOW</span>
+            <span style="font:500 12px 'IBM Plex Mono',monospace;color:#73C1AE">{{ budgetLabel }}</span>
+          </div>
+          <div style="display:flex;height:34px;border-radius:2px;overflow:hidden;background:#243356;margin-bottom:10px">
+            <sc-for list="{{ segments }}" as="seg" hint-placeholder-count="3">
+              <div style="width:{{ seg.w }};background:{{ seg.color }};transition:width .4s;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                <span style="font:500 10px 'IBM Plex Mono',monospace;color:#121D35;white-space:nowrap;opacity:.85">{{ seg.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font:400 12px/18px 'Manrope',sans-serif;color:#B8C4D9">{{ budgetNote }}</div>
+        </div>
+        <div style="background:#1A2847;border:1px solid #3A4A6B;border-radius:4px;padding:28px;flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+            <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#B8C4D9">MODEL ANSWER</span>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:120px;height:6px;border-radius:2px;background:#243356;overflow:hidden">
+                <div style="width:{{ qualityW }};height:100%;background:{{ qualityColor }};transition:all .4s"></div>
+              </div>
+              <span style="font:700 12.5px 'Manrope',sans-serif;color:{{ qualityColor }};white-space:nowrap">{{ qualityLabel }}</span>
+            </div>
+          </div>
+          <div style="font:400 15.5px/26px 'Manrope',sans-serif;color:#FFFFFF">{{ answer }}</div>
+          <div style="margin-top:16px;font:400 12px/18px 'Manrope',sans-serif;color:#B8C4D9;opacity:.8">{{ answerNote }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ WHAT WE ENGINEER ═══════ -->
+<div data-screen-label="What We Engineer" style="padding:96px 48px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">THE DISCIPLINE</div>
+    <h2 style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">What context engineering actually involves</h2>
+    <p style="margin:0 0 44px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:600px">It's a pipeline, not a prompt. We build and run every stage.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:28px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04);transition:transform .3s" style-hover="transform:translateY(-3px)">
+        <div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:1px;color:#73C1AE;margin-bottom:12px">01</div>
+        <div style="font:700 19px 'Manrope',sans-serif;letter-spacing:-.3px;color:#1A1A1A;margin-bottom:8px">Ingestion</div>
+        <div style="font:400 13.5px/21px 'Manrope',sans-serif;color:#666666">Every file format, every silo, chunked with structure and metadata intact.</div>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:28px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04);transition:transform .3s" style-hover="transform:translateY(-3px)">
+        <div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:1px;color:#A070A6;margin-bottom:12px">02</div>
+        <div style="font:700 19px 'Manrope',sans-serif;letter-spacing:-.3px;color:#1A1A1A;margin-bottom:8px">Structuring</div>
+        <div style="font:400 13.5px/21px 'Manrope',sans-serif;color:#666666">Vector DB for meaning, knowledge graph for facts: <a href="Explainer - Hybrid RAG.dc.html">hybrid RAG</a>.</div>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:28px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04);transition:transform .3s" style-hover="transform:translateY(-3px)">
+        <div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:1px;color:#EBA93D;margin-bottom:12px">03</div>
+        <div style="font:700 19px 'Manrope',sans-serif;letter-spacing:-.3px;color:#1A1A1A;margin-bottom:8px">Freshness</div>
+        <div style="font:400 13.5px/21px 'Manrope',sans-serif;color:#666666">Sync pipelines so your AI never lives in last quarter. Stale data is worse than none.</div>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:28px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04);transition:transform .3s" style-hover="transform:translateY(-3px)">
+        <div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:1px;color:#469DBB;margin-bottom:12px">04</div>
+        <div style="font:700 19px 'Manrope',sans-serif;letter-spacing:-.3px;color:#1A1A1A;margin-bottom:8px">Routing</div>
+        <div style="font:400 13.5px/21px 'Manrope',sans-serif;color:#666666">Per-task retrieval that decides which facts earn a place in the briefing.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CTA + FOOTER ═══════ -->
+<div data-screen-label="CTA" style="background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 48px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-bottom:1px solid #3A4A6B">
+    <div>
+      <h2 style="margin:0 0 10px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">Want an audit of what your AI actually sees?</h2>
+      <div style="font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9">We'll trace ten real questions through your current setup and show you the gaps.</div>
+    </div>
+    <a href="Contact.dc.html" style="flex:none;height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:24px;height:16px">
+      <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px">
+      <a href="Explainer - Hybrid RAG.dc.html" style="color:#B8C4D9">Hybrid RAG →</a>
+      <a href="Explainer - Agentic Harness.dc.html" style="color:#B8C4D9">Agentic Harness →</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { on: { contract: true, crm: false, policies: false, thread: false, wiki: false } };
+
+  renderVals() {
+    const defs = [
+      { key: 'contract', name: 'Contract archive', meta: 'MSAs, SOWs, amendments, via knowledge graph', tag: 'high', size: 22, quality: 45 },
+      { key: 'crm', name: 'Live CRM record', meta: 'Vendor X account, current as of today', tag: 'high', size: 8, quality: 25 },
+      { key: 'policies', name: 'Company policies', meta: 'Procurement & payment policy docs', tag: 'medium', size: 14, quality: 15 },
+      { key: 'thread', name: 'This email thread', meta: 'The conversation that triggered the question', tag: 'medium', size: 10, quality: 10 },
+      { key: 'wiki', name: '2023 team wiki', meta: 'Unmaintained; contains the OLD net-30 terms', tag: 'stale', size: 26, quality: -30 },
+    ];
+    const on = this.state.on;
+    const colors = { high: '#73C1AE', medium: '#A070A6', stale: '#EBA93D' };
+
+    let used = 0, quality = 5;
+    const segments = [];
+    defs.forEach(d => {
+      if (on[d.key]) {
+        used += d.size;
+        quality += d.quality;
+        segments.push({ w: d.size + '%', color: colors[d.tag], label: d.name.split(' ')[0].toUpperCase() });
+      }
+    });
+    quality = Math.max(0, Math.min(100, quality));
+
+    let answer, answerNote;
+    if (!on.contract && !on.crm && !on.policies && !on.thread && !on.wiki) {
+      answer = '\u201cPayment terms vary by vendor and agreement. I don\u2019t have access to your contracts, so I can\u2019t say what applies to Vendor X. Typically, terms range from net-30 to net-60\u2026\u201d';
+      answerNote = 'No sources: the model can only produce generic filler.';
+    } else if (on.wiki && !on.contract) {
+      answer = '\u201cAccording to the team wiki, Vendor X is on net-30 terms.\u201d \u26a0 Confidently wrong: the wiki predates the 2024 amendment that moved Vendor X to net-45.';
+      answerNote = 'Stale context is worse than none: the model has no way to know the wiki is outdated.';
+    } else if (on.contract && on.wiki) {
+      answer = '\u201cSources conflict: the 2024 MSA amendment (\u00a77.2) says net-45, but the team wiki says net-30. The MSA is the governing document (net-45), but you should retire that wiki page.\u201d';
+      answerNote = 'Good retrieval surfaces the conflict instead of silently picking one.';
+    } else if (on.contract && on.crm) {
+      answer = '\u201cNet-45, per the 2024 MSA amendment \u00a77.2 (MSA_VendorX_2024.pdf). CRM shows the last three invoices were paid on day 43\u201344, so you\u2019re operating close to the limit. Early-payment discount of 1.5% applies before day 20.\u201d';
+      answerNote = 'Contract facts + live data: precise, cited, and actionable.';
+    } else if (on.contract) {
+      answer = '\u201cNet-45, per the 2024 MSA amendment \u00a77.2 (MSA_VendorX_2024.pdf). An early-payment discount of 1.5% applies before day 20.\u201d';
+      answerNote = 'The governing document alone answers correctly, with a citation.';
+    } else {
+      answer = '\u201cYour procurement policy defaults to net-30, and this thread mentions an invoice, but I can\u2019t confirm Vendor X\u2019s actual contracted terms without the agreement itself.\u201d';
+      answerNote = 'Adjacent context helps the model know what it doesn\u2019t know.';
+    }
+
+    return {
+      sources: defs.map(d => {
+        const active = on[d.key];
+        return {
+          name: d.name, meta: d.meta,
+          toggle: () => this.setState(s => ({ on: { ...s.on, [d.key]: !s.on[d.key] } })),
+          border: active ? '#73C1AE' : '#3A4A6B',
+          bg: active ? 'rgba(115,193,174,.1)' : 'transparent',
+          check: active ? '✓' : '',
+          checkBg: active ? '#73C1AE' : 'transparent',
+          checkBorder: active ? '#73C1AE' : '#3A4A6B',
+          tagLabel: d.tag === 'stale' ? 'STALE · 2023' : d.tag === 'high' ? 'HIGH VALUE' : 'SUPPORTING',
+          tagColor: d.tag === 'stale' ? '#EBA93D' : d.tag === 'high' ? '#73C1AE' : '#B8C4D9',
+          tagBorder: d.tag === 'stale' ? 'rgba(235,169,61,.5)' : d.tag === 'high' ? 'rgba(115,193,174,.5)' : '#3A4A6B',
+        };
+      }),
+      segments,
+      budgetLabel: used + '% of budget used',
+      budgetNote: used > 60 ? 'Getting crowded: every low-value token dilutes the important ones.' : 'Curated and lean: the key facts stand out.',
+      qualityW: quality + '%',
+      qualityColor: quality >= 60 ? '#73C1AE' : quality >= 30 ? '#EBA93D' : '#F37779',
+      qualityLabel: quality >= 60 ? 'Precise' : quality >= 30 ? 'Partial' : 'Unreliable',
+      answer, answerNote,
+    };
+  }
+}
+</script>
+</body>
+</html>

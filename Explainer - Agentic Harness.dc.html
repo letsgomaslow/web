@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#DA85B2">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#192332">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="padding:80px 48px 64px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:400 13px 'Manrope',sans-serif;color:#838383;margin-bottom:22px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both"><a href="Maslow Homepage.dc.html#concepts" style="color:#838383">Concepts</a> / <span style="color:#DA85B2;font-weight:600">Harness engineering</span> <span style="display:inline-flex;margin-left:12px;font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#A070A6">STRATEGY + TECHNOLOGY</span></div>
+    <h1 style="margin:0 0 22px;font:600 58px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;max-width:900px;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">What surrounds the model matters more than the model.</h1>
+    <p style="margin:0;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:640px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">A raw model is potential, not performance. The <strong>agentic harness</strong> is the engineered structure around it (context, skills, tools, memory, guardrails and gateways) that turns intelligence into dependable work. Drag the model below; tap any component.</p>
+  </div>
+</div>
+
+<!-- ═══════ INTERACTIVE HARNESS · navy band ═══════ -->
+<div data-screen-label="Interactive Harness" style="background:#121D35;color:#FFFFFF">
+  <div style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;min-height:660px">
+    <div ref="{{ canvasHostRef }}" style="position:relative;overflow:hidden;cursor:grab;touch-action:none"></div>
+    <div style="padding:64px 48px 64px 24px;display:flex;flex-direction:column;justify-content:center;gap:18px">
+      <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#73C1AE">{{ selTag }}</div>
+      <div style="font:700 30px 'Manrope',sans-serif;letter-spacing:-.6px">{{ selTitle }}</div>
+      <div style="font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9">{{ selDesc }}</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+        <sc-for list="{{ selBullets }}" as="b" hint-placeholder-count="3">
+          <div style="display:flex;gap:11px;align-items:baseline">
+            <span style="color:#73C1AE;font-weight:700">✓</span>
+            <span style="font:400 13.5px/21px 'Manrope',sans-serif;color:#B8C4D9">{{ b }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:14px;font:400 11px 'IBM Plex Mono',monospace;letter-spacing:1px;color:#B8C4D9;opacity:.6">DRAG TO ROTATE · CLICK A LABEL TO INSPECT</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ WHY HARNESS ═══════ -->
+<div data-screen-label="Why Harness" style="padding:96px 48px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">THE PAYOFF</div>
+    <h2 style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Why the harness beats the model</h2>
+    <p style="margin:0 0 44px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:600px">Models improve every quarter, and your harness carries those gains forward. It's the part you own.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:32px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04);border-top:2px solid #73C1AE">
+        <div style="font:700 22px 'Manrope',sans-serif;letter-spacing:-.4px;color:#1A1A1A;margin-bottom:10px">Model-agnostic</div>
+        <p style="margin:0;font:400 14.5px/23px 'Manrope',sans-serif;color:#666666">Swap the core (frontier API today, local open model tomorrow) without rebuilding the workflow. The harness is the constant.</p>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:32px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04);border-top:2px solid #A070A6">
+        <div style="font:700 22px 'Manrope',sans-serif;letter-spacing:-.4px;color:#1A1A1A;margin-bottom:10px">Dependable by design</div>
+        <p style="margin:0;font:400 14.5px/23px 'Manrope',sans-serif;color:#666666">Guardrails, approvals and audit trails live in the harness, so reliability is engineered, not hoped for.</p>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:32px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04);border-top:2px solid #EBA93D">
+        <div style="font:700 22px 'Manrope',sans-serif;letter-spacing:-.4px;color:#1A1A1A;margin-bottom:10px">Compounding asset</div>
+        <p style="margin:0;font:400 14.5px/23px 'Manrope',sans-serif;color:#666666">Every skill you add and every workflow you wire becomes reusable infrastructure; your AI capability compounds.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CTA + FOOTER ═══════ -->
+<div data-screen-label="CTA" style="background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 48px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-bottom:1px solid #3A4A6B">
+    <div>
+      <h2 style="margin:0 0 10px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">We build custom harnesses for real workflows.</h2>
+      <div style="font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9">Yours could be running in weeks, on models you choose, with controls you own.</div>
+    </div>
+    <a href="Contact.dc.html" style="flex:none;height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:24px;height:16px">
+      <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px">
+      <a href="Explainer - Hybrid RAG.dc.html" style="color:#B8C4D9">← Hybrid RAG</a>
+      <a href="Explainer - Local AI.dc.html" style="color:#B8C4D9">Local AI →</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;autoRotate&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Scene&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.canvasHostRef = React.createRef();
+    this.state = { selected: 0 };
+    this.nodes = [
+      { tag: '01 / CONTEXT', label: 'CONTEXT', title: 'Context', desc: 'Everything the model sees before it acts: retrieved documents, live data, the state of the task. Engineered through hybrid RAG so the right facts arrive at the right moment.', bullets: ['Hybrid RAG over your vector DB + knowledge graph', 'Freshness pipelines so your AI never lives in last quarter', 'Citations back to source files on every answer'] },
+      { tag: '02 / SKILLS', label: 'SKILLS', title: 'Skills', desc: 'Reusable, auditable procedures the agent can follow: your firm\u2019s way of doing things, encoded once and shared across every agent.', bullets: ['Procedures written with your domain experts', 'Versioned and testable like code', 'Shared across all your virtual employees'] },
+      { tag: '03 / TOOLS', label: 'TOOLS', title: 'Tools', desc: 'The systems the agent can operate: CRM, ERP, calendars, document stores. Each tool is scoped: the agent gets exactly the access the task needs.', bullets: ['Least-privilege access per workflow', 'Structured calls, not screen-scraping', 'Every invocation logged'] },
+      { tag: '04 / MEMORY', label: 'MEMORY', title: 'Memory', desc: 'What the agent retains across sessions: preferences, open threads, past decisions. Memory turns a stateless model into a teammate with continuity.', bullets: ['Task state that survives restarts', 'Client and case history at hand', 'Forgetting policies for compliance'] },
+      { tag: '05 / GUARDRAILS', label: 'GUARDRAILS', title: 'Guardrails', desc: 'The boundaries: what requires human approval, what is off-limits, what gets escalated. Reliability is engineered here, not hoped for at the model layer.', bullets: ['Human approval on consequential actions', 'Full audit trail of reads and writes', 'Escalation paths designed with your team'] },
+      { tag: '06 / GATEWAYS', label: 'GATEWAYS', title: 'Gateways', desc: 'Where the agent meets your organisation: Microsoft Teams, Slack, shared inboxes. No new app to learn; the AI shows up where work already happens.', bullets: ['Teams, Slack and email connectors', 'One agent, many channels', 'Notifications and approvals in-flow'] },
+    ];
+  }
+
+  renderVals() {
+    this._scheduleInit();
+    const n = this.nodes[this.state.selected];
+    return {
+      canvasHostRef: this.canvasHostRef,
+      selTag: n.tag, selTitle: n.title, selDesc: n.desc, selBullets: n.bullets,
+    };
+  }
+
+  _scheduleInit() {
+    if (this._initScheduled) return;
+    this._initScheduled = true;
+    this._try = 0;
+    const init = () => {
+      if (this._renderer) return;
+      if (!window.THREE || !this.canvasHostRef.current || !this.canvasHostRef.current.clientWidth) { if (this._try++ < 80) setTimeout(init, 250); return; }
+      this._initScene();
+    };
+    setTimeout(init, 60);
+  }
+
+  componentDidMount() { this._scheduleInit(); }
+
+  componentWillUnmount() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._renderer) this._renderer.dispose();
+  }
+
+  _initScene() {
+    const THREE = window.THREE;
+    const host = this.canvasHostRef.current;
+    const W = () => host.clientWidth, H = () => host.clientHeight;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, W() / H(), 1, 2000);
+    camera.position.z = 520;
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(W(), H());
+    host.appendChild(renderer.domElement);
+    this._renderer = renderer;
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    const core = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(62, 1),
+      new THREE.MeshBasicMaterial({ color: 0x73C1AE, wireframe: true, transparent: true, opacity: .85 })
+    );
+    group.add(core);
+    const coreInner = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(40, 1),
+      new THREE.MeshBasicMaterial({ color: 0xFFFFFF, wireframe: true, transparent: true, opacity: .25 })
+    );
+    group.add(coreInner);
+
+    const R = 190;
+    const nodeMeshes = [];
+    this.nodes.forEach((n, i) => {
+      const a = (i / this.nodes.length) * Math.PI * 2;
+      const y = (i % 2 === 0 ? 46 : -46);
+      const pos = new THREE.Vector3(Math.cos(a) * R, y, Math.sin(a) * R);
+      const m = new THREE.Mesh(
+        new THREE.SphereGeometry(11, 20, 20),
+        new THREE.MeshBasicMaterial({ color: 0xA070A6 })
+      );
+      m.position.copy(pos);
+      group.add(m);
+      nodeMeshes.push(m);
+      const line = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), pos]),
+        new THREE.LineBasicMaterial({ color: 0x654C8F, transparent: true, opacity: .5 })
+      );
+      group.add(line);
+    });
+
+    const ringGeo = new THREE.BufferGeometry().setFromPoints(
+      Array.from({ length: 90 }, (_, i) => {
+        const a = (i / 89) * Math.PI * 2;
+        return new THREE.Vector3(Math.cos(a) * R, 0, Math.sin(a) * R);
+      })
+    );
+    group.add(new THREE.Line(ringGeo, new THREE.LineBasicMaterial({ color: 0x73C1AE, transparent: true, opacity: .18 })));
+
+    const labels = this.nodes.map((n, i) => {
+      const el = document.createElement('div');
+      el.textContent = n.label;
+      el.style.cssText = "position:absolute;transform:translate(-50%,-130%);font:500 10px 'IBM Plex Mono',monospace;letter-spacing:1.5px;padding:6px 12px;border-radius:2px;cursor:pointer;user-select:none;white-space:nowrap;transition:background .2s,color .2s";
+      el.addEventListener('click', (e) => { e.stopPropagation(); this.setState({ selected: i }); });
+      host.appendChild(el);
+      return el;
+    });
+
+    let dragging = false, px = 0, py = 0, rotY = 0.6, rotX = 0.12, vy = (this.props.autoRotate ?? true) ? 0.0022 : 0;
+    host.addEventListener('pointerdown', (e) => { dragging = true; px = e.clientX; py = e.clientY; host.style.cursor = 'grabbing'; });
+    window.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      rotY += (e.clientX - px) * 0.006;
+      rotX += (e.clientY - py) * 0.003;
+      rotX = Math.max(-0.7, Math.min(0.7, rotX));
+      px = e.clientX; py = e.clientY;
+    });
+    window.addEventListener('pointerup', () => { dragging = false; host.style.cursor = 'grab'; });
+
+    const onResize = () => {
+      camera.aspect = W() / H();
+      camera.updateProjectionMatrix();
+      renderer.setSize(W(), H());
+    };
+    window.addEventListener('resize', onResize);
+    if (window.ResizeObserver) {
+      let lw = W(), lh = H();
+      this._ro = new ResizeObserver(() => { const w = W(), h = H(); if (w && h && (w !== lw || h !== lh)) { lw = w; lh = h; onResize(); } });
+      this._ro.observe(host);
+    }
+
+    const v = new THREE.Vector3();
+    const animate = (now) => {
+      this._raf = requestAnimationFrame(animate);
+      if (!dragging) rotY += vy;
+      group.rotation.y = rotY;
+      group.rotation.x = rotX;
+      core.rotation.y = now * 0.0004;
+      coreInner.rotation.y = -now * 0.0006;
+
+      const sel = this.state.selected;
+      nodeMeshes.forEach((m, i) => {
+        m.material.color.setHex(i === sel ? 0x73C1AE : 0xA070A6);
+        const s = i === sel ? 1.45 + Math.sin(now * 0.004) * 0.12 : 1;
+        m.scale.setScalar(s);
+        v.copy(m.position).applyMatrix4(group.matrixWorld).project(camera);
+        const x = (v.x * 0.5 + 0.5) * W(), y = (-v.y * 0.5 + 0.5) * H();
+        const behind = v.z > 0.994;
+        const el = labels[i];
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+        el.style.opacity = behind ? .25 : 1;
+        el.style.zIndex = behind ? 1 : 3;
+        el.style.background = i === sel ? '#73C1AE' : 'rgba(26,40,71,.85)';
+        el.style.color = i === sel ? '#121D35' : '#B8C4D9';
+        el.style.border = i === sel ? '1px solid #73C1AE' : '1px solid #3A4A6B';
+      });
+      renderer.render(scene, camera);
+    };
+    this._raf = requestAnimationFrame(animate);
+  }
+}
+</script>
+</body>
+</html>

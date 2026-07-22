@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#192332">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#192332">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#DA85B2">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="padding:88px 48px 48px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:26px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both">BLOG · INSIGHTS &amp; EXPLAINERS</div>
+    <h1 style="margin:0 0 20px;font:600 60px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">Latest thinking</h1>
+    <p style="margin:0 0 36px;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:560px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">Plain-language writing on AI transformation: what works, what it costs, and how to own it.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;animation:mzRise .8s .45s cubic-bezier(.2,.7,.2,1) both">
+      <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="6">
+        <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:1px;height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;background:{{ cat.bg }};color:{{ cat.fg }};border:1px solid {{ cat.border }};white-space:nowrap;cursor:pointer;text-transform:uppercase">{{ cat.name }}</span>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FEATURED ═══════ -->
+<div data-screen-label="Featured Post" style="padding:24px 48px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <a href="Blog Article.dc.html" style="display:grid;grid-template-columns:1.15fr 1fr;border:1px solid #F1F1F1;border-radius:4px;overflow:hidden;background:#FFFFFF;color:#333333;box-shadow:2px 0 10px rgba(0,0,0,0.06);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s" style-hover="transform:translateY(-4px);box-shadow:17px 9px 5px rgba(0,0,0,0.15);color:#333333">
+      <div style="background:#121D35;min-height:340px;position:relative;padding:32px;overflow:hidden">
+        <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;background:#EBA93D;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;position:relative;z-index:1">FEATURED</span>
+        <img src="assets/maslow-mark-white.svg" alt="" style="position:absolute;right:-30px;bottom:-40px;width:280px;opacity:.08">
+        <svg viewBox="0 0 400 200" style="position:absolute;left:32px;bottom:32px;width:70%;opacity:.85">
+          <g stroke="rgba(115,193,174,.5)" stroke-width="1" fill="none">
+            <line x1="40" y1="160" x2="150" y2="80"></line><line x1="150" y1="80" x2="280" y2="120"></line><line x1="280" y1="120" x2="360" y2="40"></line><line x1="150" y1="80" x2="240" y2="30"></line>
+          </g>
+          <g fill="#73C1AE">
+            <circle cx="40" cy="160" r="6"></circle><circle cx="150" cy="80" r="9"></circle><circle cx="280" cy="120" r="7"></circle><circle cx="360" cy="40" r="5"></circle><circle cx="240" cy="30" r="5"></circle>
+          </g>
+        </svg>
+      </div>
+      <div style="padding:44px;display:flex;flex-direction:column;gap:16px;justify-content:center">
+        <div style="display:flex;gap:10px;align-items:center;font:400 12px 'DM Sans',sans-serif;letter-spacing:.5px;color:#A5A5A5"><span style="font-weight:700;letter-spacing:2px;color:#73C1AE">CONCEPTS</span><span>·</span><span>6 MIN READ</span><span>·</span><span>JUL 2026</span></div>
+        <div style="font:700 30px/38px 'Manrope',sans-serif;letter-spacing:-.6px;color:#1A1A1A">Context engineering, explained for operators</div>
+        <div style="font:400 15px/24px 'Manrope',sans-serif;color:#666666">Why the quality of what your AI sees matters more than which model you pick, and how to audit the context your systems are actually working with.</div>
+        <div style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2">READ THE ARTICLE&nbsp;&nbsp;&gt;</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════ POST GRID ═══════ -->
+<div data-screen-label="Post Grid" style="padding:32px 48px 80px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+    <sc-for list="{{ posts }}" as="p" hint-placeholder-count="6">
+      <a href="Blog Article.dc.html" class="mz-reveal" style="border:1px solid #F1F1F1;border-radius:4px;padding:28px;background:#FFFFFF;color:#333333;display:flex;flex-direction:column;gap:13px;box-shadow:2px 0 10px rgba(0,0,0,0.04);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s" style-hover="transform:translateY(-4px);box-shadow:17px 9px 5px rgba(0,0,0,0.12);color:#333333">
+        <div style="display:flex;gap:10px;align-items:center;font:400 12px 'DM Sans',sans-serif;letter-spacing:.5px;color:#A5A5A5"><span style="font-weight:700;letter-spacing:2px;color:{{ p.catColor }}">{{ p.cat }}</span><span>·</span><span>{{ p.read }}</span></div>
+        <div style="font:700 20px/26px 'Manrope',sans-serif;letter-spacing:-.4px;color:#1A1A1A;flex:none">{{ p.title }}</div>
+        <div style="font:400 14px/22px 'Manrope',sans-serif;color:#666666;flex:1">{{ p.desc }}</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font:400 12px 'DM Sans',sans-serif;color:#A5A5A5">{{ p.date }}</span>
+          <span style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2">READ MORE&nbsp;&nbsp;&gt;</span>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</div>
+
+<!-- ═══════ NEWSLETTER · navy band ═══════ -->
+<div data-screen-label="Newsletter" style="background:#121D35;color:#FFFFFF;padding:72px 48px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:40px">
+    <div>
+      <h2 style="margin:0 0 8px;font:400 32px/40px 'Manrope',sans-serif;letter-spacing:.64px">One useful email a month</h2>
+      <div style="font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9">Concept explainers, cost benchmarks and case studies. No hype.</div>
+    </div>
+    <div style="display:flex;gap:14px;flex:none;align-items:flex-end">
+      <div style="width:260px">
+        <div style="height:40px;border-bottom:1px solid #3A4A6B;display:flex;align-items:center;font:400 15px 'Manrope',sans-serif;color:#B8C4D9">you@company.com</div>
+      </div>
+      <span style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;cursor:pointer;transition:transform .25s" style-hover="transform:translateY(-2px)">SUBSCRIBE</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<div data-screen-label="Footer" style="background:#192332;color:#FFFFFF;padding:40px 48px;border-top:1px solid #3A4A6B">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:28px;height:19px">
+      <span style="font:600 13px 'Manrope',sans-serif;letter-spacing:2px">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px;font:400 13px 'Manrope',sans-serif">
+      <a href="Maslow Homepage.dc.html" style="color:#B8C4D9">Home</a>
+      <a href="Case Studies.dc.html" style="color:#B8C4D9">Case Studies</a>
+      <a href="Landing - Virtual AI Employees.dc.html" style="color:#B8C4D9">Campaigns</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const active = 'All';
+    const cats = ['All', 'Concepts', 'Cost', 'Engineering', 'Local AI', 'Case Notes'];
+    const catColors = { 'CONCEPTS': '#73C1AE', 'COST': '#EBA93D', 'ENGINEERING': '#A070A6', 'LOCAL AI': '#469DBB', 'CASE NOTES': '#654C8F' };
+    const posts = [
+      { cat: 'COST', read: '5 MIN', date: 'Jun 2026', title: 'When local models beat the API bill', desc: 'A framework for deciding what belongs on your hardware and what stays in the cloud.' },
+      { cat: 'ENGINEERING', read: '8 MIN', date: 'Jun 2026', title: 'Anatomy of an agentic harness', desc: 'Skills, tools, memory, guardrails: how the pieces fit around a model to produce dependable work.' },
+      { cat: 'CONCEPTS', read: '4 MIN', date: 'May 2026', title: 'Vector database or knowledge graph?', desc: 'Meaning vs facts: what each structure is for, and why serious retrieval uses both.' },
+      { cat: 'CASE NOTES', read: '6 MIN', date: 'May 2026', title: 'Deploying a virtual employee into a shared inbox', desc: 'What we learned shipping an AI teammate into email triage at a professional services firm.' },
+      { cat: 'LOCAL AI', read: '7 MIN', date: 'Apr 2026', title: 'Sizing hardware for on-prem inference', desc: 'GPUs, quantisation and throughput: a practical sizing guide for your first local deployment.' },
+      { cat: 'CONCEPTS', read: '5 MIN', date: 'Apr 2026', title: 'What \u201cskills\u201d actually are', desc: 'Reusable, auditable procedures your agents share, and why they beat prompt libraries.' },
+    ];
+    return {
+      categories: cats.map(name => ({
+        name,
+        bg: name === active ? '#192332' : '#FFFFFF',
+        fg: name === active ? '#FFFFFF' : '#666666',
+        border: name === active ? '#192332' : '#E1E1E1',
+      })),
+      posts: posts.map(p => ({ ...p, catColor: catColors[p.cat] || '#73C1AE' })),
+    };
+  }
+}
+</script>
+</body>
+</html>

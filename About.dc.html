@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#192332">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#192332">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#DA85B2">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="position:relative;padding:96px 48px;background:#FFFFFF;overflow:hidden">
+  <img src="assets/maslow-mark-gradient.svg" alt="" style="position:absolute;right:80px;top:80px;width:280px;opacity:.09;animation:mzFloat 8s ease-in-out infinite">
+  <div style="max-width:1200px;margin:0 auto;position:relative">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:26px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both">ABOUT MASLOW AI</div>
+    <h1 style="margin:0 0 26px;font:600 60px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;max-width:860px;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">AI should meet your needs, not the other way around.</h1>
+    <p style="margin:0;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:640px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">We named ourselves after the hierarchy of needs for a reason: AI adoption fails when companies chase the peak before securing the base. We build from the foundation up: your data, your workflows, your hardware, so the impressive parts actually stand on something.</p>
+  </div>
+</div>
+
+<!-- ═══════ MISSION · navy band ═══════ -->
+<div data-screen-label="Mission" style="padding:88px 48px;background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+    <div>
+      <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#73C1AE;margin-bottom:18px">OUR MISSION</div>
+      <h2 style="margin:0;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">Reduce the cost of AI adoption.</h2>
+    </div>
+    <div style="font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#B8C4D9">
+      Enterprise AI is priced like magic. It isn't. It's engineering. Open models close the capability gap every quarter, local hardware flattens the metered bill, and a well-built harness outlives any single model. We pass all three of those savings on to you, and we put them in writing.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ PRINCIPLES ═══════ -->
+<div data-screen-label="Principles" style="padding:96px 48px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">HOW WE WORK</div>
+    <h2 style="margin:0 0 44px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Four commitments, in writing</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
+        <div style="border:1px solid #F1F1F1;border-radius:4px;padding:36px;background:#FFFFFF;display:flex;gap:22px;box-shadow:2px 0 10px rgba(0,0,0,0.04);transition:transform .3s" style-hover="transform:translateY(-3px)">
+          <div style="font:700 13px 'DM Sans',sans-serif;letter-spacing:1px;color:{{ p.accent }};flex:none">{{ p.num }}</div>
+          <div>
+            <div style="font:700 20px 'Manrope',sans-serif;letter-spacing:-.4px;color:#1A1A1A;margin-bottom:8px">{{ p.name }}</div>
+            <div style="font:400 14.5px/23px 'Manrope',sans-serif;color:#666666">{{ p.desc }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ TEAM ═══════ -->
+<div data-screen-label="Team" style="padding:96px 48px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">THE TEAM</div>
+    <h2 style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Engineers and operators</h2>
+    <p style="margin:0 0 36px;font:400 15px/24px 'Manrope',sans-serif;color:#666666;max-width:520px">People who've shipped AI inside real enterprises. <span style="color:#A5A5A5">(Drop your team photos onto the placeholders.)</span></p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="team-1" shape="rounded" radius="4" placeholder="Drop a photo" style="width:100%;height:280px" hint-size="100%,280px"></x-import>
+        <div>
+          <div style="font:700 16px 'Manrope',sans-serif;color:#1A1A1A">Founder &amp; CEO</div>
+          <div style="font:400 12px 'DM Sans',sans-serif;letter-spacing:.5px;color:#A5A5A5">NAME GOES HERE</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="team-2" shape="rounded" radius="4" placeholder="Drop a photo" style="width:100%;height:280px" hint-size="100%,280px"></x-import>
+        <div>
+          <div style="font:700 16px 'Manrope',sans-serif;color:#1A1A1A">Head of Engineering</div>
+          <div style="font:400 12px 'DM Sans',sans-serif;letter-spacing:.5px;color:#A5A5A5">NAME GOES HERE</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="team-3" shape="rounded" radius="4" placeholder="Drop a photo" style="width:100%;height:280px" hint-size="100%,280px"></x-import>
+        <div>
+          <div style="font:700 16px 'Manrope',sans-serif;color:#1A1A1A">Head of AI Transformation</div>
+          <div style="font:400 12px 'DM Sans',sans-serif;letter-spacing:.5px;color:#A5A5A5">NAME GOES HERE</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="team-4" shape="rounded" radius="4" placeholder="Drop a photo" style="width:100%;height:280px" hint-size="100%,280px"></x-import>
+        <div>
+          <div style="font:700 16px 'Manrope',sans-serif;color:#1A1A1A">Head of Infrastructure</div>
+          <div style="font:400 12px 'DM Sans',sans-serif;letter-spacing:.5px;color:#A5A5A5">NAME GOES HERE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CTA + FOOTER ═══════ -->
+<div data-screen-label="CTA" style="background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 48px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-bottom:1px solid #3A4A6B">
+    <h2 style="margin:0;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;max-width:620px">Work with a team that builds AI you can own.</h2>
+    <a href="Contact.dc.html" style="flex:none;height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:24px;height:16px">
+      <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px">
+      <a href="Maslow Homepage.dc.html" style="color:#B8C4D9">Home</a>
+      <a href="Case Studies.dc.html" style="color:#B8C4D9">Case Studies</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      principles: [
+        { num: '01', accent: '#73C1AE', name: 'Local-first, by default', desc: 'If a workload can run on hardware you own, we put it there. Privacy stops being a policy and becomes physics.' },
+        { num: '02', accent: '#A070A6', name: 'Open over locked-in', desc: 'Open models, open standards, exportable data. You should be able to fire us without losing anything we built.' },
+        { num: '03', accent: '#EBA93D', name: 'Humans in the loop', desc: 'Every consequential action our agents take is approved by a person. Trust is earned in increments, with an audit trail.' },
+        { num: '04', accent: '#469DBB', name: 'Outcomes over hype', desc: 'We scope engagements around a measurable workflow result, not model demos. If it doesn\u2019t pay, we tell you.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

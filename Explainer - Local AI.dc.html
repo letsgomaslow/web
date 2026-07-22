@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+input[type=range]{accent-color:#73C1AE}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#DA85B2">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#192332">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="padding:80px 48px 64px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:400 13px 'Manrope',sans-serif;color:#838383;margin-bottom:22px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both"><a href="Maslow Homepage.dc.html#concepts" style="color:#838383">Concepts</a> / <span style="color:#DA85B2;font-weight:600">Local AI</span> <span style="display:inline-flex;margin-left:12px;font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#73C1AE">TECHNOLOGY</span></div>
+    <h1 style="margin:0 0 22px;font:600 58px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;max-width:820px;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">Own the hardware. Flatten the bill.</h1>
+    <p style="margin:0;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:640px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">Cloud AI bills grow with every query. Local AI is an investment: buy the hardware once, run open models on it, and watch cost per query fall toward electricity. Use the calculator to find your breakeven.</p>
+  </div>
+</div>
+
+<!-- ═══════ CALCULATOR · navy band ═══════ -->
+<div data-screen-label="Cost Calculator" style="background:#121D35;color:#FFFFFF;padding:80px 48px">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:380px 1fr;gap:56px;align-items:center">
+    <div>
+      <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#73C1AE;margin-bottom:16px">INTERACTIVE · CLOUD VS LOCAL</div>
+      <h2 style="margin:0 0 14px;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px">When does local win?</h2>
+      <p style="margin:0 0 30px;font:400 14.5px/23px 'Manrope',sans-serif;color:#B8C4D9">Slide your monthly AI usage. The chart shows cumulative spend over 24 months: cloud metering vs local hardware you own.</p>
+      <div style="margin-bottom:8px;display:flex;justify-content:space-between;font:600 13px 'Manrope',sans-serif;color:#FFFFFF">
+        <span>Monthly usage</span><span style="color:#73C1AE;font-weight:700">{{ volumeLabel }}</span>
+      </div>
+      <input type="range" min="50" max="3000" step="50" value="{{ volume }}" onChange="{{ onVolume }}" style="width:100%;margin-bottom:28px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;padding:14px 18px;background:#1A2847;border:1px solid #3A4A6B;border-radius:4px">
+          <span style="font:400 13.5px 'Manrope',sans-serif;color:#B8C4D9">Cloud spend, 24 months</span>
+          <span style="font:700 15px 'Manrope',sans-serif;color:#EBA93D">{{ cloudTotal }}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 18px;background:#1A2847;border:1px solid #3A4A6B;border-radius:4px">
+          <span style="font:400 13.5px 'Manrope',sans-serif;color:#B8C4D9">Local spend, 24 months</span>
+          <span style="font:700 15px 'Manrope',sans-serif;color:#73C1AE">{{ localTotal }}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:14px 18px;background:rgba(115,193,174,.12);border:1px solid #73C1AE;border-radius:4px">
+          <span style="font:600 13.5px 'Manrope',sans-serif;color:#FFFFFF">{{ verdictLabel }}</span>
+          <span style="font:700 15px 'Manrope',sans-serif;color:#FFF860">{{ verdictValue }}</span>
+        </div>
+      </div>
+      <div style="margin-top:16px;font:400 11.5px/17px 'Manrope',sans-serif;color:#B8C4D9;opacity:.7">Illustrative model: cloud at {{ rateLabel }}/M tokens; hardware {{ hwLabel }} up front + {{ opexLabel }}/mo to run. Tune the assumptions in Tweaks.</div>
+    </div>
+    <div style="background:#1A2847;border:1px solid #3A4A6B;border-radius:4px;padding:36px">
+      <svg viewBox="0 0 760 380" style="width:100%">
+        <g stroke="#3A4A6B" stroke-width="1">
+          <line x1="70" y1="40" x2="70" y2="320"></line>
+          <line x1="70" y1="320" x2="730" y2="320"></line>
+          <line x1="70" y1="180" x2="730" y2="180" stroke-dasharray="3 6" opacity=".5"></line>
+          <line x1="70" y1="40" x2="730" y2="40" stroke-dasharray="3 6" opacity=".5"></line>
+        </g>
+        <g font-family="IBM Plex Mono,monospace" font-size="11" fill="#B8C4D9">
+          <text x="66" y="325" text-anchor="end">$0</text>
+          <text x="66" y="185" text-anchor="end">{{ midLabel }}</text>
+          <text x="66" y="45" text-anchor="end">{{ maxLabel }}</text>
+          <text x="70" y="345">MONTH 1</text>
+          <text x="730" y="345" text-anchor="end">MONTH 24</text>
+        </g>
+        <polyline points="{{ cloudPoints }}" fill="none" stroke="#EBA93D" stroke-width="3" stroke-linejoin="round"></polyline>
+        <polyline points="{{ localPoints }}" fill="none" stroke="#73C1AE" stroke-width="3" stroke-linejoin="round"></polyline>
+        <sc-if value="{{ showBreakeven }}" hint-placeholder-val="{{ true }}">
+          <g>
+            <line x1="{{ beX }}" y1="40" x2="{{ beX }}" y2="320" stroke="rgba(255,255,255,.4)" stroke-dasharray="4 5"></line>
+            <circle cx="{{ beX }}" cy="{{ beY }}" r="7" fill="#FFF860"></circle>
+            <text x="{{ beX }}" y="30" text-anchor="middle" font-family="Manrope,sans-serif" font-size="12.5" font-weight="700" fill="#FFF860">breakeven · month {{ beMonth }}</text>
+          </g>
+        </sc-if>
+        <g font-family="Manrope,sans-serif" font-size="13" font-weight="700">
+          <text x="{{ cloudLabelX }}" y="{{ cloudLabelY }}" fill="#EBA93D">Cloud (metered)</text>
+          <text x="{{ localLabelX }}" y="{{ localLabelY }}" fill="#73C1AE">Local (owned)</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ WHAT RUNS LOCALLY ═══════ -->
+<div data-screen-label="What Runs Locally" style="padding:96px 48px 56px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">THE HYBRID ESTATE</div>
+    <h2 style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Not everything should move, and that's fine</h2>
+    <p style="margin:0 0 44px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:620px">We design hybrid estates: high-volume, privacy-sensitive workloads run on your hardware; rare, hardest problems still call a frontier model.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:36px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04);border-top:2px solid #73C1AE">
+        <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#73C1AE;margin-bottom:16px">RUNS BEAUTIFULLY LOCAL</div>
+        <div style="display:flex;flex-direction:column;gap:14px;font:400 15px/23px 'Manrope',sans-serif;color:#333333">
+          <div style="display:flex;gap:11px"><span style="color:#2CD552;font-weight:700">✓</span><span>Document Q&amp;A over your knowledge graph</span></div>
+          <div style="display:flex;gap:11px"><span style="color:#2CD552;font-weight:700">✓</span><span>Email &amp; ticket triage, classification, routing</span></div>
+          <div style="display:flex;gap:11px"><span style="color:#2CD552;font-weight:700">✓</span><span>Drafting from templates and precedent</span></div>
+          <div style="display:flex;gap:11px"><span style="color:#2CD552;font-weight:700">✓</span><span>Anything touching regulated or client data</span></div>
+        </div>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:36px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04);border-top:2px solid #A5A5A5">
+        <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#838383;margin-bottom:16px">KEEP ON FRONTIER (FOR NOW)</div>
+        <div style="display:flex;flex-direction:column;gap:14px;font:400 15px/23px 'Manrope',sans-serif;color:#333333">
+          <div style="display:flex;gap:11px"><span style="color:#A5A5A5">→</span><span>Novel multi-step reasoning on unfamiliar problems</span></div>
+          <div style="display:flex;gap:11px"><span style="color:#A5A5A5">→</span><span>Long-horizon agentic work with many tools</span></div>
+          <div style="display:flex;gap:11px"><span style="color:#A5A5A5">→</span><span>Low-volume tasks that never reach breakeven</span></div>
+          <div style="display:flex;gap:11px"><span style="color:#A5A5A5">→</span><span>The harness routes each task to the right model automatically</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ HARDWARE TIERS ═══════ -->
+<div data-screen-label="Hardware Tiers" style="padding:0 48px 96px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto">
+    <h2 style="margin:0 0 40px;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;color:#192332">Right-sized hardware, not a data centre</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+      <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="3">
+        <div style="border:1px solid {{ t.border }};border-radius:4px;padding:32px;background:{{ t.bg }};color:{{ t.fg }};box-shadow:2px 0 10px rgba(0,0,0,0.04);transition:transform .3s" style-hover="transform:translateY(-3px)">
+          <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:{{ t.accent }};margin-bottom:14px">{{ t.tag }}</div>
+          <div style="font:700 24px 'Manrope',sans-serif;letter-spacing:-.57px;margin-bottom:6px">{{ t.name }}</div>
+          <div style="font:700 15px 'Manrope',sans-serif;color:{{ t.accent }};margin-bottom:14px">{{ t.price }}</div>
+          <div style="font:400 14px/22px 'Manrope',sans-serif;opacity:.8">{{ t.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:16px 4px 0;font:400 12px 'Manrope',sans-serif;color:#A5A5A5">Indicative tiers; we spec against your actual workload during the assessment.</p>
+  </div>
+</div>
+
+<!-- ═══════ CTA + FOOTER ═══════ -->
+<div data-screen-label="CTA" style="background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 48px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-bottom:1px solid #3A4A6B">
+    <div>
+      <h2 style="margin:0 0 10px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">Get a breakeven analysis on your real numbers.</h2>
+      <div style="font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9">We'll size the hardware, pick the models and give you a cost curve you can take to the board.</div>
+    </div>
+    <a href="Contact.dc.html" style="flex:none;height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:24px;height:16px">
+      <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px">
+      <a href="Explainer - Agentic Harness.dc.html" style="color:#B8C4D9">← Agentic Harness</a>
+      <a href="Maslow Homepage.dc.html#concepts" style="color:#B8C4D9">All concepts</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;cloudRatePerM&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:8,&quot;min&quot;:1,&quot;max&quot;:40,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;$/M tokens&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cost assumptions&quot;},&quot;hardwareCost&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:42000,&quot;min&quot;:10000,&quot;max&quot;:250000,&quot;step&quot;:1000,&quot;unit&quot;:&quot;$&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cost assumptions&quot;},&quot;monthlyOpex&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:700,&quot;min&quot;:100,&quot;max&quot;:5000,&quot;step&quot;:50,&quot;unit&quot;:&quot;$/mo&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cost assumptions&quot;}}">
+class Component extends DCLogic {
+  state = { volume: 800 };
+
+  renderVals() {
+    const vol = this.state.volume;
+    const rate = this.props.cloudRatePerM ?? 8;
+    const hw = this.props.hardwareCost ?? 42000;
+    const opex = this.props.monthlyOpex ?? 700;
+
+    const months = 24;
+    const cloud = [], local = [];
+    for (let m = 0; m <= months; m++) {
+      cloud.push(m * vol * rate);
+      local.push(hw + m * opex);
+    }
+    const maxVal = Math.max(cloud[months], local[months]) * 1.08;
+
+    const X0 = 70, X1 = 730, Y0 = 320, Y1 = 40;
+    const px = m => X0 + (m / months) * (X1 - X0);
+    const py = v => Y0 - (v / maxVal) * (Y0 - Y1);
+    const toPts = arr => arr.map((v, m) => px(m).toFixed(1) + ',' + py(v).toFixed(1)).join(' ');
+
+    let beMonth = null;
+    for (let m = 1; m <= months; m++) {
+      if (cloud[m] >= local[m]) { beMonth = m; break; }
+    }
+    const fmt = v => v >= 1000000 ? '$' + (v / 1000000).toFixed(1) + 'M' : v >= 1000 ? '$' + Math.round(v / 1000) + 'k' : '$' + Math.round(v);
+
+    const saved = cloud[months] - local[months];
+    return {
+      volume: this.state.volume,
+      onVolume: (e) => this.setState({ volume: Number(e.target.value) }),
+      volumeLabel: (vol >= 1000 ? (vol / 1000).toFixed(1) + 'B' : vol + 'M') + ' tokens (≈' + (vol * 2500 >= 1e6 ? (vol * 2500 / 1e6).toFixed(1) + 'M' : Math.round(vol * 2.5) + 'k') + ' queries)',
+      cloudPoints: toPts(cloud),
+      localPoints: toPts(local),
+      cloudTotal: fmt(cloud[months]),
+      localTotal: fmt(local[months]),
+      verdictLabel: saved > 0 ? 'Saved over 24 months' : 'Cloud stays cheaper at this volume',
+      verdictValue: saved > 0 ? fmt(saved) : fmt(-saved),
+      showBreakeven: beMonth !== null,
+      beMonth: beMonth,
+      beX: beMonth ? px(beMonth).toFixed(1) : 0,
+      beY: beMonth ? py(local[beMonth]).toFixed(1) : 0,
+      midLabel: fmt(maxVal / 2),
+      maxLabel: fmt(maxVal),
+      cloudLabelX: (X1 - 132), cloudLabelY: (py(cloud[months]) - 14).toFixed(1),
+      localLabelX: (X1 - 118), localLabelY: (py(local[months]) + 22).toFixed(1),
+      rateLabel: '$' + rate,
+      hwLabel: fmt(hw),
+      opexLabel: '$' + opex,
+      tiers: [
+        { tag: 'TIER 1', name: 'Workstation', price: 'from ~$15k', desc: 'A single GPU workstation. Runs mid-size open models for a team: document Q&A, drafting, triage.', border: '#F1F1F1', bg: '#FFFFFF', fg: '#1A1A1A', accent: '#73C1AE' },
+        { tag: 'TIER 2', name: 'Server', price: 'from ~$45k', desc: 'Rack-mounted multi-GPU inference. Department-scale virtual employees with headroom for growth.', border: '#121D35', bg: '#121D35', fg: '#FFFFFF', accent: '#FFF860' },
+        { tag: 'TIER 3', name: 'Cluster', price: 'custom', desc: 'Multi-node estate for org-wide workloads, fine-tuning and redundancy. Designed with your IT team.', border: '#F1F1F1', bg: '#FFFFFF', fg: '#1A1A1A', accent: '#A070A6' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

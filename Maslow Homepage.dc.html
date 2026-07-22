@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
+@keyframes mzDash{to{stroke-dashoffset:-28}}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes mzUnderline{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="#concepts" style="color:#192332">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#192332">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="position:relative;overflow:hidden;padding:110px 48px 96px;background:#FFFFFF">
+  <img src="assets/maslow-mark-gradient.svg" alt="" style="position:absolute;right:8%;top:100px;width:280px;opacity:.1;animation:mzFloat 9s ease-in-out infinite">
+  <img src="assets/maslow-mark-gradient.svg" alt="" style="position:absolute;right:25%;top:330px;width:130px;opacity:.06;animation:mzFloat 11s ease-in-out 1.6s infinite">
+  <div style="max-width:1200px;margin:0 auto;position:relative">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:28px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both">AI TRANSFORMATION, VERTICALLY INTEGRATED</div>
+    <h1 style="margin:0 0 28px;font:600 60px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;max-width:880px;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">AI transformation, without the <span style="position:relative;white-space:nowrap">transformation budget<sc-if value="{{ showHighlight }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;left:-2px;right:-2px;bottom:2px;height:14px;background:#FFF860;z-index:-1;transform-origin:left;animation:mzUnderline .8s 1s cubic-bezier(.2,.7,.2,1) both"></span></sc-if></span>.</h1>
+    <p style="margin:0 0 40px;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:560px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">We vertically integrate AI into your business: your files become knowledge, your tools become skills, and virtual employees show up in Teams, Slack and email.</p>
+    <div style="display:flex;gap:18px;align-items:center;animation:mzRise .8s .45s cubic-bezier(.2,.7,.2,1) both">
+      <a href="Contact.dc.html" style="height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+      <a href="Assessment.dc.html" style="height:46px;display:inline-flex;align-items:center;padding:0 24px;border:1px solid #192332;border-radius:8px;color:#192332;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">TAKE THE 2-MINUTE ASSESSMENT</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ METRICS ═══════ -->
+<div data-screen-label="Metrics" style="padding:0 48px">
+  <div class="mz-reveal" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #192332;border-bottom:1px solid #E1E1E1">
+    <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
+      <div style="padding:32px 28px 34px;border-right:1px solid #E1E1E1;position:relative">
+        <span style="position:absolute;top:-1px;left:0;width:40px;height:2px;background:{{ m.tick }}"></span>
+        <div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">{{ m.value }}</div>
+        <div style="font:400 13px/20px 'Manrope',sans-serif;color:#838383;margin-top:6px">{{ m.label }}</div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<!-- ═══════ CONCEPTS ═══════ -->
+<div data-screen-label="Concepts" id="concepts" style="padding:104px 48px;scroll-margin-top:83px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="display:flex;justify-content:space-between;align-items:baseline;gap:40px;margin-bottom:8px">
+      <div>
+        <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">THE CONCEPTS</div>
+        <h2 style="margin:0;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Plain language, interactive proof</h2>
+      </div>
+      <span style="font:400 15px 'Manrope',sans-serif;color:#838383;white-space:nowrap">Each opens an interactive explainer</span>
+    </div>
+    <div style="display:flex;flex-direction:column;margin-top:32px;border-top:1px solid #192332">
+      <sc-for list="{{ concepts }}" as="c" hint-placeholder-count="6">
+        <a href="{{ c.href }}" class="mz-reveal" style="display:grid;grid-template-columns:56px 310px 1fr 150px;gap:24px;align-items:baseline;padding:26px 8px;border-bottom:1px solid #E1E1E1;color:#333333;transition:background .3s,padding-left .3s" style-hover="background:#F6F7F9;padding-left:20px;color:#333333">
+          <span style="font:700 12px 'DM Sans',sans-serif;letter-spacing:1px;color:{{ c.tick }}">{{ c.num }}</span>
+          <span style="font:700 24px/28px 'Manrope',sans-serif;letter-spacing:-.57px;color:#1A1A1A">{{ c.name }}</span>
+          <span style="font:400 15px/24px 'Manrope',sans-serif;color:#666666">{{ c.desc }}</span>
+          <span style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2;text-align:right;white-space:nowrap">EXPLORE&nbsp;&nbsp;&gt;</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ JOURNEY · navy band ═══════ -->
+<div data-screen-label="Journey" style="background:#121D35;color:#FFFFFF;padding:88px 48px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="display:flex;justify-content:space-between;align-items:baseline;gap:40px;margin-bottom:56px">
+      <div>
+        <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#73C1AE;margin-bottom:16px">THE JOURNEY</div>
+        <h2 style="margin:0;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;max-width:520px">Five stages. Enter at any of them.</h2>
+      </div>
+      <a href="Services.dc.html" style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2;white-space:nowrap">BROWSE ALL SERVICES&nbsp;&nbsp;&gt;</a>
+    </div>
+    <div class="mz-reveal" style="position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:24px">
+      <svg style="position:absolute;top:19px;left:9%;width:82%;height:2px;overflow:visible" viewBox="0 0 100 2" preserveAspectRatio="none">
+        <line x1="0" y1="1" x2="100" y2="1" stroke="rgba(115,193,174,.4)" stroke-width="1" stroke-dasharray="3 4" style="animation:mzDash 3s linear infinite" vector-effect="non-scaling-stroke"></line>
+      </svg>
+      <sc-for list="{{ stages }}" as="st" hint-placeholder-count="5">
+        <a href="{{ st.href }}" style="position:relative;color:#FFFFFF;text-align:center;transition:transform .3s" style-hover="transform:translateY(-4px);color:#FFFFFF">
+          <div style="width:40px;height:40px;border-radius:50%;background:#1A2847;border:1px solid #73C1AE;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font:700 13px 'DM Sans',sans-serif;color:#73C1AE;position:relative">{{ st.num }}</div>
+          <div style="font:700 17px 'Manrope',sans-serif;margin-bottom:6px">{{ st.name }}</div>
+          <div style="font:400 13px/20px 'Manrope',sans-serif;color:#B8C4D9;padding:0 8px">{{ st.desc }}</div>
+        </a>
+      </sc-for>
+    </div>
+    <div class="mz-reveal" style="margin-top:52px;display:flex;justify-content:center">
+      <a href="Assessment.dc.html" style="height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">NOT SURE WHERE YOU ARE? TAKE THE ASSESSMENT</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CASE STUDIES · off-white ═══════ -->
+<div data-screen-label="Case Studies" style="background:#F6F7F9;padding:104px 48px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="display:flex;justify-content:space-between;align-items:baseline;gap:40px;margin-bottom:40px">
+      <div>
+        <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">PROOF</div>
+        <h2 style="margin:0;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Real engagements, honest numbers</h2>
+      </div>
+      <a href="Case Studies.dc.html" style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2;white-space:nowrap">ALL CASE STUDIES&nbsp;&nbsp;&gt;</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <sc-for list="{{ cases }}" as="cs" hint-placeholder-count="3">
+        <a href="{{ cs.href }}" class="mz-reveal" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;overflow:hidden;color:#333333;box-shadow:{{ cardShadowCss }};transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s" style-hover="transform:translateY(-6px);box-shadow:17px 9px 5px rgba(0,0,0,0.25);color:#333333">
+          <div style="height:118px;background:{{ cs.art }};display:flex;align-items:flex-end;justify-content:space-between;padding:16px 22px">
+            <span style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#FFFFFF">{{ cs.sector }}</span>
+          </div>
+          <div style="padding:24px 22px 26px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font:700 24px/28px 'Manrope',sans-serif;letter-spacing:-.57px;color:#1A1A1A">{{ cs.title }}</div>
+            <div style="font:400 15px/24px 'Manrope',sans-serif;color:#666666;flex:1">{{ cs.desc }}</div>
+            <div style="font:700 15px 'Manrope',sans-serif;color:#192332">{{ cs.result }}</div>
+            <span style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2">VIEW CASE STUDY&nbsp;&nbsp;&gt;</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ MISSION ═══════ -->
+<div data-screen-label="Mission" style="padding:104px 48px;background:#FFFFFF">
+  <div class="mz-reveal" style="max-width:1002px;margin:0 auto;text-align:center">
+    <div style="font:800 84px/40px 'Manrope',sans-serif;color:#73C1AE">“</div>
+    <div style="font:500 32px/44px 'Manrope',sans-serif;letter-spacing:.2px;color:#192332;margin:18px auto 22px;max-width:820px">Extraordinary AI shouldn't require an <span style="position:relative;white-space:nowrap">extraordinary budget<span style="position:absolute;left:-2px;right:-2px;bottom:1px;height:10px;background:#FFF860;z-index:-1"></span></span>.</div>
+    <div style="font:400 15px/24px 'Manrope',sans-serif;color:#666666;margin:0 auto 36px;max-width:560px">Our mission is to reduce the cost of AI adoption, through open models, local hardware and engineering that lasts.</div>
+    <a href="Contact.dc.html" style="height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER · navy ═══════ -->
+<div data-screen-label="Footer" style="background:#192332;color:#FFFFFF;padding:64px 48px 40px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <img src="assets/maslow-mark-white.svg" alt="" style="width:28px;height:19px">
+          <span style="font:600 13px 'Manrope',sans-serif;letter-spacing:2px">MASLOW</span>
+        </div>
+        <div style="font:400 13px/21px 'Manrope',sans-serif;color:#B8C4D9;max-width:260px;margin-bottom:18px">Vertically integrated AI transformation, on models and hardware you own.</div>
+        <span style="display:inline-flex;align-items:center;gap:6px;height:16px;padding:0 8px;border-radius:2px;background:#243356;font:500 7px 'Manrope',sans-serif;letter-spacing:.4px;color:#FFFFFF;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:50%;background:#2CD552"></span>Open for new engagements</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font:400 13px 'Manrope',sans-serif">
+        <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#73C1AE;text-transform:uppercase;margin-bottom:4px">Concepts</span>
+        <a href="Explainer - Context Engineering.dc.html" style="color:#B8C4D9">Context engineering</a>
+        <a href="Explainer - Agentic Harness.dc.html" style="color:#B8C4D9">Harness engineering</a>
+        <a href="Explainer - Hybrid RAG.dc.html" style="color:#B8C4D9">Hybrid RAG</a>
+        <a href="Explainer - Virtual AI Employees.dc.html" style="color:#B8C4D9">Virtual AI employees</a>
+        <a href="Explainer - Skills and Gateways.dc.html" style="color:#B8C4D9">Skills &amp; gateways</a>
+        <a href="Explainer - Local AI.dc.html" style="color:#B8C4D9">Local AI &amp; hardware</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font:400 13px 'Manrope',sans-serif">
+        <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#73C1AE;text-transform:uppercase;margin-bottom:4px">Company</span>
+        <a href="Services.dc.html" style="color:#B8C4D9">Services</a>
+        <a href="Case Studies.dc.html" style="color:#B8C4D9">Case studies</a>
+        <a href="Blog.dc.html" style="color:#B8C4D9">Blog</a>
+        <a href="About.dc.html" style="color:#B8C4D9">About</a>
+        <a href="Contact.dc.html" style="color:#B8C4D9">Contact</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font:400 13px 'Manrope',sans-serif">
+        <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#73C1AE;text-transform:uppercase;margin-bottom:4px">Start</span>
+        <a href="Assessment.dc.html" style="color:#B8C4D9">AI readiness assessment</a>
+        <a href="Landing - Virtual AI Employees.dc.html" style="color:#B8C4D9">Virtual employees campaign</a>
+        <a href="Maslow Design System 2026.dc.html" style="color:#B8C4D9">Design system</a>
+        <a href="Contact.dc.html" style="color:#B8C4D9">Book a consultation</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding-top:24px;border-top:1px solid #3A4A6B;font:400 12px 'Manrope',sans-serif;color:#B8C4D9">
+      <span>© 2026 Maslow AI · Transform with purpose.</span>
+      <a href="mailto:hello@maslow.ai" style="color:#B8C4D9">hello@maslow.ai</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showHighlight&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;cardShadow&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;matte&quot;,&quot;stacked&quot;],&quot;default&quot;:&quot;matte&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Case studies&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    this._scheduleReveal();
+    const shadows = { matte: '2px 0 10px rgba(0,0,0,0.1)', stacked: '17px 9px 5px rgba(0,0,0,0.25)' };
+    return {
+      showHighlight: this.props.showHighlight ?? true,
+      cardShadowCss: shadows[this.props.cardShadow ?? 'matte'],
+      metrics: [
+        { value: '90 days', label: 'idea → working AI foundation', tick: '#73C1AE' },
+        { value: '1.33×', label: 'base-case enterprise value path', tick: '#A070A6' },
+        { value: '93%', label: 'intent-routing accuracy, live test suite', tick: '#EBA93D' },
+        { value: '100%', label: 'of what we build is yours, no lock-in', tick: '#DA85B2' },
+      ],
+      concepts: [
+        { num: '01', tick: '#73C1AE', name: 'Context engineering', desc: 'Deciding exactly what your AI sees: the right data, structured and retrievable, at the right moment.', href: 'Explainer - Context Engineering.dc.html' },
+        { num: '02', tick: '#A070A6', name: 'Harness engineering', desc: 'The scaffolding around a model (skills, tools, memory and guardrails) that turns raw intelligence into dependable work.', href: 'Explainer - Agentic Harness.dc.html' },
+        { num: '03', tick: '#73C1AE', name: 'Hybrid RAG', desc: 'Your unstructured files, converted into vector databases and knowledge graphs your AI can actually reason over.', href: 'Explainer - Hybrid RAG.dc.html' },
+        { num: '04', tick: '#EBA93D', name: 'Virtual AI employees', desc: 'Agents that live where your team works (Teams, Slack, email) and carry whole workflows, not just chats.', href: 'Explainer - Virtual AI Employees.dc.html' },
+        { num: '05', tick: '#A070A6', name: 'Skills & gateways', desc: 'Reusable skills your agents share, connected through the channels your business already runs on.', href: 'Explainer - Skills and Gateways.dc.html' },
+        { num: '06', tick: '#73C1AE', name: 'Local AI', desc: 'Models on your own hardware: private by default, with predictable cost instead of a metered bill.', href: 'Explainer - Local AI.dc.html' },
+      ],
+      stages: [
+        { num: '1', name: 'Assess', desc: 'Find where AI actually pays.', href: 'Services.dc.html#assess' },
+        { num: '2', name: 'Structure', desc: 'Files → vector DB + knowledge graph.', href: 'Services.dc.html#structure' },
+        { num: '3', name: 'Build', desc: 'Engineer the agentic harness.', href: 'Services.dc.html#build' },
+        { num: '4', name: 'Deploy', desc: 'AI teammates in your channels.', href: 'Services.dc.html#deploy' },
+        { num: '5', name: 'Own', desc: 'Local models, flat cost curve.', href: 'Services.dc.html#own' },
+      ],
+      cases: [
+        { sector: 'MANUFACTURING', art: 'linear-gradient(140deg,#86E8CE,#E686B5)', title: 'Infinite AI OS: an AI operating system in 90 days', desc: 'Four named AI employees in Microsoft Teams, standing on a six-layer root system: memory, knowledge map, connectors, observability.', result: '1.33× enterprise value path', href: 'Case Study - Infinite AI OS.dc.html' },
+        { sector: 'HEALTHCARE ENTERPRISE', art: 'linear-gradient(140deg,#4C4C4C,#F37779)', title: 'AgentHub: contracts you can question', desc: 'A prompt library as the front door; behind it, an SOW review agent with hybrid retrieval and field-level citations.', result: '93% intent-routing accuracy', href: 'Case Study - AgentHub.dc.html' },
+        { sector: 'LEGAL', art: '#121D35', title: 'A virtual paralegal in the inbox', desc: 'A mid-size firm deployed an AI employee into email to triage intake, draft engagement letters and cite precedent.', result: '3.2× intake capacity', href: 'Case Studies.dc.html' },
+      ],
+    };
+  }
+  _scheduleReveal() {
+    if (this._revealScheduled) return;
+    this._revealScheduled = true;
+    setTimeout(() => {
+      const reveal = (el) => { el.setAttribute('data-mz-in', '1'); this._io.unobserve(el); };
+      this._io = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) reveal(e.target); }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      this._observeAll = () => document.querySelectorAll('.mz-reveal:not([data-mz-in])').forEach(el => this._io.observe(el));
+      this._sweep = () => document.querySelectorAll('.mz-reveal:not([data-mz-in])').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight + 40 && r.bottom > -40) reveal(el); });
+      document.body.classList.add('mz-anim');
+      this._observeAll();
+      this._mo = new MutationObserver(this._observeAll);
+      this._mo.observe(document.body, { childList: true, subtree: true });
+      [900, 2200, 4500].forEach(t => setTimeout(() => { this._observeAll(); this._sweep(); }, t));
+      let st; window.addEventListener('scroll', () => { clearTimeout(st); st = setTimeout(this._sweep, 160); }, { passive: true });
+    }, 60);
+  }
+  componentDidMount() { this._scheduleReveal(); }
+  componentDidUpdate() { if (this._observeAll) this._observeAll(); }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); if (this._mo) this._mo.disconnect(); }
+}
+</script>
+</body>
+</html>

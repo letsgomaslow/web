@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#192332">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#DA85B2">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="padding:72px 48px 64px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:400 13px 'Manrope',sans-serif;color:#838383;margin-bottom:22px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both"><a href="Case Studies.dc.html" style="color:#838383">Case Studies</a> / <span style="color:#DA85B2;font-weight:600">Manufacturing</span></div>
+    <div style="display:flex;gap:10px;margin-bottom:26px;animation:mzRise .7s .1s cubic-bezier(.2,.7,.2,1) both">
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;background:#A070A6;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px">CASE STUDY</span>
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;border:1px solid #E1E1E1;color:#666666;font:600 12px 'Manrope',sans-serif;letter-spacing:2px">MANUFACTURING</span>
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;background:#121D35;color:#73C1AE;font:600 12px 'Manrope',sans-serif;letter-spacing:2px">90-DAY ENGAGEMENT</span>
+    </div>
+    <h1 style="margin:0 0 24px;font:600 60px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;max-width:900px;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">From tribal knowledge to an AI operating system, in 90 days.</h1>
+    <p style="margin:0 0 44px;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:680px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">How {{ clientName }} went from idea to a working AI foundation: four AI employees conversing in Microsoft Teams, a searchable company memory, and a defensible path to one-third more enterprise value.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;animation:mzRise .8s .45s cubic-bezier(.2,.7,.2,1) both">
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:22px;box-shadow:2px 0 10px rgba(0,0,0,0.06);border-top:2px solid #73C1AE">
+        <div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">4</div>
+        <div style="font:400 13px/19px 'Manrope',sans-serif;color:#838383;margin-top:4px">AI employees hired: named, role-based, managed</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:22px;box-shadow:2px 0 10px rgba(0,0,0,0.06);border-top:2px solid #A070A6">
+        <div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">3</div>
+        <div style="font:400 13px/19px 'Manrope',sans-serif;color:#838383;margin-top:4px">core systems verified live in production</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:22px;box-shadow:2px 0 10px rgba(0,0,0,0.06);border-top:2px solid #EBA93D">
+        <div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">90</div>
+        <div style="font:400 13px/19px 'Manrope',sans-serif;color:#838383;margin-top:4px">days from kickoff to working foundation</div>
+      </div>
+      <div style="background:#121D35;border-radius:4px;padding:22px">
+        <div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#FFF860">1.33×</div>
+        <div style="font:400 13px/19px 'Manrope',sans-serif;color:#B8C4D9;margin-top:4px">base-case enterprise value path (appraisal math)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CHALLENGE ═══════ -->
+<div data-screen-label="Challenge" style="padding:88px 48px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:380px 1fr;gap:64px">
+    <div>
+      <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">THE CHALLENGE</div>
+      <h2 style="margin:0;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;color:#192332">The business ran on knowledge locked in people's heads</h2>
+    </div>
+    <div style="font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#333333">
+      <p style="margin:0 0 18px">A private manufacturing group with one goal: <strong>reduce the cost of operating the business</strong>. Estimating, quoting, reporting and file search all depended on manual effort and tribal knowledge, and on the owner personally. That meant high cost to serve, high key-person risk, and a harder story to tell in any future diligence.</p>
+      <p style="margin:0">The bet: AI becomes valuable when it's connected to company memory, approved tools and human approval gates, <em>not</em> when it's a chat window. So we didn't deploy a chatbot. We built an operating system.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ APPROACH · navy band ═══════ -->
+<div data-screen-label="Approach" style="background:#121D35;color:#FFFFFF;padding:80px 48px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#73C1AE;margin-bottom:16px">THE APPROACH</div>
+    <h2 style="margin:0 0 8px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">Learn the work. Prove the value. Then build.</h2>
+    <p style="margin:0 0 44px;font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9;max-width:620px">Infrastructure was only built for patterns that proved useful first. No speculative technology spend.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+      <sc-for list="{{ phases }}" as="ph" hint-placeholder-count="3">
+        <div style="border-top:2px solid #73C1AE;padding-top:20px">
+          <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#73C1AE;margin-bottom:12px">{{ ph.when }}</div>
+          <div style="font:700 20px 'Manrope',sans-serif;letter-spacing:-.3px;margin-bottom:8px">{{ ph.name }}</div>
+          <div style="font:400 13.5px/21px 'Manrope',sans-serif;color:#B8C4D9;margin-bottom:12px">{{ ph.desc }}</div>
+          <div style="font:400 13px/19px 'Manrope',sans-serif;color:#FFF860;font-style:italic">"{{ ph.q }}"</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ WHAT WE BUILT ═══════ -->
+<div data-screen-label="What We Built" style="padding:96px 48px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">WHAT WE BUILT</div>
+    <h2 style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">An operating system, not a chatbot</h2>
+    <p style="margin:0 0 40px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:640px">Above the line: four AI employees people actually talk to. Below it: the six-layer root system that makes them dependable: the real asset.</p>
+
+    <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;box-shadow:2px 0 10px rgba(0,0,0,0.06);padding:44px;margin-bottom:18px">
+      <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#A5A5A5;margin-bottom:20px">THE SURFACE · WHAT PEOPLE SEE</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:36px">
+        <sc-for list="{{ team }}" as="t" hint-placeholder-count="4">
+          <div style="border:1px solid {{ t.border }};border-radius:4px;padding:22px;text-align:center;background:{{ t.bg }};color:{{ t.fg }};transition:transform .3s" style-hover="transform:translateY(-3px)">
+            <div style="width:46px;height:46px;border-radius:50%;background:{{ t.avatarBg }};margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font:700 16px 'Manrope',sans-serif;color:{{ t.avatarFg }}">{{ t.initial }}</div>
+            <div style="font:700 17px 'Manrope',sans-serif;margin-bottom:4px">{{ t.name }}</div>
+            <div style="font:700 10px 'DM Sans',sans-serif;letter-spacing:1.5px;color:{{ t.roleColor }};margin-bottom:8px">{{ t.role }}</div>
+            <div style="font:400 12.5px/19px 'Manrope',sans-serif;opacity:.75">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:36px">
+        <div style="flex:1;border-top:1px dashed #A5A5A5"></div>
+        <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#A5A5A5">THE ROOT SYSTEM · WHAT MAKES THEM WORK</span>
+        <div style="flex:1;border-top:1px dashed #A5A5A5"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <sc-for list="{{ roots }}" as="r" hint-placeholder-count="6">
+          <div style="display:flex;gap:14px;align-items:baseline;background:#F6F7F9;border-left:2px solid #73C1AE;border-radius:0 4px 4px 0;padding:18px 20px">
+            <span style="font:700 12px 'DM Sans',sans-serif;color:#73C1AE;flex:none">{{ r.num }}</span>
+            <div>
+              <div style="font:700 14.5px 'Manrope',sans-serif;color:#1A1A1A;margin-bottom:3px">{{ r.name }}</div>
+              <div style="font:400 12.5px/19px 'Manrope',sans-serif;color:#666666">{{ r.desc }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="font:400 13px/20px 'Manrope',sans-serif;color:#838383">Human oversight throughout: specialists execute and escalate uncertainty; final decisions stay with people. Anything sensitive or external requires owner approval.</div>
+  </div>
+</div>
+
+<!-- ═══════ PROOF ═══════ -->
+<div data-screen-label="Proof" style="padding:88px 48px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">PROOF IT WORKS</div>
+    <h2 style="margin:0 0 40px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Already working in real channels</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:26px;display:flex;flex-direction:column;gap:14px;box-shadow:2px 0 10px rgba(0,0,0,0.06)">
+        <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:1.5px;color:#73C1AE">ABBY · MICROSOFT TEAMS</div>
+        <div style="font:400 13px/20px 'Manrope',sans-serif;background:#F6F7F9;border-radius:8px;padding:12px 15px;color:#333333">Abby, what's blocking this week?</div>
+        <div style="font:400 13px/20px 'Manrope',sans-serif;background:rgba(115,193,174,.12);border-radius:8px;padding:12px 15px;color:#192332">Two items: the Westfield quote needs a material spec, and Val is waiting on the RFQ drawings. I've flagged both owners.</div>
+        <div style="font:400 12.5px/19px 'Manrope',sans-serif;color:#838383;margin-top:auto">AI employees answer where people already work. No new app to learn.</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:26px;display:flex;flex-direction:column;gap:10px;box-shadow:2px 0 10px rgba(0,0,0,0.06)">
+        <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:1.5px;color:#73C1AE;margin-bottom:4px">VAL · RFQ REVIEW</div>
+        <div style="display:flex;gap:10px;font:400 13px 'Manrope',sans-serif;color:#333333"><span style="color:#2CD552;font-weight:700">✓</span>Material spec confirmed</div>
+        <div style="display:flex;gap:10px;font:400 13px 'Manrope',sans-serif;color:#333333"><span style="color:#2CD552;font-weight:700">✓</span>Quantities match drawings</div>
+        <div style="display:flex;gap:10px;font:400 13px 'Manrope',sans-serif;color:#333333"><span style="color:#2CD552;font-weight:700">✓</span>Similar prior job found</div>
+        <div style="display:flex;gap:10px;font:400 13px 'Manrope',sans-serif;color:#B06A1F"><span style="font-weight:700;color:#EBA93D">!</span>Finish spec missing: ask customer</div>
+        <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:1px;color:#838383;border-top:1px solid #E1E1E1;padding-top:12px">3 OF 4 ESTIMATING INPUTS READY</div>
+        <div style="font:400 12.5px/19px 'Manrope',sans-serif;color:#838383;margin-top:auto">RFQ review, assumptions and missing-input checklists drafted in minutes.</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:26px;display:flex;flex-direction:column;gap:14px;box-shadow:2px 0 10px rgba(0,0,0,0.06)">
+        <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:1.5px;color:#73C1AE">LUCY · WEEKLY REPORT</div>
+        <div style="border:1px solid #E1E1E1;border-radius:4px;padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+            <span style="font:700 13.5px 'Manrope',sans-serif;color:#1A1A1A">Operations update · Week 12</span>
+            <span style="display:inline-flex;align-items:center;gap:5px;height:16px;padding:0 8px;border-radius:2px;background:#E6EAF3;font:500 7px 'Manrope',sans-serif;letter-spacing:.4px;color:#192332"><span style="width:6px;height:6px;border-radius:50%;background:#2CD552"></span>SENT</span>
+          </div>
+          <div style="height:6px;background:#F1F1F1;border-radius:2px;margin-bottom:6px;width:90%"></div>
+          <div style="height:6px;background:#F1F1F1;border-radius:2px;margin-bottom:6px;width:75%"></div>
+          <div style="height:6px;background:#F1F1F1;border-radius:2px;width:82%"></div>
+          <div style="font:400 11px 'Manrope',sans-serif;color:#A5A5A5;margin-top:10px">Drafted from company files</div>
+        </div>
+        <div style="font:400 12.5px/19px 'Manrope',sans-serif;color:#838383;margin-top:auto">Company files become polished, client-ready reports and updates.</div>
+      </div>
+    </div>
+    <p style="margin:16px 4px 0;font:400 12px 'Manrope',sans-serif;color:#A5A5A5">Stylized recreations of proof-of-concept sessions from the May pilot phase.</p>
+  </div>
+</div>
+
+<!-- ═══════ STATUS ═══════ -->
+<div data-screen-label="Status" style="padding:88px 48px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:380px 1fr;gap:64px;align-items:start">
+    <div>
+      <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">CURRENT STATE</div>
+      <h2 style="margin:0 0 14px;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;color:#192332">An honest status board</h2>
+      <p style="margin:0;font:400 15px/24px 'Manrope',sans-serif;color:#666666">Three systems verified live in production; two in structured review. Engineering discipline, not spin. This transparency is part of how we work.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <sc-for list="{{ status }}" as="s" hint-placeholder-count="5">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;border:1px solid #F1F1F1;border-radius:4px;padding:18px 22px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04)">
+          <div>
+            <div style="font:700 15px 'Manrope',sans-serif;color:#1A1A1A;margin-bottom:3px">{{ s.name }}</div>
+            <div style="font:400 12.5px/19px 'Manrope',sans-serif;color:#838383">{{ s.desc }}</div>
+          </div>
+          <span style="display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 10px;border-radius:2px;background:{{ s.badgeBg }};font:500 9px 'Manrope',sans-serif;letter-spacing:.6px;color:{{ s.badgeFg }};white-space:nowrap;flex:none"><span style="width:6px;height:6px;border-radius:50%;background:{{ s.dot }}"></span>{{ s.badge }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ VALUE · navy band ═══════ -->
+<div data-screen-label="Value" style="padding:88px 48px;background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#73C1AE;margin-bottom:16px">WHAT IT IS WORTH</div>
+    <h2 style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">A defensible path to one-third more enterprise value</h2>
+    <p style="margin:0 0 44px;font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9;max-width:660px">Two drivers: EBITDA uplift (faster estimating, search and reporting; less rework) and multiple expansion (lower key-person risk, documented process, cleaner diligence). Enterprise value = adjusted EBITDA × market multiple, baseline 3.75× for small private manufacturing.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px">
+      <div style="border:1px solid #3A4A6B;border-radius:4px;padding:32px;text-align:center">
+        <div style="font:400 40px/44px 'Manrope',sans-serif;letter-spacing:-.9px;color:#73C1AE">1.12×</div>
+        <div style="font:700 14px 'Manrope',sans-serif;margin:8px 0 4px">Conservative</div>
+        <div style="font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">+5% EBITDA · 4.00× multiple</div>
+      </div>
+      <div style="border:1px solid #FFF860;background:#1A2847;border-radius:4px;padding:32px;text-align:center">
+        <div style="font:400 40px/44px 'Manrope',sans-serif;letter-spacing:-.9px;color:#FFF860">1.33×</div>
+        <div style="font:700 14px 'Manrope',sans-serif;margin:8px 0 4px">Base case</div>
+        <div style="font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">+15% EBITDA · 4.35× multiple</div>
+      </div>
+      <div style="border:1px solid #3A4A6B;border-radius:4px;padding:32px;text-align:center">
+        <div style="font:400 40px/44px 'Manrope',sans-serif;letter-spacing:-.9px;color:#A070A6">1.65×</div>
+        <div style="font:700 14px 'Manrope',sans-serif;margin:8px 0 4px">Proven ROI</div>
+        <div style="font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">+30% EBITDA · 4.75× multiple</div>
+      </div>
+    </div>
+    <div style="font:400 12.5px/20px 'Manrope',sans-serif;color:#B8C4D9;opacity:.75;max-width:720px">Scenario model grounded in standard appraisal practice, built to survive buyer diligence. Day-180 target: every claim backed by a measured number: hours saved, quotes accelerated, rework avoided.</div>
+  </div>
+</div>
+
+<!-- ═══════ SERVICES USED + QUOTE ═══════ -->
+<div data-screen-label="Services Used" style="padding:88px 48px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+    <div>
+      <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">SERVICES USED</div>
+      <h2 style="margin:0 0 20px;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;color:#192332">This engagement, as catalog services</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="Services.dc.html#assess" style="font:600 13px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid #E1E1E1;border-radius:17px;color:#333333;white-space:nowrap;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">Workflow discovery</a>
+        <a href="Services.dc.html#structure" style="font:600 13px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid #E1E1E1;border-radius:17px;color:#333333;white-space:nowrap;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">Knowledge foundation build</a>
+        <a href="Services.dc.html#build" style="font:600 13px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid #E1E1E1;border-radius:17px;color:#333333;white-space:nowrap;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">Custom agentic harness</a>
+        <a href="Services.dc.html#build" style="font:600 13px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid #E1E1E1;border-radius:17px;color:#333333;white-space:nowrap;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">Gateway integrations</a>
+        <a href="Services.dc.html#deploy" style="font:600 13px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid #E1E1E1;border-radius:17px;color:#333333;white-space:nowrap;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">Virtual AI employee pilot</a>
+      </div>
+    </div>
+    <div style="background:#F6F7F9;border-radius:4px;padding:44px;display:flex;gap:20px">
+      <span style="font:800 56px/36px 'Manrope',sans-serif;color:#73C1AE">“</span>
+      <div>
+        <div style="font:500 22px/32px 'Manrope',sans-serif;color:#192332;margin-bottom:16px">The first 90 days built the root system. The next 90 turn it into measured business results.</div>
+        <div style="font:400 12px 'DM Sans',sans-serif;letter-spacing:.5px;color:#838383">90-DAY PROGRESS REPORT TO STAKEHOLDERS</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CTA + FOOTER ═══════ -->
+<div data-screen-label="CTA" style="background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 48px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-bottom:1px solid #3A4A6B">
+    <div>
+      <h2 style="margin:0 0 10px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">Your business could have its own AI OS in 90 days.</h2>
+      <div style="font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9">Same playbook: learn the work, prove the value, build only what earns it.</div>
+    </div>
+    <a href="Contact.dc.html" style="flex:none;height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:24px;height:16px">
+      <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px">
+      <a href="Case Studies.dc.html" style="color:#B8C4D9">← All case studies</a>
+      <a href="Services.dc.html" style="color:#B8C4D9">Services</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;clientName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;a private manufacturing group&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Case study&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      clientName: this.props.clientName ?? 'a private manufacturing group',
+      phases: [
+        { when: 'APRIL · DISCOVERY', name: 'Learn the work', desc: 'Mapped the workflows, knowledge sources and risk boundaries where AI could remove the most cost.', q: 'What work should AI support?' },
+        { when: 'MAY · PROOF OF CONCEPT', name: 'Prove the value', desc: 'Tested AI teammates in Teams and email: estimating support, file intake and report generation.', q: 'Which patterns earn hardening?' },
+        { when: 'JUNE–JULY · BUILD', name: 'Build the foundation', desc: 'The durable root system: memory, knowledge map, profiles, tool connectors and observability.', q: 'What makes AI repeatable?' },
+      ],
+      team: [
+        { initial: 'A', name: 'Abby', role: 'CHIEF OF STAFF · MANAGER', desc: 'Assigns work, tracks evidence, reports up.', bg: '#121D35', fg: '#FFFFFF', border: '#121D35', avatarBg: '#73C1AE', avatarFg: '#121D35', roleColor: '#73C1AE' },
+        { initial: 'V', name: 'Val', role: 'ESTIMATOR', desc: 'Turns RFQs and job history into estimate drafts and clarifying questions.', bg: '#FFFFFF', fg: '#333333', border: '#F1F1F1', avatarBg: 'rgba(160,112,166,.18)', avatarFg: '#A070A6', roleColor: '#A070A6' },
+        { initial: 'J', name: 'Jacob', role: 'SCOPE REVIEWER', desc: 'Red-teams every quote: scope gaps, risks and missing details before approval.', bg: '#FFFFFF', fg: '#333333', border: '#F1F1F1', avatarBg: 'rgba(235,169,61,.18)', avatarFg: '#B06A1F', roleColor: '#EBA93D' },
+        { initial: 'L', name: 'Lucy', role: 'COMMUNICATIONS', desc: 'Turns technical progress into client-ready reports, emails and updates.', bg: '#FFFFFF', fg: '#333333', border: '#F1F1F1', avatarBg: 'rgba(115,193,174,.2)', avatarFg: '#3E8A75', roleColor: '#73C1AE' },
+      ],
+      roots: [
+        { num: '01', name: 'Company memory', desc: 'Meaning-based search finds concepts, not just filenames.' },
+        { num: '02', name: 'Knowledge map', desc: 'Connects people, projects, systems and decisions.' },
+        { num: '03', name: 'File intake', desc: 'SharePoint and file drives flow into AI-usable context.' },
+        { num: '04', name: 'Employee profiles', desc: 'Role-specific instructions, tools, boundaries and handoffs.' },
+        { num: '05', name: 'Tool connectors', desc: 'Teams, email, Odoo, reporting. Approved access only.' },
+        { num: '06', name: 'Observability', desc: 'Every AI action traced, scored and reviewable.' },
+      ],
+      status: [
+        { name: 'AI communication channels', desc: 'All four AI employees responding on their Teams paths', badge: 'LIVE', badgeBg: 'rgba(44,213,82,.12)', badgeFg: '#1E9E3E', dot: '#2CD552' },
+        { name: 'Meaning-based company memory', desc: 'Search engine verified in production, v1.18', badge: 'LIVE', badgeBg: 'rgba(44,213,82,.12)', badgeFg: '#1E9E3E', dot: '#2CD552' },
+        { name: 'Conversation continuity', desc: 'AI employees remember context across sessions', badge: 'LIVE', badgeBg: 'rgba(44,213,82,.12)', badgeFg: '#1E9E3E', dot: '#2CD552' },
+        { name: 'Business system connectors (Odoo/ERP)', desc: 'Built and connected; completing stability review before rollout', badge: 'HARDENING', badgeBg: 'rgba(235,169,61,.15)', badgeFg: '#B06A1F', dot: '#EBA93D' },
+        { name: 'Self-improvement scaffolding', desc: 'Foundation in place; becomes the improvement engine next phase', badge: 'PILOT', badgeBg: '#E6EAF3', badgeFg: '#654C8F', dot: '#A070A6' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

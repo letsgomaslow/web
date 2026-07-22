@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(22px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<link rel="stylesheet" href="./mz-responsive.css">
+</helmet>
+
+<!-- ═══ COVER ═══ -->
+<div data-screen-label="Cover" style="background:#121D35;color:#FFFFFF;padding:96px 48px 84px">
+  <div style="max-width:1200px;margin:0 auto">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI mark" style="width:72px;height:48px;margin-bottom:36px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#73C1AE;margin-bottom:22px;animation:mzRise .7s .15s cubic-bezier(.2,.7,.2,1) both">ASCENT · DESIGN LANGUAGE · 2026 EDITION</div>
+    <h1 style="margin:0 0 24px;font:600 60px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;max-width:840px;animation:mzRise .7s .25s cubic-bezier(.2,.7,.2,1) both">One system for the website, the decks, and everything after.</h1>
+    <p style="margin:0 0 36px;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#B8C4D9;max-width:620px;animation:mzRise .7s .35s cubic-bezier(.2,.7,.2,1) both">Ascent takes the production Maslow brand (Manrope, navy, the pillar accents, the stacked-paper shadow) and tightens it into a 2026-ready language: type-led, hairline-structured, motion with purpose.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;animation:mzRise .7s .45s cubic-bezier(.2,.7,.2,1) both">
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;border:1px solid #3A4A6B;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">WEBSITE</span>
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;border:1px solid #3A4A6B;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">DECKS</span>
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;border:1px solid #3A4A6B;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">DOCUMENTS</span>
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;border:1px solid #3A4A6B;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">SOCIAL</span>
+      <a href="Maslow Homepage.dc.html" style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;background:#EE7BB3;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">SEE IT LIVE · HOMEPAGE&nbsp;&nbsp;&gt;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PRINCIPLES ═══ -->
+<div data-screen-label="Principles" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">01 · PRINCIPLES</div>
+    <h2 class="mz-reveal" style="margin:0 0 40px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Five rules that make it 2026</h2>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #192332">
+      <sc-for list="{{ principles }}" as="p" hint-placeholder-count="5">
+        <div style="padding:26px 22px 34px 0;border-right:1px solid #E1E1E1;margin-right:22px">
+          <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:{{ p.color }};margin-bottom:14px">{{ p.num }}</div>
+          <div style="font:700 17px/22px 'Manrope',sans-serif;letter-spacing:-.3px;color:#1A1A1A;margin-bottom:10px">{{ p.name }}</div>
+          <div style="font:400 13.5px/21px 'Manrope',sans-serif;color:#666666">{{ p.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COLOR ═══ -->
+<div data-screen-label="Color" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">02 · COLOR</div>
+    <h2 class="mz-reveal" style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Navy speaks, accents point</h2>
+    <p class="mz-reveal" style="margin:0 0 40px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:640px">Dark navy carries authority; the four accents are wayfinding, never decoration. Pink is reserved for action: if it's pink, you can click it.</p>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px">
+      <sc-for list="{{ brand }}" as="c" hint-placeholder-count="8">
+        <div style="border:1px solid #F1F1F1;border-radius:4px;overflow:hidden">
+          <div style="height:88px;background:{{ c.hex }}"></div>
+          <div style="padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+              <span style="font:700 13px 'Manrope',sans-serif;color:#1A1A1A">{{ c.name }}</span>
+              <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">{{ c.hex }}</span>
+            </div>
+            <div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383;margin-top:4px">{{ c.role }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:repeat(8,1fr);gap:16px;margin-bottom:40px">
+      <sc-for list="{{ neutrals }}" as="c" hint-placeholder-count="8">
+        <div>
+          <div style="height:44px;border-radius:4px;border:1px solid #E1E1E1;background:{{ c.hex }}"></div>
+          <div style="font:600 11px 'Manrope',sans-serif;color:#333333;margin-top:8px">{{ c.name }}</div>
+          <div style="font:400 10.5px 'IBM Plex Mono',monospace;color:#A5A5A5">{{ c.hex }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px">
+      <sc-for list="{{ semantics }}" as="s" hint-placeholder-count="4">
+        <div style="border-left:2px solid {{ s.hex }};padding:4px 0 4px 18px">
+          <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:{{ s.hex }}">{{ s.label }}</div>
+          <div style="font:400 13px/20px 'Manrope',sans-serif;color:#666666;margin-top:6px">{{ s.use }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <sc-for list="{{ gradients }}" as="g" hint-placeholder-count="4">
+        <div>
+          <div style="height:56px;border-radius:4px;background:{{ g.css }}"></div>
+          <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin-top:8px">{{ g.name }}</div>
+          <div style="font:400 11px/17px 'Manrope',sans-serif;color:#838383">{{ g.use }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TYPOGRAPHY ═══ -->
+<div data-screen-label="Typography" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">03 · TYPOGRAPHY</div>
+    <h2 class="mz-reveal" style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Manrope does the talking</h2>
+    <p class="mz-reveal" style="margin:0 0 40px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:640px">One family, nine levels, big confident display. Formular (stand-in: DM Sans) for metadata only; FoundersGroteskMono (stand-in: IBM Plex Mono) for micro-labels and the "AI" in the logo. Never Graphik, never Nocturno.</p>
+    <div class="mz-reveal" style="display:flex;flex-direction:column;border-top:1px solid #192332">
+      <div style="display:grid;grid-template-columns:150px 1fr 190px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">L1 · DISPLAY</span>
+        <span style="font:600 60px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332">Transform with purpose</span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">60 / 62 · 600 · −1.4px</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr 190px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">L2 · SECTION</span>
+        <span style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Clarity before scale</span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">38 / 42 · 400 · −0.89px</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr 190px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">L3 · CONTENT</span>
+        <span style="font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;color:#192332">Foundations that last</span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">32 / 40 · 500 · +0.64px</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr 190px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">L4 · CARD</span>
+        <span style="font:700 24px/26px 'Manrope',sans-serif;letter-spacing:-.57px;color:#192332">Experiences people use</span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">24 / 26 · 700 · −0.57px</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr 190px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">L5 · LEAD</span>
+        <span style="font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#333333">AI transformation works when it starts with strategy, not with tools.</span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">18 / 30 · 400 · −0.2px</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr 190px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">L6 · BODY</span>
+        <span style="font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#333333">We build the foundations — data, processes, and clarity — so AI can deliver.</span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">17 / 27 · 400 · +0.28px</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr 190px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">L7 · CAPTION</span>
+        <span style="font:400 15px/24px 'Manrope',sans-serif;color:#666666">Trusted by organizations that put strategy first.</span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">15 / 24 · 400 · 0</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr 190px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">L8 · LABEL</span>
+        <span style="font:600 12px/16px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase">Navigation · Footer · Labels</span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">12 / 16 · 600 · +0.4px</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr 190px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">L9 · MICRO</span>
+        <span style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2">VIEW CASE STUDY&nbsp;&nbsp;&gt;</span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">9 / 13 · 700 · +2px</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STRUCTURE ═══ -->
+<div data-screen-label="Structure" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">04 · STRUCTURE</div>
+    <h2 class="mz-reveal" style="margin:0 0 40px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Hairlines, 8px rhythm, paper shadows</h2>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px">
+      <div>
+        <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:18px">Spacing · 8px scale</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ spacing }}" as="s" hint-placeholder-count="8">
+            <div style="display:flex;align-items:center;gap:14px">
+              <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5;width:56px">{{ s.px }}</span>
+              <span style="height:12px;background:#73C1AE;border-radius:2px;width:{{ s.w }}"></span>
+              <span style="font:400 12px 'Manrope',sans-serif;color:#838383">{{ s.use }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin:32px 0 18px">Layout</div>
+        <div style="font:400 13.5px/22px 'Manrope',sans-serif;color:#666666">Canvas <b style="color:#1A1A1A">1400px</b> max · content <b style="color:#1A1A1A">1200px</b> · text columns <b style="color:#1A1A1A">1002px</b> · 12-col grid, 24px gutters · sections breathe <b style="color:#1A1A1A">96–128px</b> apart · cards sit 16px apart.</div>
+      </div>
+      <div>
+        <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:18px">Radius · sharp by default</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end">
+          <div style="width:64px;height:64px;border:1px solid #E1E1E1;border-radius:2px;display:flex;align-items:center;justify-content:center;font:400 11px 'IBM Plex Mono',monospace;color:#838383">2</div>
+          <div style="width:64px;height:64px;border:1px solid #E1E1E1;border-radius:4px;display:flex;align-items:center;justify-content:center;font:400 11px 'IBM Plex Mono',monospace;color:#838383">4</div>
+          <div style="width:64px;height:64px;border:1px solid #E1E1E1;border-radius:8px;display:flex;align-items:center;justify-content:center;font:400 11px 'IBM Plex Mono',monospace;color:#838383">8</div>
+          <div style="width:64px;height:64px;border:1px solid #E1E1E1;border-radius:17px;display:flex;align-items:center;justify-content:center;font:400 11px 'IBM Plex Mono',monospace;color:#838383">17</div>
+          <div style="width:64px;height:64px;border:1px solid #E1E1E1;border-radius:34px;display:flex;align-items:center;justify-content:center;font:400 11px 'IBM Plex Mono',monospace;color:#838383">34</div>
+        </div>
+        <div style="font:400 13px/21px 'Manrope',sans-serif;color:#838383;margin-top:16px">2 status · 4 cards &amp; buttons · 8 buttons &amp; inputs · 17 pills · 34 panels. Nothing bigger than 17 on a badge.</div>
+      </div>
+      <div>
+        <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:18px">Shadows · stacked paper</div>
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;box-shadow:2px 0 10px rgba(0,0,0,0.1);padding:16px 18px">
+            <div style="font:700 13px 'Manrope',sans-serif;color:#1A1A1A">Matte</div>
+            <div style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5;margin-top:3px">2px 0 10px · 10% · default cards</div>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;box-shadow:17px 9px 5px rgba(0,0,0,0.25);padding:16px 18px">
+            <div style="font:700 13px 'Manrope',sans-serif;color:#1A1A1A">Card · offset right + down</div>
+            <div style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5;margin-top:3px">17px 9px 5px · 25% · case studies, hover</div>
+          </div>
+        </div>
+        <div style="font:400 13px/21px 'Manrope',sans-serif;color:#838383;margin-top:16px">Offset is deliberate, never centered. It reads as sheets of work stacked on a desk.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COMPONENTS ═══ -->
+<div data-screen-label="Components" style="padding:96px 48px;background:#F6F7F9;margin-top:96px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">05 · COMPONENTS</div>
+    <h2 class="mz-reveal" style="margin:0 0 40px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">The working kit, live</h2>
+    <div class="mz-reveal" style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;margin-bottom:16px">
+      <div style="display:flex;align-items:center;justify-content:space-between;height:83px;padding:0 32px;border-bottom:1px solid #E6EAF3">
+        <span style="display:flex;align-items:center;gap:10px">
+          <img src="assets/maslow-mark-gradient.svg" alt="Maslow" style="width:36px;height:23px">
+          <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+          <span style="color:#E1E1E1">|</span>
+          <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+        </span>
+        <span style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;color:#192332">
+          <span>SERVICES</span><span>CASE STUDIES</span><span>ABOUT</span>
+          <span style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px">BOOK A CONSULTATION</span>
+        </span>
+      </div>
+      <div style="padding:12px 32px;font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">NAVIGATION · 83px · gradient mark 36×23 · links 11px/1.4px uppercase · divider #E6EAF3 · ≤860px → 64px bar + BOOK pill + burger (§15)</div>
+    </div>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:28px 32px">
+        <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:18px">
+          <button style="height:42px;padding:0 18px;border:none;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35)">Primary action</button>
+          <button style="height:42px;padding:0 18px;border:1px solid #192332;border-radius:8px;background:transparent;color:#192332;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">Secondary</button>
+          <a href="Maslow Homepage.dc.html" style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2">CTA LINK PATTERN&nbsp;&nbsp;&gt;</a>
+        </div>
+        <div style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">BUTTONS · 42px · radius 8 · hot-pink fill / navy outline · CTA link 9px, two spaces before &gt;</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:28px 32px">
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px">
+          <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;background:#A070A6;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px">CASE STUDY</span>
+          <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;background:#EBA93D;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px">ARTICLE</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;height:16px;padding:0 8px;border-radius:2px;background:#E6EAF3;font:500 7px 'Manrope',sans-serif;letter-spacing:.4px;color:#192332;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:50%;background:#2CD552"></span>Open</span>
+          <span style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#73C1AE">TECHNOLOGY</span>
+          <span style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#DA85B2">DESIGN</span>
+          <span style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#A070A6">STRATEGY</span>
+        </div>
+        <div style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5">BADGES · pills 34px/r17 · status 16px/r2 with dot · category tags color-coded</div>
+      </div>
+    </div>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:390px 1fr;gap:16px;margin-bottom:16px">
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;box-shadow:17px 9px 5px rgba(0,0,0,0.25);overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-4px)">
+        <div style="height:150px;background:linear-gradient(140deg,#86E8CE,#E686B5);display:flex;align-items:flex-end;padding:16px 22px">
+          <span style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#FFFFFF">MANUFACTURING</span>
+        </div>
+        <div style="padding:24px 22px 26px">
+          <div style="font:700 24px/26px 'Manrope',sans-serif;letter-spacing:-.57px;color:#1A1A1A;margin-bottom:10px">Infinite AI OS in 90 days</div>
+          <div style="font:400 15px/24px 'Manrope',sans-serif;color:#666666;margin-bottom:16px">Four named AI employees in Teams, standing on a six-layer root system.</div>
+          <span style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2">VIEW CASE STUDY&nbsp;&nbsp;&gt;</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="flex:1;background:#121D35;border-radius:4px;padding:32px 36px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:center">
+          <div><div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#73C1AE">90 days</div><div style="font:400 15px/22px 'Manrope',sans-serif;color:#FFFFFF;margin-top:6px">idea to working foundation</div></div>
+          <div><div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#A070A6">93%</div><div style="font:400 15px/22px 'Manrope',sans-serif;color:#FFFFFF;margin-top:6px">intent-routing accuracy</div></div>
+          <div><div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#FFF860">1.33×</div><div style="font:400 15px/22px 'Manrope',sans-serif;color:#FFFFFF;margin-top:6px">enterprise value path</div></div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:24px 32px;display:flex;gap:24px;align-items:flex-end">
+          <div style="flex:1">
+            <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:10px">Form input</div>
+            <div style="height:40px;border-bottom:1px solid #E1E1E1;display:flex;align-items:center;font:400 15px 'Manrope',sans-serif;color:#838383">Work email</div>
+          </div>
+          <div style="flex:1">
+            <div style="height:40px;border-bottom:1px solid #73C1AE;display:flex;align-items:center;font:400 15px 'Manrope',sans-serif;color:#333333">hello@maslow.ai<span style="width:1px;height:18px;background:#73C1AE;margin-left:2px"></span></div>
+          </div>
+          <button style="height:42px;padding:0 18px;border:none;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="mz-reveal" style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:48px;display:flex;gap:28px">
+      <span style="font:800 72px/48px 'Manrope',sans-serif;color:#73C1AE">“</span>
+      <div>
+        <div style="font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#333333;max-width:720px">Maslow met us where we were: no rip-and-replace, no hype. Ninety days later our team asks the AI before they ask each other.</div>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:18px">
+          <span style="width:48px;height:48px;border-radius:50%;background:linear-gradient(140deg,#86E8CE,#E686B5);box-shadow:0 4px 6px rgba(0,0,0,0.124)"></span>
+          <span style="font:400 12px 'DM Sans',sans-serif;letter-spacing:.5px;color:#838383">COO · MANUFACTURING CLIENT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MOTION ═══ -->
+<div data-screen-label="Motion" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">06 · MOTION</div>
+    <h2 class="mz-reveal" style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Purposeful, never performative</h2>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px">
+      <sc-for list="{{ motion }}" as="m" hint-placeholder-count="4">
+        <div style="border:1px solid #F1F1F1;border-radius:4px;padding:22px 24px;background:#FFFFFF;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:2px 0 10px rgba(0,0,0,0.1)">
+          <div style="font:500 11px 'IBM Plex Mono',monospace;color:#73C1AE;margin-bottom:10px">{{ m.token }}</div>
+          <div style="font:700 15px 'Manrope',sans-serif;color:#1A1A1A;margin-bottom:6px">{{ m.name }}</div>
+          <div style="font:400 13px/20px 'Manrope',sans-serif;color:#666666">{{ m.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div class="mz-reveal" style="font:400 13px/21px 'Manrope',sans-serif;color:#838383;margin-top:20px">Everything honors <span style="font-family:'IBM Plex Mono',monospace;font-size:12px">prefers-reduced-motion</span>; state is always visible when static. Hover these cards to feel the micro-lift.</div>
+  </div>
+</div>
+
+<!-- ═══ CROSS-ASSET ═══ -->
+<div data-screen-label="Cross-asset" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">07 · EVERY ASSET, ONE SYSTEM</div>
+    <h2 class="mz-reveal" style="margin:0 0 40px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">How the tokens translate</h2>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <sc-for list="{{ assets }}" as="a" hint-placeholder-count="3">
+        <div style="border:1px solid #F1F1F1;border-radius:4px;overflow:hidden">
+          <div style="background:#121D35;padding:20px 26px;display:flex;justify-content:space-between;align-items:center">
+            <span style="font:700 16px 'Manrope',sans-serif;color:#FFFFFF">{{ a.name }}</span>
+            <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#73C1AE">{{ a.canvas }}</span>
+          </div>
+          <div style="padding:22px 26px;display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ a.rules }}" as="r" hint-placeholder-count="4">
+              <div style="display:flex;gap:10px;font:400 13.5px/21px 'Manrope',sans-serif;color:#666666"><span style="color:#73C1AE;font-weight:700">—</span><span>{{ r }}</span></div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LOGO ═══ -->
+<div data-screen-label="Logo" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">08 · LOGO</div>
+    <h2 class="mz-reveal" style="margin:0 0 40px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Three marks, strict rules</h2>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px">
+      <div style="border:1px solid #F1F1F1;border-radius:4px;overflow:hidden">
+        <div style="height:140px;background:#FFFFFF;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #F1F1F1"><img src="assets/maslow-mark-gradient.svg" alt="Gradient mark" style="width:84px"></div>
+        <div style="padding:14px 16px"><div style="font:700 13px 'Manrope',sans-serif;color:#1A1A1A">Gradient</div><div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383;margin-top:4px">Primary digital · pink #F377B3 → teal #6DC4AD, userSpaceOnUse across the full mark</div></div>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;overflow:hidden">
+        <div style="height:140px;background:#F6F7F9;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #F1F1F1"><img src="assets/maslow-mark-ink.svg" alt="Navy mark" style="width:84px"></div>
+        <div style="padding:14px 16px"><div style="font:700 13px 'Manrope',sans-serif;color:#1A1A1A">Navy #191F32</div><div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383;margin-top:4px">Single-color on white and off-white · print, documents, single-ink contexts</div></div>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;overflow:hidden">
+        <div style="height:140px;background:#121D35;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #F1F1F1"><img src="assets/maslow-mark-white.svg" alt="White mark" style="width:84px"></div>
+        <div style="padding:14px 16px"><div style="font:700 13px 'Manrope',sans-serif;color:#1A1A1A">White</div><div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383;margin-top:4px">On navy bands, deck title slides, footer</div></div>
+      </div>
+    </div>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+        <span style="display:flex;align-items:center;gap:11px">
+          <img src="assets/maslow-mark-gradient.svg" alt="" style="width:36px;height:23px">
+          <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+          <span style="color:#E1E1E1">|</span>
+          <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+        </span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#A5A5A5;text-align:right">HEADER LOCKUP · min 120px wide<br>clear space = cap height of "M"</span>
+      </div>
+      <div style="background:#192332;border-radius:4px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+        <span style="display:flex;align-items:center;gap:10px">
+          <img src="assets/maslow-mark-white.svg" alt="" style="width:28px;height:19px">
+          <span style="font:600 13px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+        </span>
+        <span style="font:400 11px 'IBM Plex Mono',monospace;color:#73C1AE;text-align:right">FOOTER LOCKUP · no "| AI", intentional<br>mark alone min 24px tall</span>
+      </div>
+    </div>
+    <div class="mz-reveal" style="font:400 13px/21px 'Manrope',sans-serif;color:#838383;margin-top:16px">Never distort, rotate, add effects, recolor outside the palette, or place on busy backgrounds without a scrim. Use the approved artwork files; never redraw.</div>
+  </div>
+</div>
+
+<!-- ═══ IMAGERY & ICONS ═══ -->
+<div data-screen-label="Imagery" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">09 · IMAGERY &amp; ICONS</div>
+    <h2 class="mz-reveal" style="margin:0 0 40px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Human and capable, never AI-slop</h2>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px">
+      <div>
+        <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:14px">Photography</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ photo }}" as="p" hint-placeholder-count="4">
+            <div style="display:flex;gap:10px;font:400 13.5px/21px 'Manrope',sans-serif;color:#666666"><span style="color:{{ p.c }};font-weight:700">{{ p.m }}</span><span>{{ p.t }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:14px">Treatments</div>
+        <div style="display:flex;gap:12px">
+          <div style="flex:1;aspect-ratio:3/4;border-radius:4px;background:linear-gradient(140deg,#86E8CE,#E686B5)"></div>
+          <div style="flex:1;aspect-ratio:3/4;border-radius:4px;background:linear-gradient(140deg,#4C4C4C,#F37779)"></div>
+          <div style="flex:1;aspect-ratio:3/4;border-radius:4px;background:linear-gradient(0deg,rgba(238,123,179,.5),rgba(238,123,179,.5)),#121D35"></div>
+        </div>
+        <div style="font:400 13px/21px 'Manrope',sans-serif;color:#838383;margin-top:12px">Teal–pink and grey–coral masks over card imagery; ~50% pink scrim over hero photography. Only these; never invent overlays.</div>
+      </div>
+      <div>
+        <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:14px">Icons &amp; illustration</div>
+        <div style="font:400 13.5px/22px 'Manrope',sans-serif;color:#666666">Line icons, one consistent stroke weight (1.5px at 24px grid), navy strokes with a single accent fill max. Illustration only when photography can't explain: minimal line + flat brand color, no characters, no clip-art, no floating brains.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ VOICE ═══ -->
+<div data-screen-label="Voice" style="padding:96px 48px;background:#F6F7F9;margin-top:96px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">10 · VOICE</div>
+    <h2 class="mz-reveal" style="margin:0 0 8px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">The Guide, not the Magician</h2>
+    <div class="mz-reveal" style="font:600 60px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;margin:32px 0 10px">Transform with <span style="position:relative;white-space:nowrap">purpose<span style="position:absolute;left:-2px;right:-2px;bottom:2px;height:12px;background:#FFF860;z-index:-1"></span></span>.</div>
+    <p class="mz-reveal" style="margin:0 0 40px;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:680px">Maslow helps businesses adopt AI through strategy, technology, and design, so transformation is deliberate, measurable, and built to last. Confident and approachable; evolution, not disruption.</p>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:0 48px;border-top:1px solid #192332">
+      <sc-for list="{{ voice }}" as="v" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:16px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid #E1E1E1;font:400 14.5px/23px 'Manrope',sans-serif">
+          <span style="color:{{ v.c }};font-weight:700">{{ v.m }}</span><span style="color:#333333">{{ v.t }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DECK LAYOUTS ═══ -->
+<div data-screen-label="Deck Layouts" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">11 · DECK LAYOUTS · 1920 × 1080</div>
+    <h2 class="mz-reveal" style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Six slide masters</h2>
+    <p class="mz-reveal" style="margin:0 0 40px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:640px">Type scales ×2 from the web: titles 96–120px, body never below 24px. Max two backgrounds per deck: white and band navy. Pink appears once per deck: on the ask.</p>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div>
+        <div style="aspect-ratio:16/9;background:#121D35;border-radius:4px;padding:8% 9%;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+          <img src="assets/maslow-mark-white.svg" alt="" style="width:13%;align-self:flex-start">
+          <div>
+            <div style="font:500 7px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#73C1AE;margin-bottom:6px">Q3 2026 · CLIENT NAME</div>
+            <div style="font:600 21px/1.05 'Manrope',sans-serif;letter-spacing:-.5px;color:#FFFFFF">AI transformation,<br>built on purpose</div>
+          </div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:10px 0 2px">01 · Title</div>
+        <div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383">Navy · white mark top-left · title 120px · mono eyebrow teal</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:16/9;background:#121D35;border-radius:4px;padding:8% 9%;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;position:relative">
+          <div style="position:absolute;top:6%;right:8%;font:700 44px 'Manrope',sans-serif;color:#73C1AE;opacity:.35">02</div>
+          <div style="font:600 17px/1.1 'Manrope',sans-serif;letter-spacing:-.4px;color:#FFFFFF">Where the value hides</div>
+          <div style="width:36px;height:2px;background:#73C1AE;margin-top:8px"></div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:10px 0 2px">02 · Section divider</div>
+        <div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383">Navy · ghost number in section accent · one per chapter</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:16/9;background:#FFFFFF;border:1px solid #E1E1E1;border-radius:4px;padding:7% 9%;display:flex;flex-direction:column;overflow:hidden">
+          <div style="font:600 13px 'Manrope',sans-serif;letter-spacing:-.3px;color:#192332;margin-bottom:9px">Three moves this quarter</div>
+          <div style="border-top:1px solid #192332">
+            <div style="display:flex;gap:8px;padding:5px 0;border-bottom:1px solid #E1E1E1;font:400 7.5px 'Manrope',sans-serif;color:#666666"><span style="color:#73C1AE;font-weight:700">01</span>Structure the file estate into a knowledge map</div>
+            <div style="display:flex;gap:8px;padding:5px 0;border-bottom:1px solid #E1E1E1;font:400 7.5px 'Manrope',sans-serif;color:#666666"><span style="color:#73C1AE;font-weight:700">02</span>Stand up the agentic harness with two skills</div>
+            <div style="display:flex;gap:8px;padding:5px 0;border-bottom:1px solid #E1E1E1;font:400 7.5px 'Manrope',sans-serif;color:#666666"><span style="color:#73C1AE;font-weight:700">03</span>Deploy one virtual employee into Teams</div>
+          </div>
+          <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center"><img src="assets/maslow-mark-ink.svg" alt="" style="width:8%"><span style="font:400 6px 'IBM Plex Mono',monospace;color:#A5A5A5">MASLOW AI · 07</span></div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:10px 0 2px">03 · Content</div>
+        <div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383">White · hairline rows · heading 64px, body 28px · mark + folio footer</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:16/9;background:#121D35;border-radius:4px;padding:8% 9%;display:flex;flex-direction:column;justify-content:center;gap:4px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+            <div><div style="font:400 16px 'Manrope',sans-serif;letter-spacing:-.4px;color:#73C1AE">90</div><div style="font:400 6.5px/9px 'Manrope',sans-serif;color:#FFFFFF">days to foundation</div></div>
+            <div><div style="font:400 16px 'Manrope',sans-serif;letter-spacing:-.4px;color:#A070A6">93%</div><div style="font:400 6.5px/9px 'Manrope',sans-serif;color:#FFFFFF">routing accuracy</div></div>
+            <div><div style="font:400 16px 'Manrope',sans-serif;letter-spacing:-.4px;color:#FFF860">1.33×</div><div style="font:400 6.5px/9px 'Manrope',sans-serif;color:#FFFFFF">value path</div></div>
+          </div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:10px 0 2px">04 · Stats</div>
+        <div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383">Navy · numbers 96px in teal / purple / yellow · labels white 24px</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:16/9;background:#F6F7F9;border-radius:4px;padding:8% 9%;display:flex;flex-direction:column;justify-content:center;overflow:hidden">
+          <div style="font:800 22px/10px 'Manrope',sans-serif;color:#73C1AE">“</div>
+          <div style="font:500 11px/1.4 'Manrope',sans-serif;color:#192332;margin-top:6px">Ninety days later our team asks the AI before they ask each other.</div>
+          <div style="font:400 6.5px 'DM Sans',sans-serif;letter-spacing:1px;color:#838383;margin-top:7px">COO · MANUFACTURING CLIENT</div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:10px 0 2px">05 · Quote</div>
+        <div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383">Off-white · teal quote mark · quote 48px · attribution in metadata caps</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:16/9;background:#FFFFFF;border:1px solid #E1E1E1;border-radius:4px;padding:8% 9%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;overflow:hidden">
+          <div style="font:600 15px/1.15 'Manrope',sans-serif;letter-spacing:-.4px;color:#192332">Start with the <span style="position:relative;white-space:nowrap">assessment<span style="position:absolute;left:-1px;right:-1px;bottom:1px;height:4px;background:#FFF860;z-index:-1"></span></span></div>
+          <div style="margin-top:9px;height:14px;display:inline-flex;align-items:center;padding:0 8px;border-radius:3px;background:#EE7BB3;font:600 5.5px 'Manrope',sans-serif;letter-spacing:1px;color:#FFFFFF">BOOK A CONSULTATION</div>
+          <div style="font:400 6px 'IBM Plex Mono',monospace;color:#A5A5A5;margin-top:8px">HELLO@MASLOW.AI</div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:10px 0 2px">06 · Closing / ask</div>
+        <div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383">White · yellow highlight · the deck's one pink button lives here</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DOCUMENTS & SOCIAL ═══ -->
+<div data-screen-label="Documents" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">12 · DOCUMENTS &amp; SOCIAL</div>
+    <h2 class="mz-reveal" style="margin:0 0 40px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Paper, feeds and favicons</h2>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:280px 1fr 200px;gap:48px;align-items:start">
+      <div>
+        <div style="aspect-ratio:8.5/11;background:#FFFFFF;border:1px solid #E1E1E1;border-radius:2px;box-shadow:2px 0 10px rgba(0,0,0,0.1);padding:9% 10%;display:flex;flex-direction:column;overflow:hidden">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <img src="assets/maslow-mark-ink.svg" alt="" style="width:12%">
+            <span style="font:400 5px 'IBM Plex Mono',monospace;letter-spacing:1px;color:#A5A5A5">PROPOSAL · 2026-07</span>
+          </div>
+          <div style="font:600 12px/1.15 'Manrope',sans-serif;letter-spacing:-.3px;color:#192332;margin-bottom:6px">AI readiness assessment</div>
+          <div style="width:24px;height:2px;background:#73C1AE;margin-bottom:8px"></div>
+          <div style="font:400 5.5px/1.7 'Manrope',sans-serif;color:#666666">Based on your goals, we recommend a 90-day foundation phase: structure the file estate, stand up the harness, deploy one virtual employee where your team already works.</div>
+          <div style="border-top:1px solid #E1E1E1;margin-top:8px;padding-top:5px;font:400 5.5px/1.7 'Manrope',sans-serif;color:#666666">Scope covers strategy, technology and design as one roadmap: deliberate, measurable, built to last.</div>
+          <div style="margin-top:auto;display:flex;justify-content:space-between;border-top:1px solid #E1E1E1;padding-top:5px">
+            <span style="font:700 4.5px 'Manrope',sans-serif;letter-spacing:1px;color:#DA85B2">BOOK A CONSULTATION&nbsp;&nbsp;&gt;</span>
+            <span style="font:400 4.5px 'IBM Plex Mono',monospace;color:#A5A5A5">MASLOW AI · 01</span>
+          </div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:10px 0 2px">Letter / A4</div>
+        <div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383">Navy mark header · mono doc meta · body 11–12pt #333 · hairline rules · pink CTA link</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:1200/630;background:#121D35;border-radius:4px;padding:6% 7%;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative">
+          <img src="assets/maslow-mark-gradient.svg" alt="" style="position:absolute;right:-4%;bottom:-14%;width:34%;opacity:.14">
+          <div style="font:500 8px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#73C1AE">INSIGHT</div>
+          <div>
+            <div style="font:600 22px/1.1 'Manrope',sans-serif;letter-spacing:-.5px;color:#FFFFFF;max-width:80%">Three questions to ask before your next AI pilot</div>
+            <div style="display:flex;align-items:center;gap:7px;margin-top:12px">
+              <img src="assets/maslow-mark-white.svg" alt="" style="width:16px">
+              <span style="font:600 8px 'Manrope',sans-serif;letter-spacing:1.5px;color:#FFFFFF">MASLOW</span>
+            </div>
+          </div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:10px 0 2px">Social / OG card · 1200 × 630</div>
+        <div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383">Navy field · ghost gradient mark bleeding off-corner · headline ≤ 9 words · footer lockup. Same recipe at 1080×1080 for feed posts.</div>
+      </div>
+      <div>
+        <div style="display:flex;gap:10px;align-items:flex-end">
+          <div style="width:64px;height:64px;border-radius:12px;background:#121D35;display:flex;align-items:center;justify-content:center"><img src="assets/maslow-mark-gradient.svg" alt="" style="width:60%"></div>
+          <div style="width:40px;height:40px;border-radius:8px;background:#FFFFFF;border:1px solid #E1E1E1;display:flex;align-items:center;justify-content:center"><img src="assets/maslow-mark-ink.svg" alt="" style="width:60%"></div>
+          <div style="width:24px;height:24px;border-radius:5px;background:#121D35;display:flex;align-items:center;justify-content:center"><img src="assets/maslow-mark-white.svg" alt="" style="width:62%"></div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:12px 0 2px">Avatar &amp; favicon</div>
+        <div style="font:400 12px/18px 'Manrope',sans-serif;color:#838383">Mark only, centered, 30% padding. Gradient on navy for avatars; single-color below 32px.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DATA VIZ ═══ -->
+<div data-screen-label="Data Viz" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">13 · DATA VISUALIZATION</div>
+    <h2 class="mz-reveal" style="margin:0 0 40px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Charts that read like the brand</h2>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:28px 32px">
+        <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:20px">Adoption by quarter</div>
+        <div style="display:flex;align-items:flex-end;gap:22px;height:150px;border-bottom:1px solid #E1E1E1;padding:0 8px">
+          <div style="flex:1;height:34%;background:#73C1AE;border-radius:2px 2px 0 0"></div>
+          <div style="flex:1;height:52%;background:#73C1AE;border-radius:2px 2px 0 0"></div>
+          <div style="flex:1;height:64%;background:#73C1AE;border-radius:2px 2px 0 0"></div>
+          <div style="flex:1;height:92%;background:#192332;border-radius:2px 2px 0 0;position:relative"><span style="position:absolute;top:-22px;left:50%;transform:translateX(-50%);font:700 12px 'Manrope',sans-serif;color:#192332;background:#FFF860;padding:1px 6px">+92%</span></div>
+        </div>
+        <div style="display:flex;gap:22px;padding:8px 8px 0;font:400 10px 'IBM Plex Mono',monospace;color:#A5A5A5"><span style="flex:1;text-align:center">Q1</span><span style="flex:1;text-align:center">Q2</span><span style="flex:1;text-align:center">Q3</span><span style="flex:1;text-align:center">Q4</span></div>
+      </div>
+      <div>
+        <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:14px">Series order</div>
+        <div style="display:flex;gap:8px;margin-bottom:18px">
+          <span style="width:44px;height:20px;border-radius:2px;background:#73C1AE"></span>
+          <span style="width:44px;height:20px;border-radius:2px;background:#A070A6"></span>
+          <span style="width:44px;height:20px;border-radius:2px;background:#EBA93D"></span>
+          <span style="width:44px;height:20px;border-radius:2px;background:#469DBB"></span>
+          <span style="width:44px;height:20px;border-radius:2px;background:#192332"></span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ viz }}" as="v" hint-placeholder-count="5">
+            <div style="display:flex;gap:10px;font:400 13.5px/21px 'Manrope',sans-serif;color:#666666"><span style="color:#73C1AE;font-weight:700">—</span><span>{{ v }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ACCESSIBILITY & DARK ═══ -->
+<div data-screen-label="Accessibility" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">14 · ACCESSIBILITY &amp; DARK MODE</div>
+    <h2 class="mz-reveal" style="margin:0 0 40px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Non-negotiables</h2>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ a11y }}" as="a" hint-placeholder-count="6">
+          <div style="display:flex;gap:10px;font:400 14px/22px 'Manrope',sans-serif;color:#333333"><span style="color:#2CD552;font-weight:700">✓</span><span>{{ a }}</span></div>
+        </sc-for>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;overflow:hidden">
+        <div style="display:grid;grid-template-columns:1fr 100px 100px;gap:12px;padding:12px 20px;background:#F6F7F9;font:600 11px 'Manrope',sans-serif;letter-spacing:.4px;color:#838383;text-transform:uppercase"><span>Token</span><span>Light</span><span>Dark</span></div>
+        <sc-for list="{{ dark }}" as="d" hint-placeholder-count="6">
+          <div style="display:grid;grid-template-columns:1fr 100px 100px;gap:12px;padding:11px 20px;border-top:1px solid #F1F1F1;align-items:center">
+            <span style="font:400 13px 'Manrope',sans-serif;color:#333333">{{ d.name }}</span>
+            <span style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:14px;border-radius:3px;border:1px solid #E1E1E1;background:{{ d.light }}"></span><span style="font:400 10px 'IBM Plex Mono',monospace;color:#A5A5A5">{{ d.light }}</span></span>
+            <span style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:14px;border-radius:3px;border:1px solid #E1E1E1;background:{{ d.dk }}"></span><span style="font:400 10px 'IBM Plex Mono',monospace;color:#A5A5A5">{{ d.dk }}</span></span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DON'TS ═══ -->
+<div data-screen-label="Responsive" style="padding:96px 48px 0">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">15 · RESPONSIVE &amp; TOUCH</div>
+    <h2 class="mz-reveal" style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">One canvas, every pocket</h2>
+    <p class="mz-reveal" style="margin:0 0 40px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:640px">Our buyers read us on the move. Every page carries the same responsive layer (mz-responsive.css) and the same mobile nav (mz-nav.js); nothing is re-decided per page. Desktop is the source of truth, mobile is the same truth reflowed.</p>
+    <div class="mz-reveal" style="display:flex;flex-direction:column;border-top:1px solid #192332;margin-bottom:56px">
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">≤ 980</span>
+        <span style="font:400 15px/24px 'Manrope',sans-serif;color:#333333">Two-pane grids collapse to one column · display type steps to 44px</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">≤ 860</span>
+        <span style="font:400 15px/24px 'Manrope',sans-serif;color:#333333">Nav becomes the 64px mobile bar (BOOK pill + burger) · gutters 48 → 20 · H1 36 / H2 28 · pill CTAs may wrap to two centered lines · small text links gain invisible ≥44px hit areas</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">≤ 760</span>
+        <span style="font:400 15px/24px 'Manrope',sans-serif;color:#333333">Every grid single-column · flex rows wrap · decorative SVG dropped · grid children guarded with min-width 0 (no blowouts)</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">≤ 540</span>
+        <span style="font:400 15px/24px 'Manrope',sans-serif;color:#333333">Wordmark reduces to the glyph on pages without the burger (campaign landing)</span>
+      </div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #E1E1E1">
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#A5A5A5">≤ 480</span>
+        <span style="font:400 15px/24px 'Manrope',sans-serif;color:#333333">Display 30px · micro-labels floor at 11px · nothing smaller ships</span>
+      </div>
+    </div>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:280px 280px 1fr;gap:48px;align-items:start">
+      <div>
+        <div style="border:1px solid #E1E1E1;border-radius:4px;overflow:hidden;box-shadow:2px 0 10px rgba(0,0,0,0.1)">
+          <div style="height:52px;background:rgba(255,255,255,.92);border-bottom:1px solid #E6EAF3;display:flex;align-items:center;justify-content:space-between;padding:0 12px">
+            <span style="display:flex;align-items:center;gap:6px"><img src="assets/maslow-mark-gradient.svg" alt="" style="width:24px;height:15px"><span style="font:600 9px 'Manrope',sans-serif;letter-spacing:1.4px;color:#191F32">MASLOW</span></span>
+            <span style="display:flex;align-items:center;gap:6px">
+              <span style="height:28px;display:inline-flex;align-items:center;padding:0 10px;border-radius:6px;background:#EE7BB3;font:600 7px 'Manrope',sans-serif;letter-spacing:1.2px;color:#FFFFFF">BOOK A CALL</span>
+              <span style="width:32px;height:32px;border:1px solid #E6EAF3;border-radius:7px;display:flex;align-items:center;justify-content:center"><span style="width:15px;display:flex;flex-direction:column;align-items:flex-end;gap:3px"><span style="width:7px;height:1.5px;background:#192332"></span><span style="width:11px;height:1.5px;background:#192332"></span><span style="width:15px;height:1.5px;background:#192332"></span></span></span>
+            </span>
+          </div>
+          <div style="height:64px;background:#FFFFFF;padding:12px;display:flex;flex-direction:column;gap:6px"><span style="width:70%;height:8px;background:#F1F1F1;border-radius:2px"></span><span style="width:45%;height:8px;background:#F1F1F1;border-radius:2px"></span></div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:12px 0 2px">Mobile bar · ≤860px</div>
+        <div style="font:400 11px/17px 'IBM Plex Mono',monospace;color:#A5A5A5">64px sticky · pill 44px · burger 48×48 r10 · staircase bars 10/16/22 (the ascent)</div>
+      </div>
+      <div>
+        <div style="border-radius:4px;overflow:hidden;background:#192332;padding:16px 14px;position:relative;box-shadow:2px 0 10px rgba(0,0,0,0.1)">
+          <img src="assets/maslow-mark-white.svg" alt="" style="position:absolute;right:-18px;bottom:-14px;width:90px;opacity:.07">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+            <span style="display:flex;align-items:center;gap:5px"><img src="assets/maslow-mark-white.svg" alt="" style="width:20px;height:13px"><span style="font:600 8px 'Manrope',sans-serif;letter-spacing:1.4px;color:#FFFFFF">MASLOW</span></span>
+            <span style="width:26px;height:26px;border:1px solid rgba(184,196,217,.32);border-radius:6px;display:flex;align-items:center;justify-content:center;font:400 11px 'Manrope',sans-serif;color:#FFFFFF">✕</span>
+          </div>
+          <div style="font:500 6px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#B8C4D9;margin-bottom:4px">NAVIGATE</div>
+          <div style="display:flex;align-items:center;gap:8px;padding:9px 1px;border-bottom:1px solid rgba(184,196,217,.16)"><span style="font:500 7px 'IBM Plex Mono',monospace;color:#73C1AE">01</span><span style="font:600 12px 'Manrope',sans-serif;letter-spacing:-.2px;color:#FFF860">SERVICES</span><span style="margin-left:auto;font:500 5px 'IBM Plex Mono',monospace;letter-spacing:1px;color:#FFF860">YOU ARE HERE</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding:9px 1px;border-bottom:1px solid rgba(184,196,217,.16)"><span style="font:500 7px 'IBM Plex Mono',monospace;color:#A070A6">02</span><span style="font:600 12px 'Manrope',sans-serif;letter-spacing:-.2px;color:#FFFFFF">CONCEPTS</span><span style="margin-left:auto;font:400 9px 'Manrope',sans-serif;color:rgba(184,196,217,.55)">↗</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding:9px 1px;border-bottom:1px solid rgba(184,196,217,.16)"><span style="font:500 7px 'IBM Plex Mono',monospace;color:#EBA93D">03</span><span style="font:600 12px 'Manrope',sans-serif;letter-spacing:-.2px;color:#FFFFFF">CASE STUDIES</span><span style="margin-left:auto;font:400 9px 'Manrope',sans-serif;color:rgba(184,196,217,.55)">↗</span></div>
+          <div style="height:24px;border-radius:5px;background:#EE7BB3;display:flex;align-items:center;justify-content:center;font:600 7px 'Manrope',sans-serif;letter-spacing:1.4px;color:#FFFFFF;margin-top:12px">BOOK A CONSULTATION</div>
+          <div style="height:24px;border-radius:5px;border:1px solid rgba(184,196,217,.4);display:flex;align-items:center;justify-content:center;font:600 7px 'Manrope',sans-serif;letter-spacing:1.4px;color:#FFFFFF;margin-top:6px">TAKE THE 2-MINUTE ASSESSMENT</div>
+        </div>
+        <div style="font:600 12px 'Manrope',sans-serif;color:#333333;margin:12px 0 2px">Curtain menu</div>
+        <div style="font:400 11px/17px 'IBM Plex Mono',monospace;color:#A5A5A5">navy wipe .5s cubic-bezier(.75,0,.2,1) · rows 60px, stagger 55ms · index in pillar tick · current page #FFF860 + YOU ARE HERE · both CTAs, always</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div>
+          <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:8px">Touch rules</div>
+          <div style="font:400 13.5px/22px 'Manrope',sans-serif;color:#666666">Hit areas <b style="color:#1A1A1A">≥44px</b>, expanded with padding + negative margin, never by resizing type. Tap feedback is brand pink at 16% plus <b style="color:#1A1A1A">:active scale .96</b>. Inputs 16px or larger so iOS never zooms.</div>
+        </div>
+        <div>
+          <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:8px">Thumb first</div>
+          <div style="font:400 13.5px/22px 'Manrope',sans-serif;color:#666666">The pink action is never more than one tap away: BOOK pill in the bar, both CTAs inside the menu, email links open the mail app. Anchors respect the sticky bar (scroll-margin 96px).</div>
+        </div>
+        <div>
+          <div style="font:600 12px 'Manrope',sans-serif;letter-spacing:.4px;color:#333333;text-transform:uppercase;margin-bottom:8px">Non-negotiables</div>
+          <div style="font:400 13.5px/22px 'Manrope',sans-serif;color:#666666">Zero horizontal scroll at 390px. Menu traps focus, closes on Escape, locks body scroll, honors safe-area insets and reduced motion. 3D scenes reflow on rotation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NEVER ═══ -->
+<div data-screen-label="Donts" style="padding:96px 48px 96px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="mz-reveal" style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">16 · NEVER</div>
+    <div class="mz-reveal" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px;border-top:1px solid #192332">
+      <sc-for list="{{ donts }}" as="d" hint-placeholder-count="8">
+        <div style="display:flex;gap:12px;align-items:baseline;padding:16px 0;border-bottom:1px solid #E1E1E1;font:400 14.5px/23px 'Manrope',sans-serif;color:#333333"><span style="color:#D52C2C;font-weight:700">✕</span><span>{{ d }}</span></div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div data-screen-label="Footer" style="background:#192332;padding:40px 48px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="Maslow" style="width:28px;height:19px">
+      <span style="font:600 13px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+    </span>
+    <a href="Maslow Homepage.dc.html" style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2">APPLIED · HOMEPAGE&nbsp;&nbsp;&gt;</a>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    this._scheduleReveal();
+    return {
+      principles: [
+        { num: '01', color: '#192332', name: 'Type leads', desc: 'Manrope at display scale is the hero image. No stock renders, no floating brains; the words carry the page.' },
+        { num: '02', color: '#73C1AE', name: 'Structural honesty', desc: '1px hairlines, visible grids, sharp 4px corners and the offset "stacked paper" shadow. Tactile, not glossy.' },
+        { num: '03', color: '#DA85B2', name: 'Color as wayfinding', desc: 'Accents mean something: pink = act, teal = technology, purple = strategy, orange = editorial. Never decoration.' },
+        { num: '04', color: '#A070A6', name: 'Purposeful motion', desc: 'One reveal on scroll, micro-lifts on hover, a highlight that draws itself. 250ms micro, 700ms reveal, reduced-motion safe.' },
+        { num: '05', color: '#EBA93D', name: 'One system, every asset', desc: 'The same nine type levels, pillar colors and navy bands scale from website to 1920×1080 decks to Letter documents.' },
+      ],
+      brand: [
+        { name: 'Dark navy', hex: '#192332', role: 'Primary text, dark bands, footer' },
+        { name: 'Band navy', hex: '#121D35', role: 'Full-bleed dark sections, stats' },
+        { name: 'Accent pink', hex: '#DA85B2', role: 'CTA links, interactive text' },
+        { name: 'Hot pink', hex: '#EE7BB3', role: 'Buttons, submit, primary action' },
+        { name: 'Accent teal', hex: '#73C1AE', role: 'Technology, stats, quote marks, focus' },
+        { name: 'Accent purple', hex: '#A070A6', role: 'Strategy, case study badges' },
+        { name: 'Accent orange', hex: '#EBA93D', role: 'Design, article badges' },
+        { name: 'Bright yellow', hex: '#FFF860', role: 'Highlight underline only, never a fill' },
+      ],
+      neutrals: [
+        { name: 'White', hex: '#FFFFFF' }, { name: 'Off-white', hex: '#F6F7F9' }, { name: 'Light grey', hex: '#F1F1F1' }, { name: 'Border', hex: '#E1E1E1' },
+        { name: 'Nav border', hex: '#E6EAF3' }, { name: 'Meta', hex: '#A5A5A5' }, { name: 'Body grey', hex: '#666666' }, { name: 'Near black', hex: '#1A1A1A' },
+      ],
+      semantics: [
+        { label: 'STRATEGY', hex: '#A070A6', use: 'Planning content, case-study badges, label-purple #654C8F for metadata' },
+        { label: 'TECHNOLOGY', hex: '#73C1AE', use: 'Data & engineering content, stat accents, focus rings' },
+        { label: 'DESIGN', hex: '#EBA93D', use: 'Creative content, article badges, yellow highlight companion' },
+        { label: 'ACTION', hex: '#DA85B2', use: 'Everything clickable: links #DA85B2, buttons #EE7BB3' },
+      ],
+      gradients: [
+        { name: 'Logo gradient', css: 'linear-gradient(90deg,#F377B3,#6DC4AD)', use: 'The mark only; userSpaceOnUse across full viewBox' },
+        { name: 'Card teal–pink', css: 'linear-gradient(140deg,#86E8CE,#E686B5)', use: 'Case-study image masks' },
+        { name: 'Card grey–coral', css: 'linear-gradient(140deg,#4C4C4C,#F37779)', use: 'Case-study image masks, alt' },
+        { name: 'Hero pink overlay', css: 'linear-gradient(0deg,rgba(238,123,179,.5),rgba(238,123,179,.5)),#121D35', use: '~50% scrim over landing hero imagery' },
+      ],
+      spacing: [
+        { px: '4', w: '4px', use: 'icon padding' }, { px: '8', w: '8px', use: 'inline' }, { px: '12', w: '12px', use: 'small gaps' }, { px: '16', w: '16px', use: 'card padding, gutters' },
+        { px: '24', w: '24px', use: 'component padding' }, { px: '32', w: '32px', use: 'section padding' }, { px: '48', w: '48px', use: 'blocks' }, { px: '96', w: '96px', use: 'section gap' },
+      ],
+      motion: [
+        { token: '250ms · ease-out', name: 'Micro', desc: 'Hovers, color shifts, button lifts. Felt, not watched.' },
+        { token: '700ms · cubic-bezier(.2,.7,.2,1)', name: 'Reveal', desc: 'Sections rise 22px + fade once, on first scroll into view.' },
+        { token: '120ms stagger', name: 'Sequence', desc: 'Hero elements enter in reading order: eyebrow → headline → lead → CTAs.' },
+        { token: 'scaleX 0→1 · 800ms', name: 'Highlight', desc: 'The yellow marker underline draws itself left-to-right after the headline lands.' },
+      ],
+      assets: [
+        { name: 'Website', canvas: '1400PX CANVAS', rules: ['Type levels 1–9 as specified; hero = L1 60px', 'White canvas, off-white alternation, one navy band per page', 'Nav 83px with gradient mark; footer navy with white mark, no "| AI"', 'Reveal-on-scroll + micro-hovers everywhere interactive'] },
+        { name: 'Decks', canvas: '1920 × 1080', rules: ['Scale type ×2: titles 96–120px, body never under 24px', 'Title + section-divider slides on band navy with white mark', 'Stats in accent colors on navy: teal, purple, yellow', 'One pillar accent per slide; pink reserved for the ask/CTA'] },
+        { name: 'Documents', canvas: 'LETTER / A4', rules: ['Manrope 11–12pt body (#333), navy headings, 12pt minimum', 'Mono micro-labels for metadata (dates, doc numbers)', 'Pink CTA-link pattern for actions and references', 'Hairline #E1E1E1 rules between sections; no heavy boxes'] },
+      ],
+      photo: [
+        { m: '✓', c: '#2CD552', t: 'Real teams at real work: workshops, whiteboards, screens in context' },
+        { m: '✓', c: '#2CD552', t: 'Natural light, soft contrast; teal / pink / purple as accents in frame' },
+        { m: '✕', c: '#D52C2C', t: 'Sterile labs, anonymous hands on keyboards, robot handshakes' },
+        { m: '✕', c: '#D52C2C', t: 'Hype-futurism and generic AI stock of any kind' },
+      ],
+      voice: [
+        { m: '✓', c: '#2CD552', t: '"We help you get there — step by step." Confident + approachable.' },
+        { m: '✓', c: '#2CD552', t: 'Lead with benefits; "we" and "you"; the client is the hero.' },
+        { m: '✓', c: '#2CD552', t: 'Specific over generic: "3 AI pilots", not "several projects".' },
+        { m: '✕', c: '#D52C2C', t: '"Revolutionary", "disruptive", "game-changing": never.' },
+        { m: '✕', c: '#D52C2C', t: 'Technology jargon as the opener.' },
+        { m: '✕', c: '#D52C2C', t: 'Passive-voice CTAs or promises without evidence.' },
+      ],
+      viz: [
+        'One metric, one accent: teal first, then purple, orange, cool-blue, navy',
+        'Yellow is the callout, never a series',
+        'Gridlines #F1F1F1, axes and labels in mono 11px #A5A5A5',
+        'Bars and areas square-cornered (2px max); no 3D, no gradients in data',
+        'On navy (decks): same series order, labels white, grid #3A4A6B',
+      ],
+      a11y: [
+        'Focus visible everywhere: 2px teal #73C1AE outline, 2px offset',
+        'WCAG AA contrast: 4.5:1 body, 3:1 large; pink text only at 18px+ or bold on white',
+        'Status = dot + text, never color alone',
+        'Every input labeled; errors announced via aria',
+        'Meaningful images get alt text; decorative get alt=""',
+        'prefers-reduced-motion honored; state readable when static',
+      ],
+      dark: [
+        { name: 'Background', light: '#FFFFFF', dk: '#121D35' },
+        { name: 'Surface', light: '#FFFFFF', dk: '#1A2847' },
+        { name: 'Surface alt', light: '#F6F7F9', dk: '#243356' },
+        { name: 'Text primary', light: '#333333', dk: '#FFFFFF' },
+        { name: 'Text secondary', light: '#666666', dk: '#B8C4D9' },
+        { name: 'Border', light: '#E1E1E1', dk: '#3A4A6B' },
+      ],
+      donts: [
+        'Graphik, Nocturno or GraphikCond: legacy fonts, not in production',
+        'Centered card shadows; offset right + down or matte only',
+        'Pink as a background fill; it is an action color',
+        'Bright yellow as a background; highlight underline only',
+        'Pure black #000000 text; use #333333 on light',
+        'Badge corners over 17px radius',
+        'Generic AI imagery: brains, robots, purple nebulae',
+        'Hype copy: "revolutionary", "game-changing", "disruptive"',
+        'A page without mz-responsive.css + mz-nav.js; the mobile layer ships with every page',
+        'Tap targets under 44px, or the primary CTA hidden behind the burger',
+      ],
+    };
+  }
+  _scheduleReveal() {
+    if (this._revealScheduled) return;
+    this._revealScheduled = true;
+    setTimeout(() => {
+      const reveal = (el) => { el.setAttribute('data-mz-in', '1'); this._io.unobserve(el); };
+      this._io = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) reveal(e.target); }); }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+      this._observeAll = () => document.querySelectorAll('.mz-reveal:not([data-mz-in])').forEach(el => this._io.observe(el));
+      this._sweep = () => document.querySelectorAll('.mz-reveal:not([data-mz-in])').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight + 40 && r.bottom > -40) reveal(el); });
+      document.body.classList.add('mz-anim');
+      this._observeAll();
+      this._mo = new MutationObserver(this._observeAll);
+      this._mo.observe(document.body, { childList: true, subtree: true });
+      [900, 2200, 4500].forEach(t => setTimeout(() => { this._observeAll(); this._sweep(); }, t));
+      let st; window.addEventListener('scroll', () => { clearTimeout(st); st = setTimeout(this._sweep, 160); }, { passive: true });
+    }, 60);
+  }
+  componentDidMount() { this._scheduleReveal(); }
+  componentDidUpdate() { if (this._observeAll) this._observeAll(); }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); if (this._mo) this._mo.disconnect(); }
+}
+</script>
+</body>
+</html>

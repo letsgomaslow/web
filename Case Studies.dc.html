@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#192332">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#DA85B2">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="padding:88px 48px 56px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:26px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both">CASE STUDIES</div>
+    <h1 style="margin:0 0 20px;font:600 60px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">Proof, not promises</h1>
+    <p style="margin:0;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:620px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">How organisations used context engineering, agentic harnesses and local AI to change what a workday looks like.</p>
+  </div>
+</div>
+
+<!-- ═══════ CASE BLOCKS ═══════ -->
+<div data-screen-label="Case Blocks" style="padding:24px 48px 56px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:24px">
+    <sc-for list="{{ cases }}" as="cs" hint-placeholder-count="5">
+      <a href="{{ cs.href }}" class="mz-reveal" style="display:grid;grid-template-columns:380px 1fr;border:1px solid #F1F1F1;border-radius:4px;overflow:hidden;background:#FFFFFF;color:#333333;box-shadow:2px 0 10px rgba(0,0,0,0.06);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s" style-hover="transform:translateY(-4px);box-shadow:17px 9px 5px rgba(0,0,0,0.15);color:#333333">
+        <div style="background:{{ cs.art }};padding:32px;display:flex;flex-direction:column;justify-content:space-between;min-height:320px;position:relative;overflow:hidden">
+          <span style="font:700 11px 'DM Sans',sans-serif;letter-spacing:2px;color:#FFFFFF;border:1px solid rgba(255,255,255,.45);border-radius:2px;padding:6px 10px;align-self:flex-start;position:relative;z-index:1">{{ cs.sector }}</span>
+          <img src="assets/maslow-mark-white.svg" alt="" style="position:absolute;right:-24px;bottom:-30px;width:220px;opacity:.1">
+          <div style="position:relative;z-index:1">
+            <div style="font:400 44px/48px 'Manrope',sans-serif;letter-spacing:-1px;color:#FFFFFF">{{ cs.metric }}</div>
+            <div style="font:400 13.5px/20px 'Manrope',sans-serif;color:rgba(255,255,255,.85);margin-top:4px">{{ cs.metricLabel }}</div>
+          </div>
+        </div>
+        <div style="padding:36px 40px;display:flex;flex-direction:column;gap:20px">
+          <div style="font:700 24px/30px 'Manrope',sans-serif;letter-spacing:-.57px;color:#1A1A1A">{{ cs.title }}</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+            <div>
+              <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#A070A6;margin-bottom:8px">CHALLENGE</div>
+              <div style="font:400 14px/22px 'Manrope',sans-serif;color:#666666">{{ cs.challenge }}</div>
+            </div>
+            <div>
+              <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#73C1AE;margin-bottom:8px">SOLUTION</div>
+              <div style="font:400 14px/22px 'Manrope',sans-serif;color:#666666">{{ cs.solution }}</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+            <sc-for list="{{ cs.results }}" as="r" hint-placeholder-count="3">
+              <span style="font:600 13px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 16px;background:#F6F7F9;border-radius:17px;color:#192332;white-space:nowrap">{{ r }}</span>
+            </sc-for>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;gap:16px">
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <sc-for list="{{ cs.stack }}" as="t" hint-placeholder-count="3">
+                <span style="font:400 10px 'IBM Plex Mono',monospace;letter-spacing:1px;padding:6px 10px;border:1px solid #E1E1E1;border-radius:2px;color:#838383;white-space:nowrap">{{ t }}</span>
+              </sc-for>
+            </div>
+            <span style="font:700 9px/13px 'Manrope',sans-serif;letter-spacing:2px;color:#DA85B2;white-space:nowrap">VIEW CASE STUDY&nbsp;&nbsp;&gt;</span>
+          </div>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</div>
+
+<!-- ═══════ CTA · navy band ═══════ -->
+<div data-screen-label="CTA" style="background:#121D35;color:#FFFFFF;padding:72px 48px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:40px">
+    <div>
+      <h2 style="margin:0 0 10px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">Your operation could be the next one here.</h2>
+      <div style="font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9">Start with a working session. We'll map where AI pays in your workflows.</div>
+    </div>
+    <a href="Contact.dc.html" style="flex:none;height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<div data-screen-label="Footer" style="background:#192332;color:#FFFFFF;padding:40px 48px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:28px;height:19px">
+      <span style="font:600 13px 'Manrope',sans-serif;letter-spacing:2px">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px;font:400 13px 'Manrope',sans-serif">
+      <a href="Maslow Homepage.dc.html" style="color:#B8C4D9">Home</a>
+      <a href="Services.dc.html" style="color:#B8C4D9">Services</a>
+      <a href="Blog.dc.html" style="color:#B8C4D9">Blog</a>
+      <a href="Contact.dc.html" style="color:#B8C4D9">Contact</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      cases: [
+        {
+          sector: 'MANUFACTURING · REAL ENGAGEMENT', art: 'linear-gradient(140deg,#86E8CE,#E686B5)',
+          metric: '1.33×', metricLabel: 'base-case enterprise value path (appraisal math)',
+          title: 'Infinite AI OS: from tribal knowledge to an AI operating system in 90 days',
+          challenge: 'Estimating, quoting, reporting and file search all ran on manual effort and knowledge locked in people\u2019s heads: high cost to serve and high key-person risk.',
+          solution: 'Four named AI employees (a manager and three specialists) working in Microsoft Teams, standing on a six-layer root system: company memory, knowledge map, file intake, profiles, tool connectors and observability.',
+          results: ['4 AI employees live in Teams', '3 core systems in production', '90 days idea → foundation'],
+          stack: ['VIRTUAL_EMPLOYEES', 'KNOWLEDGE_GRAPH', 'TEAMS_GATEWAY', 'HARNESS'],
+          href: 'Case Study - Infinite AI OS.dc.html',
+        },
+        {
+          sector: 'HEALTHCARE ENTERPRISE · REAL ENGAGEMENT', art: 'linear-gradient(140deg,#4C4C4C,#F37779)',
+          metric: '93%', metricLabel: 'intent-routing accuracy across a 28-case live test suite',
+          title: 'AgentHub: an AI hub that reviews contracts, not just stores prompts',
+          challenge: 'Knowledge workers had no shared home for prompts that work, and no fast, trustworthy way to interrogate dense Statement-of-Work documents.',
+          solution: 'A department-organised prompt library as the front door; behind it, an agentic SOW reviewer with parallel vector + knowledge-graph retrieval, field-level citations, and a generative-UI chat that answers in charts, tables and drafted documents.',
+          results: ['Field-level citations', '7 generative-UI widgets', '50-SOW grounded corpus'],
+          stack: ['HYBRID_RAG', 'KNOWLEDGE_GRAPH', 'GENERATIVE_UI', 'INTENT_ROUTING'],
+          href: 'Case Study - AgentHub.dc.html',
+        },
+        {
+          sector: 'FINANCIAL SERVICES', art: '#121D35',
+          metric: '−58%', metricLabel: 'time-to-answer across compliance teams',
+          title: '120,000 documents, one knowledge graph',
+          challenge: 'Decades of contracts, policies and memos scattered across shares. Compliance answers took days of manual digging and senior staff time.',
+          solution: 'Full ingestion pipeline: files chunked and embedded into a vector DB, entities and obligations extracted into a knowledge graph. Hybrid RAG with citations, deployed behind their firewall.',
+          results: ['−58% time-to-answer', '100% citation coverage', '14-day ingestion'],
+          stack: ['HYBRID_RAG', 'KNOWLEDGE_GRAPH', 'ON_PREM'],
+          href: '#',
+        },
+        {
+          sector: 'LEGAL', art: '#401877',
+          metric: '3.2×', metricLabel: 'client intake capacity, same headcount',
+          title: 'A virtual paralegal in the inbox',
+          challenge: 'Intake requests arrived by email at all hours. Partners triaged manually; slow responses were losing engagements to faster firms.',
+          solution: 'A virtual AI employee connected to the shared inbox via an email gateway. It triages intake, drafts engagement letters grounded in precedent, escalates edge cases with full audit trail.',
+          results: ['3.2× intake capacity', '<15 min first response', 'Zero unreviewed sends'],
+          stack: ['VIRTUAL_EMPLOYEE', 'EMAIL_GATEWAY', 'HARNESS'],
+          href: '#',
+        },
+        {
+          sector: 'MANUFACTURING', art: '#192332',
+          metric: '−63%', metricLabel: 'inference cost after moving on-prem',
+          title: 'Local AI on the factory floor',
+          challenge: 'Cloud AI costs scaled with every query, and sensitive process data was leaving the building to third-party APIs.',
+          solution: 'Right-sized GPU hardware on site, open models fine-tuned on their procedures, and an agentic harness wired into Teams for the floor supervisors.',
+          results: ['−63% inference cost', 'Zero data egress', 'Flat monthly cost curve'],
+          stack: ['LOCAL_AI', 'OPEN_MODELS', 'TEAMS_GATEWAY'],
+          href: '#',
+        },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzDash{to{stroke-dashoffset:-28}}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#DA85B2">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#192332">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="padding:80px 48px 64px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:400 13px 'Manrope',sans-serif;color:#838383;margin-bottom:22px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both"><a href="Maslow Homepage.dc.html#concepts" style="color:#838383">Concepts</a> / <span style="color:#DA85B2;font-weight:600">Skills &amp; gateways</span> <span style="display:inline-flex;margin-left:12px;font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#A070A6">STRATEGY</span></div>
+    <h1 style="margin:0 0 22px;font:600 56px/60px 'Manrope',sans-serif;letter-spacing:-1.3px;color:#192332;max-width:920px;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">Teach it once. Every agent knows it. Every channel has it.</h1>
+    <p style="margin:0;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:660px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">A <strong>skill</strong> is your firm's way of doing something, written down so an agent can follow it, versioned and testable like code, not buried in a prompt. <strong>Gateways</strong> carry those skills into Teams, Slack and email. Browse the library below.</p>
+  </div>
+</div>
+
+<!-- ═══════ SKILL LIBRARY · navy band ═══════ -->
+<div data-screen-label="Skill Library" style="background:#121D35;color:#FFFFFF;padding:80px 48px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#73C1AE;margin-bottom:28px">INTERACTIVE · A SKILL LIBRARY, UP CLOSE</div>
+    <div style="display:grid;grid-template-columns:380px 1fr;gap:44px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ skills }}" as="s" hint-placeholder-count="4">
+          <div onClick="{{ s.select }}" style="padding:18px 20px;border:1px solid {{ s.border }};border-radius:8px;background:{{ s.bg }};cursor:pointer;transition:all .25s">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+              <span style="font:700 15px 'Manrope',sans-serif;color:#FFFFFF">{{ s.name }}</span>
+              <span style="font:500 10px 'IBM Plex Mono',monospace;color:#73C1AE;border:1px solid rgba(115,193,174,.4);border-radius:2px;padding:3px 8px;white-space:nowrap">{{ s.version }}</span>
+            </div>
+            <div style="font:400 12.5px/18px 'Manrope',sans-serif;color:#B8C4D9">{{ s.summary }}</div>
+          </div>
+        </sc-for>
+        <div style="font:400 12px 'Manrope',sans-serif;color:#B8C4D9;opacity:.7;margin-top:8px">Click a skill to open its definition →</div>
+      </div>
+      <div style="background:#1A2847;border:1px solid #3A4A6B;border-radius:4px;padding:32px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+          <div style="font:700 24px 'Manrope',sans-serif;letter-spacing:-.57px">{{ selName }}</div>
+          <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:1px;color:#B8C4D9;opacity:.7">{{ selMeta }}</div>
+        </div>
+        <div style="font:400 14px/22px 'Manrope',sans-serif;color:#B8C4D9;margin-bottom:24px">{{ selDesc }}</div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <sc-for list="{{ selSteps }}" as="st" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:baseline;padding:13px 0;border-top:1px solid #3A4A6B">
+              <span style="font:700 12px 'DM Sans',sans-serif;color:#73C1AE">{{ st.num }}</span>
+              <span style="font:400 14px/21px 'Manrope',sans-serif;color:#FFFFFF">{{ st.text }}</span>
+              <span style="font:500 9px 'IBM Plex Mono',monospace;letter-spacing:1px;color:{{ st.tagColor }};border:1px solid {{ st.tagBorder }};border-radius:2px;padding:3px 8px;white-space:nowrap">{{ st.tag }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:28px;margin-top:24px;padding-top:20px;border-top:1px solid #3A4A6B">
+          <div>
+            <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#B8C4D9;opacity:.7;margin-bottom:8px">USED BY</div>
+            <div style="display:flex;gap:8px">
+              <sc-for list="{{ selAgents }}" as="a" hint-placeholder-count="2">
+                <span style="font:600 12px 'Manrope',sans-serif;padding:6px 13px;background:rgba(115,193,174,.15);border-radius:17px;color:#FFFFFF;white-space:nowrap">{{ a }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#B8C4D9;opacity:.7;margin-bottom:8px">AVAILABLE THROUGH</div>
+            <div style="display:flex;gap:8px">
+              <sc-for list="{{ selChannels }}" as="ch" hint-placeholder-count="3">
+                <span style="font:600 12px 'Manrope',sans-serif;padding:6px 13px;border:1px solid #3A4A6B;border-radius:17px;color:#B8C4D9;white-space:nowrap">{{ ch }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ GATEWAY DIAGRAM ═══════ -->
+<div data-screen-label="Gateway Diagram" style="padding:96px 48px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">THE PLUMBING</div>
+    <h2 style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Gateways: how one agent lives everywhere</h2>
+    <p style="margin:0 0 44px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:640px">A gateway is a secure two-way connector between a channel and the agent's harness. Messages, files and approvals flow both directions, so the agent behaves like a native member of each tool, while skills, memory and guardrails stay central.</p>
+    <div style="border:1px solid #F1F1F1;border-radius:4px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04);padding:44px">
+      <svg viewBox="0 0 1120 340" style="width:100%">
+        <g stroke="#73C1AE" stroke-width="1.5" stroke-dasharray="5 7" fill="none" style="animation:mzDash 2.4s linear infinite">
+          <path d="M 190 80 C 300 80 320 170 430 170"></path>
+          <path d="M 190 170 L 430 170"></path>
+          <path d="M 190 260 C 300 260 320 170 430 170"></path>
+          <path d="M 620 170 L 760 170"></path>
+        </g>
+        <g>
+          <rect x="60" y="52" width="130" height="56" rx="4" fill="#FFFFFF" stroke="#E1E1E1"></rect>
+          <text x="125" y="86" text-anchor="middle" font-family="Manrope,sans-serif" font-size="15" font-weight="700" fill="#192332">Teams</text>
+          <rect x="60" y="142" width="130" height="56" rx="4" fill="#FFFFFF" stroke="#E1E1E1"></rect>
+          <text x="125" y="176" text-anchor="middle" font-family="Manrope,sans-serif" font-size="15" font-weight="700" fill="#192332">Slack</text>
+          <rect x="60" y="232" width="130" height="56" rx="4" fill="#FFFFFF" stroke="#E1E1E1"></rect>
+          <text x="125" y="266" text-anchor="middle" font-family="Manrope,sans-serif" font-size="15" font-weight="700" fill="#192332">Email</text>
+        </g>
+        <rect x="430" y="128" width="190" height="84" rx="4" fill="#121D35"></rect>
+        <text x="525" y="164" text-anchor="middle" font-family="Manrope,sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Gateway</text>
+        <text x="525" y="186" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#73C1AE">AUTH · TRANSLATION · AUDIT</text>
+        <rect x="760" y="96" width="300" height="148" rx="4" fill="#FFFFFF" stroke="#192332" stroke-width="1.5"></rect>
+        <text x="910" y="130" text-anchor="middle" font-family="Manrope,sans-serif" font-size="16" font-weight="700" fill="#192332">Agent harness</text>
+        <g font-family="'IBM Plex Mono',monospace" font-size="10.5" fill="#192332">
+          <rect x="786" y="150" width="76" height="26" rx="2" fill="none" stroke="#73C1AE"></rect><text x="824" y="167" text-anchor="middle">SKILLS</text>
+          <rect x="872" y="150" width="76" height="26" rx="2" fill="none" stroke="#A070A6"></rect><text x="910" y="167" text-anchor="middle">MEMORY</text>
+          <rect x="958" y="150" width="82" height="26" rx="2" fill="none" stroke="#EBA93D"></rect><text x="999" y="167" text-anchor="middle">CONTEXT</text>
+          <rect x="786" y="186" width="120" height="26" rx="2" fill="none" stroke="#469DBB"></rect><text x="846" y="203" text-anchor="middle">GUARDRAILS</text>
+          <rect x="916" y="186" width="124" height="26" rx="2" fill="none" stroke="#E1E1E1"></rect><text x="978" y="203" text-anchor="middle">MODEL CORE</text>
+        </g>
+        <g font-family="Manrope,sans-serif" font-size="11.5" fill="#A5A5A5">
+          <text x="310" y="150" text-anchor="middle">messages · files</text>
+          <text x="310" y="196" text-anchor="middle">approvals · replies</text>
+          <text x="690" y="160" text-anchor="middle">one secure link</text>
+        </g>
+      </svg>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:18px">
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:28px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04)">
+        <div style="font:700 18px 'Manrope',sans-serif;letter-spacing:-.3px;color:#1A1A1A;margin-bottom:8px">No new app to adopt</div>
+        <div style="font:400 14px/22px 'Manrope',sans-serif;color:#666666">Your team keeps working where they already work. Adoption stops being a change-management project.</div>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:28px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04)">
+        <div style="font:700 18px 'Manrope',sans-serif;letter-spacing:-.3px;color:#1A1A1A;margin-bottom:8px">Scoped, least-privilege access</div>
+        <div style="font:400 14px/22px 'Manrope',sans-serif;color:#666666">Each gateway grants exactly the permissions the workflow needs, and logs every message both ways.</div>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:28px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04)">
+        <div style="font:700 18px 'Manrope',sans-serif;letter-spacing:-.3px;color:#1A1A1A;margin-bottom:8px">Skills compound</div>
+        <div style="font:400 14px/22px 'Manrope',sans-serif;color:#666666">A skill written for the email agent works in Teams the same day. Your library becomes an asset that grows.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CTA + FOOTER ═══════ -->
+<div data-screen-label="CTA" style="background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 48px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-bottom:1px solid #3A4A6B">
+    <div>
+      <h2 style="margin:0 0 10px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">What would your first three skills be?</h2>
+      <div style="font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9">We'll write them with your domain experts and wire them into the channel your team uses most.</div>
+    </div>
+    <a href="Contact.dc.html" style="flex:none;height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:24px;height:16px">
+      <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px">
+      <a href="Explainer - Agentic Harness.dc.html" style="color:#B8C4D9">← Agentic Harness</a>
+      <a href="Explainer - Virtual AI Employees.dc.html" style="color:#B8C4D9">Virtual AI Employees →</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { selected: 0 };
+
+  constructor(props) {
+    super(props);
+    this.lib = [
+      {
+        name: 'Invoice reconciliation', version: 'v1.3', summary: 'Match invoices against contracted terms before payment.',
+        meta: 'UPDATED 12D AGO · 47 RUNS THIS WEEK',
+        desc: 'Given an inbound invoice, verify it against the governing agreement and flag discrepancies before anything is paid.',
+        steps: [
+          { num: '01', text: 'Extract vendor, amount, terms and line items from the invoice', tag: 'PARSE' },
+          { num: '02', text: 'Look up the governing agreement in the knowledge graph', tag: 'CONTEXT' },
+          { num: '03', text: 'Compare payment terms, rates and scope clause-by-clause', tag: 'REASON' },
+          { num: '04', text: 'Draft a correction reply if anything mismatches', tag: 'DRAFT' },
+          { num: '05', text: 'Queue for human approval; never auto-send', tag: 'GUARDRAIL' },
+        ],
+        agents: ['Riley · Ops'], channels: ['Teams', 'Email'],
+      },
+      {
+        name: 'Client intake triage', version: 'v2.0', summary: 'Classify, prioritise and route new client requests.',
+        meta: 'UPDATED 3D AGO · 210 RUNS THIS WEEK',
+        desc: 'Every inbound request gets classified, checked for conflicts, and routed to the right person with context attached.',
+        steps: [
+          { num: '01', text: 'Classify the request type and urgency', tag: 'PARSE' },
+          { num: '02', text: 'Run a conflict check against the client graph', tag: 'CONTEXT' },
+          { num: '03', text: 'Draft an acknowledgment with realistic timeline', tag: 'DRAFT' },
+          { num: '04', text: 'Route to the right owner with a one-paragraph brief', tag: 'ACT' },
+          { num: '05', text: 'Escalate anything ambiguous to a human', tag: 'GUARDRAIL' },
+        ],
+        agents: ['Riley · Ops', 'Sage · Intake'], channels: ['Email', 'Slack'],
+      },
+      {
+        name: 'Contract term lookup', version: 'v1.8', summary: 'Answer term questions with clause-level citations.',
+        meta: 'UPDATED 8D AGO · 132 RUNS THIS WEEK',
+        desc: 'Plain-English questions about any agreement, answered from the governing document with the exact clause cited.',
+        steps: [
+          { num: '01', text: 'Resolve which agreement governs the entity in question', tag: 'CONTEXT' },
+          { num: '02', text: 'Retrieve candidate clauses via hybrid RAG', tag: 'CONTEXT' },
+          { num: '03', text: 'Answer with section numbers and source file linked', tag: 'DRAFT' },
+          { num: '04', text: 'Flag conflicts between documents instead of guessing', tag: 'GUARDRAIL' },
+        ],
+        agents: ['Riley · Ops', 'Sage · Intake'], channels: ['Teams', 'Slack', 'Email'],
+      },
+      {
+        name: 'Meeting brief', version: 'v1.1', summary: 'Assemble a one-page brief before every external meeting.',
+        meta: 'UPDATED 21D AGO · 38 RUNS THIS WEEK',
+        desc: 'Thirty minutes before an external meeting, a brief arrives: who you\u2019re meeting, open threads, and what changed since last time.',
+        steps: [
+          { num: '01', text: 'Pull attendees and history from calendar + CRM', tag: 'CONTEXT' },
+          { num: '02', text: 'Summarise open items and recent correspondence', tag: 'REASON' },
+          { num: '03', text: 'Post the brief to your channel 30 minutes ahead', tag: 'ACT' },
+        ],
+        agents: ['Sage · Intake'], channels: ['Teams', 'Slack'],
+      },
+    ];
+  }
+
+  renderVals() {
+    const sel = this.lib[this.state.selected];
+    const tagColors = { GUARDRAIL: '#EBA93D', CONTEXT: '#73C1AE', PARSE: '#B8C4D9', REASON: '#B8C4D9', DRAFT: '#B8C4D9', ACT: '#B8C4D9' };
+    return {
+      skills: this.lib.map((s, i) => ({
+        name: s.name, version: s.version, summary: s.summary,
+        select: () => this.setState({ selected: i }),
+        border: i === this.state.selected ? '#73C1AE' : '#3A4A6B',
+        bg: i === this.state.selected ? 'rgba(115,193,174,.1)' : 'transparent',
+      })),
+      selName: sel.name, selMeta: sel.meta, selDesc: sel.desc,
+      selSteps: sel.steps.map(st => ({
+        ...st,
+        tagColor: tagColors[st.tag] || '#B8C4D9',
+        tagBorder: st.tag === 'GUARDRAIL' ? 'rgba(235,169,61,.5)' : st.tag === 'CONTEXT' ? 'rgba(115,193,174,.5)' : '#3A4A6B',
+      })),
+      selAgents: sel.agents,
+      selChannels: sel.channels,
+    };
+  }
+}
+</script>
+</body>
+</html>

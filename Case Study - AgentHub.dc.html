@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#192332">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#DA85B2">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="padding:72px 48px 64px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:400 13px 'Manrope',sans-serif;color:#838383;margin-bottom:22px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both"><a href="Case Studies.dc.html" style="color:#838383">Case Studies</a> / <span style="color:#DA85B2;font-weight:600">Enterprise AI Hub</span></div>
+    <div style="display:flex;gap:10px;margin-bottom:26px;animation:mzRise .7s .1s cubic-bezier(.2,.7,.2,1) both">
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;background:#A070A6;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px">CASE STUDY</span>
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;border:1px solid #E1E1E1;color:#666666;font:600 12px 'Manrope',sans-serif;letter-spacing:2px">HEALTHCARE ENTERPRISE</span>
+      <span style="height:34px;display:inline-flex;align-items:center;padding:0 18px;border-radius:17px;background:#121D35;color:#73C1AE;font:600 12px 'Manrope',sans-serif;letter-spacing:2px">AGENTHUB</span>
+    </div>
+    <h1 style="margin:0 0 24px;font:600 58px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;max-width:940px;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">An enterprise AI hub that reviews contracts, not just stores prompts.</h1>
+    <p style="margin:0 0 44px;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:700px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">Built for {{ clientName }} under the Maslow AI brand: a department-organised prompt library as the front door; behind it, a Statement-of-Work review agent with graph-augmented retrieval, field-level citations, and a chat that answers in charts, tables and drafted documents instead of walls of text.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;animation:mzRise .8s .45s cubic-bezier(.2,.7,.2,1) both">
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:22px;box-shadow:2px 0 10px rgba(0,0,0,0.06);border-top:2px solid #73C1AE">
+        <div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">7</div>
+        <div style="font:400 13px/19px 'Manrope',sans-serif;color:#838383;margin-top:4px">generative-UI widgets the agent can answer with</div>
+      </div>
+      <div style="background:#121D35;border-radius:4px;padding:22px">
+        <div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#FFF860">93%</div>
+        <div style="font:400 13px/19px 'Manrope',sans-serif;color:#B8C4D9;margin-top:4px">intent-routing accuracy on a 28-case live test suite</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:22px;box-shadow:2px 0 10px rgba(0,0,0,0.06);border-top:2px solid #A070A6">
+        <div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">50</div>
+        <div style="font:400 13px/19px 'Manrope',sans-serif;color:#838383;margin-top:4px">SOW corpus, chunked by document structure</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid #F1F1F1;border-radius:4px;padding:22px;box-shadow:2px 0 10px rgba(0,0,0,0.06);border-top:2px solid #EBA93D">
+        <div style="font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">11</div>
+        <div style="font:400 13px/19px 'Manrope',sans-serif;color:#838383;margin-top:4px">departments in the curated prompt library</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CHALLENGE ═══════ -->
+<div data-screen-label="Challenge" style="padding:88px 48px 56px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:380px 1fr;gap:64px">
+    <div>
+      <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">THE CHALLENGE</div>
+      <h2 style="margin:0;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;color:#192332">Two problems wearing one interface</h2>
+    </div>
+    <div style="font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#333333">
+      <p style="margin:0 0 18px">Enterprise knowledge workers had no shared home for the prompts that actually work, and no fast, trustworthy way to interrogate dense Statement-of-Work documents. "What are the termination terms?" meant an afternoon of reading. "Where's the duplicate-spend risk across these vendors?" meant nobody checked.</p>
+      <p style="margin:0">So AgentHub is two products in one: a curated, community-style <strong>prompt library</strong> organised by department as the front door, and an <strong>agentic SOW reviewer</strong> as the engine, grounded in the documents themselves.</p>
+    </div>
+  </div>
+</div>
+
+<div data-screen-label="Two Layers" style="padding:0 48px 88px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div style="border:1px solid #F1F1F1;border-radius:4px;padding:38px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.06)">
+      <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#A5A5A5;margin-bottom:14px">THE FRONT DOOR</div>
+      <div style="font:700 24px/28px 'Manrope',sans-serif;letter-spacing:-.57px;color:#1A1A1A;margin-bottom:12px">Department prompt library</div>
+      <div style="font:400 14.5px/23px 'Manrope',sans-serif;color:#666666;margin-bottom:20px">Eleven colour-coded departments, real-time search, likes and comments, public/private prompts, per-user categories. Every prompt opens straight into the AI chat; the library is how people discover what the agent can do.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        <span style="font:600 11.5px 'Manrope',sans-serif;padding:7px 14px;background:#F6F7F9;border-radius:17px;color:#192332">Marketing</span>
+        <span style="font:600 11.5px 'Manrope',sans-serif;padding:7px 14px;background:#F6F7F9;border-radius:17px;color:#192332">Legal</span>
+        <span style="font:600 11.5px 'Manrope',sans-serif;padding:7px 14px;background:#F6F7F9;border-radius:17px;color:#192332">R&amp;D</span>
+        <span style="font:600 11.5px 'Manrope',sans-serif;padding:7px 14px;background:#F6F7F9;border-radius:17px;color:#192332">Finance</span>
+        <span style="font:600 11.5px 'Manrope',sans-serif;padding:7px 14px;background:#F6F7F9;border-radius:17px;color:#192332">Supply Chain</span>
+        <span style="font:600 11.5px 'Manrope',sans-serif;padding:7px 14px;background:#F6F7F9;border-radius:17px;color:#192332">+6 more</span>
+      </div>
+    </div>
+    <div style="border-radius:4px;padding:38px;background:#121D35;color:#FFFFFF">
+      <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#73C1AE;margin-bottom:14px">THE ENGINE</div>
+      <div style="font:700 24px/28px 'Manrope',sans-serif;letter-spacing:-.57px;margin-bottom:12px">Agentic SOW reviewer</div>
+      <div style="font:400 14.5px/23px 'Manrope',sans-serif;color:#B8C4D9;margin-bottom:20px">Ask a contract corpus questions in plain English ("compare the day rates across these SOWs") and get grounded answers with citations to the exact field in the source document, via parallel dense-vector and knowledge-graph retrieval.</div>
+      <div style="font:500 12px 'IBM Plex Mono',monospace;color:#73C1AE;display:flex;flex-direction:column;gap:6px">
+        <span>▸ VECTOR SEARCH · top-5 · 3072-dim embeddings</span>
+        <span>▸ KNOWLEDGE GRAPH · entities + one-hop neighbours</span>
+        <span>▸ CITATIONS · down to the exact jsonPath field</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ RAG PIPELINE · navy band ═══════ -->
+<div data-screen-label="RAG Pipeline" style="padding:88px 48px;background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#73C1AE;margin-bottom:16px">DEEP DIVE · HYBRID RAG</div>
+    <h2 style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">From 50 contracts to field-level answers</h2>
+    <p style="margin:0 0 44px;font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9;max-width:680px">Parallel dense-vector and knowledge-graph retrieval, fused as grounded context, with every answer citing the exact field it came from. If the graph is unavailable, retrieval degrades gracefully to vector-only.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+      <sc-for list="{{ pipeline }}" as="p" hint-placeholder-count="6">
+        <div style="border:1px solid #3A4A6B;border-radius:4px;padding:26px;background:#1A2847">
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px">
+            <span style="font:700 12px 'DM Sans',sans-serif;color:#73C1AE">{{ p.num }}</span>
+            <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:1px;color:#B8C4D9;opacity:.7">{{ p.tag }}</span>
+          </div>
+          <div style="font:700 18px 'Manrope',sans-serif;letter-spacing:-.3px;margin-bottom:8px">{{ p.name }}</div>
+          <div style="font:400 13px/20px 'Manrope',sans-serif;color:#B8C4D9">{{ p.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:24px;border:1px dashed #3A4A6B;border-radius:4px;padding:20px 26px;display:flex;gap:18px;align-items:center">
+      <span style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:1px;color:#FFF860;flex:none">PROVENANCE, VISIBLE</span>
+      <span style="font:400 13.5px/21px 'Manrope',sans-serif;color:#B8C4D9">Retrieval telemetry surfaces as data-source badges on every answer: "Vector Search · 5 results · top score 0.82", "Knowledge Graph · 12 entities"; a live Activity Panel shows the agent's searches, tool rounds and prompt modifications as they happen.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ INTENT + GENERATIVE UI ═══════ -->
+<div data-screen-label="Intent Engineering" style="padding:88px 48px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">DEEP DIVE · INTENT ENGINEERING &amp; GENERATIVE UI</div>
+    <h2 style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">The agent decides <em>what kind</em> of answer to give, before it answers</h2>
+    <p style="margin:0 0 40px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:680px">Every message is routed through a deterministic intent layer: tool request, document drafting, data-heavy, narrative, off-topic or conversational. That classification gates which tools the model is even offered. Say hello, and it can't hallucinate a chart at you.</p>
+    <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start">
+      <div>
+        <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#A5A5A5;margin-bottom:14px">SEVEN WAYS TO ANSWER</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <sc-for list="{{ widgets }}" as="w" hint-placeholder-count="7">
+            <div style="display:flex;gap:12px;align-items:baseline;border:1px solid #F1F1F1;border-radius:4px;padding:14px 16px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04)">
+              <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#192332;flex:none">{{ w.tool }}</span>
+              <span style="font:400 12.5px/19px 'Manrope',sans-serif;color:#666666">{{ w.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#F6F7F9;border-radius:4px;padding:32px">
+        <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#838383;margin-bottom:16px">TESTED, NOT VIBED</div>
+        <div style="font:400 44px/48px 'Manrope',sans-serif;letter-spacing:-1px;color:#192332;margin-bottom:6px">26 / 28</div>
+        <div style="font:400 14px/22px 'Manrope',sans-serif;color:#333333;margin-bottom:18px">intent→tool cases pass through the live streaming pipeline (~93%), asserting the <em>first tool</em> the agent reaches for.</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font:400 12.5px/19px 'Manrope',sans-serif;color:#333333">
+          <div style="background:#FFFFFF;border-radius:4px;padding:10px 13px">"put the comparison in a table" → <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#654C8F">show_data_table</span></div>
+          <div style="background:#FFFFFF;border-radius:4px;padding:10px 13px">"draft a PRD" → <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#654C8F">ask_questions</span> first, then the document</div>
+          <div style="background:#FFFFFF;border-radius:4px;padding:10px 13px">"what's the weather in Boston?" → text only, no tool</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ TRUST + STACK ═══════ -->
+<div data-screen-label="Trust and Stack" style="padding:0 48px 88px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div style="border:1px solid #F1F1F1;border-radius:4px;padding:36px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.06)">
+      <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#73C1AE;margin-bottom:18px">BUILT FOR A REGULATED ENTERPRISE</div>
+      <div style="display:flex;flex-direction:column;gap:14px;font:400 14px/22px 'Manrope',sans-serif;color:#333333">
+        <div style="display:flex;gap:11px"><span style="color:#2CD552;font-weight:700">✓</span><span><strong>Explainable by design</strong>: the Activity Panel makes retrieval and reasoning visible, not a black box</span></div>
+        <div style="display:flex;gap:11px"><span style="color:#2CD552;font-weight:700">✓</span><span><strong>Field-level citations</strong>: auditability that procurement and legal reviewers can check</span></div>
+        <div style="display:flex;gap:11px"><span style="color:#2CD552;font-weight:700">✓</span><span><strong>Graceful degradation</strong>: graph down means vector-only, never a silent failure</span></div>
+        <div style="display:flex;gap:11px"><span style="color:#2CD552;font-weight:700">✓</span><span><strong>Tool-hallucination guardrails</strong>: function-calling disabled for conversational turns</span></div>
+        <div style="display:flex;gap:11px"><span style="color:#2CD552;font-weight:700">✓</span><span><strong>Real test coverage</strong>: the 28-case intent harness plus browser test specs, run against the live pipeline</span></div>
+      </div>
+    </div>
+    <div style="border:1px solid #F1F1F1;border-radius:4px;padding:36px;background:#F6F7F9">
+      <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#A070A6;margin-bottom:18px">UNDER THE HOOD</div>
+      <div style="display:flex;flex-direction:column;gap:12px;font:400 13.5px/21px 'Manrope',sans-serif;color:#333333">
+        <div><span style="font-weight:700">Frontend:</span> React + TypeScript, Tailwind, assistant-ui with a custom streaming runtime, Recharts</div>
+        <div><span style="font-weight:700">Data:</span> Convex reactive DB with native vector index · Neo4j knowledge graph · Clerk auth with post-sign-in intent replay</div>
+        <div><span style="font-weight:700">AI:</span> Gemini 3 Flash (chat, thinking, tool-calling) · gemini-embedding-001 at 3072 dimensions · optional MCP tool discovery at runtime</div>
+        <div><span style="font-weight:700">Delivery:</span> serverless; the whole chat/RAG/tool loop is one streaming action; no separate RAG service to operate</div>
+      </div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid #E1E1E1;font:400 12px/19px 'Manrope',sans-serif;color:#838383">Precisely stated: field-level-cited, graph-augmented SOW review with an intent-routed generative-UI agent. Dense + graph retrieval fused as grounded context; intent routing is engineered orchestration, not an ML classifier.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SERVICES USED + QUOTE ═══════ -->
+<div data-screen-label="Services Used" style="padding:0 48px 88px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+    <div>
+      <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">SERVICES USED</div>
+      <h2 style="margin:0 0 20px;font:500 32px/40px 'Manrope',sans-serif;letter-spacing:.64px;color:#192332">This engagement, as catalog services</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="Services.dc.html#structure" style="font:600 13px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid #E1E1E1;border-radius:17px;color:#333333;white-space:nowrap;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">Knowledge foundation build</a>
+        <a href="Services.dc.html#build" style="font:600 13px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid #E1E1E1;border-radius:17px;color:#333333;white-space:nowrap;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">Custom agentic harness</a>
+        <a href="Services.dc.html#build" style="font:600 13px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid #E1E1E1;border-radius:17px;color:#333333;white-space:nowrap;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">Skills authoring</a>
+        <a href="Services.dc.html#deploy" style="font:600 13px 'Manrope',sans-serif;height:34px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid #E1E1E1;border-radius:17px;color:#333333;white-space:nowrap;transition:border-color .25s,color .25s" style-hover="border-color:#DA85B2;color:#DA85B2">Team enablement</a>
+      </div>
+    </div>
+    <div style="background:#121D35;color:#FFFFFF;border-radius:4px;padding:44px;display:flex;gap:20px">
+      <span style="font:800 56px/36px 'Manrope',sans-serif;color:#73C1AE">“</span>
+      <div>
+        <div style="font:500 21px/31px 'Manrope',sans-serif;margin-bottom:16px">The prompt library is the front door. The engineering story is a contract-review agent that shows its sources, down to the exact field.</div>
+        <div style="font:400 12.5px/19px 'Manrope',sans-serif;color:#B8C4D9">Live demo deployed · 11-department library · 50-SOW corpus · adoption metrics in progress</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CTA + FOOTER ═══════ -->
+<div data-screen-label="CTA" style="background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 48px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-bottom:1px solid #3A4A6B">
+    <div>
+      <h2 style="margin:0 0 10px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">Have documents your teams are afraid to ask questions of?</h2>
+      <div style="font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9">We build grounded, citable, explainable review agents on your data, behind your walls.</div>
+    </div>
+    <a href="Contact.dc.html" style="flex:none;height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:24px;height:16px">
+      <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px">
+      <a href="Case Study - Infinite AI OS.dc.html" style="color:#B8C4D9">← Infinite AI OS</a>
+      <a href="Case Studies.dc.html" style="color:#B8C4D9">All case studies</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;clientName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;a global healthcare company’s internal innovation program&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Case study&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      clientName: this.props.clientName ?? 'a global healthcare company\u2019s internal innovation program',
+      pipeline: [
+        { num: '01', tag: 'INGEST', name: 'Structure-aware chunking', desc: 'Contracts are chunked by document structure (not fixed token windows), with breadcrumb metadata (section path, field names) preserved on every chunk.' },
+        { num: '02', tag: 'EMBED', name: '3072-dim embeddings', desc: 'Each chunk is embedded and stored behind a native vector index: cosine similarity over the full corpus.' },
+        { num: '03', tag: 'RETRIEVE ×2', name: 'Two legs in parallel', desc: 'Dense vector search (top-5) runs alongside a knowledge-graph query for matching entities (vendors, clients, deliverables) plus their one-hop neighbours.' },
+        { num: '04', tag: 'FUSE', name: 'Grounded context fusion', desc: 'Both result sets enter the prompt as labelled context sections, each vector hit carrying its similarity score and source path.' },
+        { num: '05', tag: 'GENERATE', name: 'Agentic tool loop', desc: 'The model answers in a multi-round tool loop, streaming tokens, reasoning and widgets live over server-sent events.' },
+        { num: '06', tag: 'CITE', name: 'Field-level citations', desc: 'Drafted documents cite per-section back to the exact field of the source SOW, auditable by a procurement or legal reviewer.' },
+      ],
+      widgets: [
+        { tool: 'show_chart', desc: 'Bar, line, area and pie charts in brand colors' },
+        { tool: 'show_data_table', desc: 'Sortable column/row comparisons' },
+        { tool: 'show_stats', desc: 'KPI grid with deltas and trend arrows' },
+        { tool: 'show_plan', desc: 'Vertical stepper with task states' },
+        { tool: 'show_options', desc: 'Clickable choices that feed back into the chat' },
+        { tool: 'ask_questions', desc: 'Multi-step clarifying wizard before drafting' },
+        { tool: 'generate_document', desc: 'Editable sectioned docs with per-section citations' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

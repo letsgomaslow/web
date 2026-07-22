@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#DA85B2">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#192332">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="padding:80px 48px 64px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:400 13px 'Manrope',sans-serif;color:#838383;margin-bottom:22px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both"><a href="Maslow Homepage.dc.html#concepts" style="color:#838383">Concepts</a> / <span style="color:#DA85B2;font-weight:600">Hybrid RAG</span> <span style="display:inline-flex;margin-left:12px;font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#73C1AE">TECHNOLOGY</span></div>
+    <h1 style="margin:0 0 22px;font:600 58px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;max-width:860px;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">Your files, turned into something an AI can reason over.</h1>
+    <p style="margin:0;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:620px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">Most of your company's knowledge lives in unstructured files. Hybrid RAG converts them into two complementary structures: a <strong>vector database</strong> for meaning and a <strong>knowledge graph</strong> for facts. Scroll to watch it happen.</p>
+  </div>
+</div>
+
+<!-- ═══════ SCROLL SCENE · navy band ═══════ -->
+<div ref="{{ sceneWrapRef }}" data-screen-label="Scroll Explainer" style="position:relative;height:320vh;background:#121D35">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:grid;grid-template-columns:400px 1fr">
+    <div style="padding:0 0 0 48px;display:flex;flex-direction:column;justify-content:center;gap:14px;position:relative;z-index:2">
+      <sc-for list="{{ stages }}" as="s" hint-placeholder-count="3">
+        <div style="border-left:2px solid {{ s.border }};padding:18px 22px;border-radius:0 4px 4px 0;background:{{ s.bg }};transition:all .4s">
+          <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#73C1AE;margin-bottom:8px">{{ s.tag }}</div>
+          <div style="font:700 20px 'Manrope',sans-serif;letter-spacing:-.3px;color:#FFFFFF;margin-bottom:6px">{{ s.title }}</div>
+          <div style="font:400 13.5px/21px 'Manrope',sans-serif;color:#B8C4D9">{{ s.desc }}</div>
+        </div>
+      </sc-for>
+      <div style="font:400 12px 'IBM Plex Mono',monospace;color:#B8C4D9;opacity:.7;margin-top:10px">SCROLL TO ADVANCE · {{ progressLabel }}</div>
+    </div>
+    <div ref="{{ canvasHostRef }}" style="position:relative"></div>
+  </div>
+</div>
+
+<!-- ═══════ COMPARISON ═══════ -->
+<div data-screen-label="Vector vs Graph" style="padding:96px 48px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">THE INSIGHT</div>
+    <h2 style="margin:0 0 12px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">Why both?</h2>
+    <p style="margin:0 0 44px;font:400 17px/27px 'Manrope',sans-serif;letter-spacing:.28px;color:#666666;max-width:560px">Each structure answers a different kind of question. Hybrid RAG routes every query to the right one, or both.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:32px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04)">
+        <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#73C1AE;margin-bottom:14px">VECTOR DATABASE</div>
+        <div style="font:700 22px 'Manrope',sans-serif;letter-spacing:-.4px;color:#1A1A1A;margin-bottom:10px">Finds by meaning</div>
+        <p style="margin:0 0 18px;font:400 14.5px/23px 'Manrope',sans-serif;color:#666666">"Find everything similar to this." Great for fuzzy questions, summaries, and discovering related material.</p>
+        <div style="font:600 13px/19px 'Manrope',sans-serif;color:#333333;background:#F6F7F9;border-left:2px solid #73C1AE;border-radius:0 4px 4px 0;padding:12px 14px">"What do our contracts say about early termination?"</div>
+      </div>
+      <div style="border:1px solid #F1F1F1;border-radius:4px;padding:32px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.04)">
+        <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#A070A6;margin-bottom:14px">KNOWLEDGE GRAPH</div>
+        <div style="font:700 22px 'Manrope',sans-serif;letter-spacing:-.4px;color:#1A1A1A;margin-bottom:10px">Finds by fact</div>
+        <p style="margin:0 0 18px;font:400 14.5px/23px 'Manrope',sans-serif;color:#666666">"Which entities connect to which?" Exact answers across relationships: customers, contracts, dates, obligations.</p>
+        <div style="font:600 13px/19px 'Manrope',sans-serif;color:#333333;background:#F6F7F9;border-left:2px solid #A070A6;border-radius:0 4px 4px 0;padding:12px 14px">"Which vendors have net-45 terms AND an active NDA?"</div>
+      </div>
+      <div style="border-radius:4px;padding:32px;background:#121D35;color:#FFFFFF">
+        <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#FFF860;margin-bottom:14px">HYBRID RAG</div>
+        <div style="font:700 22px 'Manrope',sans-serif;letter-spacing:-.4px;margin-bottom:10px">Both, routed automatically</div>
+        <p style="margin:0 0 18px;font:400 14.5px/23px 'Manrope',sans-serif;color:#B8C4D9">Meaning when you need recall, facts when you need precision, and citations back to the source file either way.</p>
+        <div style="font:600 13px/19px 'Manrope',sans-serif;color:#FFFFFF;background:#1A2847;border-left:2px solid #FFF860;border-radius:0 4px 4px 0;padding:12px 14px">"Summarise our exposure if Vendor X terminates early."</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CTA + FOOTER ═══════ -->
+<div data-screen-label="CTA" style="background:#121D35;color:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 48px;display:flex;justify-content:space-between;align-items:center;gap:40px;border-bottom:1px solid #3A4A6B">
+    <div>
+      <h2 style="margin:0 0 10px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px">Your files could be doing this in weeks.</h2>
+      <div style="font:400 15px/24px 'Manrope',sans-serif;color:#B8C4D9">We handle ingestion, structuring and retrieval, grounded in your data, on infrastructure you control.</div>
+    </div>
+    <a href="Contact.dc.html" style="flex:none;height:46px;display:inline-flex;align-items:center;padding:0 24px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font:400 12.5px 'Manrope',sans-serif;color:#B8C4D9">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:24px;height:16px">
+      <span style="font:600 12px 'Manrope',sans-serif;letter-spacing:2px;color:#FFFFFF">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px">
+      <a href="Explainer - Context Engineering.dc.html" style="color:#B8C4D9">← Context engineering</a>
+      <a href="Explainer - Agentic Harness.dc.html" style="color:#B8C4D9">Agentic Harness →</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;particleCount&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:420,&quot;min&quot;:100,&quot;max&quot;:500,&quot;step&quot;:20,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Scene&quot;},&quot;autoPlay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Scene&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.sceneWrapRef = React.createRef();
+    this.canvasHostRef = React.createRef();
+    this.state = { stage: 0, progress: 0 };
+  }
+
+  renderVals() {
+    this._scheduleInit();
+    const stage = this.state.stage;
+    const defs = [
+      { tag: '01 / INGEST', title: 'Ingest & chunk', desc: 'PDFs, emails, spreadsheets and chat logs are split into meaningful chunks; pages become passages.' },
+      { tag: '02 / EMBED', title: 'Embed into vectors', desc: 'Each chunk becomes a point in space. Nearby points mean similar meaning: this is your vector database.' },
+      { tag: '03 / CONNECT', title: 'Extract the graph', desc: 'Entities and relationships (people, contracts, dates, obligations) link into a knowledge graph. Hybrid RAG queries both.' },
+    ];
+    return {
+      sceneWrapRef: this.sceneWrapRef,
+      canvasHostRef: this.canvasHostRef,
+      progressLabel: Math.round(this.state.progress * 100) + '%',
+      stages: defs.map((d, i) => ({
+        ...d,
+        border: i === stage ? '#73C1AE' : '#3A4A6B',
+        bg: i === stage ? 'rgba(115,193,174,.1)' : 'transparent',
+      })),
+    };
+  }
+
+  _scheduleInit() {
+    if (this._initScheduled) return;
+    this._initScheduled = true;
+    this._try = 0;
+    const init = () => {
+      if (this._renderer) return;
+      if (!window.THREE || !this.canvasHostRef.current || !this.canvasHostRef.current.clientWidth) { if (this._try++ < 80) setTimeout(init, 250); return; }
+      this._initScene();
+    };
+    setTimeout(init, 60);
+  }
+
+  componentDidMount() { this._scheduleInit(); }
+
+  componentWillUnmount() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._renderer) this._renderer.dispose();
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+  }
+
+  _initScene() {
+    const THREE = window.THREE;
+    const host = this.canvasHostRef.current;
+    const N = Math.round(this.props.particleCount ?? 240);
+    const GN = 42;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, host.clientWidth / host.clientHeight, 1, 3000);
+    camera.position.z = 560;
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(host.clientWidth, host.clientHeight);
+    host.appendChild(renderer.domElement);
+    this._renderer = renderer;
+
+    const layoutA = [], layoutB = [], layoutC = [];
+    const docsPerRow = 4, docW = 90, docH = 120, gapX = 150, gapY = 190;
+    for (let i = 0; i < N; i++) {
+      const d = i % 12;
+      const r = Math.floor(d / docsPerRow), c = d % docsPerRow;
+      const ox = (c - (docsPerRow - 1) / 2) * gapX;
+      const oy = ((2 - r) - 1) * gapY;
+      layoutA.push([ox + (Math.random() - .5) * docW, oy + (Math.random() - .5) * docH, (Math.random() - .5) * 20]);
+    }
+    const centers = [[-170, 110, -40], [150, 140, 60], [-120, -130, 40], [170, -110, -60]];
+    for (let i = 0; i < N; i++) {
+      const cIdx = i % 4, ctr = centers[cIdx];
+      const g = () => (Math.random() + Math.random() + Math.random() - 1.5) * 62;
+      layoutB.push([ctr[0] + g(), ctr[1] + g(), ctr[2] + g()]);
+    }
+    const nodePos = [];
+    for (let i = 0; i < GN; i++) {
+      const phi = Math.acos(2 * Math.random() - 1), theta = Math.random() * Math.PI * 2;
+      const rad = 150 + Math.random() * 110;
+      nodePos.push([rad * Math.sin(phi) * Math.cos(theta), rad * Math.sin(phi) * Math.sin(theta) * 0.75, rad * Math.cos(phi)]);
+    }
+    for (let i = 0; i < N; i++) {
+      if (i < GN) layoutC.push(nodePos[i]);
+      else { const n = nodePos[i % GN]; layoutC.push([n[0] + (Math.random() - .5) * 14, n[1] + (Math.random() - .5) * 14, n[2] + (Math.random() - .5) * 14]); }
+    }
+
+    const positions = new Float32Array(N * 3);
+    const colors = new Float32Array(N * 3);
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    const mat = new THREE.PointsMaterial({ size: 5, vertexColors: true, transparent: true, opacity: .95 });
+    scene.add(new THREE.Points(geo, mat));
+
+    const edges = [];
+    for (let i = 0; i < GN; i++) {
+      for (let j = i + 1; j < GN; j++) {
+        const a = nodePos[i], b = nodePos[j];
+        const d2 = (a[0]-b[0])**2 + (a[1]-b[1])**2 + (a[2]-b[2])**2;
+        if (d2 < 160 * 160 && edges.length < 90) edges.push([i, j]);
+      }
+    }
+    const linePos = new Float32Array(edges.length * 6);
+    const lineGeo = new THREE.BufferGeometry();
+    lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
+    const lineMat = new THREE.LineBasicMaterial({ color: 0x73C1AE, transparent: true, opacity: 0 });
+    scene.add(new THREE.LineSegments(lineGeo, lineMat));
+
+    // brand colors: white docs -> pillar cluster colors -> teal nodes / muted satellite
+    const white = [1, 1, 1];
+    const teal = [0.451, 0.757, 0.682], purple = [0.627, 0.439, 0.651], pink = [0.953, 0.467, 0.702], blue = [0.275, 0.616, 0.733];
+    const clusterCols = [teal, purple, blue, pink];
+    const satellite = [0.72, 0.77, 0.85];
+
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+    let progress = 0;
+    this._onScroll = () => {
+      const wrap = this.sceneWrapRef.current;
+      if (!wrap) return;
+      const r = wrap.getBoundingClientRect();
+      const total = r.height - window.innerHeight;
+      progress = Math.min(1, Math.max(0, -r.top / total));
+      const stage = progress < 0.36 ? 0 : progress < 0.72 ? 1 : 2;
+      if (stage !== this.state.stage) this.setState({ stage, progress });
+      else if (Math.abs(progress - this.state.progress) > 0.05) this.setState({ progress });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+
+    this._onResize = () => {
+      camera.aspect = host.clientWidth / host.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(host.clientWidth, host.clientHeight);
+    };
+    window.addEventListener('resize', this._onResize);
+    if (window.ResizeObserver) {
+      let lw = host.clientWidth, lh = host.clientHeight;
+      this._ro = new ResizeObserver(() => { const w = host.clientWidth, h = host.clientHeight; if (w && h && (w !== lw || h !== lh)) { lw = w; lh = h; this._onResize(); } });
+      this._ro.observe(host);
+    }
+
+    const auto = this.props.autoPlay ?? false;
+    let t0 = performance.now();
+
+    const animate = (now) => {
+      this._raf = requestAnimationFrame(animate);
+      let p = progress;
+      if (auto) p = ((now - t0) / 12000) % 1;
+
+      const t1 = ease(Math.min(1, Math.max(0, (p - 0.18) / 0.32)));
+      const t2 = ease(Math.min(1, Math.max(0, (p - 0.55) / 0.3)));
+      const jitter = now * 0.001;
+
+      for (let i = 0; i < N; i++) {
+        const A = layoutA[i], B = layoutB[i], C = layoutC[i];
+        let x = lerp(A[0], B[0], t1), y = lerp(A[1], B[1], t1), z = lerp(A[2], B[2], t1);
+        x = lerp(x, C[0], t2); y = lerp(y, C[1], t2); z = lerp(z, C[2], t2);
+        positions[i * 3] = x + Math.sin(jitter + i) * 2.5;
+        positions[i * 3 + 1] = y + Math.cos(jitter * 1.3 + i) * 2.5;
+        positions[i * 3 + 2] = z;
+        const cc = clusterCols[i % 4];
+        let cr = lerp(white[0], cc[0], t1), cg = lerp(white[1], cc[1], t1), cb = lerp(white[2], cc[2], t1);
+        const nodeCol = i < GN ? teal : satellite;
+        colors[i * 3] = lerp(cr, nodeCol[0], t2);
+        colors[i * 3 + 1] = lerp(cg, nodeCol[1], t2);
+        colors[i * 3 + 2] = lerp(cb, nodeCol[2], t2);
+      }
+      geo.attributes.position.needsUpdate = true;
+      geo.attributes.color.needsUpdate = true;
+
+      for (let e = 0; e < edges.length; e++) {
+        const [i, j] = edges[e];
+        linePos[e * 6] = positions[i * 3]; linePos[e * 6 + 1] = positions[i * 3 + 1]; linePos[e * 6 + 2] = positions[i * 3 + 2];
+        linePos[e * 6 + 3] = positions[j * 3]; linePos[e * 6 + 4] = positions[j * 3 + 1]; linePos[e * 6 + 5] = positions[j * 3 + 2];
+      }
+      lineGeo.attributes.position.needsUpdate = true;
+      lineMat.opacity = t2 * 0.45;
+
+      scene.rotation.y = Math.sin(now * 0.0001) * 0.15 + t2 * 0.2;
+      renderer.render(scene, camera);
+    };
+    this._raf = requestAnimationFrame(animate);
+  }
+}
+</script>
+</body>
+</html>

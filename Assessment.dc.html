@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;color:#333333;font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#DA85B2;text-decoration:none}a:hover{color:#EE7BB3}
+a:focus-visible,button:focus-visible{outline:2px solid #73C1AE;outline-offset:2px}
+@keyframes mzRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+body.mz-anim .mz-reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:0;transform:translateY(24px);animation:mzAutoIn .7s cubic-bezier(.2,.7,.2,1) 5s forwards}
+@keyframes mzAutoIn{to{opacity:1;transform:translateY(0)}}
+@media print{body.mz-anim .mz-reveal{opacity:1!important;transform:none!important;animation:none!important}}
+@media (prefers-reduced-motion: reduce){body.mz-anim .mz-reveal,body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in){opacity:1;transform:none;transition:none}}
+</style>
+<script src="./mz-reveal.js?v=2"></script>
+<link rel="stylesheet" href="./mz-responsive.css">
+<script src="./mz-nav.js"></script>
+</helmet>
+
+<!-- ═══════ NAV ═══════ -->
+<div data-screen-label="Nav" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:83px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E6EAF3">
+  <a href="Maslow Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+    <img src="assets/maslow-mark-gradient.svg" alt="Maslow AI" style="width:36px;height:23px">
+    <span style="font:600 14px 'Manrope',sans-serif;letter-spacing:2px;color:#191F32">MASLOW</span>
+    <span style="color:#E1E1E1;font:400 14px 'Manrope',sans-serif">|</span>
+    <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#191F32">AI</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:28px;font:600 11px 'Manrope',sans-serif;letter-spacing:1.4px;white-space:nowrap">
+    <a href="Services.dc.html" style="color:#192332">SERVICES</a>
+    <a href="Maslow Homepage.dc.html#concepts" style="color:#192332">CONCEPTS</a>
+    <a href="Case Studies.dc.html" style="color:#192332">CASE STUDIES</a>
+    <a href="Blog.dc.html" style="color:#192332">BLOG</a>
+    <a href="About.dc.html" style="color:#192332">ABOUT</a>
+    <a href="Contact.dc.html" style="height:42px;display:inline-flex;align-items:center;padding:0 18px;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;white-space:nowrap;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,123,179,.35);color:#FFFFFF">BOOK A CONSULTATION</a>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<div data-screen-label="Hero" style="padding:88px 48px 64px;background:#FFFFFF">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:26px;animation:mzRise .7s .05s cubic-bezier(.2,.7,.2,1) both">AI TRANSFORMATION ASSESSMENT · FREE, NO EMAIL</div>
+    <h1 style="margin:0 0 22px;font:600 60px/62px 'Manrope',sans-serif;letter-spacing:-1.4px;color:#192332;max-width:800px;animation:mzRise .8s .15s cubic-bezier(.2,.7,.2,1) both">Where are you on the journey?</h1>
+    <p style="margin:0;font:400 18px/30px 'Manrope',sans-serif;letter-spacing:-.2px;color:#666666;max-width:620px;animation:mzRise .8s .3s cubic-bezier(.2,.7,.2,1) both">Six questions, two minutes. You'll get a stage on the transformation journey and the services that fit it, including "start with everything" if that's the honest answer.</p>
+  </div>
+</div>
+
+<!-- ═══════ ASSESSMENT · navy band ═══════ -->
+<div data-screen-label="Assessment" style="background:#121D35;color:#FFFFFF;padding:72px 48px 88px">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:52px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:40px">
+      <sc-for list="{{ questions }}" as="q" hint-placeholder-count="6">
+        <div>
+          <div style="display:flex;gap:14px;align-items:baseline;margin-bottom:14px">
+            <span style="font:700 12px 'DM Sans',sans-serif;letter-spacing:1px;color:#73C1AE">{{ q.num }}</span>
+            <div>
+              <div style="font:700 20px/26px 'Manrope',sans-serif;letter-spacing:-.3px;color:#FFFFFF">{{ q.title }}</div>
+              <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#B8C4D9;margin-top:4px">{{ q.dim }}</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-left:26px">
+            <sc-for list="{{ q.options }}" as="o" hint-placeholder-count="4">
+              <div onClick="{{ o.select }}" style="padding:14px 17px;border:1px solid {{ o.border }};border-radius:8px;background:{{ o.bg }};cursor:pointer;font:400 13.5px/20px 'Manrope',sans-serif;color:{{ o.fg }};transition:all .2s">{{ o.text }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="position:sticky;top:107px;background:#1A2847;border:1px solid #3A4A6B;border-radius:4px;padding:32px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <span style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#B8C4D9">YOUR RESULT</span>
+        <span style="font:500 11px 'IBM Plex Mono',monospace;color:#73C1AE">{{ progressLabel }}</span>
+      </div>
+      <div style="display:flex;height:6px;border-radius:2px;background:#243356;overflow:hidden;margin-bottom:24px">
+        <div style="width:{{ stagePct }};background:#73C1AE;transition:width .4s"></div>
+      </div>
+      <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:2px;color:#73C1AE;margin-bottom:8px">{{ stageTag }}</div>
+          <div style="font:700 26px/30px 'Manrope',sans-serif;letter-spacing:-.57px;color:#FFFFFF;margin-bottom:10px">{{ stageName }}</div>
+          <div style="font:400 13.5px/21px 'Manrope',sans-serif;color:#B8C4D9;margin-bottom:24px">{{ stageDesc }}</div>
+          <div style="font:500 10px 'IBM Plex Mono',monospace;letter-spacing:2px;color:#B8C4D9;margin-bottom:12px">RECOMMENDED FOR YOU</div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:24px">
+            <sc-for list="{{ recs }}" as="r" hint-placeholder-count="3">
+              <a href="{{ r.href }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;border:1px solid #3A4A6B;border-radius:8px;background:#243356;color:#FFFFFF;transition:border-color .25s" style-hover="border-color:#73C1AE;color:#FFFFFF">
+                <div>
+                  <div style="font:700 13.5px 'Manrope',sans-serif">{{ r.name }}</div>
+                  <div style="font:400 11.5px/17px 'Manrope',sans-serif;color:#B8C4D9;margin-top:2px">{{ r.why }}</div>
+                </div>
+                <span style="font:700 12px 'Manrope',sans-serif;color:#DA85B2">&gt;</span>
+              </a>
+            </sc-for>
+          </div>
+          <a href="Contact.dc.html" style="height:46px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#EE7BB3;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;margin-bottom:10px;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 12px 28px rgba(238,123,179,.4);color:#FFFFFF">DISCUSS YOUR RESULT WITH US</a>
+          <a href="Services.dc.html" style="height:44px;display:flex;align-items:center;justify-content:center;border:1px solid #3A4A6B;border-radius:8px;color:#FFFFFF;font:600 12px 'Manrope',sans-serif;letter-spacing:2px;transition:border-color .25s" style-hover="border-color:#73C1AE;color:#FFFFFF">BROWSE ALL SERVICES</a>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+        <div style="font:400 14px/23px 'Manrope',sans-serif;color:#B8C4D9">Answer the six questions and your stage, dimension breakdown and recommended services appear here instantly. Nothing sent anywhere.</div>
+      </sc-if>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ STAGES LEGEND ═══════ -->
+<div data-screen-label="Stages Legend" style="padding:96px 48px;background:#F6F7F9">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font:500 11px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#654C8F;margin-bottom:16px">THE SCALE</div>
+    <h2 style="margin:0 0 36px;font:400 38px/42px 'Manrope',sans-serif;letter-spacing:-.89px;color:#192332">The five stages we score against</h2>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px">
+      <sc-for list="{{ legend }}" as="l" hint-placeholder-count="5">
+        <div style="border:1px solid #F1F1F1;border-radius:4px;padding:24px;background:#FFFFFF;box-shadow:2px 0 10px rgba(0,0,0,0.06);transition:transform .3s" style-hover="transform:translateY(-3px)">
+          <div style="font:700 12px 'DM Sans',sans-serif;letter-spacing:1px;color:#73C1AE;margin-bottom:12px">{{ l.tag }}</div>
+          <div style="font:700 17px 'Manrope',sans-serif;color:#1A1A1A;margin-bottom:8px">{{ l.name }}</div>
+          <div style="font:400 13px/20px 'Manrope',sans-serif;color:#666666">{{ l.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<div data-screen-label="Footer" style="background:#192332;color:#FFFFFF;padding:40px 48px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
+    <span style="display:flex;align-items:center;gap:10px">
+      <img src="assets/maslow-mark-white.svg" alt="" style="width:28px;height:19px">
+      <span style="font:600 13px 'Manrope',sans-serif;letter-spacing:2px">MASLOW</span>
+    </span>
+    <div style="display:flex;gap:22px;font:400 13px 'Manrope',sans-serif">
+      <a href="Maslow Homepage.dc.html" style="color:#B8C4D9">Home</a>
+      <a href="Services.dc.html" style="color:#B8C4D9">Services</a>
+      <a href="Contact.dc.html" style="color:#B8C4D9">Contact</a>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { answers: [null, null, null, null, null, null] };
+
+  constructor(props) {
+    super(props);
+    this.qs = [
+      { title: 'Where is AI in your organisation today?', dim: 'USAGE', options: ['Nowhere: we haven\u2019t started', 'Individuals use chatbots informally', 'A few pilots or experiments ran', 'AI is in production in at least one workflow'] },
+      { title: 'Where does your company knowledge live?', dim: 'DATA & KNOWLEDGE', options: ['Scattered files, inboxes and heads', 'Organised file shares, but only humans can search them', 'Partly structured: a wiki, a DMS, some databases', 'AI-queryable: vector DB and/or knowledge graph'] },
+      { title: 'If an AI answered from your data today, would you trust it?', dim: 'CONTEXT QUALITY', options: ['It has no access to our data', 'It would answer from stale or wrong documents', 'Decent answers, but no citations to sources', 'Cited, current answers from governed sources'] },
+      { title: 'How do your repetitive workflows run?', dim: 'AUTOMATION', options: ['Entirely manual', 'Scripts and rules handle fragments', 'AI assists people (drafts, summaries)', 'Agents own workflows with human approval'] },
+      { title: 'Where do your models run?', dim: 'INFRASTRUCTURE', options: ['We don\u2019t use models', 'Public chatbot subscriptions', 'Cloud APIs, metered per token', 'Private cloud or on-prem hardware we control'] },
+      { title: 'How mature is your AI governance?', dim: 'GOVERNANCE', options: ['Nothing formal exists', 'Informal norms, no policy', 'Policies drafted, unevenly followed', 'Approvals, audit trails and access controls in place'] },
+    ];
+    this.recMap = [
+      { name: 'Workflow discovery', why: 'Find where AI pays before building anything', href: 'Services.dc.html#assess' },
+      { name: 'Knowledge foundation build', why: 'Turn your files into a vector DB + knowledge graph', href: 'Services.dc.html#structure' },
+      { name: 'Context audit', why: 'Fix what your AI sees before blaming the model', href: 'Services.dc.html#structure' },
+      { name: 'Virtual AI employee pilot', why: 'One agent, one workflow, live in weeks', href: 'Services.dc.html#deploy' },
+      { name: 'Local AI deployment', why: 'Own the hardware, flatten the bill', href: 'Services.dc.html#own' },
+      { name: 'Custom agentic harness', why: 'Guardrails, approvals and audit built in', href: 'Services.dc.html#build' },
+    ];
+  }
+
+  renderVals() {
+    const a = this.state.answers;
+    const answered = a.filter(x => x !== null).length;
+    const done = answered === 6;
+    const total = a.reduce((s, x) => s + (x || 0), 0);
+
+    let stageIdx = 0;
+    if (done) stageIdx = total <= 3 ? 0 : total <= 7 ? 1 : total <= 11 ? 2 : total <= 15 ? 3 : 4;
+    const stages = [
+      { tag: 'STAGE 0 / 4', name: 'Exploring', desc: 'You\u2019re before the starting line, which is the cheapest place to get this right. An end-to-end engagement takes you through every stage with one accountable team.' },
+      { tag: 'STAGE 1 / 4', name: 'Experimenting', desc: 'AI is present but unstructured, so value depends on which individual is using it. The next win is knowing where it pays and making your knowledge usable.' },
+      { tag: 'STAGE 2 / 4', name: 'Building foundations', desc: 'The pieces are forming. Structure your knowledge and get a harness around the model, and pilots stop being demos.' },
+      { tag: 'STAGE 3 / 4', name: 'Operational', desc: 'AI is doing real work. Now scale the roster, harden governance, and start moving high-volume workloads onto infrastructure you own.' },
+      { tag: 'STAGE 4 / 4', name: 'Owning it', desc: 'You\u2019re ahead of nearly everyone. The remaining gains are cost engineering, model routing and expanding the skill library.' },
+    ];
+    const st = stages[stageIdx];
+
+    let recs = [];
+    if (done) {
+      if (total <= 3) {
+        recs = [
+          { name: 'End-to-end AI transformation', why: 'All five stages, one accountable team', href: 'Services.dc.html' },
+          { name: 'AI readiness assessment', why: 'The deeper, on-site version of this quiz', href: 'Services.dc.html#assess' },
+          { name: 'Cost & architecture sketch', why: 'A board-ready business case first', href: 'Services.dc.html#assess' },
+        ];
+      } else {
+        recs = a.map((v, i) => ({ v, i })).sort((x, y) => x.v - y.v).slice(0, 3).map(({ i }) => this.recMap[i]);
+      }
+    }
+
+    return {
+      progressLabel: answered + ' / 6 answered',
+      stagePct: (done ? ((stageIdx + 1) / 5) * 100 : (answered / 6) * 20) + '%',
+      done, notDone: !done,
+      stageTag: st.tag, stageName: st.name, stageDesc: st.desc,
+      recs,
+      questions: this.qs.map((q, qi) => ({
+        num: '0' + (qi + 1),
+        title: q.title,
+        dim: q.dim,
+        options: q.options.map((text, oi) => {
+          const sel = a[qi] === oi;
+          return {
+            text,
+            select: () => this.setState(s => {
+              const answers = s.answers.slice();
+              answers[qi] = oi;
+              return { answers };
+            }),
+            border: sel ? '#73C1AE' : '#3A4A6B',
+            bg: sel ? 'rgba(115,193,174,.12)' : 'transparent',
+            fg: sel ? '#FFFFFF' : '#B8C4D9',
+          };
+        }),
+      })),
+      legend: [
+        { tag: 'STAGE 0', name: 'Exploring', desc: 'No AI in use yet. Everything is opportunity.' },
+        { tag: 'STAGE 1', name: 'Experimenting', desc: 'Individual chatbot use; no structure or strategy.' },
+        { tag: 'STAGE 2', name: 'Building', desc: 'Pilots ran; knowledge is being structured.' },
+        { tag: 'STAGE 3', name: 'Operational', desc: 'Agents own real workflows with human oversight.' },
+        { tag: 'STAGE 4', name: 'Owning', desc: 'Local models, flat costs, compounding skill library.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
