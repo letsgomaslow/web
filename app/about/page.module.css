@@ -95,7 +95,7 @@
 }
 
 .teamHint {
-  color: #555555;
+  color: #a5a5a5;
 }
 
 .teamGrid {
@@ -125,7 +125,7 @@
 .memberName {
   font: 400 12px var(--font-display);
   letter-spacing: 0.5px;
-  color: #555555;
+  color: #a5a5a5;
 }
 
 .ctaBand {

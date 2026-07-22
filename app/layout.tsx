@@ -47,12 +47,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${manrope.variable} ${dmSans.variable} ${ibmPlexMono.variable}`}
-      >
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${manrope.variable} ${dmSans.variable} ${ibmPlexMono.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }

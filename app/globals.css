@@ -2,23 +2,23 @@
   --color-navy: #192332;
   --color-ink: #191f32;
   --color-text: #333333;
-  --color-muted: #555555;
-  --color-soft: #5c5c5c;
+  --color-muted: #666666;
+  --color-soft: #838383;
   --color-line: #e1e1e1;
   --color-line-soft: #e6eaf3;
   --color-off-white: #f6f7f9;
   --color-white: #ffffff;
-  /* Darkened from brand #EE7BB3 for WCAG AA white-on-pink (4.5:1) */
-  --color-cta: #9b2d5c;
-  --color-cta-link: #8a2752;
+  /* Brand action pink — "if it's pink, you can click it" */
+  --color-cta: #ee7bb3;
+  --color-cta-link: #da85b2;
   --color-ice: #73c1ae;
-  --color-ice-text: #1f6f5f;
-  --color-purple: #4f3a6e;
+  --color-ice-text: #73c1ae;
+  --color-purple: #654c8f;
   --color-plum: #a070a6;
-  --color-plum-text: #6b4570;
+  --color-plum-text: #a070a6;
   --color-gold: #eba93d;
-  --color-gold-text: #7a5608;
-  --color-gold-solid: #9a6f12;
+  --color-gold-text: #eba93d;
+  --color-gold-solid: #eba93d;
   --color-mint: #86e8ce;
   --color-yellow: #fff860;
   --color-navy-deep: #121d35;
@@ -281,29 +281,12 @@ body.mz-anim .mz-reveal.mz-in {
 .text-link {
   font: 700 9px/13px var(--font-sans);
   letter-spacing: 2px;
-  color: var(--color-cta);
+  color: var(--color-cta-link);
   white-space: nowrap;
 }
 
 .text-link:hover {
-  color: var(--color-cta-link);
-}
-
-/* Light text links on navy surfaces */
-.journey .text-link,
-.e2e .text-link,
-.navy .text-link,
-.ctaBand .text-link,
-[data-screen-label="Journey"] .text-link {
-  color: var(--color-ice);
-}
-
-.journey .text-link:hover,
-.e2e .text-link:hover,
-.navy .text-link:hover,
-.ctaBand .text-link:hover,
-[data-screen-label="Journey"] .text-link:hover {
-  color: var(--color-mint);
+  color: var(--color-cta);
 }
 
 .highlight {

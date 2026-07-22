@@ -15,7 +15,7 @@ export const serviceCatalog = [
   {
     id: "assess",
     num: "01",
-    accent: "#6B4570",
+    accent: "#A070A6",
     name: "Assess & plan",
     desc: "Before anything is built: find where AI actually pays in your business, and what it will really cost.",
     services: [
@@ -42,7 +42,7 @@ export const serviceCatalog = [
   {
     id: "structure",
     num: "02",
-    accent: "#1F6F5F",
+    accent: "#73C1AE",
     name: "Structure your knowledge",
     desc: "Your unstructured files become infrastructure: a vector database for meaning, a knowledge graph for facts.",
     services: [
@@ -69,7 +69,7 @@ export const serviceCatalog = [
   {
     id: "build",
     num: "03",
-    accent: "#7A5608",
+    accent: "#EBA93D",
     name: "Build the harness",
     desc: "The engineering around the model: skills, tools, memory and guardrails that turn intelligence into dependable work.",
     services: [
@@ -96,7 +96,7 @@ export const serviceCatalog = [
   {
     id: "deploy",
     num: "04",
-    accent: "#2A6A82",
+    accent: "#469DBB",
     name: "Deploy AI teammates",
     desc: "Agents go to work inside your channels: supervised, cited, and measured against the workflow they own.",
     services: [

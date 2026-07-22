@@ -108,7 +108,7 @@
   align-items: center;
   font: 400 12px var(--font-display);
   letter-spacing: 0.5px;
-  color: #555555;
+  color: #a5a5a5;
 }
 
 .featuredTitle {
@@ -177,7 +177,7 @@
 
 .cardDate {
   font: 400 12px var(--font-display);
-  color: #555555;
+  color: #a5a5a5;
 }
 
 .newsletter {

@@ -88,15 +88,15 @@ export default function LocalAiPage() {
             <Reveal>
               <article
                 className={styles.point}
-                style={{ borderTop: "2px solid #555555", padding: 36 }}
+                style={{ borderTop: "2px solid #A5A5A5", padding: 36 }}
               >
-                <span style={{ color: "#5C5C5C", letterSpacing: 2 }}>
+                <span style={{ color: "#838383", letterSpacing: 2 }}>
                   KEEP ON FRONTIER (FOR NOW)
                 </span>
                 <ul className={styles.checkList}>
                   {localKeepFrontier.map((item) => (
                     <li key={item}>
-                      <span style={{ color: "#555555" }}>→</span>
+                      <span style={{ color: "#A5A5A5" }}>→</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -148,7 +148,7 @@ export default function LocalAiPage() {
             style={{
               margin: "16px 4px 0",
               font: "400 12px var(--font-sans)",
-              color: "#555555",
+              color: "#A5A5A5",
             }}
           >
             Indicative tiers; we spec against your actual workload during the
