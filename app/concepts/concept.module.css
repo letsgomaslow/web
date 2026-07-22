@@ -1,0 +1,231 @@
+.hero {
+  padding: 80px var(--gutter) 64px;
+}
+
+.crumb {
+  font: 400 13px var(--font-sans);
+  color: var(--color-soft);
+  margin-bottom: 22px;
+}
+
+.crumb a {
+  color: var(--color-soft);
+}
+
+.crumb a:hover {
+  color: var(--color-cta-link);
+}
+
+.crumbCurrent {
+  color: var(--color-cta-link);
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-flex;
+  margin-left: 12px;
+  font: 700 12px var(--font-display);
+  letter-spacing: 2px;
+}
+
+.heroTitle {
+  margin: 0 0 22px;
+  font: 600 58px/62px var(--font-sans);
+  letter-spacing: -1.4px;
+  color: var(--color-navy);
+  max-width: 900px;
+}
+
+.heroLede {
+  margin: 0;
+  font: 400 18px/30px var(--font-sans);
+  letter-spacing: -0.2px;
+  color: var(--color-muted);
+  max-width: 660px;
+}
+
+.navyBand {
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  padding: 80px var(--gutter);
+}
+
+.navyBandFlush {
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  padding: 0;
+  overflow: hidden;
+}
+
+.interactive {
+  padding: 0 var(--gutter) 80px;
+}
+
+.section {
+  padding: 96px var(--gutter);
+}
+
+.sectionAlt {
+  padding: 96px var(--gutter);
+  background: var(--color-off-white);
+}
+
+.points {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.points3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.points2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.point {
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #f1f1f1;
+  border-radius: 4px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s;
+}
+
+.point:hover {
+  transform: translateY(-3px);
+}
+
+.point span {
+  font: 700 13px var(--font-display);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.point h3 {
+  margin: 0 0 8px;
+  font: 700 18px var(--font-sans);
+  color: #1a1a1a;
+}
+
+.point p {
+  margin: 0;
+  font: 400 14px/22px var(--font-sans);
+  color: var(--color-muted);
+}
+
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.tier {
+  padding: 32px;
+  border-radius: 4px;
+  border: 1px solid #f1f1f1;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.04);
+}
+
+.tierTag {
+  font: 700 12px var(--font-display);
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.tier h3 {
+  margin: 0 0 6px;
+  font: 700 24px var(--font-sans);
+  letter-spacing: -0.57px;
+}
+
+.tierPrice {
+  font: 700 15px var(--font-sans);
+  margin-bottom: 14px;
+}
+
+.tier p {
+  margin: 0;
+  font: 400 14px/22px var(--font-sans);
+  opacity: 0.8;
+}
+
+.related {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  font: 400 12.5px var(--font-sans);
+}
+
+.related a {
+  color: var(--color-mist);
+}
+
+.sectionAlt .related a,
+.section .related a {
+  color: var(--color-cta-link);
+}
+
+.checkList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font: 400 15px/23px var(--font-sans);
+  color: #333;
+}
+
+.checkList li {
+  display: flex;
+  gap: 11px;
+}
+
+@media (max-width: 980px) {
+  .heroTitle {
+    font-size: 42px;
+    line-height: 46px;
+  }
+
+  .points,
+  .points3,
+  .tiers {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 56px var(--gutter) 40px;
+  }
+
+  .navyBand,
+  .section,
+  .sectionAlt {
+    padding: 64px var(--gutter);
+  }
+
+  .heroTitle {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .points,
+  .points3,
+  .points2,
+  .tiers {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,126 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--color-navy-deep);
+  padding: 32px;
+  border-radius: 4px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid;
+  font: 600 12px var(--font-sans);
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.chrome {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #e1e1e1;
+  color: #242424;
+}
+
+.bar {
+  padding: 12px 16px;
+  font: 600 13px var(--font-sans);
+}
+
+.thread {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 280px;
+}
+
+.msg {
+  display: flex;
+  gap: 12px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 12px var(--font-sans);
+  flex: none;
+}
+
+.meta {
+  font: 400 11px var(--font-sans);
+  color: #5c5c5c;
+  margin-bottom: 6px;
+}
+
+.bubble {
+  padding: 12px 14px;
+  border-radius: 8px;
+  font: 400 14px/22px var(--font-sans);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.sources {
+  margin-top: 8px;
+  font: 400 11px/16px var(--font-sans);
+  color: #5c5c5c;
+}
+
+.approve {
+  margin-top: 10px;
+  height: 34px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 6px;
+  background: #9b2d5c;
+  color: #fff;
+  font: 600 11px var(--font-sans);
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.tlLabel {
+  grid-column: 1 / -1;
+  font: 500 10px var(--font-mono);
+  letter-spacing: 2px;
+  color: var(--color-ice);
+}
+
+.tlItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 2px solid var(--color-ice);
+  font: 400 13px/18px var(--font-sans);
+  color: var(--color-mist);
+}
+
+.tlItem span:first-child {
+  font: 700 12px var(--font-mono);
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+  .timeline {
+    grid-template-columns: 1fr 1fr;
+  }
+}

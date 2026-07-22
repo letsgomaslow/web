@@ -1,0 +1,122 @@
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  background: var(--color-navy-deep);
+  color: #fff;
+  padding: 40px;
+  border-radius: 4px;
+}
+
+.label {
+  font: 500 10px var(--font-mono);
+  letter-spacing: 2px;
+  color: var(--color-ice);
+  margin-bottom: 14px;
+}
+
+.sources {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.source {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  padding: 14px;
+  border: 1px solid;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.check {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #121d35;
+}
+
+.sourceName {
+  font: 700 14px var(--font-sans);
+  margin-bottom: 2px;
+}
+
+.sourceMeta {
+  font: 400 12px/18px var(--font-sans);
+  color: var(--color-mist);
+}
+
+.tag {
+  font: 500 9px var(--font-mono);
+  letter-spacing: 1px;
+}
+
+.budgetBar {
+  display: flex;
+  height: 18px;
+  background: var(--color-navy-line);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.budgetMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font: 400 12px/18px var(--font-sans);
+  color: var(--color-mist);
+  margin-bottom: 24px;
+}
+
+.qualityRow {
+  display: flex;
+  justify-content: space-between;
+  font: 500 12px var(--font-sans);
+  margin-bottom: 8px;
+}
+
+.qualityTrack {
+  height: 6px;
+  background: var(--color-navy-line);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.qualityTrack div {
+  height: 100%;
+  transition: width 0.3s;
+}
+
+.answer {
+  font: 400 14px/22px var(--font-sans);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-navy-line);
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.note {
+  font: 400 12px/18px var(--font-sans);
+  color: var(--color-mist);
+}
+
+@media (max-width: 860px) {
+  .root {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}

@@ -1,0 +1,144 @@
+.root {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  min-height: 660px;
+}
+
+.canvasCol {
+  position: relative;
+  min-height: 480px;
+}
+
+.canvasHost {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.nodeLabel {
+  position: absolute;
+  transform: translate(-50%, -130%);
+  font: 500 10px var(--font-mono);
+  letter-spacing: 1.5px;
+  padding: 6px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  border: 1px solid #3a4a6b;
+  background: rgba(26, 40, 71, 0.85);
+  color: #b8c4d9;
+}
+
+.nodeLabel[data-active="1"] {
+  background: #73c1ae;
+  color: #121d35;
+  border-color: #73c1ae;
+}
+
+.panel {
+  padding: 64px 48px 64px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.tag {
+  font: 500 11px var(--font-mono);
+  letter-spacing: 3px;
+  color: var(--color-ice);
+}
+
+.title {
+  margin: 0;
+  font: 700 30px var(--font-sans);
+  letter-spacing: -0.6px;
+  color: var(--color-white);
+}
+
+.desc {
+  margin: 0;
+  font: 400 15px/24px var(--font-sans);
+  color: var(--color-mist);
+}
+
+.bullets {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bullets li {
+  display: flex;
+  gap: 11px;
+  align-items: baseline;
+  font: 400 13.5px/21px var(--font-sans);
+  color: var(--color-mist);
+}
+
+.bullets span {
+  color: var(--color-ice);
+  font-weight: 700;
+}
+
+.hint {
+  margin: 14px 0 0;
+  font: 400 11px var(--font-mono);
+  letter-spacing: 1px;
+  color: var(--color-mist);
+  opacity: 0.6;
+}
+
+.fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px;
+}
+
+.fallbackBtn {
+  font: 500 10px var(--font-mono);
+  letter-spacing: 1.5px;
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid #3a4a6b;
+  background: rgba(26, 40, 71, 0.85);
+  color: #b8c4d9;
+}
+
+.fallbackBtn[data-active="1"] {
+  background: #73c1ae;
+  color: #121d35;
+  border-color: #73c1ae;
+}
+
+@media (max-width: 980px) {
+  .root {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .canvasCol {
+    min-height: 420px;
+  }
+
+  .panel {
+    padding: 40px var(--gutter);
+  }
+}
