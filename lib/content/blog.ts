@@ -8,11 +8,11 @@ export const blogCategories = [
 ] as const;
 
 export const catColors: Record<string, string> = {
-  CONCEPTS: "#1F6F5F",
-  COST: "#7A5608",
-  ENGINEERING: "#6B4570",
-  "LOCAL AI": "#2A6A82",
-  "CASE NOTES": "#4F3A6E",
+  CONCEPTS: "#73C1AE",
+  COST: "#EBA93D",
+  ENGINEERING: "#A070A6",
+  "LOCAL AI": "#469DBB",
+  "CASE NOTES": "#654C8F",
 };
 
 export const featuredPost = {

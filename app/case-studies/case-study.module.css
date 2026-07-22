@@ -227,7 +227,7 @@
 .osLabel {
   font: 500 10px var(--font-mono);
   letter-spacing: 2px;
-  color: #555555;
+  color: #a5a5a5;
   margin-bottom: 20px;
 }
 
@@ -286,13 +286,13 @@
 
 .divider span {
   flex: 1;
-  border-top: 1px dashed #555555;
+  border-top: 1px dashed #a5a5a5;
 }
 
 .divider em {
   font: 500 10px var(--font-mono);
   letter-spacing: 2px;
-  color: #555555;
+  color: #a5a5a5;
   font-style: normal;
 }
 
@@ -460,14 +460,14 @@
 
 .reportFoot {
   font: 400 11px var(--font-sans);
-  color: #555555;
+  color: #a5a5a5;
   margin-top: 10px;
 }
 
 .caption {
   margin: 16px 4px 0;
   font: 400 12px var(--font-sans);
-  color: #555555;
+  color: #a5a5a5;
 }
 
 .status {
@@ -739,7 +739,7 @@
 .layerLabel {
   font: 500 10px var(--font-mono);
   letter-spacing: 2px;
-  color: #555555;
+  color: #a5a5a5;
   margin-bottom: 14px;
 }
 

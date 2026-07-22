@@ -13,6 +13,7 @@ const channels = [
     bubbleHuman: "#FFFFFF",
     bubbleAgent: "#E8EBFA",
     humanAvatarBg: "#6264A7",
+    textFaint: "rgba(37,36,35,.5)",
     humanMeta: "10:42 AM",
     humanMsg:
       "@Riley can you check if invoice #4482 from Vendor X matches our contract terms?",
@@ -30,6 +31,7 @@ const channels = [
     bubbleHuman: "#F8F8F8",
     bubbleAgent: "#EAF3FA",
     humanAvatarBg: "#E01E5A",
+    textFaint: "rgba(29,28,29,.5)",
     humanMeta: "10:42",
     humanMsg:
       "hey @riley, does invoice 4482 from vendor x match what we agreed in the contract?",
@@ -47,6 +49,7 @@ const channels = [
     bubbleHuman: "#FFFFFF",
     bubbleAgent: "#F0F6FB",
     humanAvatarBg: "#0F6CBD",
+    textFaint: "rgba(36,36,36,.5)",
     humanMeta: "to: riley@yourfirm.com",
     humanMsg:
       "Riley, please verify invoice #4482 against the Vendor X contract before we pay it. Thanks, Dana",
@@ -105,7 +108,9 @@ export function ChannelDemo() {
               D
             </span>
             <div>
-              <div className={styles.meta}>{c.humanMeta}</div>
+              <div className={styles.meta} style={{ color: c.textFaint }}>
+                {c.humanMeta}
+              </div>
               <div
                 className={styles.bubble}
                 style={{ background: c.bubbleHuman }}
@@ -119,14 +124,18 @@ export function ChannelDemo() {
               R
             </span>
             <div>
-              <div className={styles.meta}>Riley · Virtual employee</div>
+              <div className={styles.meta} style={{ color: c.textFaint }}>
+                Riley · Virtual employee
+              </div>
               <div
                 className={styles.bubble}
                 style={{ background: c.bubbleAgent }}
               >
                 {c.agentMsg}
               </div>
-              <div className={styles.sources}>{c.agentSources}</div>
+              <div className={styles.sources} style={{ color: c.textFaint }}>
+                {c.agentSources}
+              </div>
               <button type="button" className={styles.approve}>
                 {c.approveLabel}
               </button>

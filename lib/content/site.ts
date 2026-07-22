@@ -153,25 +153,25 @@ export const assessmentLegend = [
 export const principles = [
   {
     num: "01",
-    accent: "#1F6F5F",
+    accent: "#73C1AE",
     name: "Local-first, by default",
     desc: "If a workload can run on hardware you own, we put it there. Privacy stops being a policy and becomes physics.",
   },
   {
     num: "02",
-    accent: "#6B4570",
+    accent: "#A070A6",
     name: "Open over locked-in",
     desc: "Open models, open standards, exportable data. You should be able to fire us without losing anything we built.",
   },
   {
     num: "03",
-    accent: "#7A5608",
+    accent: "#EBA93D",
     name: "Humans in the loop",
     desc: "Every consequential action our agents take is approved by a person. Trust is earned in increments, with an audit trail.",
   },
   {
     num: "04",
-    accent: "#2A6A82",
+    accent: "#469DBB",
     name: "Outcomes over hype",
     desc: "We scope engagements around a measurable workflow result, not model demos. If it doesn't pay, we tell you.",
   },

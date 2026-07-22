@@ -81,7 +81,7 @@ export function SiteNav({
                   className={styles.link}
                   style={
                     active && link.label === "CONCEPTS"
-                      ? { color: "#8A2752" }
+                      ? { color: "#DA85B2" }
                       : undefined
                   }
                 >

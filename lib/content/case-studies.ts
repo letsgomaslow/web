@@ -270,7 +270,7 @@ export const infiniteAiOs = {
       desc: "Foundation in place; becomes the improvement engine next phase",
       badge: "PILOT",
       badgeBg: "#E6EAF3",
-      badgeFg: "#4F3A6E",
+      badgeFg: "#654C8F",
       dot: "#A070A6",
     },
   ],
