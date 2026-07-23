@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionAnchor } from "@/components/ui/SectionAnchor";
 import { ctaPrimaryLabel, engagementBadge } from "@/lib/brand";
 import {
   expectations,
@@ -56,8 +57,9 @@ export default function HowWeEngagePage() {
         <section className={styles.doors} data-screen-label="Two Doors">
           <div className="wrap">
             <Reveal>
-              <h2 className="h2" style={{ marginBottom: 28 }}>
+              <h2 className="h2" id="two-doors" style={{ marginBottom: 28 }}>
                 Most clients start at one of two doors.
+                <SectionAnchor id="two-doors" label="The two doors" />
               </h2>
             </Reveal>
             <div className={styles.doorGrid}>
@@ -83,8 +85,9 @@ export default function HowWeEngagePage() {
         <section className={styles.weeks} data-screen-label="90 Days">
           <div className="wrap">
             <Reveal>
-              <h2 className="h2" style={{ marginBottom: 36 }}>
+              <h2 className="h2" id="ninety-days" style={{ marginBottom: 36 }}>
                 Learn the work. Prove the value. Then build.
+                <SectionAnchor id="ninety-days" label="The 90-day anatomy" />
               </h2>
             </Reveal>
             <div className={styles.weekList}>
@@ -129,8 +132,13 @@ export default function HowWeEngagePage() {
         <section className={styles.pricing} data-screen-label="Pricing">
           <div className="wrap">
             <Reveal>
-              <h2 className="h2" style={{ color: "#fff", marginBottom: 36 }}>
+              <h2
+                className="h2"
+                id="pricing"
+                style={{ color: "#fff", marginBottom: 36 }}
+              >
                 Priced before we start. Gated so you can stop.
+                <SectionAnchor id="pricing" label="Pricing principles" />
               </h2>
             </Reveal>
             <div className={styles.pricingList}>

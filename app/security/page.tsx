@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionAnchor } from "@/components/ui/SectionAnchor";
 import {
   dataLocations,
   plainAnswers,
@@ -21,7 +22,10 @@ export default function SecurityPage() {
       <>
         <section className={styles.hero} data-screen-label="Hero">
           <div className="wrap">
-            <div className="eyebrow mz-rise" style={{ animationDelay: "0.05s" }}>
+            <div
+              className="eyebrow mz-rise"
+              style={{ animationDelay: "0.05s" }}
+            >
               SECURITY & DATA HANDLING
             </div>
             <h1
@@ -85,8 +89,13 @@ export default function SecurityPage() {
           <div className="wrap">
             <Reveal>
               <div className="eyebrow">PLAIN ANSWERS</div>
-              <h2 className="h2" style={{ marginBottom: 28 }}>
+              <h2
+                className="h2"
+                id="plain-answers"
+                style={{ marginBottom: 28 }}
+              >
                 What buyers ask before kickoff.
+                <SectionAnchor id="plain-answers" label="Plain answers" />
               </h2>
             </Reveal>
             <div className={styles.answerList}>
