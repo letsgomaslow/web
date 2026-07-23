@@ -3,7 +3,12 @@ import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/ui/Reveal";
 import { BriefingBuilder } from "@/components/explainers/BriefingBuilder";
-import { contextDiscipline, explainerPages } from "@/lib/content/explainers";
+import { SectionAnchor } from "@/components/ui/SectionAnchor";
+import {
+  conceptFailures,
+  contextDiscipline,
+  explainerPages,
+} from "@/lib/content/explainers";
 import styles from "../concept.module.css";
 
 const meta = explainerPages["context-engineering"];
@@ -79,6 +84,16 @@ export default function ContextEngineeringPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal className={styles.failure}>
+            <div className="eyebrow">WHAT BREAKS WITHOUT IT</div>
+            <h2 className={styles.failureHead} id="what-breaks">
+              {conceptFailures["context-engineering"].headline}
+              <SectionAnchor id="what-breaks" label="What breaks without it" />
+            </h2>
+            <p className={styles.failureBody}>
+              {conceptFailures["context-engineering"].body}
+            </p>
+          </Reveal>
           {meta.next && (
             <div className={styles.related}>
               <Link href={meta.next.href}>{meta.next.label}</Link>

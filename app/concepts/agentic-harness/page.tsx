@@ -3,7 +3,12 @@ import Link from "next/link";
 import { HarnessSceneLazy } from "@/components/explainers/HarnessSceneLazy";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/ui/Reveal";
-import { explainerPages, harnessPayoffs } from "@/lib/content/explainers";
+import { SectionAnchor } from "@/components/ui/SectionAnchor";
+import {
+  conceptFailures,
+  explainerPages,
+  harnessPayoffs,
+} from "@/lib/content/explainers";
 import styles from "../concept.module.css";
 
 const meta = explainerPages["agentic-harness"];
@@ -73,6 +78,16 @@ export default function AgenticHarnessPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal className={styles.failure}>
+            <div className="eyebrow">WHAT BREAKS WITHOUT IT</div>
+            <h2 className={styles.failureHead} id="what-breaks">
+              {conceptFailures["agentic-harness"].headline}
+              <SectionAnchor id="what-breaks" label="What breaks without it" />
+            </h2>
+            <p className={styles.failureBody}>
+              {conceptFailures["agentic-harness"].body}
+            </p>
+          </Reveal>
           <div className={styles.related}>
             {meta.prev && <Link href={meta.prev.href}>{meta.prev.label}</Link>}
             {meta.next && <Link href={meta.next.href}>{meta.next.label}</Link>}

@@ -6,7 +6,12 @@ import {
   GatewayDiagram,
   SkillLibrary,
 } from "@/components/explainers/SkillLibrary";
-import { explainerPages, gatewayBenefits } from "@/lib/content/explainers";
+import { SectionAnchor } from "@/components/ui/SectionAnchor";
+import {
+  conceptFailures,
+  explainerPages,
+  gatewayBenefits,
+} from "@/lib/content/explainers";
 import styles from "../concept.module.css";
 
 const meta = explainerPages["skills-and-gateways"];
@@ -79,6 +84,16 @@ export default function SkillsAndGatewaysPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal className={styles.failure}>
+            <div className="eyebrow">WHAT BREAKS WITHOUT IT</div>
+            <h2 className={styles.failureHead} id="what-breaks">
+              {conceptFailures["skills-and-gateways"].headline}
+              <SectionAnchor id="what-breaks" label="What breaks without it" />
+            </h2>
+            <p className={styles.failureBody}>
+              {conceptFailures["skills-and-gateways"].body}
+            </p>
+          </Reveal>
           <div className={styles.related}>
             {meta.prev && <Link href={meta.prev.href}>{meta.prev.label}</Link>}
             {meta.next && <Link href={meta.next.href}>{meta.next.label}</Link>}

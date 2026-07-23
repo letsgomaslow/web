@@ -229,3 +229,30 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* What breaks without it: the failure mode each concept exists to prevent */
+.failure {
+  margin-top: 64px;
+  padding: 30px 34px;
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-coral);
+  background: var(--color-white);
+}
+
+.failure :global(.eyebrow) {
+  color: var(--color-coral);
+}
+
+.failureHead {
+  margin: 10px 0 12px;
+  font: 600 24px/30px var(--font-sans);
+  letter-spacing: -0.4px;
+  color: var(--color-navy);
+}
+
+.failureBody {
+  margin: 0;
+  font: 400 16px/27px var(--font-sans);
+  color: var(--color-muted);
+  max-width: 760px;
+}

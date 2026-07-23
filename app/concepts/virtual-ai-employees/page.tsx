@@ -3,7 +3,12 @@ import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/ui/Reveal";
 import { ChannelDemo } from "@/components/explainers/ChannelDemo";
-import { explainerPages, rileyDayTimeline } from "@/lib/content/explainers";
+import { SectionAnchor } from "@/components/ui/SectionAnchor";
+import {
+  conceptFailures,
+  explainerPages,
+  rileyDayTimeline,
+} from "@/lib/content/explainers";
 import styles from "../concept.module.css";
 
 const meta = explainerPages["virtual-ai-employees"];
@@ -74,6 +79,16 @@ export default function VirtualAiEmployeesPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal className={styles.failure}>
+            <div className="eyebrow">WHAT BREAKS WITHOUT IT</div>
+            <h2 className={styles.failureHead} id="what-breaks">
+              {conceptFailures["virtual-ai-employees"].headline}
+              <SectionAnchor id="what-breaks" label="What breaks without it" />
+            </h2>
+            <p className={styles.failureBody}>
+              {conceptFailures["virtual-ai-employees"].body}
+            </p>
+          </Reveal>
           <div className={styles.related}>
             {meta.prev && <Link href={meta.prev.href}>{meta.prev.label}</Link>}
             {meta.next && <Link href={meta.next.href}>{meta.next.label}</Link>}

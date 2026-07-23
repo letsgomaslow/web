@@ -3,7 +3,12 @@ import Link from "next/link";
 import { HybridRagSceneLazy } from "@/components/explainers/HybridRagSceneLazy";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/ui/Reveal";
-import { explainerPages, hybridRagComparison } from "@/lib/content/explainers";
+import { SectionAnchor } from "@/components/ui/SectionAnchor";
+import {
+  conceptFailures,
+  explainerPages,
+  hybridRagComparison,
+} from "@/lib/content/explainers";
 import styles from "../concept.module.css";
 
 const meta = explainerPages["hybrid-rag"];
@@ -96,6 +101,16 @@ export default function HybridRagPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal className={styles.failure}>
+            <div className="eyebrow">WHAT BREAKS WITHOUT IT</div>
+            <h2 className={styles.failureHead} id="what-breaks">
+              {conceptFailures["hybrid-rag"].headline}
+              <SectionAnchor id="what-breaks" label="What breaks without it" />
+            </h2>
+            <p className={styles.failureBody}>
+              {conceptFailures["hybrid-rag"].body}
+            </p>
+          </Reveal>
           <div className={styles.related}>
             {meta.prev && <Link href={meta.prev.href}>{meta.prev.label}</Link>}
             {meta.next && <Link href={meta.next.href}>{meta.next.label}</Link>}
