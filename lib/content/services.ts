@@ -43,13 +43,13 @@ export const serviceCatalog: ServiceGroup[] = [
     services: [
       {
         name: "AI readiness assessment",
-        desc: "A structured review of your data, workflows, tooling, and governance, scored against the transformation journey.",
+        desc: "A structured review of your data, workflows, tooling, and governance, scored against five readiness stages.",
         fit: "you don't know where to start",
         deliverable: "READINESS REPORT + STAGE SCORE",
       },
       {
         name: "Workflow discovery",
-        desc: 'We shadow your teams, map the workflows, and rank them by AI payback: effort vs. impact, with honest "don\'t bother"s.',
+        desc: "We shadow your teams, map the workflows, and rank them by expected payback, including the work we recommend leaving alone.",
         fit: "you suspect AI could help but can't name where",
         deliverable: `RANKED OPPORTUNITY MAP · ${FIXED_FEE_TAG}`,
       },
@@ -93,7 +93,7 @@ export const serviceCatalog: ServiceGroup[] = [
     num: "03",
     accent: "#EBA93D",
     name: "Build the harness",
-    desc: "The engineering around the model: skills, tools, memory, and guardrails that turn intelligence into dependable work.",
+    desc: "Skills, tools, memory, approvals, and audit trails that let a model carry a workflow reliably.",
     services: [
       {
         name: "Custom agentic harness",
@@ -123,8 +123,8 @@ export const serviceCatalog: ServiceGroup[] = [
     desc: "Agents go to work inside your channels: supervised, cited, and measured against the workflow they own.",
     services: [
       {
-        name: "Virtual AI employee pilot",
-        desc: "One agent, one workflow, one channel: live in weeks, with human approval on every consequential action — and a log of what the agent flagged and the approver caught.",
+        name: "AI employee pilot",
+        desc: "A supervised agent carries one workflow in one channel. Every consequential action requires human approval, and the log records what the agent flagged and the approver caught.",
         fit: "you want proof before commitment",
         deliverable: "6-WEEK SUPERVISED PILOT",
         catchTrail: [
@@ -141,7 +141,7 @@ export const serviceCatalog: ServiceGroup[] = [
       },
       {
         name: "Team enablement",
-        desc: "Training for the humans: how to direct, correct, and audit AI employees, turning skeptics into operators.",
+        desc: "Training for staff who will direct, correct, and audit AI employees after handover.",
         fit: "adoption is your bottleneck, not technology",
         deliverable: "TRAINING + PLAYBOOKS",
       },
@@ -152,7 +152,7 @@ export const serviceCatalog: ServiceGroup[] = [
     num: "05",
     accent: "#192332",
     name: "Own your infrastructure",
-    desc: "The mission made literal: models on your hardware, costs on a flat line, data that never leaves the building.",
+    desc: "Run suitable models on your hardware to control high-volume costs and keep sensitive data on site.",
     services: [
       {
         name: "Local AI deployment",
@@ -163,7 +163,7 @@ export const serviceCatalog: ServiceGroup[] = [
       {
         name: "Hybrid model estate",
         desc: "Routing between local and frontier models per task: privacy and cost locally, peak capability when it pays.",
-        fit: "you want the best of both, automatically",
+        fit: "you need local cost control and frontier capability",
         deliverable: "MODEL ROUTER + POLICY",
       },
       {

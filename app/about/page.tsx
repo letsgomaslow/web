@@ -12,11 +12,11 @@ import { founder, principles, standingLine } from "@/lib/content/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "About | Maslow AI · Founder-led AI transformation" },
+  title: { absolute: "About | Maslow AI · Founder-led AI systems" },
   description:
     "Led by a former CIO/CTO with twenty years of enterprise technology behind him. Four commitments in writing, and a mission to reduce the cost of AI adoption.",
   openGraph: {
-    title: "About | Maslow AI · Founder-led AI transformation",
+    title: "About | Maslow AI · Founder-led AI systems",
     description:
       "Led by a former CIO/CTO with twenty years of enterprise technology behind him. Four commitments in writing, and a mission to reduce the cost of AI adoption.",
     images: [
@@ -57,17 +57,16 @@ export default function AboutPage() {
                 marginBottom: 26,
               }}
             >
-              AI should meet your needs, not the other way around.
+              Build AI around the systems your company already trusts.
             </h1>
             <p
               className="lede mz-rise"
               style={{ animationDelay: "0.3s", maxWidth: 640 }}
             >
-              We named ourselves after the hierarchy of needs for a reason: AI
-              adoption fails when companies chase the peak before securing the
-              base. We build from the foundation up (your data, your workflows,
-              your hardware) so the impressive parts actually stand on
-              something.
+              The hierarchy of needs behind our name shapes how we work. We
+              begin with your data, workflows, risk limits, and infrastructure.
+              Once that base is sound, an AI employee has something dependable
+              to work from.
             </p>
           </div>
         </section>
@@ -81,11 +80,11 @@ export default function AboutPage() {
               </h2>
             </div>
             <p className={styles.missionBody}>
-              Enterprise AI is priced like magic. It isn&apos;t. It&apos;s
-              engineering. Open models close the capability gap every quarter,
-              local hardware flattens the metered bill, and a well-built harness
-              outlives any single model. We pass all three of those savings on
-              to you, and we put them in writing.
+              Enterprise AI projects often bundle strategy, software, and
+              infrastructure into one opaque price. We separate those decisions.
+              Open models can reduce licensing costs, local hardware can lower
+              high-volume inference costs, and a well-built harness can outlast
+              any single model. Your proposal shows the scope and price of each.
             </p>
           </div>
         </section>
@@ -123,7 +122,7 @@ export default function AboutPage() {
           <div className="wrap">
             <div className="eyebrow">WHO YOU&apos;LL WORK WITH</div>
             <h2 className="h2" style={{ marginBottom: 36 }}>
-              Founder-led, by design.
+              Work directly with the founder.
             </h2>
             <Reveal className={styles.founder}>
               <Image

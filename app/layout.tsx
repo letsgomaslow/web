@@ -54,14 +54,14 @@ export const metadata: Metadata = {
     template: "%s · Maslow AI",
   },
   description:
-    "AI employees in Teams, Slack, and email, standing on knowledge systems and infrastructure you own. AI transformation without the transformation budget: fixed fees, 90-day foundations, no lock-in.",
+    "AI employees in Teams, Slack, and email, built on knowledge systems and infrastructure you own. Fixed fees, 90-day foundations, and no lock-in.",
   openGraph: {
     type: "website",
     siteName: "Maslow AI",
     title:
       "Maslow AI | AI employees for the work that waits on your busiest people",
     description:
-      "AI employees in Teams, Slack, and email, standing on knowledge systems and infrastructure you own. AI transformation without the transformation budget: fixed fees, 90-day foundations, no lock-in.",
+      "AI employees in Teams, Slack, and email, built on knowledge systems and infrastructure you own. Fixed fees, 90-day foundations, and no lock-in.",
     images: [{ url: "/assets/maslow-mark-gradient.svg" }],
   },
 };

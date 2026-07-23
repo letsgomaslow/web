@@ -68,7 +68,7 @@ export const conceptLinks = [
   { href: "/concepts/context-engineering", label: "Context engineering" },
   { href: "/concepts/agentic-harness", label: "Harness engineering" },
   { href: "/concepts/hybrid-rag", label: "Hybrid RAG" },
-  { href: "/concepts/virtual-ai-employees", label: "Virtual AI employees" },
+  { href: "/concepts/virtual-ai-employees", label: "AI employees" },
   { href: "/concepts/skills-and-gateways", label: "Skills & gateways" },
   { href: "/concepts/local-ai", label: "Local AI & hardware" },
 ] as const;

@@ -21,8 +21,8 @@ export const securityPrinciples = [
   },
   {
     num: "05",
-    title: "Export-anytime, by design.",
-    desc: "Vector stores, knowledge graphs, skills, and code live in your repositories in open formats from day one. Firing us is a permissions change, not a migration project.",
+    title: "Keep the system portable.",
+    desc: "Vector stores, knowledge graphs, skills, and code live in your repositories in open formats from day one. Ending our access requires a permissions change, without a separate migration project.",
   },
 ] as const;
 
@@ -56,7 +56,7 @@ export const plainAnswers: readonly {
   },
   {
     title: "Certifications",
-    body: "Not yet — and we won't dodge that. What we hand you instead is a diligence pack built for your review process: our controls mapped to the questions standard security questionnaires ask, subprocessors named with their retention terms, and every exit path documented. The pack index is public, with an honest status on each artifact. If your procurement requires SOC 2 specifically, tell us early — we'll say plainly whether that rules us out, and save everyone the cycle.",
+    body: "We do not currently hold SOC 2 certification. Our diligence pack maps current controls to common security-questionnaire fields, lists subprocessors and retention terms, and documents exit paths. Each artifact has a current public status. If SOC 2 is mandatory for your procurement process, tell us early so we can confirm whether the requirement rules us out.",
     link: { href: "/diligence", label: "SEE THE DILIGENCE PACK" },
   },
   {
@@ -69,12 +69,12 @@ export const faqItems = [
   {
     num: "01",
     q: "We already pay for Microsoft Copilot. Why isn't that enough?",
-    a: "Keeping Copilot is the right call — for personal productivity it's excellent, and rolling it out was a good decision. What it structurally can't do is own a workflow: it doesn't know your estimating logic, can't carry a quote from request to approval, and doesn't answer from a knowledge system you govern. We build that layer. Most clients run both, side by side: Copilot for individuals, AI employees for the workflows.",
+    a: "Copilot is strong at personal productivity, and most clients should keep it. It does not know your estimating logic, carry a quote from request to approval, or answer from a knowledge system you govern. We build that workflow layer. Copilot assists individuals; AI employees carry the workflow.",
   },
   {
     num: "02",
     q: "Do we need to hire ML engineers?",
-    a: "No. That's the point. We build systems your existing IT team can run, we train them during the engagement, and if they're not ready at handover, managed operations covers the gap until they are.",
+    a: "No. We build systems your existing IT team can run and train them during the engagement. If the team is not ready at handover, managed operations covers the gap until it is.",
   },
   {
     num: "03",
@@ -89,7 +89,7 @@ export const faqItems = [
   {
     num: "05",
     q: "Models keep changing. Won't this be obsolete in a year?",
-    a: "The model is the most replaceable part of the system. Your knowledge graph, your skills library, and your harness outlive any model release; when a better model ships, we swap it in and your system gets smarter overnight. That's why we engineer the harness instead of betting on a vendor.",
+    a: "The model is the most replaceable part of the system. Your knowledge graph, skills library, and harness can outlive a model release. When a better model becomes available, we test it against the same workflow before changing the production route.",
   },
   {
     num: "06",
@@ -99,17 +99,17 @@ export const faqItems = [
   {
     num: "07",
     q: "What if it doesn't work for us?",
-    a: "Then we say so, in writing, at a gate, and you keep the workflow map, the architecture sketch, and everything built to that point. We'd rather lose an engagement than publish a case study we have to hedge.",
+    a: "We document the result at a gate and recommend stopping. You keep the workflow map, architecture sketch, and everything built to that point.",
   },
   {
     num: "08",
     q: "Will you push us to cloud or local?",
-    a: "Neither, on principle. The cost-and-privacy math decides: high-volume, sensitive workloads tend to earn local hardware; spiky, capability-hungry tasks tend to earn frontier APIs. Most clients end up hybrid, with routing rules instead of religion.",
+    a: "The workload decides. High-volume or sensitive work often favors local hardware, while infrequent tasks that need the strongest available model may favor frontier APIs. Many deployments use both with documented routing rules.",
   },
   {
     num: "09",
     q: "Who actually does the work?",
-    a: "The founder, with specialist engineers from a small trusted bench. Two Foundation engagements at a time, maximum — a quality ceiling we set on purpose, so nobody gets handed to a junior team after the kickoff call. If both slots are full, we tell you the next start date and run Workflow Discovery in the meantime, so you arrive at your Foundation with the map already drawn.",
+    a: "Rakesh leads the work with specialist engineers from a small trusted bench. Maslow accepts no more than two Foundation engagements at a time, which keeps him directly involved after kickoff. If both slots are full, we give you the next available start date and can complete Workflow Discovery beforehand.",
   },
   {
     num: "10",
@@ -119,7 +119,7 @@ export const faqItems = [
   {
     num: "11",
     q: "Can our IT team maintain it after you leave?",
-    a: "Yes, by design: open formats, documented skills, playbooks, and training in weeks 11 and 12. Handover is a milestone, not an afterthought.",
+    a: "Yes. We use open formats, document the skills, provide playbooks, and train your team in weeks 11 and 12. Handover is part of the engagement plan.",
   },
   {
     num: "12",
@@ -129,12 +129,12 @@ export const faqItems = [
   {
     num: "13",
     q: "What happens if Rakesh is unavailable mid-engagement?",
-    a: "You're never stranded, by design. Every artifact — code, pipelines, skills, docs, and the weekly written status history — lives in your repositories from day one, current and complete. The bench engineers on your engagement work under the same four commitments. We won't pretend a bench engineer replaces his judgment overnight — but the system that de-risks your key people is the same system that de-risks us. That symmetry is deliberate.",
+    a: "Code, pipelines, skills, documentation, and weekly status history live in your repositories from day one. Specialist engineers on the engagement work under the same commitments and can continue against that record. A substitute cannot replace Rakesh's judgment overnight, but the work remains accessible and documented while availability is resolved.",
   },
   {
     num: "14",
     q: "Our procurement team has a security questionnaire. Will you fill it in?",
-    a: "Yes — send it early. The diligence pack collects what most reviews ask for: our controls mapped to standard questionnaire fields, subprocessors with retention terms, and every exit path documented, each with an honest status. Whatever your questionnaire asks that the pack doesn't yet answer, you get back in writing.",
+    a: "Yes. Send it early. The diligence pack maps our controls to standard questionnaire fields, lists subprocessors and retention terms, and documents exit paths. We return written answers for anything the current pack does not cover.",
   },
 ] as const;
 
@@ -142,7 +142,7 @@ export const manufacturingBottlenecks = [
   {
     num: "01",
     title: "Every quote waits on the one person who knows the real numbers.",
-    desc: "Your senior estimator isn't the problem — they're the ceiling on how much work you can take. Right now their judgment is trapped inside every quote's two-hour build. Free the judgment from the build, and the ceiling lifts.",
+    desc: "Your senior estimator may spend two hours assembling every quote before applying the judgment only they can provide. Automating the assembly gives them more time to review the work that affects margin and risk.",
   },
   {
     num: "02",
@@ -164,7 +164,7 @@ export const manufacturingMonday: readonly {
   }[];
 }[] = [
   {
-    text: "A quote request lands. Your AI estimator drafts it from past jobs and current material costs, cites every source, and flags the two line items where costs moved since the last similar job. Your senior estimator reviews in minutes — catching what matters, because the digging is already done. Their name is still on the quote. Their judgment sets the standard the AI drafts to.",
+    text: "A quote request lands. Your AI estimator drafts it from past jobs and current material costs, cites every source, and flags the two line items where costs changed since the last similar job. Your senior estimator reviews the assumptions and catches what matters because the source work is already assembled. Their name remains on the quote, and their judgment sets the standard.",
     catchTrail: [
       { label: "AI FLAGGED · 2 LINE ITEMS MOVED", tone: "flagged" },
       { label: "ESTIMATOR CAUGHT · WHAT MATTERED", tone: "caught" },
@@ -180,7 +180,7 @@ export const manufacturingMonday: readonly {
 ] as const;
 
 export const estimatorShare = {
-  mailtoSubject: "Worth a look — AI drafting with your judgment on top",
+  mailtoSubject: "Worth a look: AI drafting with your judgment on top",
   mailtoBody:
-    "This vendor's pitch: the AI does the digging and drafting, and the estimator's judgment sets the standard it drafts to — your name stays on the quote. If they're wrong about how our quoting works, I want to know why. https://maslow.ai/manufacturing",
+    "This vendor's pitch: the AI does the digging and drafting while the estimator's judgment sets the standard. Your name stays on the quote. If they are wrong about how our quoting works, I want to know why. https://maslow.ai/manufacturing",
 } as const;

@@ -43,7 +43,7 @@ const lib = [
   {
     name: "Client intake triage",
     version: "v2.0",
-    summary: "Classify, prioritise and route new client requests.",
+    summary: "Classify, prioritize and route new client requests.",
     meta: "UPDATED 3D AGO · 210 RUNS THIS WEEK",
     desc: "Every inbound request gets classified, checked for conflicts, and routed to the right person with context attached.",
     steps: [

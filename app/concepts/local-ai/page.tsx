@@ -58,7 +58,7 @@ export default function LocalAiPage() {
           <Reveal>
             <div className="eyebrow">THE HYBRID ESTATE</div>
             <h2 className="h2" style={{ marginBottom: 12 }}>
-              Not everything should move, and that&apos;s fine
+              Match each workload to the right model location
             </h2>
             <p className="lede" style={{ maxWidth: 620 }}>
               We design hybrid estates: high-volume, privacy-sensitive workloads
@@ -120,7 +120,7 @@ export default function LocalAiPage() {
                 color: "var(--color-navy)",
               }}
             >
-              Right-sized hardware, not a data centre
+              Hardware sized to the workload
             </h2>
           </Reveal>
           <div className={styles.tiers}>

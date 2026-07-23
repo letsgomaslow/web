@@ -3,19 +3,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
-import { Reveal } from "@/components/ui/Reveal";
-import {
-  blogCategories,
-  blogPosts,
-  catColors,
-  featuredPost,
-} from "@/lib/content/blog";
+import { catColors, featuredPost } from "@/lib/content/blog";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Blog | Maslow AI",
   description:
-    "Plain-language writing on AI transformation: what works, what it costs, and how to own it.",
+    "Plain-language writing on production AI systems: what works, what it costs, and how to own it.",
 };
 
 export default function BlogPage() {
@@ -44,23 +38,9 @@ export default function BlogPage() {
                 marginBottom: 36,
               }}
             >
-              Plain-language writing on AI transformation: what works, what it
-              costs, and how to own it.
+              Plain-language writing on production AI systems: what works, what
+              it costs, and how to own it.
             </p>
-            <div
-              className={`${styles.cats} mz-rise`}
-              style={{ animationDelay: "0.45s" }}
-            >
-              {blogCategories.map((cat, i) => (
-                <span
-                  key={cat}
-                  className={styles.cat}
-                  data-active={i === 0 ? "true" : undefined}
-                >
-                  {cat}
-                </span>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -121,38 +101,6 @@ export default function BlogPage() {
                 </span>
               </div>
             </Link>
-          </div>
-        </section>
-
-        <section className={styles.gridSection} data-screen-label="Post Grid">
-          <div className={styles.grid}>
-            {blogPosts.map((p) => (
-              <Reveal key={p.slug}>
-                <Link
-                  href={`/blog/${featuredPost.slug}`}
-                  className={styles.card}
-                >
-                  <div className={styles.meta}>
-                    <span
-                      style={{
-                        color: catColors[p.cat] || "#73C1AE",
-                        fontWeight: 700,
-                      }}
-                    >
-                      {p.cat}
-                    </span>
-                    <span>·</span>
-                    <span>{p.read}</span>
-                  </div>
-                  <div className={styles.cardTitle}>{p.title}</div>
-                  <div className={styles.cardDesc}>{p.desc}</div>
-                  <div className={styles.cardFoot}>
-                    <span className={styles.cardDate}>{p.date}</span>
-                    <span className="text-link">READ MORE&nbsp;&nbsp;&gt;</span>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
           </div>
         </section>
 

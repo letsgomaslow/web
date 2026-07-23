@@ -68,9 +68,9 @@ export default function HomePage() {
             >
               Your files become knowledge your AI can cite. Your procedures
               become skills it can reuse. AI employees take on real workflows in
-              Teams, Slack, and email — under accounts you control, with a
-              person approving every consequential action. And everything we
-              build stands on foundations you own.
+              Teams, Slack, and email under accounts you control. A person
+              approves every consequential action, and everything we build runs
+              on foundations you own.
             </p>
             <div
               className={`${styles.ctaRow} mz-rise`}
@@ -140,12 +140,12 @@ export default function HomePage() {
             <Reveal className={styles.icpFoot}>
               <p className={styles.icpMicro}>
                 Typically $20M to $500M in revenue. If you need a global SI with
-                a thousand consultants, we&apos;re not that. If your board runs
-                a real vendor review, good —{" "}
+                a thousand consultants, we are unlikely to fit. If your board
+                runs a full vendor review,{" "}
                 <Link href="/diligence" className={styles.icpLink}>
                   our diligence pack
                 </Link>{" "}
-                was built for exactly that.
+                is ready for it.
               </p>
               <Link href="/assessment" className="text-link">
                 NOT SURE IF THAT&apos;S YOU? TAKE THE ASSESSMENT&nbsp;&nbsp;&gt;
@@ -179,7 +179,7 @@ export default function HomePage() {
             <Reveal className={styles.sectionHead}>
               <div>
                 <div className="eyebrow">THE CONCEPTS</div>
-                <h2 className="h2">Plain language, interactive proof</h2>
+                <h2 className="h2">See how each system works</h2>
               </div>
               <span className={styles.aside}>
                 Each opens an interactive explainer
@@ -212,9 +212,9 @@ export default function HomePage() {
           <div className="wrap">
             <Reveal className={styles.sectionHead}>
               <div>
-                <div className="eyebrow eyebrow-ice">THE JOURNEY</div>
+                <div className="eyebrow eyebrow-ice">FIVE STAGES</div>
                 <h2 className="h2" style={{ color: "#fff", maxWidth: 520 }}>
-                  Five stages. Enter at any of them.
+                  Start at the stage your operation needs.
                 </h2>
               </div>
               <Link href="/services" className="text-link">
@@ -277,7 +277,7 @@ export default function HomePage() {
             <Reveal className={styles.sectionHead} style={{ marginBottom: 40 }}>
               <div>
                 <div className="eyebrow">PROOF</div>
-                <h2 className="h2">Real engagements, honest numbers</h2>
+                <h2 className="h2">Production work, status, and numbers</h2>
               </div>
               <Link href="/case-studies" className="text-link">
                 ALL CASE STUDIES&nbsp;&nbsp;&gt;
@@ -361,18 +361,18 @@ export default function HomePage() {
           <Reveal className={styles.mission}>
             <div className={styles.quoteMark}>“</div>
             <div className={styles.missionQuote}>
-              Extraordinary AI shouldn&apos;t require an{" "}
+              Useful AI should fit a{" "}
               <span
                 className="highlight"
                 style={{ ["--hl-h" as string]: "10px" }}
               >
-                extraordinary budget
+                mid-market budget
               </span>
               .
             </div>
             <p className={styles.missionBody}>
-              Our mission is to reduce the cost of AI adoption: open models,
-              local hardware, and engineering that outlasts any single model.
+              We reduce adoption costs with open models, right-sized hardware,
+              and engineering that outlasts any single model.
             </p>
             <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
           </Reveal>

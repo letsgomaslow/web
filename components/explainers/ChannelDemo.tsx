@@ -125,7 +125,7 @@ export function ChannelDemo() {
             </span>
             <div>
               <div className={styles.meta} style={{ color: c.textFaint }}>
-                Riley · Virtual employee
+                Riley · AI employee
               </div>
               <div
                 className={styles.bubble}

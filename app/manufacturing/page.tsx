@@ -19,7 +19,7 @@ export const metadata: Metadata = {
       "AI for Manufacturers | Maslow AI · Tribal knowledge into infrastructure",
   },
   description:
-    "Estimating, quoting, and file search wait on your most senior people. We turn their judgment into AI employees in Microsoft Teams — in 90 days, on systems you own.",
+    "Estimating, quoting, and file search wait on your most senior people. We build AI employees in Microsoft Teams around their judgment, on systems you own.",
 };
 
 export default function ManufacturingPage() {
@@ -98,7 +98,7 @@ export default function ManufacturingPage() {
                 quoting, reporting, and file search all running on manual
                 effort. Ninety days later: four named AI employees working in
                 Microsoft Teams (a manager and three specialists), standing on a
-                six-layer root system: company memory, a knowledge map, file
+                six-layer system: company memory, a knowledge map, file
                 intake, employee profiles, tool connectors, and observability.
                 Three core systems in production, every consequential action
                 approved by a human.
@@ -149,9 +149,10 @@ export default function ManufacturingPage() {
                 Process data that never leaves the building.
               </h2>
               <p className={styles.localBody}>
-                For manufacturers with sensitive process knowledge, we run open
-                models on hardware you own: flat monthly cost, zero data egress,
-                and privacy that&apos;s physics instead of policy.
+                For manufacturers with sensitive process knowledge, we run
+                suitable open models on hardware you own. This can provide a
+                predictable monthly cost and keep process data inside the
+                building.
               </p>
               <Link href="/security" className="text-link">
                 HOW WE HANDLE YOUR DATA&nbsp;&nbsp;&gt;
@@ -168,11 +169,11 @@ export default function ManufacturingPage() {
                 Show this page to your estimator.
               </h2>
               <p className={styles.estimatorBody}>
-                If they hate the idea, we want to hear why — they know things
-                about your quoting logic that no assessment will surface. Skills
-                authoring starts with them, on their terms, with their name on
-                the output. The system exists to multiply their judgment, not to
-                replace it.
+                If they dislike the idea, we want to understand why. They know
+                details about your quoting logic that an assessment may miss.
+                Skills authoring starts with them, and their name stays on the
+                output. The system handles preparation while they retain the
+                judgment call.
               </p>
               <ShareBlock
                 mailtoSubject={estimatorShare.mailtoSubject}
@@ -190,9 +191,9 @@ export default function ManufacturingPage() {
                   Bring us one painful workflow.
                 </h2>
                 <p>
-                  A 30-minute working session. We&apos;ll sketch the fix and the
-                  cost curve, and tell you plainly if AI won&apos;t pay there
-                  yet.
+                  In a 30-minute working session, we will sketch the workflow,
+                  likely architecture, and cost curve. If AI is unlikely to pay
+                  there yet, we will recommend no further work.
                 </p>
               </div>
               <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>

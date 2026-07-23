@@ -14,7 +14,7 @@ import styles from "../concept.module.css";
 const meta = explainerPages["virtual-ai-employees"];
 
 export const metadata: Metadata = {
-  title: "Virtual AI employees | Maslow AI",
+  title: "AI employees | Maslow AI",
   description: meta.lede,
 };
 
@@ -40,10 +40,9 @@ export default function VirtualAiEmployeesPage() {
             className={`${styles.heroLede} mz-rise`}
             style={{ animationDelay: "0.3s" }}
           >
-            A virtual AI employee isn&apos;t another app to log into. Through{" "}
-            <strong>gateways</strong>, the same agent shows up in Microsoft
-            Teams, Slack and email: same knowledge, same skills, same
-            guardrails. Switch channels below.
+            Through <strong>gateways</strong>, the same AI employee works in
+            Microsoft Teams, Slack, and email with the same knowledge, skills,
+            and approval rules. Switch channels below.
           </p>
         </div>
       </section>
@@ -57,12 +56,12 @@ export default function VirtualAiEmployeesPage() {
       <section className={styles.sectionAlt}>
         <div className="wrap">
           <Reveal>
-            <div className="eyebrow">A SHIFT, NOT A CHAT</div>
+            <div className="eyebrow">ONE WORKING DAY</div>
             <h2 className="h2" style={{ marginBottom: 12 }}>
               A day with Riley
             </h2>
             <p className="lede" style={{ maxWidth: 560 }}>
-              Not a chatbot waiting for questions. A teammate working a shift.
+              Follow Riley as it works through a queue and escalates decisions.
             </p>
           </Reveal>
           <div className={styles.points}>

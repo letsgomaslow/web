@@ -2,7 +2,7 @@ import { contactEmail } from "@/lib/brand";
 
 /**
  * The diligence pack index. Statuses are public claims: nothing may say
- * AVAILABLE until the artifact actually exists and has been reviewed —
+ * AVAILABLE until the artifact actually exists and has been reviewed.
  * flipping a status is a deliberate act, refreshed quarterly.
  */
 export type ArtifactStatus = "AVAILABLE" | "ON REQUEST" | "IN PREPARATION";
@@ -14,8 +14,8 @@ export const diligenceMeta = {
 
 export const diligenceHero = {
   eyebrow: "BUILT FOR YOUR VENDOR REVIEW",
-  h1: "Everything your review will ask for, in one place.",
-  lede: "Mid-market boards run real vendor reviews. Good. This page is the pack your champion can forward to procurement, legal, and IT security without translating anything.",
+  h1: "A public index for your vendor review.",
+  lede: "This page shows which security, contracting, and exit documents are available now and which are still being prepared. Your internal sponsor can forward it to procurement, legal, and IT security.",
 } as const;
 
 export const diligenceArtifacts: readonly {
@@ -69,4 +69,4 @@ export const diligenceArtifacts: readonly {
 ];
 
 export const diligenceClosing =
-  `We're a boutique that wins on architecture, and we'd rather show you the controls than ask you to trust the adjectives. Anything this page doesn't answer: ${contactEmail}, answered in writing.`;
+  `This index shows the documents we have and the gaps we are still closing. Send anything it does not answer to ${contactEmail}; we will respond in writing.`;

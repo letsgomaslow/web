@@ -8,11 +8,11 @@ const sendError = `That didn't send. Try again, or just email ${contactEmail}. W
 
 const INTERESTS = [
   "AI readiness assessment",
-  "Virtual AI employee pilot",
+  "AI employee pilot",
   "Knowledge foundation / Hybrid RAG",
   "Custom agentic harness",
   "Local AI / on-prem",
-  "End-to-end transformation",
+  "90-Day AI Foundation",
   "Something else",
 ];
 

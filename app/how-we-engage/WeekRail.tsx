@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 
 /**
  * The 90-day anatomy as a rail that fills checkpoint by checkpoint: each row
- * activates as it enters view, so the line pauses at every gate — the
+ * activates as it enters view, so the line pauses at every gate. The
  * stop-unless-it-clears mechanics, felt in the scroll. Reduced motion and
  * missing JS both land on the fully-lit state.
  */

@@ -172,47 +172,6 @@
   color: var(--color-mist);
 }
 
-.proof {
-  padding: 88px var(--gutter) 72px;
-  background: var(--color-off-white);
-}
-
-.proofGrid {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
-  text-align: center;
-}
-
-.proofCard {
-  border: 1px solid #f1f1f1;
-  border-radius: 4px;
-  padding: 36px;
-  background: var(--color-white);
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.04);
-}
-
-.proofValue {
-  font: 400 44px/48px var(--font-sans);
-  letter-spacing: -1px;
-  color: var(--color-navy);
-}
-
-.proofLabel {
-  font: 400 14px/21px var(--font-sans);
-  color: var(--color-muted);
-  margin-top: 8px;
-}
-
-.proofCaption {
-  max-width: var(--max);
-  margin: 14px auto 0;
-  font: 400 12px var(--font-sans);
-  color: #a5a5a5;
-}
-
 .final {
   background: var(--color-navy-deep);
   color: var(--color-white);
@@ -261,8 +220,7 @@
 @media (max-width: 980px) {
   .heroInner,
   .painGrid,
-  .pathGrid,
-  .proofGrid {
+  .pathGrid {
     grid-template-columns: 1fr;
   }
 

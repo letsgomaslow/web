@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     absolute: "Diligence Pack | Maslow AI · Built for your vendor review",
   },
   description:
-    "The pack your champion can forward to procurement, legal, and IT security: questionnaire mappings, subprocessors, exit paths, and incident commitments — with honest status on each.",
+    "A current index of Maslow AI security, contracting, and exit documents for procurement, legal, and IT security review.",
 };
 
 export default function DiligencePage() {
@@ -51,8 +51,7 @@ export default function DiligencePage() {
               style={{ animationDelay: "0.4s" }}
             >
               PACK {diligenceMeta.version.toUpperCase()} · UPDATED{" "}
-              {diligenceMeta.updated.toUpperCase()} · STATUSES BELOW ARE LIVE,
-              NOT ASPIRATIONAL
+              {diligenceMeta.updated.toUpperCase()} · CURRENT STATUS
             </p>
           </div>
         </section>
@@ -69,14 +68,13 @@ export default function DiligencePage() {
               <Reveal>
                 <div className="eyebrow eyebrow-ice">GET THE PACK</div>
                 <h2 className="h2" style={{ color: "#fff", marginBottom: 16 }}>
-                  Send it to your review, not your inbox pile.
+                  Request the documents your review needs.
                 </h2>
                 <p className={styles.requestBody}>
-                  Tell us what your review needs first and the pack arrives
-                  assembled for it — available artifacts attached,
-                  in-preparation items with their expected shape named. Send
-                  your own questionnaire along and it comes back answered, in
-                  writing.
+                  Tell us what your review needs first. We will attach available
+                  documents and identify what is still in preparation. Send your
+                  questionnaire with the request and we will return written
+                  answers.
                 </p>
                 <p className={styles.closing}>{diligenceClosing}</p>
               </Reveal>
