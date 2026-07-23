@@ -41,7 +41,11 @@ export const dataLocations = [
   },
 ] as const;
 
-export const plainAnswers = [
+export const plainAnswers: readonly {
+  title: string;
+  body: string;
+  link?: { href: string; label: string };
+}[] = [
   {
     title: "Paperwork",
     body: "We sign your NDA and DPA, and we'll complete your security questionnaire.",
@@ -52,7 +56,8 @@ export const plainAnswers = [
   },
   {
     title: "Certifications",
-    body: "We don't yet hold formal certifications; we're a boutique that wins on architecture. Ask us the hard questions at hello@maslow.ai and we'll answer in writing.",
+    body: "Not yet — and we won't dodge that. What we hand you instead is a diligence pack built for your review process: our controls mapped to the questions standard security questionnaires ask, subprocessors named with their retention terms, and every exit path documented. The pack index is public, with an honest status on each artifact. If your procurement requires SOC 2 specifically, tell us early — we'll say plainly whether that rules us out, and save everyone the cycle.",
+    link: { href: "/diligence", label: "SEE THE DILIGENCE PACK" },
   },
   {
     title: "Incidents",
@@ -104,7 +109,7 @@ export const faqItems = [
   {
     num: "09",
     q: "Who actually does the work?",
-    a: "The founder, with specialist engineers from a small trusted bench. Two Foundation engagements at a time, maximum, so nobody gets handed to a junior team after the kickoff call.",
+    a: "The founder, with specialist engineers from a small trusted bench. Two Foundation engagements at a time, maximum — a quality ceiling we set on purpose, so nobody gets handed to a junior team after the kickoff call. If both slots are full, we tell you the next start date and run Workflow Discovery in the meantime, so you arrive at your Foundation with the map already drawn.",
   },
   {
     num: "10",
@@ -125,6 +130,11 @@ export const faqItems = [
     num: "13",
     q: "What happens if Rakesh is unavailable mid-engagement?",
     a: "You're never stranded, by design. Every artifact — code, pipelines, skills, docs, and the weekly written status history — lives in your repositories from day one, current and complete. The bench engineers on your engagement work under the same four commitments. We won't pretend a bench engineer replaces his judgment overnight — but the system that de-risks your key people is the same system that de-risks us. That symmetry is deliberate.",
+  },
+  {
+    num: "14",
+    q: "Our procurement team has a security questionnaire. Will you fill it in?",
+    a: "Yes — send it early. The diligence pack collects what most reviews ask for: our controls mapped to standard questionnaire fields, subprocessors with retention terms, and every exit path documented, each with an honest status. Whatever your questionnaire asks that the pack doesn't yet answer, you get back in writing.",
   },
 ] as const;
 

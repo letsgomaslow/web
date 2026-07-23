@@ -65,7 +65,7 @@ describe("content modules", () => {
   });
 
   it("trust content carries the copy-v3 invariants", () => {
-    expect(faqItems).toHaveLength(13);
+    expect(faqItems).toHaveLength(14);
     faqItems.forEach((f, i) => {
       expect(f.num).toBe(String(i + 1).padStart(2, "0"));
       expect(f.a.length).toBeGreaterThan(40);

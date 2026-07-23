@@ -103,7 +103,18 @@ export default function SecurityPage() {
                 <Reveal key={a.title}>
                   <div className={styles.answerRow}>
                     <div className={styles.answerTitle}>{a.title}</div>
-                    <div className={styles.answerBody}>{a.body}</div>
+                    <div className={styles.answerBody}>
+                      {a.body}
+                      {a.link ? (
+                        <Link
+                          href={a.link.href}
+                          className="text-link"
+                          style={{ display: "inline-flex", marginTop: 10 }}
+                        >
+                          {a.link.label}&nbsp;&nbsp;&gt;
+                        </Link>
+                      ) : null}
+                    </div>
                   </div>
                 </Reveal>
               ))}
