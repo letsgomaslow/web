@@ -17,6 +17,7 @@ const SOURCES = new Set([
   "newsletter",
   "book",
   "assessment-report",
+  "diligence",
 ]);
 
 function isEmail(value: string) {
@@ -80,6 +81,7 @@ export async function POST(request: Request) {
     newsletter: `Newsletter signup: ${email}`,
     book: `Campaign booking from ${name}`,
     "assessment-report": `Assessment report request: ${email}`,
+    diligence: `Diligence pack request from ${name}`,
   };
 
   const lines = [

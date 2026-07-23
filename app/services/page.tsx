@@ -128,6 +128,11 @@ export default function ServicesPage() {
                   vectorEffect="non-scaling-stroke"
                 />
               </svg>
+              <div className={styles.gateMarks} aria-hidden="true">
+                {[20, 40, 80].map((x) => (
+                  <span key={x} style={{ left: `${x}%` }} />
+                ))}
+              </div>
               {serviceStages.map((st) => (
                 <a key={st.num} href={st.anchor} className={styles.stage}>
                   <div className={styles.stageNum}>{st.num}</div>

@@ -16,6 +16,7 @@ const routes = [
   "/manufacturing",
   "/security",
   "/faq",
+  "/diligence",
   "/concepts/context-engineering",
   "/concepts/agentic-harness",
   "/concepts/hybrid-rag",
@@ -94,7 +95,9 @@ test.describe("interactive islands", () => {
     await page.goto("/contact");
     await page.getByPlaceholder("Full name").fill("Test User");
     await page.getByPlaceholder("Work email").fill("not-an-email");
-    await page.getByRole("button", { name: /BOOK MY WORKING SESSION/i }).click();
+    await page
+      .getByRole("button", { name: /BOOK MY WORKING SESSION/i })
+      .click();
     // HTML5 validation should prevent submit - still on contact
     await expect(page).toHaveURL(/\/contact/);
   });

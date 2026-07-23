@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HarnessSceneLazy } from "@/components/explainers/HarnessSceneLazy";
 import { PageShell } from "@/components/layout/PageShell";
+import { FailureToggle } from "@/components/explainers/FailureToggle";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionAnchor } from "@/components/ui/SectionAnchor";
 import {
@@ -87,6 +88,13 @@ export default function AgenticHarnessPage() {
             <p className={styles.failureBody}>
               {conceptFailures["agentic-harness"].body}
             </p>
+            {conceptFailures["agentic-harness"].demo &&
+            conceptFailures["agentic-harness"].production ? (
+              <FailureToggle
+                demo={conceptFailures["agentic-harness"].demo}
+                production={conceptFailures["agentic-harness"].production}
+              />
+            ) : null}
           </Reveal>
           <div className={styles.related}>
             {meta.prev && <Link href={meta.prev.href}>{meta.prev.label}</Link>}

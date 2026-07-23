@@ -82,6 +82,16 @@
   max-width: 720px;
 }
 
+.icpLink {
+  color: var(--color-cta-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.icpLink:hover {
+  color: var(--color-cta);
+}
+
 .metrics {
   padding: 0 var(--gutter);
 }
@@ -562,6 +572,26 @@
     opacity 0.5s var(--ease),
     transform 0.5s var(--ease);
   transition-delay: calc(0.3s + var(--i) * 0.12s);
+}
+
+/* Gate diamonds on the journey rail: checkpoints between the stages */
+.gateMarks {
+  position: absolute;
+  top: 19px;
+  left: 9%;
+  width: 82%;
+  height: 2px;
+  pointer-events: none;
+}
+
+.gateMarks span {
+  position: absolute;
+  top: 1px;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: var(--color-navy-deep);
+  border: 1.5px solid var(--color-ice);
 }
 
 /* Journey gate line: the 90 days carry three stop points */

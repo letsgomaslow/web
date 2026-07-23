@@ -7,10 +7,10 @@ import { SectionAnchor } from "@/components/ui/SectionAnchor";
 import { ctaPrimaryLabel, engagementBadge } from "@/lib/brand";
 import {
   expectations,
-  foundationWeeks,
   pricingPrinciples,
   twoDoors,
 } from "@/lib/content/engagement";
+import { WeekRail } from "./WeekRail";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -90,23 +90,7 @@ export default function HowWeEngagePage() {
                 <SectionAnchor id="ninety-days" label="The 90-day anatomy" />
               </h2>
             </Reveal>
-            <div className={styles.weekList}>
-              {foundationWeeks.map((w, i) => (
-                <Reveal key={w.label}>
-                  <div className={styles.weekRow}>
-                    <span className={styles.weekNum}>0{i + 1}</span>
-                    <div>
-                      <div className={styles.weekLabel}>{w.label}</div>
-                      <div className={styles.weekDesc}>{w.desc}</div>
-                      <div className={styles.weekTag}>{w.tag}</div>
-                      {w.gate ? (
-                        <div className={styles.weekGate}>{w.gate}</div>
-                      ) : null}
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+            <WeekRail />
           </div>
         </section>
 
