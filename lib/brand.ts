@@ -41,6 +41,21 @@ export const ctaPrimaryLabel = "BOOK A WORKING SESSION";
 export const ctaContactSubmitLabel = "BOOK MY WORKING SESSION";
 export const engagementBadge = "TAKING TWO NEW ENGAGEMENTS FOR Q4 2026";
 
+export const contactEmail = "rakesh@maslow.ai";
+
+export const socialLinks = {
+  founderLinkedIn: "https://www.linkedin.com/in/rakeshdavid/",
+  companyLinkedIn: "https://www.linkedin.com/company/letsgomaslow/",
+  github: "https://github.com/letsgomaslow",
+} as const;
+
+export const founderHeadshot = {
+  src: "/assets/rakesh-david-founder.jpg",
+  alt: "Rakesh David, Founder and CEO of Maslow AI",
+  width: 1200,
+  height: 1200,
+} as const;
+
 export const navLinks = [
   { href: "/services", label: "SERVICES" },
   { href: "/how-we-engage", label: "HOW WE ENGAGE" },

@@ -35,6 +35,7 @@
   --font-display: var(--font-dm-sans), var(--font-manrope), sans-serif;
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --shadow-headshot: 0 4px 6px rgba(0, 0, 0, 0.124);
   --max: 1200px;
   --gutter: 48px;
 }

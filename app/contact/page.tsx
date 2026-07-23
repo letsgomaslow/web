@@ -1,6 +1,12 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { ContactForm } from "@/components/forms/ContactForm";
+import {
+  contactEmail,
+  founderHeadshot,
+  socialLinks,
+} from "@/lib/brand";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -74,11 +80,25 @@ export default function ContactPage() {
               ))}
             </div>
             <div className={styles.links}>
-              <a href="mailto:hello@maslow.ai" className={styles.email}>
-                hello@maslow.ai
+              <a href={`mailto:${contactEmail}`} className={styles.email}>
+                {contactEmail}
               </a>
-              <span className={styles.social}>LinkedIn ↗</span>
-              <span className={styles.social}>GitHub ↗</span>
+              <a
+                href={socialLinks.companyLinkedIn}
+                className={styles.social}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Maslow AI on LinkedIn ↗
+              </a>
+              <a
+                href={socialLinks.github}
+                className={styles.social}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
             </div>
           </div>
 
@@ -87,6 +107,28 @@ export default function ContactPage() {
             style={{ animationDelay: "0.3s" }}
           >
             <div className={styles.cardTitle}>Book a working session</div>
+            <div className={styles.host}>
+              <Image
+                className={styles.hostPhoto}
+                src={founderHeadshot.src}
+                alt={founderHeadshot.alt}
+                width={founderHeadshot.width}
+                height={founderHeadshot.height}
+                sizes="56px"
+              />
+              <div>
+                <span className={styles.hostLabel}>YOUR SESSION IS WITH</span>
+                <a
+                  className={styles.hostName}
+                  href={socialLinks.founderLinkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Rakesh David ↗
+                </a>
+                <span className={styles.hostRole}>Founder &amp; CEO</span>
+              </div>
+            </div>
             <ContactForm />
           </div>
         </div>

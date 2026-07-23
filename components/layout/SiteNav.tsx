@@ -4,7 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useState } from "react";
-import { ctaPrimaryLabel, navLinks, ticks } from "@/lib/brand";
+import {
+  contactEmail,
+  ctaPrimaryLabel,
+  navLinks,
+  ticks,
+} from "@/lib/brand";
 import styles from "./SiteNav.module.css";
 
 type SiteNavProps = {
@@ -189,7 +194,7 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
                   ["--d" as string]: `${0.14 + navLinks.length * 0.055 + 0.12}s`,
                 }}
               >
-                <a href="mailto:hello@maslow.ai">hello@maslow.ai</a>
+                <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
                 <span>© 2026 MASLOW AI</span>
               </div>
             </div>

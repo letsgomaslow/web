@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | Variable            | Purpose                                                    |
 | ------------------- | ---------------------------------------------------------- |
 | `RESEND_API_KEY`    | Resend API key for contact/newsletter/book forms           |
-| `CONTACT_TO_EMAIL`  | Destination inbox (default `hello@maslow.ai`)              |
+| `CONTACT_TO_EMAIL`  | Destination inbox (default `rakesh@maslow.ai`)             |
 | `RESEND_FROM_EMAIL` | Verified sender (e.g. `Maslow AI <onboarding@resend.dev>`) |
 
 Set the same values in the Vercel project → Settings → Environment Variables.

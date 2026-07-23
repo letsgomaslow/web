@@ -3,7 +3,11 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
-import { ctaPrimaryLabel } from "@/lib/brand";
+import {
+  ctaPrimaryLabel,
+  founderHeadshot,
+  socialLinks,
+} from "@/lib/brand";
 import { founder, principles, standingLine } from "@/lib/content/site";
 import styles from "./page.module.css";
 
@@ -11,6 +15,19 @@ export const metadata: Metadata = {
   title: { absolute: "About | Maslow AI · Founder-led AI transformation" },
   description:
     "Led by a former CIO/CTO with twenty years of enterprise technology behind him. Four commitments in writing, and a mission to reduce the cost of AI adoption.",
+  openGraph: {
+    title: "About | Maslow AI · Founder-led AI transformation",
+    description:
+      "Led by a former CIO/CTO with twenty years of enterprise technology behind him. Four commitments in writing, and a mission to reduce the cost of AI adoption.",
+    images: [
+      {
+        url: founderHeadshot.src,
+        alt: founderHeadshot.alt,
+        width: founderHeadshot.width,
+        height: founderHeadshot.height,
+      },
+    ],
+  },
 };
 
 export default function AboutPage() {
@@ -109,13 +126,26 @@ export default function AboutPage() {
               Founder-led, by design.
             </h2>
             <Reveal className={styles.founder}>
-              <div className={styles.founderPhoto} aria-hidden>
-                <span>RD</span>
-              </div>
+              <Image
+                className={styles.founderPhoto}
+                src={founderHeadshot.src}
+                alt={founderHeadshot.alt}
+                width={founderHeadshot.width}
+                height={founderHeadshot.height}
+                sizes="200px"
+              />
               <div>
                 <div className={styles.founderName}>
                   {founder.name} · {founder.role}
                 </div>
+                <a
+                  className={styles.founderLink}
+                  href={socialLinks.founderLinkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  RAKESH ON LINKEDIN&nbsp;&nbsp;↗
+                </a>
                 <p className={styles.founderBio}>{founder.bio}</p>
                 <p className={styles.founderPull}>{founder.pull}</p>
                 <p className={styles.founderBench}>{founder.bench}</p>

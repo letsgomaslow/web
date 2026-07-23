@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { contactEmail } from "@/lib/brand";
 
 export const runtime = "nodejs";
 
@@ -66,7 +67,7 @@ export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   const from =
     process.env.RESEND_FROM_EMAIL || "Maslow AI <onboarding@resend.dev>";
-  const to = process.env.CONTACT_TO_EMAIL || "hello@maslow.ai";
+  const to = process.env.CONTACT_TO_EMAIL || contactEmail;
 
   if (!apiKey) {
     console.error("RESEND_API_KEY is not configured");

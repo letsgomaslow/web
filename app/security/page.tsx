@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionAnchor } from "@/components/ui/SectionAnchor";
+import { contactEmail } from "@/lib/brand";
 import {
   dataLocations,
   plainAnswers,
@@ -121,7 +122,7 @@ export default function SecurityPage() {
             </div>
             <Reveal>
               <Link
-                href="mailto:hello@maslow.ai"
+                href={`mailto:${contactEmail}`}
                 className="text-link"
                 style={{ marginTop: 28, display: "inline-flex" }}
               >

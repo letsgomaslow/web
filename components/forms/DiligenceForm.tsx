@@ -1,7 +1,10 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { contactEmail } from "@/lib/brand";
 import styles from "./forms.module.css";
+
+const sendError = `That didn't send. Try again, or email ${contactEmail} directly.`;
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -36,8 +39,7 @@ export function DiligenceForm() {
       const json = (await res.json()) as { ok?: boolean; error?: string };
       if (!res.ok || !json.ok) {
         throw new Error(
-          json.error ||
-            "That didn't send. Try again, or email hello@maslow.ai directly.",
+          json.error || sendError,
         );
       }
       setStatus("success");
@@ -47,7 +49,7 @@ export function DiligenceForm() {
       setError(
         err instanceof Error
           ? err.message
-          : "That didn't send. Try again, or email hello@maslow.ai directly.",
+          : sendError,
       );
     }
   }

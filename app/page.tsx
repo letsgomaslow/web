@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
-import { ctaPrimaryLabel } from "@/lib/brand";
+import { ctaPrimaryLabel, founderHeadshot } from "@/lib/brand";
 import { LayerDiagram } from "@/components/home/LayerDiagram";
 import { QueueMotif } from "@/components/home/QueueMotif";
 import {
@@ -316,9 +316,14 @@ export default function HomePage() {
         <section className={styles.founder} data-screen-label="Founder">
           <div className="wrap">
             <Reveal className={styles.founderInner}>
-              <div className={styles.founderPhoto} aria-hidden>
-                <span>RD</span>
-              </div>
+              <Image
+                className={styles.founderPhoto}
+                src={founderHeadshot.src}
+                alt={founderHeadshot.alt}
+                width={founderHeadshot.width}
+                height={founderHeadshot.height}
+                sizes="120px"
+              />
               <div>
                 <div className="eyebrow">WHO YOU&apos;LL WORK WITH</div>
                 <p className={styles.founderBody}>{founderStrip.body}</p>
