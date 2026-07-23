@@ -146,8 +146,31 @@ export const manufacturingBottlenecks = [
   },
 ] as const;
 
-export const manufacturingMonday = [
-  "A quote request lands. Your AI estimator drafts it from past jobs and current material costs, cites every source, and flags the two line items where costs moved since the last similar job. Your senior estimator reviews in minutes — catching what matters, because the digging is already done. Their name is still on the quote. Their judgment sets the standard the AI drafts to.",
-  "A floor supervisor asks Teams where the rev-C drawing for a 2019 job lives. The answer arrives with the file, in seconds, with the change history.",
-  "The weekly ops report assembles itself from your ERP and job tracker. Your supervisor reviews it over coffee instead of building it after dinner.",
+export const manufacturingMonday: readonly {
+  text: string;
+  catchTrail?: readonly {
+    label: string;
+    tone: "flagged" | "caught" | "approved";
+  }[];
+}[] = [
+  {
+    text: "A quote request lands. Your AI estimator drafts it from past jobs and current material costs, cites every source, and flags the two line items where costs moved since the last similar job. Your senior estimator reviews in minutes — catching what matters, because the digging is already done. Their name is still on the quote. Their judgment sets the standard the AI drafts to.",
+    catchTrail: [
+      { label: "AI FLAGGED · 2 LINE ITEMS MOVED", tone: "flagged" },
+      { label: "ESTIMATOR CAUGHT · WHAT MATTERED", tone: "caught" },
+      { label: "APPROVED · THEIR NAME ON THE QUOTE", tone: "approved" },
+    ],
+  },
+  {
+    text: "A floor supervisor asks Teams where the rev-C drawing for a 2019 job lives. The answer arrives with the file, in seconds, with the change history.",
+  },
+  {
+    text: "The weekly ops report assembles itself from your ERP and job tracker. Your supervisor reviews it over coffee instead of building it after dinner.",
+  },
 ] as const;
+
+export const estimatorShare = {
+  mailtoSubject: "Worth a look — AI drafting with your judgment on top",
+  mailtoBody:
+    "This vendor's pitch: the AI does the digging and drafting, and the estimator's judgment sets the standard it drafts to — your name stays on the quote. If they're wrong about how our quoting works, I want to know why. https://maslow.ai/manufacturing",
+} as const;
