@@ -1,5 +1,25 @@
 import { FIXED_FEE_MONTHLY_TAG, FIXED_FEE_TAG } from "./pricing";
 
+type ServiceEntry = {
+  name: string;
+  desc: string;
+  fit: string;
+  deliverable: string;
+  catchTrail?: readonly {
+    label: string;
+    tone: "flagged" | "caught" | "approved";
+  }[];
+};
+
+type ServiceGroup = {
+  id: string;
+  num: string;
+  accent: string;
+  name: string;
+  desc: string;
+  services: ServiceEntry[];
+};
+
 export const serviceStages = [
   { num: "01", name: "Assess", q: "Where does AI pay?", anchor: "#assess" },
   {
@@ -13,7 +33,7 @@ export const serviceStages = [
   { num: "05", name: "Own", q: "Bring it in-house", anchor: "#own" },
 ];
 
-export const serviceCatalog = [
+export const serviceCatalog: ServiceGroup[] = [
   {
     id: "assess",
     num: "01",
@@ -107,6 +127,11 @@ export const serviceCatalog = [
         desc: "One agent, one workflow, one channel: live in weeks, with human approval on every consequential action — and a log of what the agent flagged and the approver caught.",
         fit: "you want proof before commitment",
         deliverable: "6-WEEK SUPERVISED PILOT",
+        catchTrail: [
+          { label: "AI FLAGGED", tone: "flagged" as const },
+          { label: "HUMAN CAUGHT", tone: "caught" as const },
+          { label: "LOGGED + APPROVED", tone: "approved" as const },
+        ],
       },
       {
         name: "Workforce rollout",

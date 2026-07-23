@@ -14,6 +14,8 @@ import {
   manufacturingMonday,
 } from "@/lib/content/trust";
 import { foundationWeeks, twoDoors } from "@/lib/content/engagement";
+import { conceptFailures } from "@/lib/content/explainers";
+import { copilotSection, costOfWaiting } from "@/lib/content/home";
 
 describe("content modules", () => {
   it("has six assessment questions with four options each", () => {
@@ -63,13 +65,36 @@ describe("content modules", () => {
   });
 
   it("trust content carries the copy-v3 invariants", () => {
-    expect(faqItems).toHaveLength(13);
+    expect(faqItems).toHaveLength(14);
     faqItems.forEach((f, i) => {
       expect(f.num).toBe(String(i + 1).padStart(2, "0"));
       expect(f.a.length).toBeGreaterThan(40);
     });
     expect(manufacturingBottlenecks).toHaveLength(3);
     expect(manufacturingMonday).toHaveLength(3);
+    // Show-the-catch: the estimator scenario names what the approval caught.
+    expect(manufacturingMonday[0].catchTrail).toHaveLength(3);
+    expect(manufacturingMonday[0].catchTrail?.map((c) => c.tone)).toEqual([
+      "flagged",
+      "caught",
+      "approved",
+    ]);
+  });
+
+  it("every concept names its failure mode", () => {
+    const slugs = concepts.map((c) => c.href.replace("/concepts/", ""));
+    expect(Object.keys(conceptFailures).sort()).toEqual([...slugs].sort());
+    Object.values(conceptFailures).forEach((f) => {
+      expect(f.headline.length).toBeGreaterThan(10);
+      expect(f.body.length).toBeGreaterThan(100);
+    });
+  });
+
+  it("homepage copilot and cost-of-waiting sections are populated", () => {
+    expect(copilotSection.h2).toMatch(/Keep Copilot/);
+    expect(copilotSection.body).toMatch(/right call/);
+    expect(costOfWaiting.body).toMatch(/queue compounds/);
+    expect(costOfWaiting.ctaHref).toBe("/assessment");
   });
 
   it("engagement gates are surfaced, conservatively", () => {

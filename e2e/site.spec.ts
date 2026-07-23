@@ -16,6 +16,7 @@ const routes = [
   "/manufacturing",
   "/security",
   "/faq",
+  "/diligence",
   "/concepts/context-engineering",
   "/concepts/agentic-harness",
   "/concepts/hybrid-rag",
@@ -94,7 +95,9 @@ test.describe("interactive islands", () => {
     await page.goto("/contact");
     await page.getByPlaceholder("Full name").fill("Test User");
     await page.getByPlaceholder("Work email").fill("not-an-email");
-    await page.getByRole("button", { name: /BOOK MY WORKING SESSION/i }).click();
+    await page
+      .getByRole("button", { name: /BOOK MY WORKING SESSION/i })
+      .click();
     // HTML5 validation should prevent submit - still on contact
     await expect(page).toHaveURL(/\/contact/);
   });
@@ -165,5 +168,27 @@ test.describe("responsive layout", () => {
     await page.goto("/services");
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     await expect(page.locator("#assess")).toBeVisible();
+  });
+});
+
+test.describe("forwardable sections", () => {
+  test("faq deep link opens the target question", async ({ page }) => {
+    await page.goto("/faq#q-07");
+    await expect(page.locator("#q-07")).toHaveJSProperty("open", true);
+  });
+
+  test("copy anchor reports its copied state", async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, "clipboard", {
+        value: { writeText: async () => undefined },
+        configurable: true,
+      });
+    });
+    await page.goto("/faq");
+    const anchor = page
+      .locator("#q-01 summary")
+      .getByRole("button", { name: /copy link/i });
+    await anchor.click();
+    await expect(anchor).toContainText("COPIED");
   });
 });

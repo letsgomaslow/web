@@ -619,3 +619,41 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     next: { href: "/concepts/agentic-harness", label: "Agentic Harness →" },
   },
 };
+
+/**
+ * "What breaks without it" — each concept tied to the production failure it
+ * prevents. Scar tissue, not vocabulary: a competitor's "our engineer could
+ * DIY this in two weeks" lands unless the failure mode is named.
+ */
+export const conceptFailures: Record<
+  string,
+  { headline: string; body: string; demo?: string; production?: string }
+> = {
+  "agentic-harness": {
+    headline: "The demo dies quietly by week six.",
+    body: "Without a harness, the demo that wowed the boardroom answers from stale files by week six, nobody can say why, and the pilot dies quietly. The harness is what makes AI boring enough to trust: versioned skills you can diff, approvals that leave an audit trail, staleness alerts before wrong answers ship, and a model you can swap without rebuilding anything. DIY stacks skip this part first — it's invisible in a demo and load-bearing in production.",
+    demo: "Week one: the model answers everything, the room is impressed, and someone says it could take over the whole intake queue by Christmas.",
+    production:
+      "Week six: the files have gone stale, two answers were confidently wrong, nobody can say which retrieval produced them — and the pilot dies quietly.",
+  },
+  "context-engineering": {
+    headline: "The right answer, from the wrong year.",
+    body: "Without context discipline, the model retrieves the right answer from the wrong year: the 2021 spec, the superseded rate card, the policy two revisions old. Every answer sounds confident, because the model can't know what it wasn't shown. Context engineering is the difference between an assistant that happens to be right and a system that can say where its answer came from — and what it deliberately left out.",
+  },
+  "hybrid-rag": {
+    headline: "Keyword search can't answer why.",
+    body: 'Without hybrid retrieval you get keyword search with better manners: it finds documents that mention the words, then goes quiet the moment you ask why. "Which contracts changed after the reorg?" needs relationships — people, projects, dates — not string matches. Pure-vector stacks hit the same wall from the other side: everything is vaguely similar and nothing is precisely true. The graph is what lets an answer cite its reasons.',
+  },
+  "local-ai": {
+    headline: "The bill spikes the month adoption succeeds.",
+    body: "The pilot was cheap because nobody used it; the rollout is expensive because everyone does. On metered APIs the bill spikes in exactly the month adoption succeeds, so teams start rationing questions — quietly killing the habit the whole project existed to build. Local inference flips the curve: flat cost, privacy that's physics, and success stops being the expensive outcome.",
+  },
+  "skills-and-gateways": {
+    headline: "Your best prompt lives in one person's notes.",
+    body: "Without a skills library, your best prompt is unversioned, untested, and gone when its author is. Every team reinvents it a little worse, and nobody can say which version produced last quarter's numbers. Written as skills, procedures get what code got decades ago: versions you can diff, tests that catch drift, and reuse across every agent instead of heroics in one chat window.",
+  },
+  "virtual-ai-employees": {
+    headline: "A chatbot answers; nobody finishes.",
+    body: "A chatbot answers questions all day and finishes nothing: the quote still waits for someone to open the ERP, paste the numbers, and route the approval. An AI employee is accountable for the outcome — it carries the request from intake to approved, under a person's supervision, and the workflow's status is its problem. That's the difference between answering about work and doing it.",
+  },
+};

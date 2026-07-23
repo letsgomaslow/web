@@ -160,6 +160,22 @@ export const homeCases = [
   },
 ];
 
+export const copilotSection = {
+  eyebrow: "IF YOU ALREADY PAY FOR COPILOT",
+  h2: "Keep Copilot. Add the layer it's missing.",
+  body: "Rolling out Microsoft Copilot was the right call — it's the best personal assistant your people can have, and we'll tell you to keep it. What it structurally can't do is own a workflow: it doesn't know your estimating logic, can't carry a quote from request to approval across your systems, and doesn't answer from a knowledge base you govern. That's the layer we build. Most of our clients run both: Copilot for individuals, AI employees for the workflows.",
+  ctaLabel: "SEE WHAT THE LAYER CONTAINS",
+  ctaHref: "/concepts/virtual-ai-employees",
+} as const;
+
+export const costOfWaiting = {
+  eyebrow: "THE OTHER OPTION",
+  h2: "Doing nothing has a price too.",
+  body: "Every quarter you wait: the quotes still queue behind one person, and the queue compounds. The know-how you most need captured gets one quarter closer to walking out the door. The files pile deeper, in formats only humans can search. None of that shows up as a line item — which is why it never gets fixed. The assessment takes two minutes and tells you whether AI pays in your operation. If it doesn't, we'll say so.",
+  ctaLabel: "TAKE THE 2-MINUTE ASSESSMENT",
+  ctaHref: "/assessment",
+} as const;
+
 export const founderStrip = {
   body: "Maslow is led by Rakesh David, a former CIO/CTO who ran enterprise technology for twenty years — and founded Maslow to fix, from the vendor side, the key-person problem he kept meeting on the buyer side. You work directly with someone who has sat in your chair. And because everything we build lands in your repositories from day one, nothing about your system depends on any one person. Including him.",
   href: "/about",

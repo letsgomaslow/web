@@ -4,7 +4,10 @@ import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { ctaPrimaryLabel } from "@/lib/brand";
+import { CatchChips } from "@/components/ui/CatchChips";
+import { ShareBlock } from "@/components/ui/ShareBlock";
 import {
+  estimatorShare,
   manufacturingBottlenecks,
   manufacturingMonday,
 } from "@/lib/content/trust";
@@ -124,7 +127,15 @@ export default function ManufacturingPage() {
               </h2>
               <ul className={styles.mondayList}>
                 {manufacturingMonday.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item.text}>
+                    {item.text}
+                    {item.catchTrail ? (
+                      <CatchChips
+                        steps={item.catchTrail}
+                        ariaLabel="What the approval caught"
+                      />
+                    ) : null}
+                  </li>
                 ))}
               </ul>
             </Reveal>
@@ -163,6 +174,10 @@ export default function ManufacturingPage() {
                 the output. The system exists to multiply their judgment, not to
                 replace it.
               </p>
+              <ShareBlock
+                mailtoSubject={estimatorShare.mailtoSubject}
+                mailtoBody={estimatorShare.mailtoBody}
+              />
             </Reveal>
           </div>
         </section>

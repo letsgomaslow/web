@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/how-we-engage",
     "/assessment",
     "/about",
+    "/diligence",
     "/contact",
     "/blog",
     "/blog/context-engineering",

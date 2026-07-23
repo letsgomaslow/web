@@ -3,13 +3,14 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionAnchor } from "@/components/ui/SectionAnchor";
 import { ctaPrimaryLabel, engagementBadge } from "@/lib/brand";
 import {
   expectations,
-  foundationWeeks,
   pricingPrinciples,
   twoDoors,
 } from "@/lib/content/engagement";
+import { WeekRail } from "./WeekRail";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -56,8 +57,9 @@ export default function HowWeEngagePage() {
         <section className={styles.doors} data-screen-label="Two Doors">
           <div className="wrap">
             <Reveal>
-              <h2 className="h2" style={{ marginBottom: 28 }}>
+              <h2 className="h2" id="two-doors" style={{ marginBottom: 28 }}>
                 Most clients start at one of two doors.
+                <SectionAnchor id="two-doors" label="The two doors" />
               </h2>
             </Reveal>
             <div className={styles.doorGrid}>
@@ -83,27 +85,12 @@ export default function HowWeEngagePage() {
         <section className={styles.weeks} data-screen-label="90 Days">
           <div className="wrap">
             <Reveal>
-              <h2 className="h2" style={{ marginBottom: 36 }}>
+              <h2 className="h2" id="ninety-days" style={{ marginBottom: 36 }}>
                 Learn the work. Prove the value. Then build.
+                <SectionAnchor id="ninety-days" label="The 90-day anatomy" />
               </h2>
             </Reveal>
-            <div className={styles.weekList}>
-              {foundationWeeks.map((w, i) => (
-                <Reveal key={w.label}>
-                  <div className={styles.weekRow}>
-                    <span className={styles.weekNum}>0{i + 1}</span>
-                    <div>
-                      <div className={styles.weekLabel}>{w.label}</div>
-                      <div className={styles.weekDesc}>{w.desc}</div>
-                      <div className={styles.weekTag}>{w.tag}</div>
-                      {w.gate ? (
-                        <div className={styles.weekGate}>{w.gate}</div>
-                      ) : null}
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+            <WeekRail />
           </div>
         </section>
 
@@ -129,8 +116,13 @@ export default function HowWeEngagePage() {
         <section className={styles.pricing} data-screen-label="Pricing">
           <div className="wrap">
             <Reveal>
-              <h2 className="h2" style={{ color: "#fff", marginBottom: 36 }}>
+              <h2
+                className="h2"
+                id="pricing"
+                style={{ color: "#fff", marginBottom: 36 }}
+              >
                 Priced before we start. Gated so you can stop.
+                <SectionAnchor id="pricing" label="Pricing principles" />
               </h2>
             </Reveal>
             <div className={styles.pricingList}>

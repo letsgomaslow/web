@@ -4,6 +4,7 @@ import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { ctaPrimaryLabel } from "@/lib/brand";
 import { faqItems } from "@/lib/content/trust";
+import { FaqList } from "./FaqList";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -18,7 +19,10 @@ export default function FaqPage() {
       <>
         <section className={styles.hero} data-screen-label="Hero">
           <div className="wrap">
-            <div className="eyebrow mz-rise" style={{ animationDelay: "0.05s" }}>
+            <div
+              className="eyebrow mz-rise"
+              style={{ animationDelay: "0.05s" }}
+            >
               FAQ
             </div>
             <h1
@@ -27,27 +31,28 @@ export default function FaqPage() {
             >
               The questions buyers actually ask.
             </h1>
+            <nav
+              className={`${styles.index} mz-rise`}
+              style={{ animationDelay: "0.3s" }}
+              aria-label="Question index"
+            >
+              {faqItems.map((item) => (
+                <a
+                  key={item.num}
+                  href={`#q-${item.num}`}
+                  className={styles.indexLink}
+                >
+                  <span>{item.num}</span>
+                  {item.q}
+                </a>
+              ))}
+            </nav>
           </div>
         </section>
 
         <section className={styles.list} data-screen-label="FAQ List">
           <div className="wrap">
-            <div className={styles.faqList}>
-              {faqItems.map((item) => (
-                <Reveal key={item.num}>
-                  <details className={styles.item}>
-                    <summary className={styles.summary}>
-                      <span className={styles.num}>{item.num}</span>
-                      <span className={styles.question}>{item.q}</span>
-                      <span className={styles.chevron} aria-hidden>
-                        +
-                      </span>
-                    </summary>
-                    <div className={styles.answer}>{item.a}</div>
-                  </details>
-                </Reveal>
-              ))}
-            </div>
+            <FaqList />
           </div>
         </section>
 

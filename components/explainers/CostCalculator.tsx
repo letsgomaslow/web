@@ -131,7 +131,7 @@ export function CostCalculator() {
         </text>
         <polyline
           fill="none"
-          stroke="#F37779"
+          stroke="var(--color-coral)"
           strokeWidth="2.5"
           points={data.cloudPoints}
         />

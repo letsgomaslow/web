@@ -4,8 +4,12 @@ import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { ctaPrimaryLabel } from "@/lib/brand";
+import { LayerDiagram } from "@/components/home/LayerDiagram";
+import { QueueMotif } from "@/components/home/QueueMotif";
 import {
   concepts,
+  copilotSection,
+  costOfWaiting,
   founderStrip,
   homeCases,
   metrics,
@@ -135,14 +139,38 @@ export default function HomePage() {
             </div>
             <Reveal className={styles.icpFoot}>
               <p className={styles.icpMicro}>
-                Typically $20M to $500M in revenue. If you&apos;re a Fortune 500
-                running a procurement cycle, we&apos;re probably not your firm,
-                and we&apos;ll tell you so on the first call.
+                Typically $20M to $500M in revenue. If you need a global SI with
+                a thousand consultants, we&apos;re not that. If your board runs
+                a real vendor review, good —{" "}
+                <Link href="/diligence" className={styles.icpLink}>
+                  our diligence pack
+                </Link>{" "}
+                was built for exactly that.
               </p>
               <Link href="/assessment" className="text-link">
                 NOT SURE IF THAT&apos;S YOU? TAKE THE ASSESSMENT&nbsp;&nbsp;&gt;
               </Link>
             </Reveal>
+          </div>
+        </section>
+
+        <section className={styles.copilot} data-screen-label="Keep Copilot">
+          <div className="wrap">
+            <div className={styles.copilotGrid}>
+              <Reveal>
+                <div className="eyebrow">{copilotSection.eyebrow}</div>
+                <h2 className="h2" style={{ marginBottom: 18 }}>
+                  {copilotSection.h2}
+                </h2>
+                <p className={styles.copilotBody}>{copilotSection.body}</p>
+                <Link href={copilotSection.ctaHref} className="text-link">
+                  {copilotSection.ctaLabel}&nbsp;&nbsp;&gt;
+                </Link>
+              </Reveal>
+              <Reveal className={styles.copilotViz}>
+                <LayerDiagram />
+              </Reveal>
+            </div>
           </div>
         </section>
 
@@ -212,6 +240,11 @@ export default function HomePage() {
                   vectorEffect="non-scaling-stroke"
                 />
               </svg>
+              <div className={styles.gateMarks} aria-hidden="true">
+                {[20, 40, 80].map((x) => (
+                  <span key={x} style={{ left: `${x}%` }} />
+                ))}
+              </div>
               {stages.map((st) => (
                 <Link key={st.num} href={st.href} className={styles.stage}>
                   <div className={styles.stageNum}>{st.num}</div>
@@ -294,6 +327,28 @@ export default function HomePage() {
                 </Link>
               </div>
             </Reveal>
+          </div>
+        </section>
+
+        <section className={styles.waiting} data-screen-label="Cost of Waiting">
+          <div className="wrap">
+            <div className={styles.waitingGrid}>
+              <Reveal>
+                <div className="eyebrow">{costOfWaiting.eyebrow}</div>
+                <h2 className="h2" style={{ marginBottom: 18 }}>
+                  {costOfWaiting.h2}
+                </h2>
+                <p className={styles.waitingBody}>{costOfWaiting.body}</p>
+                <div className={styles.waitingCta}>
+                  <CtaButton href={costOfWaiting.ctaHref} variant="secondary">
+                    {costOfWaiting.ctaLabel}
+                  </CtaButton>
+                </div>
+              </Reveal>
+              <Reveal className={styles.waitingViz}>
+                <QueueMotif />
+              </Reveal>
+            </div>
           </div>
         </section>
 

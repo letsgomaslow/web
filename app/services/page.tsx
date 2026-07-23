@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
+import { CatchChips } from "@/components/ui/CatchChips";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { ctaPrimaryLabel } from "@/lib/brand";
@@ -127,6 +128,11 @@ export default function ServicesPage() {
                   vectorEffect="non-scaling-stroke"
                 />
               </svg>
+              <div className={styles.gateMarks} aria-hidden="true">
+                {[20, 40, 80].map((x) => (
+                  <span key={x} style={{ left: `${x}%` }} />
+                ))}
+              </div>
               {serviceStages.map((st) => (
                 <a key={st.num} href={st.anchor} className={styles.stage}>
                   <div className={styles.stageNum}>{st.num}</div>
@@ -164,6 +170,12 @@ export default function ServicesPage() {
                         <b>For you if:</b> {s.fit}
                       </div>
                       <div className={styles.deliverable}>{s.deliverable}</div>
+                      {s.catchTrail ? (
+                        <CatchChips
+                          steps={s.catchTrail}
+                          ariaLabel="What the supervision log records"
+                        />
+                      ) : null}
                     </div>
                   ))}
                 </div>

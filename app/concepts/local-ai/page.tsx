@@ -8,7 +8,9 @@ import {
   localHardwareTiers,
   localKeepFrontier,
   localRunsLocally,
+  conceptFailures,
 } from "@/lib/content/explainers";
+import { SectionAnchor } from "@/components/ui/SectionAnchor";
 import styles from "../concept.module.css";
 
 const meta = explainerPages["local-ai"];
@@ -154,6 +156,16 @@ export default function LocalAiPage() {
             Indicative tiers; we spec against your actual workload during the
             assessment.
           </p>
+          <Reveal className={styles.failure}>
+            <div className="eyebrow">WHAT BREAKS WITHOUT IT</div>
+            <h2 className={styles.failureHead} id="what-breaks">
+              {conceptFailures["local-ai"].headline}
+              <SectionAnchor id="what-breaks" label="What breaks without it" />
+            </h2>
+            <p className={styles.failureBody}>
+              {conceptFailures["local-ai"].body}
+            </p>
+          </Reveal>
           <div className={styles.related}>
             {meta.prev && <Link href={meta.prev.href}>{meta.prev.label}</Link>}
             <Link href="/#concepts">All concepts</Link>
