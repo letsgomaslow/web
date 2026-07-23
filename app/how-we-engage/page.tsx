@@ -13,7 +13,9 @@ import {
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "How We Engage | Maslow AI · Fixed fees, named milestones" },
+  title: {
+    absolute: "How We Engage | Maslow AI · Fixed fees, named milestones",
+  },
   description:
     "Two doors in: a fixed-fee Workflow Discovery or the 90-Day AI Foundation. Week-by-week anatomy, go/no-go gates, and a walk-away clause in writing.",
 };
@@ -24,7 +26,10 @@ export default function HowWeEngagePage() {
       <>
         <section className={styles.hero} data-screen-label="Hero">
           <div className="wrap">
-            <div className="eyebrow mz-rise" style={{ animationDelay: "0.05s" }}>
+            <div
+              className="eyebrow mz-rise"
+              style={{ animationDelay: "0.05s" }}
+            >
               HOW WE ENGAGE · FIXED FEES, NAMED MILESTONES
             </div>
             <h1
@@ -91,6 +96,9 @@ export default function HowWeEngagePage() {
                       <div className={styles.weekLabel}>{w.label}</div>
                       <div className={styles.weekDesc}>{w.desc}</div>
                       <div className={styles.weekTag}>{w.tag}</div>
+                      {w.gate ? (
+                        <div className={styles.weekGate}>{w.gate}</div>
+                      ) : null}
                     </div>
                   </div>
                 </Reveal>
@@ -126,17 +134,27 @@ export default function HowWeEngagePage() {
               </h2>
             </Reveal>
             <div className={styles.pricingList}>
-              {pricingPrinciples.map((p) => (
-                <Reveal key={p.num}>
-                  <div className={styles.pricingRow}>
+              {pricingPrinciples.map((p) => {
+                const walkAway = p.num === "03";
+                const row = (
+                  <div
+                    className={`${styles.pricingRow} ${walkAway ? styles.walkAway : ""}`}
+                  >
                     <span className={styles.pricingNum}>{p.num}</span>
                     <div>
                       <div className={styles.pricingTitle}>{p.title}</div>
                       <div className={styles.pricingBody}>{p.body}</div>
                     </div>
                   </div>
-                </Reveal>
-              ))}
+                );
+                // The walk-away clause renders deliberately still: no reveal
+                // animation, no hover response — the site's only static moment.
+                return walkAway ? (
+                  <div key={p.num}>{row}</div>
+                ) : (
+                  <Reveal key={p.num}>{row}</Reveal>
+                );
+              })}
             </div>
           </div>
         </section>

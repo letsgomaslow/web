@@ -64,7 +64,7 @@ export const faqItems = [
   {
     num: "01",
     q: "We already pay for Microsoft Copilot. Why isn't that enough?",
-    a: "Copilot is a brilliant assistant for individuals. It doesn't know your estimating logic, can't own a workflow end to end, and its answers aren't grounded in a knowledge system you control. We build the layer Copilot doesn't: your knowledge, structured; your procedures, written as skills; agents accountable for outcomes. Many clients keep Copilot for personal productivity and run our AI employees beside it.",
+    a: "Keeping Copilot is the right call — for personal productivity it's excellent, and rolling it out was a good decision. What it structurally can't do is own a workflow: it doesn't know your estimating logic, can't carry a quote from request to approval, and doesn't answer from a knowledge system you govern. We build that layer. Most clients run both, side by side: Copilot for individuals, AI employees for the workflows.",
   },
   {
     num: "02",
@@ -121,13 +121,18 @@ export const faqItems = [
     q: 'What does "no lock-in" mean, concretely?',
     a: "Everything lives in your repositories and your tenant from day one: code, pipelines, prompts, skills, vector stores, graphs. Open models where they clear the quality bar. Firing us is a permissions change. We put it in the contract.",
   },
+  {
+    num: "13",
+    q: "What happens if Rakesh is unavailable mid-engagement?",
+    a: "You're never stranded, by design. Every artifact — code, pipelines, skills, docs, and the weekly written status history — lives in your repositories from day one, current and complete. The bench engineers on your engagement work under the same four commitments. We won't pretend a bench engineer replaces his judgment overnight — but the system that de-risks your key people is the same system that de-risks us. That symmetry is deliberate.",
+  },
 ] as const;
 
 export const manufacturingBottlenecks = [
   {
     num: "01",
-    title: "Estimating and quoting run through one or two heads.",
-    desc: "Every quote waits on the person who knows the real numbers. High cost to serve, and a resignation letter away from crisis.",
+    title: "Every quote waits on the one person who knows the real numbers.",
+    desc: "Your senior estimator isn't the problem — they're the ceiling on how much work you can take. Right now their judgment is trapped inside every quote's two-hour build. Free the judgment from the build, and the ceiling lifts.",
   },
   {
     num: "02",
@@ -142,7 +147,7 @@ export const manufacturingBottlenecks = [
 ] as const;
 
 export const manufacturingMonday = [
-  "A quote request lands. Your AI estimator drafts it from past jobs and current material costs, cites its sources, and routes it to your senior estimator for a two-minute approval instead of a two-hour build.",
+  "A quote request lands. Your AI estimator drafts it from past jobs and current material costs, cites every source, and flags the two line items where costs moved since the last similar job. Your senior estimator reviews in minutes — catching what matters, because the digging is already done. Their name is still on the quote. Their judgment sets the standard the AI drafts to.",
   "A floor supervisor asks Teams where the rev-C drawing for a 2019 job lives. The answer arrives with the file, in seconds, with the change history.",
   "The weekly ops report assembles itself from your ERP and job tracker. Your supervisor reviews it over coffee instead of building it after dinner.",
 ] as const;

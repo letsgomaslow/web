@@ -467,3 +467,63 @@
     white-space: normal;
   }
 }
+
+/* Gate ticks under the 90-days metric: three audited checkpoints made visible */
+.gateRail {
+  position: relative;
+  margin-top: 14px;
+  height: 20px;
+  border-top: 1px dashed rgba(115, 193, 174, 0.55);
+}
+
+.gateTick {
+  position: absolute;
+  top: -3.5px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font: 500 9px/1 var(--font-mono);
+  letter-spacing: 1px;
+  color: var(--color-ice-text);
+}
+
+.gateTick i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-ice);
+}
+
+:global(body.mz-anim) .metricsGrid:not([data-mz-in]) .gateTick {
+  opacity: 0;
+  transform: translateX(-50%) translateY(6px);
+}
+
+:global(body.mz-anim) .metricsGrid .gateTick {
+  transition:
+    opacity 0.5s var(--ease),
+    transform 0.5s var(--ease);
+  transition-delay: calc(0.3s + var(--i) * 0.12s);
+}
+
+/* Journey gate line: the 90 days carry three stop points */
+.gateLine {
+  margin: 30px 0 0;
+  text-align: center;
+  font: 500 11px/18px var(--font-mono);
+  letter-spacing: 3px;
+  color: var(--color-ice);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(body.mz-anim) .metricsGrid:not([data-mz-in]) .gateTick {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+
+  :global(body.mz-anim) .metricsGrid .gateTick {
+    transition: none;
+  }
+}

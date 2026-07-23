@@ -104,7 +104,7 @@ export const serviceCatalog = [
     services: [
       {
         name: "Virtual AI employee pilot",
-        desc: "One agent, one workflow, one channel: live in weeks, with human approval on every consequential action.",
+        desc: "One agent, one workflow, one channel: live in weeks, with human approval on every consequential action — and a log of what the agent flagged and the approver caught.",
         fit: "you want proof before commitment",
         deliverable: "6-WEEK SUPERVISED PILOT",
       },

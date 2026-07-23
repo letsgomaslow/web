@@ -172,3 +172,33 @@
     align-items: flex-start;
   }
 }
+
+/* Standing line: the company as first proof of the product */
+.standing {
+  margin-top: 56px;
+  padding: 30px 34px;
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-ice);
+  background: var(--color-off-white);
+}
+
+.standingBody {
+  margin: 14px 0 0;
+  font: 400 17px/28px var(--font-sans);
+  color: var(--color-text);
+  max-width: 780px;
+}
+
+/* Single-line note keeping secondary roles out of the accountability story */
+.elsewhere {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-line);
+}
+
+.elsewhere p {
+  margin: 10px 0 0;
+  font: 400 14px/22px var(--font-sans);
+  color: var(--color-muted);
+  max-width: 640px;
+}

@@ -1,5 +1,16 @@
-export const metrics = [
-  { value: "90 days", label: "idea to working AI foundation", tick: "#73C1AE" },
+export const metrics: {
+  value: string;
+  label: string;
+  tick: string;
+  gates?: string[];
+}[] = [
+  {
+    value: "90 days",
+    label:
+      "idea to working foundation — with go/no-go gates at weeks 2, 4, and 10",
+    tick: "#73C1AE",
+    gates: ["W2", "W4", "W10"],
+  },
   {
     value: "4 AI employees",
     label: "live in one client's Microsoft Teams today",
@@ -12,7 +23,7 @@ export const metrics = [
   },
   {
     value: "Fixed fees",
-    label: "every engagement priced before it starts",
+    label: "priced in writing before we start",
     tick: "#DA85B2",
   },
 ];
@@ -28,7 +39,7 @@ export const whoWeWorkWith = [
     num: "02",
     tick: "#A070A6",
     title: "Your know-how lives in a few senior people.",
-    desc: "Estimating, quoting, client intake, compliance answers. High cost to serve, higher key-person risk.",
+    desc: "Estimating, quoting, client intake, compliance answers. They're the reason you win work — and the ceiling on how much of it you can take.",
   },
   {
     num: "03",
@@ -121,7 +132,7 @@ export const homeCases = [
     sector: "MANUFACTURING · REAL ENGAGEMENT",
     art: "linear-gradient(140deg,#86E8CE,#E686B5)",
     title: "Infinite AI OS: an AI operating system in 90 days",
-    desc: "Four named AI employees working in Microsoft Teams, standing on a six-layer root system: memory, knowledge map, connectors, observability.",
+    desc: "Four named AI employees working in Microsoft Teams, standing on a six-layer root system: company memory, knowledge map, file intake, employee profiles, tool connectors, and observability.",
     result: "4 AI employees live · 90 days to foundation",
     href: "/case-studies/infinite-ai-os",
     cta: "VIEW CASE STUDY",
@@ -150,7 +161,7 @@ export const homeCases = [
 ];
 
 export const founderStrip = {
-  body: "Maslow is led by Rakesh David, a former CIO/CTO who spent twenty years running enterprise technology before building AI systems hands-on. You work directly with someone who has sat in your chair.",
+  body: "Maslow is led by Rakesh David, a former CIO/CTO who ran enterprise technology for twenty years — and founded Maslow to fix, from the vendor side, the key-person problem he kept meeting on the buyer side. You work directly with someone who has sat in your chair. And because everything we build lands in your repositories from day one, nothing about your system depends on any one person. Including him.",
   href: "/about",
   cta: "MEET THE FOUNDER",
 };

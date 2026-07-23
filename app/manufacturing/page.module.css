@@ -137,6 +137,24 @@
   max-width: 520px;
 }
 
+/* Direct address to the veto-holder: the estimator is the source of truth */
+.estimator {
+  padding: 88px var(--gutter);
+  background: var(--color-off-white);
+}
+
+.estimatorInner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.estimatorBody {
+  margin: 0;
+  font: 400 17px/28px var(--font-sans);
+  color: var(--color-text);
+  max-width: 680px;
+}
+
 @media (max-width: 900px) {
   .painGrid {
     grid-template-columns: 1fr;

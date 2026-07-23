@@ -3,7 +3,7 @@ import { FIXED_FEE_TAG } from "./pricing";
 export const twoDoors = [
   {
     name: "Workflow Discovery",
-    desc: 'Two to three weeks. We shadow your teams, map the workflows, and rank them by AI payback, with honest "don\'t bother"s. You leave with a ranked opportunity map and one architecture-and-cost sketch, whether or not we ever work together again.',
+    desc: 'Two to three weeks. We shadow your teams, map the workflows, and rank them by AI payback, with honest "don\'t bother"s. A deliberately small, fixed price to learn what the real project would cost — before anyone asks you to commit to one. You leave with a ranked opportunity map and one architecture-and-cost sketch, whether or not we ever work together again.',
     fit: "you want proof of thinking before proof of concept",
     tag: FIXED_FEE_TAG,
     ctaLabel: "BOOK A WORKING SESSION",
@@ -11,7 +11,7 @@ export const twoDoors = [
   },
   {
     name: "The 90-Day AI Foundation",
-    desc: "One accountable team runs assessment through deployment: knowledge systems, agentic harness, and your first AI employee live in a real channel, supervised. Scoped around one measurable workflow result, with go/no-go gates at every milestone.",
+    desc: "One accountable team runs assessment through deployment: knowledge systems, agentic harness, and your first AI employee live in a real channel, supervised. Scoped around one measurable workflow result, with go/no-go gates at weeks 2, 4, and 10.",
     fit: "you're done piloting and want something real",
     tag: FIXED_FEE_TAG,
     ctaLabel: "SEE HOW WE ENGAGE",
@@ -19,21 +19,29 @@ export const twoDoors = [
   },
 ] as const;
 
-export const foundationWeeks = [
+export const foundationWeeks: readonly {
+  label: string;
+  desc: string;
+  tag: string;
+  gate?: string;
+}[] = [
   {
     label: "WEEKS 1-2 · LEARN THE WORK",
     desc: "We shadow the people who do the job today. Workflows mapped, knowledge sources inventoried, key-person risks named. No technology decisions yet, on purpose.",
     tag: "WORKFLOW MAP + OPPORTUNITY RANKING",
+    gate: "GO/NO-GO · END OF WEEK 2",
   },
   {
     label: "WEEKS 3-4 · PROVE THE VALUE",
-    desc: "A working proof on your real data, not a demo on ours. We test retrieval quality, measure a baseline, and hold the first go/no-go gate: if the numbers don't clear the bar, we stop, and you keep the map.",
+    desc: "A working proof on your real data, not a demo on ours. We test retrieval quality against questions your own team wrote, measure a baseline, and hold the first go/no-go gate: if the numbers don't clear the bar, we stop, and you keep the map.",
     tag: "PROOF OF VALUE + GO/NO-GO",
+    gate: "GO/NO-GO · END OF WEEK 4",
   },
   {
     label: "WEEKS 5-10 · BUILD THE FOUNDATION",
     desc: "Knowledge systems first (vector DB, knowledge graph, freshness pipelines), then the harness (skills, tools, approvals, audit trail), then your first AI employee, live in one channel, supervised on every consequential action.",
     tag: "PRODUCTION FOUNDATION + FIRST AI EMPLOYEE",
+    gate: "GO/NO-GO · END OF WEEK 10",
   },
   {
     label: "WEEKS 11-12 · HAND OVER THE KEYS",

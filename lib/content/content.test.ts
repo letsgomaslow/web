@@ -8,6 +8,12 @@ import { serviceCatalog, serviceStages } from "@/lib/content/services";
 import { concepts, metrics } from "@/lib/content/home";
 import { blogPosts, getBlogArticle, getAllBlogSlugs } from "@/lib/content/blog";
 import { caseStudiesIndex } from "@/lib/content/case-studies";
+import {
+  faqItems,
+  manufacturingBottlenecks,
+  manufacturingMonday,
+} from "@/lib/content/trust";
+import { foundationWeeks, twoDoors } from "@/lib/content/engagement";
 
 describe("content modules", () => {
   it("has six assessment questions with four options each", () => {
@@ -54,6 +60,27 @@ describe("content modules", () => {
 
   it("blog posts list is non-empty", () => {
     expect(blogPosts.length).toBeGreaterThanOrEqual(5);
+  });
+
+  it("trust content carries the copy-v3 invariants", () => {
+    expect(faqItems).toHaveLength(13);
+    faqItems.forEach((f, i) => {
+      expect(f.num).toBe(String(i + 1).padStart(2, "0"));
+      expect(f.a.length).toBeGreaterThan(40);
+    });
+    expect(manufacturingBottlenecks).toHaveLength(3);
+    expect(manufacturingMonday).toHaveLength(3);
+  });
+
+  it("engagement gates are surfaced, conservatively", () => {
+    expect(twoDoors).toHaveLength(2);
+    expect(foundationWeeks).toHaveLength(4);
+    // Gates named on the first metric and the Foundation door; the billing
+    // sentence stays out until the mechanics are verified.
+    expect(metrics[0].label).toMatch(/gates at weeks 2, 4, and 10/);
+    expect(twoDoors[1].desc).toMatch(/weeks 2, 4, and 10/);
+    expect(twoDoors[1].desc).not.toMatch(/billed/i);
+    expect(foundationWeeks.filter((w) => w.gate)).toHaveLength(3);
   });
 });
 

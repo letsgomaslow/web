@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: { absolute: "Contact | Maslow AI · Book a working session" },
   description:
-    "A 30-minute working session, not a sales pitch. Bring one painful workflow; leave with an architecture sketch and a cost estimate.",
+    "A working session, not a sales call. Thirty minutes, one workflow, and a map of where AI pays in it — you keep the map either way.",
 };
 
 const steps = [
@@ -46,15 +46,16 @@ export default function ContactPage() {
               className={`${styles.title} mz-rise`}
               style={{ animationDelay: "0.15s" }}
             >
-              Let&apos;s find where AI pays in your business.
+              A working session, not a sales call.
             </h1>
             <p
               className={`${styles.lede} mz-rise`}
               style={{ animationDelay: "0.3s" }}
             >
-              A 30-minute working session, not a sales pitch. Bring one painful
-              workflow; we&apos;ll sketch the harness, the data pipeline, and
-              the cost curve on the call.
+              Thirty minutes. Bring one workflow that annoys you — quoting,
+              intake, reporting, anything that queues behind a busy person.
+              We&apos;ll map where AI pays in it, and tell you plainly if it
+              doesn&apos;t. You leave with the map either way.
             </p>
             <div
               className={`${styles.steps} mz-rise`}

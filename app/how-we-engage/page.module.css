@@ -169,6 +169,26 @@
   max-width: 560px;
 }
 
+/* Gate chip on foundation weeks: the stop points made visible */
+.weekGate {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px 4px;
+  border: 1px solid rgba(115, 193, 174, 0.55);
+  border-radius: 2px;
+  background: rgba(115, 193, 174, 0.08);
+  font: 500 10px/1 var(--font-mono);
+  letter-spacing: 1.5px;
+  color: var(--color-navy);
+}
+
+/* The walk-away clause: deliberately still — extra room, a rule above, no motion */
+.walkAway {
+  margin-top: 26px;
+  padding-top: 40px;
+  border-top: 1px solid var(--color-navy-line);
+}
+
 @media (max-width: 900px) {
   .doorGrid,
   .expectGrid {

@@ -14,6 +14,9 @@ import {
 } from "@/lib/content/home";
 import styles from "./page.module.css";
 
+/** Gate positions along the 90-day (≈13-week) rail, as percentages. */
+const GATE_POSITIONS = [15.5, 31, 77.5];
+
 export default function HomePage() {
   return (
     <PageShell footer="full">
@@ -38,7 +41,7 @@ export default function HomePage() {
               className="eyebrow mz-rise"
               style={{ animationDelay: "0.05s" }}
             >
-              AI EMPLOYEES · KNOWLEDGE SYSTEMS · OWNED INFRASTRUCTURE
+              OWNED INFRASTRUCTURE · KNOWLEDGE SYSTEMS · AI EMPLOYEES
             </div>
             <h1
               className="h1 mz-rise"
@@ -48,8 +51,8 @@ export default function HomePage() {
                 marginBottom: 28,
               }}
             >
-              AI transformation, without the{" "}
-              <span className="highlight">transformation budget</span>.
+              AI employees for the work that waits on your{" "}
+              <span className="highlight">busiest people</span>.
             </h1>
             <p
               className="lede mz-rise"
@@ -59,9 +62,11 @@ export default function HomePage() {
                 marginBottom: 40,
               }}
             >
-              Your files become knowledge. Your tools become skills. AI
-              employees show up for work in Teams, Slack, and email. And
-              everything we build stands on foundations you own.
+              Your files become knowledge your AI can cite. Your procedures
+              become skills it can reuse. AI employees take on real workflows in
+              Teams, Slack, and email — under accounts you control, with a
+              person approving every consequential action. And everything we
+              build stands on foundations you own.
             </p>
             <div
               className={`${styles.ctaRow} mz-rise`}
@@ -78,10 +83,27 @@ export default function HomePage() {
         <section className={styles.metrics} data-screen-label="Metrics">
           <Reveal className={styles.metricsGrid}>
             {metrics.map((m) => (
-              <div key={m.label} className={styles.metric}>
+              <div key={m.value} className={styles.metric}>
                 <span className={styles.tick} style={{ background: m.tick }} />
                 <div className={styles.metricValue}>{m.value}</div>
                 <div className={styles.metricLabel}>{m.label}</div>
+                {m.gates ? (
+                  <div className={styles.gateRail} aria-hidden="true">
+                    {m.gates.map((g, gi) => (
+                      <span
+                        key={g}
+                        className={styles.gateTick}
+                        style={{
+                          left: `${GATE_POSITIONS[gi]}%`,
+                          ["--i" as string]: gi,
+                        }}
+                      >
+                        <i />
+                        {g}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             ))}
           </Reveal>
@@ -197,6 +219,12 @@ export default function HomePage() {
                   <div className={styles.stageDesc}>{st.desc}</div>
                 </Link>
               ))}
+            </Reveal>
+            <Reveal>
+              <p className={styles.gateLine}>
+                GO/NO-GO GATES AT WEEKS 2, 4, AND 10 · STOP AT A GATE, KEEP
+                EVERYTHING PRODUCED
+              </p>
             </Reveal>
             <Reveal className={styles.centerCta}>
               <CtaButton href="/assessment" className={styles.assessPill}>

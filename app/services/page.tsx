@@ -32,7 +32,7 @@ export default function ServicesPage() {
               className="eyebrow mz-rise"
               style={{ animationDelay: "0.05s" }}
             >
-              SERVICES · FIVE STAGES, FIFTEEN DOORS
+              SERVICES · ENTER AT ANY STAGE
             </div>
             <h1
               className="h1 mz-rise"
@@ -42,7 +42,7 @@ export default function ServicesPage() {
                 marginBottom: 24,
               }}
             >
-              Pick your entry point. We meet you there.
+              Five stages. Fifteen doors. Each priced on its own.
             </h1>
             <p
               className="lede mz-rise"
@@ -52,10 +52,9 @@ export default function ServicesPage() {
                 marginBottom: 36,
               }}
             >
-              End-to-end transformation is our specialty, but it isn&apos;t the
-              only door in. Every service stands on its own, maps to a stage of
-              the journey, and composes with the others when you&apos;re ready
-              for more.
+              Enter at any stage; leave with the deliverable named on the door.
+              No bundle you can&apos;t unbundle, no blended rate hiding what any
+              one piece costs. Fixed fee, quoted in writing, before we start.
             </p>
             <div
               className={`${styles.heroCta} mz-rise`}

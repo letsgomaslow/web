@@ -30,7 +30,8 @@ export const caseStudiesIndex = [
     metricGloss:
       "93 of 100 test questions routed to the right specialist agent on the first try, measured on a live 28-case suite.",
     illustrative: false,
-    title: "AgentHub: an AI hub that reviews contracts, not just stores prompts",
+    title:
+      "AgentHub: an AI hub that reviews contracts, not just stores prompts",
     challenge:
       "Knowledge workers had no shared home for prompts that work, and no fast, trustworthy way to interrogate dense Statement-of-Work documents.",
     solution:
@@ -56,7 +57,11 @@ export const caseStudiesIndex = [
       "Decades of contracts, policies and memos scattered across shares. Compliance answers took days of manual digging and senior staff time.",
     solution:
       "Full ingestion pipeline: files chunked and embedded into a vector DB, entities and obligations extracted into a knowledge graph. Hybrid RAG with citations, deployed behind their firewall.",
-    results: ["−58% time-to-answer", "100% citation coverage", "14-day ingestion"],
+    results: [
+      "−58% time-to-answer",
+      "100% citation coverage",
+      "14-day ingestion",
+    ],
     stack: ["HYBRID_RAG", "KNOWLEDGE_GRAPH", "ON_PREM"],
     href: "#",
   },
@@ -73,7 +78,11 @@ export const caseStudiesIndex = [
       "Intake requests arrived by email at all hours. Partners triaged manually; slow responses were losing engagements to faster firms.",
     solution:
       "A virtual AI employee connected to the shared inbox via an email gateway. It triages intake, drafts engagement letters grounded in precedent, escalates edge cases with full audit trail.",
-    results: ["3.2× intake capacity", "<15 min first response", "Zero unreviewed sends"],
+    results: [
+      "3.2× intake capacity",
+      "<15 min first response",
+      "Zero unreviewed sends",
+    ],
     stack: ["VIRTUAL_EMPLOYEE", "EMAIL_GATEWAY", "HARNESS"],
     href: "#",
   },
@@ -90,7 +99,11 @@ export const caseStudiesIndex = [
       "Cloud AI costs scaled with every query, and sensitive process data was leaving the building to third-party APIs.",
     solution:
       "Right-sized GPU hardware on site, open models fine-tuned on their procedures, and an agentic harness wired into Teams for the floor supervisors.",
-    results: ["−63% inference cost", "Zero data egress", "Flat monthly cost curve"],
+    results: [
+      "−63% inference cost",
+      "Zero data egress",
+      "Flat monthly cost curve",
+    ],
     stack: ["LOCAL_AI", "OPEN_MODELS", "TEAMS_GATEWAY"],
     href: "#",
   },
@@ -108,8 +121,7 @@ export const infiniteAiOs = {
     { label: "90-DAY ENGAGEMENT", variant: "navy" as const },
   ],
   title: "From tribal knowledge to an AI operating system, in 90 days.",
-  lede:
-    "How a private manufacturing group went from idea to a working AI foundation: four AI employees conversing in Microsoft Teams, a searchable company memory, and a defensible path to one-third more enterprise value.",
+  lede: "How a private manufacturing group went from idea to a working AI foundation: four AI employees conversing in Microsoft Teams, a searchable company memory, and a defensible path to one-third more enterprise value.",
   metrics: [
     {
       value: "4",
@@ -157,7 +169,7 @@ export const infiniteAiOs = {
     {
       when: "JUNE–JULY · BUILD",
       name: "Build the foundation",
-      desc: "The durable root system: memory, knowledge map, profiles, tool connectors and observability.",
+      desc: "The durable root system: company memory, knowledge map, file intake, employee profiles, tool connectors, and observability.",
       q: "What makes AI repeatable?",
     },
   ],
@@ -323,8 +335,7 @@ export const infiniteAiOs = {
 };
 
 export const agentHub = {
-  clientName:
-    "a global healthcare company's internal innovation program",
+  clientName: "a global healthcare company's internal innovation program",
   breadcrumb: "Enterprise AI Hub",
   tags: [
     { label: "CASE STUDY", variant: "solid" as const },
@@ -333,8 +344,7 @@ export const agentHub = {
   ],
   title:
     "An enterprise AI hub that reviews contracts, not just stores prompts.",
-  lede:
-    "Built for a global healthcare company's internal innovation program under the Maslow AI brand: a department-organised prompt library as the front door; behind it, a Statement-of-Work review agent with graph-augmented retrieval, field-level citations, and a chat that answers in charts, tables and drafted documents instead of walls of text.",
+  lede: "Built for a global healthcare company's internal innovation program under the Maslow AI brand: a department-organised prompt library as the front door; behind it, a Statement-of-Work review agent with graph-augmented retrieval, field-level citations, and a chat that answers in charts, tables and drafted documents instead of walls of text.",
   metrics: [
     {
       value: "7",
@@ -413,7 +423,10 @@ export const agentHub = {
     },
   ],
   widgets: [
-    { tool: "show_chart", desc: "Bar, line, area and pie charts in brand colors" },
+    {
+      tool: "show_chart",
+      desc: "Bar, line, area and pie charts in brand colors",
+    },
     { tool: "show_data_table", desc: "Sortable column/row comparisons" },
     { tool: "show_stats", desc: "KPI grid with deltas and trend arrows" },
     { tool: "show_plan", desc: "Vertical stepper with task states" },
@@ -440,8 +453,7 @@ export const agentHub = {
     "The prompt library is the front door. The engineering story is a contract-review agent that shows its sources, down to the exact field.",
   quoteAttr:
     "Live demo deployed · 11-department library · 50-SOW corpus · adoption metrics in progress",
-  ctaTitle:
-    "Have documents your teams are afraid to ask questions of?",
+  ctaTitle: "Have documents your teams are afraid to ask questions of?",
   ctaLede:
     "We build grounded, citable, explainable review agents on your data, behind your walls.",
 };
