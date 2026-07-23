@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import {
   assessmentQuestions,
   assessmentRecMap,
@@ -13,6 +13,11 @@ export function AssessmentQuiz() {
   const [answers, setAnswers] = useState<(number | null)[]>(() =>
     assessmentQuestions.map(() => null),
   );
+  const [showEmail, setShowEmail] = useState(false);
+  const [emailStatus, setEmailStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [emailError, setEmailError] = useState("");
 
   const answered = answers.filter((x) => x !== null).length;
   const done = answered === 6;
@@ -57,6 +62,38 @@ export function AssessmentQuiz() {
   const stagePct = done
     ? `${((stageIdx + 1) / 5) * 100}%`
     : `${(answered / 6) * 20}%`;
+
+  async function onEmailReport(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setEmailStatus("loading");
+    setEmailError("");
+    const form = e.currentTarget;
+    const email = String(new FormData(form).get("email") || "").trim();
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          source: "assessment-report",
+          name: "Assessment report request",
+          email,
+          message: `Stage: ${stage.tag} ${stage.name}\nScore total: ${total}\nRecommended: ${recs.map((r) => r.name).join(", ")}`,
+        }),
+      });
+      const json = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok || !json.ok) {
+        throw new Error(json.error || "That didn't send. Try again.");
+      }
+      setEmailStatus("success");
+      form.reset();
+    } catch (err) {
+      setEmailStatus("error");
+      setEmailError(
+        err instanceof Error ? err.message : "That didn't send. Try again.",
+      );
+    }
+  }
 
   return (
     <div className={styles.layout}>
@@ -125,9 +162,65 @@ export function AssessmentQuiz() {
             <Link href="/contact" className={styles.primary}>
               DISCUSS YOUR RESULT WITH US
             </Link>
-            <Link href="/services" className={styles.secondary}>
-              BROWSE ALL SERVICES
+            <button
+              type="button"
+              className={styles.secondary}
+              onClick={() => setShowEmail((v) => !v)}
+            >
+              EMAIL ME MY REPORT
+            </button>
+            <Link href="/services" className={styles.textCta}>
+              BROWSE ALL SERVICES&nbsp;&nbsp;&gt;
             </Link>
+
+            {showEmail ? (
+              <div className={styles.emailCapture}>
+                <div className={styles.emailTitle}>Want this as a one-pager?</div>
+                <p className={styles.emailBody}>
+                  We&apos;ll send your stage, the dimension breakdown, and the
+                  recommended path as a single PDF. One useful email, no drip
+                  sequence, unsubscribe is one click.
+                </p>
+                {emailStatus === "success" ? (
+                  <p className={styles.emailOk}>
+                    Got it. A real person replies within one business day.
+                  </p>
+                ) : (
+                  <form className={styles.emailForm} onSubmit={onEmailReport}>
+                    <input
+                      className={styles.emailInput}
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="Work email"
+                      aria-label="Work email"
+                      disabled={emailStatus === "loading"}
+                    />
+                    <button
+                      type="submit"
+                      className={styles.emailSubmit}
+                      disabled={emailStatus === "loading"}
+                    >
+                      {emailStatus === "loading" ? "SENDING…" : "SEND MY REPORT"}
+                    </button>
+                  </form>
+                )}
+                <button
+                  type="button"
+                  className={styles.emailSkip}
+                  onClick={() => setShowEmail(false)}
+                >
+                  No thanks, just show me here
+                </button>
+                {emailStatus === "error" ? (
+                  <p className={styles.emailErr}>{emailError}</p>
+                ) : null}
+                <p className={styles.emailPrivacy}>
+                  We never share your email.{" "}
+                  <Link href="/security">See how we handle data&nbsp;&nbsp;&gt;</Link>
+                </p>
+              </div>
+            ) : null}
           </div>
         ) : (
           <p className={styles.placeholder}>

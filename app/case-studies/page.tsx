@@ -3,23 +3,32 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
+import { ctaPrimaryLabel } from "@/lib/brand";
 import { caseStudiesIndex } from "@/lib/content/case-studies";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Case Studies | Maslow AI",
+  title: "Case Studies | Maslow AI · Proof, not promises",
   description:
-    "Proof, not promises. How organisations used context engineering, agentic harnesses and local AI to change what a workday looks like.",
+    "Real engagements with honest numbers: AI employees in Microsoft Teams, contract review with citations, and 90-day foundations you can audit.",
 };
 
 function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
   const inner = (
     <>
       <div className={styles.art} style={{ background: cs.art }}>
+        {cs.illustrative ? (
+          <span className={styles.illustrativePill}>
+            ILLUSTRATIVE SCENARIO · NOT A CLIENT
+          </span>
+        ) : null}
         <span className={styles.sector}>{cs.sector}</span>
         <div className={styles.metricBlock}>
           <div className={styles.metric}>{cs.metric}</div>
           <div className={styles.metricLabel}>{cs.metricLabel}</div>
+          {cs.metricGloss ? (
+            <div className={styles.metricGloss}>{cs.metricGloss}</div>
+          ) : null}
         </div>
       </div>
       <div className={styles.body}>
@@ -73,6 +82,9 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
 }
 
 export default function CaseStudiesPage() {
+  const real = caseStudiesIndex.filter((c) => !c.illustrative);
+  const illustrative = caseStudiesIndex.filter((c) => c.illustrative);
+
   return (
     <PageShell footer="compact" showCtaBand={false}>
       <>
@@ -92,17 +104,38 @@ export default function CaseStudiesPage() {
             </h1>
             <p
               className="lede mz-rise"
-              style={{ animationDelay: "0.3s", maxWidth: 620 }}
+              style={{ animationDelay: "0.3s", maxWidth: 680 }}
             >
-              How organisations used context engineering, agentic harnesses and
-              local AI to change what a workday looks like.
+              How real organizations used context engineering, agentic harnesses,
+              and owned infrastructure to change what a workday looks like.
+              Every number below survived contact with production.
             </p>
           </div>
         </section>
 
         <section className={styles.list} data-screen-label="Case Blocks">
           <div className={styles.listInner}>
-            {caseStudiesIndex.map((cs) => (
+            {real.map((cs) => (
+              <Reveal key={cs.slug}>
+                <CaseCard cs={cs} />
+              </Reveal>
+            ))}
+
+            <Reveal>
+              <div className={styles.illustrativeIntro}>
+                <h2 className={styles.illustrativeTitle}>
+                  What a typical engagement looks like.
+                </h2>
+                <p className={styles.illustrativeBody}>
+                  The scenarios below are illustrative composites: real
+                  architectures, representative numbers, no named client behind
+                  them. We publish them so you can see the shape of the work.
+                  The two engagements above are real and referenceable.
+                </p>
+              </div>
+            </Reveal>
+
+            {illustrative.map((cs) => (
               <Reveal key={cs.slug}>
                 <CaseCard cs={cs} />
               </Reveal>
@@ -117,11 +150,12 @@ export default function CaseStudiesPage() {
                 Your operation could be the next one here.
               </h2>
               <p className={styles.ctaLede}>
-                Start with a working session. We&apos;ll map where AI pays in
-                your workflows.
+                Start with a 30-minute working session. We&apos;ll map where AI
+                pays in your workflows, and tell you plainly if it doesn&apos;t
+                yet.
               </p>
             </div>
-            <CtaButton href="/contact">BOOK A CONSULTATION</CtaButton>
+            <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
           </div>
         </section>
       </>

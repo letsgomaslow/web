@@ -1,15 +1,40 @@
 export const metrics = [
-  { value: "90 days", label: "idea → working AI foundation", tick: "#73C1AE" },
-  { value: "1.33×", label: "base-case enterprise value path", tick: "#A070A6" },
+  { value: "90 days", label: "idea to working AI foundation", tick: "#73C1AE" },
   {
-    value: "93%",
-    label: "intent-routing accuracy, live test suite",
-    tick: "#EBA93D",
+    value: "4 AI employees",
+    label: "live in one client's Microsoft Teams today",
+    tick: "#A070A6",
   },
   {
     value: "100%",
-    label: "of what we build is yours, no lock-in",
+    label: "of what we build is yours. No lock-in.",
+    tick: "#EBA93D",
+  },
+  {
+    value: "Fixed fees",
+    label: "every engagement priced before it starts",
     tick: "#DA85B2",
+  },
+];
+
+export const whoWeWorkWith = [
+  {
+    num: "01",
+    tick: "#73C1AE",
+    title: "You run on Microsoft 365 or Google Workspace.",
+    desc: "Teams, Slack, email, shared drives. Your AI should show up there, not in another tab nobody opens.",
+  },
+  {
+    num: "02",
+    tick: "#A070A6",
+    title: "Your know-how lives in a few senior people.",
+    desc: "Estimating, quoting, client intake, compliance answers. High cost to serve, higher key-person risk.",
+  },
+  {
+    num: "03",
+    tick: "#EBA93D",
+    title: "You don't have an ML team, and you shouldn't need one.",
+    desc: "We build systems your existing IT can run, and we stay until they can.",
   },
 ];
 
@@ -25,7 +50,7 @@ export const concepts = [
     num: "02",
     tick: "#A070A6",
     name: "Harness engineering",
-    desc: "The scaffolding around a model (skills, tools, memory and guardrails) that turns raw intelligence into dependable work.",
+    desc: "The scaffolding around a model (skills, tools, memory, and guardrails) that turns raw intelligence into dependable work.",
     href: "/concepts/agentic-harness",
   },
   {
@@ -46,14 +71,14 @@ export const concepts = [
     num: "05",
     tick: "#A070A6",
     name: "Skills & gateways",
-    desc: "Reusable skills your agents share, connected through the channels your business already runs on.",
+    desc: "Your procedures, written once as reusable skills, shared by every agent, delivered through the channels you already run on.",
     href: "/concepts/skills-and-gateways",
   },
   {
     num: "06",
     tick: "#73C1AE",
     name: "Local AI",
-    desc: "Models on your own hardware: private by default, with predictable cost instead of a metered bill.",
+    desc: "Models on your own hardware: private by default, with a flat monthly cost instead of a metered bill.",
     href: "/concepts/local-ai",
   },
 ];
@@ -68,7 +93,7 @@ export const stages = [
   {
     num: "2",
     name: "Structure",
-    desc: "Files → vector DB + knowledge graph.",
+    desc: "Files become a vector DB + knowledge graph.",
     href: "/services#structure",
   },
   {
@@ -80,7 +105,7 @@ export const stages = [
   {
     num: "4",
     name: "Deploy",
-    desc: "AI teammates in your channels.",
+    desc: "AI employees in your channels.",
     href: "/services#deploy",
   },
   {
@@ -93,27 +118,39 @@ export const stages = [
 
 export const homeCases = [
   {
-    sector: "MANUFACTURING",
+    sector: "MANUFACTURING · REAL ENGAGEMENT",
     art: "linear-gradient(140deg,#86E8CE,#E686B5)",
     title: "Infinite AI OS: an AI operating system in 90 days",
-    desc: "Four named AI employees in Microsoft Teams, standing on a six-layer root system: memory, knowledge map, connectors, observability.",
-    result: "1.33× enterprise value path",
+    desc: "Four named AI employees working in Microsoft Teams, standing on a six-layer root system: memory, knowledge map, connectors, observability.",
+    result: "4 AI employees live · 90 days to foundation",
     href: "/case-studies/infinite-ai-os",
+    cta: "VIEW CASE STUDY",
+    openSlot: false,
   },
   {
-    sector: "HEALTHCARE ENTERPRISE",
+    sector: "HEALTHCARE ENTERPRISE · REAL ENGAGEMENT",
     art: "linear-gradient(140deg,#4C4C4C,#F37779)",
     title: "AgentHub: contracts you can question",
-    desc: "A prompt library as the front door; behind it, an SOW review agent with hybrid retrieval and field-level citations.",
-    result: "93% intent-routing accuracy",
+    desc: "A prompt library as the front door; behind it, a contract-review agent with hybrid retrieval and a citation on every answer.",
+    result: "Field-level citations · 50-document grounded corpus",
     href: "/case-studies/agenthub",
+    cta: "VIEW CASE STUDY",
+    openSlot: false,
   },
   {
-    sector: "LEGAL",
+    sector: "YOUR OPERATION",
     art: "#121D35",
-    title: "A virtual paralegal in the inbox",
-    desc: "A mid-size firm deployed an AI employee into email to triage intake, draft engagement letters and cite precedent.",
-    result: "3.2× intake capacity",
-    href: "/case-studies",
+    title: "Your operation could be the third card here.",
+    desc: "One workflow, one channel, live in weeks. We'll map where AI pays in a 30-minute working session.",
+    result: "",
+    href: "/contact",
+    cta: "BOOK A WORKING SESSION",
+    openSlot: true,
   },
 ];
+
+export const founderStrip = {
+  body: "Maslow is led by Rakesh David, a former CIO/CTO who spent twenty years running enterprise technology before building AI systems hands-on. You work directly with someone who has sat in your chair.",
+  href: "/about",
+  cta: "MEET THE FOUNDER",
+};

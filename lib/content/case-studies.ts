@@ -3,18 +3,20 @@ export const caseStudiesIndex = [
     slug: "infinite-ai-os",
     sector: "MANUFACTURING · REAL ENGAGEMENT",
     art: "linear-gradient(140deg,#86E8CE,#E686B5)",
-    metric: "1.33×",
-    metricLabel: "base-case enterprise value path (appraisal math)",
+    metric: "90 days",
+    metricLabel: "idea to foundation",
+    metricGloss: "",
+    illustrative: false,
     title:
       "Infinite AI OS: from tribal knowledge to an AI operating system in 90 days",
     challenge:
-      "Estimating, quoting, reporting and file search all ran on manual effort and knowledge locked in people's heads: high cost to serve and high key-person risk.",
+      "Estimating, quoting, reporting, and file search all ran on manual effort and knowledge locked in people's heads: high cost to serve, and high key-person risk.",
     solution:
-      "Four named AI employees (a manager and three specialists) working in Microsoft Teams, standing on a six-layer root system: company memory, knowledge map, file intake, profiles, tool connectors and observability.",
+      "Four named AI employees (a manager and three specialists) working in Microsoft Teams, standing on a six-layer root system: company memory, knowledge map, file intake, profiles, tool connectors, and observability.",
     results: [
       "4 AI employees live in Teams",
       "3 core systems in production",
-      "90 days idea → foundation",
+      "90 days idea to foundation",
     ],
     stack: ["VIRTUAL_EMPLOYEES", "KNOWLEDGE_GRAPH", "TEAMS_GATEWAY", "HARNESS"],
     href: "/case-studies/infinite-ai-os",
@@ -24,16 +26,19 @@ export const caseStudiesIndex = [
     sector: "HEALTHCARE ENTERPRISE · REAL ENGAGEMENT",
     art: "linear-gradient(140deg,#4C4C4C,#F37779)",
     metric: "93%",
-    metricLabel: "intent-routing accuracy across a 28-case live test suite",
+    metricLabel: "intent routing on first try",
+    metricGloss:
+      "93 of 100 test questions routed to the right specialist agent on the first try, measured on a live 28-case suite.",
+    illustrative: false,
     title: "AgentHub: an AI hub that reviews contracts, not just stores prompts",
     challenge:
       "Knowledge workers had no shared home for prompts that work, and no fast, trustworthy way to interrogate dense Statement-of-Work documents.",
     solution:
-      "A department-organised prompt library as the front door; behind it, an agentic SOW reviewer with parallel vector + knowledge-graph retrieval, field-level citations, and a generative-UI chat that answers in charts, tables and drafted documents.",
+      "A department-organized prompt library as the front door; behind it, an agentic SOW reviewer with parallel vector and knowledge-graph retrieval, a citation on every field it extracts, and a generative-UI chat that answers in charts, tables, and drafted documents.",
     results: [
-      "Field-level citations",
-      "7 generative-UI widgets",
+      "A citation on every answer",
       "50-SOW grounded corpus",
+      "7 generative-UI widgets",
     ],
     stack: ["HYBRID_RAG", "KNOWLEDGE_GRAPH", "GENERATIVE_UI", "INTENT_ROUTING"],
     href: "/case-studies/agenthub",
@@ -44,6 +49,8 @@ export const caseStudiesIndex = [
     art: "#121D35",
     metric: "−58%",
     metricLabel: "time-to-answer across compliance teams",
+    metricGloss: "",
+    illustrative: true,
     title: "120,000 documents, one knowledge graph",
     challenge:
       "Decades of contracts, policies and memos scattered across shares. Compliance answers took days of manual digging and senior staff time.",
@@ -59,6 +66,8 @@ export const caseStudiesIndex = [
     art: "#401877",
     metric: "3.2×",
     metricLabel: "client intake capacity, same headcount",
+    metricGloss: "",
+    illustrative: true,
     title: "A virtual paralegal in the inbox",
     challenge:
       "Intake requests arrived by email at all hours. Partners triaged manually; slow responses were losing engagements to faster firms.",
@@ -74,6 +83,8 @@ export const caseStudiesIndex = [
     art: "#192332",
     metric: "−63%",
     metricLabel: "inference cost after moving on-prem",
+    metricGloss: "",
+    illustrative: true,
     title: "Local AI on the factory floor",
     challenge:
       "Cloud AI costs scaled with every query, and sensitive process data was leaving the building to third-party APIs.",

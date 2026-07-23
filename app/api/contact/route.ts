@@ -12,7 +12,12 @@ type ContactBody = {
   message?: string;
 };
 
-const SOURCES = new Set(["contact", "newsletter", "book"]);
+const SOURCES = new Set([
+  "contact",
+  "newsletter",
+  "book",
+  "assessment-report",
+]);
 
 function isEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -71,9 +76,10 @@ export async function POST(request: Request) {
   }
 
   const subjectMap: Record<string, string> = {
-    contact: `Consultation request from ${name}`,
+    contact: `Working session request from ${name}`,
     newsletter: `Newsletter signup: ${email}`,
     book: `Campaign booking from ${name}`,
+    "assessment-report": `Assessment report request: ${email}`,
   };
 
   const lines = [

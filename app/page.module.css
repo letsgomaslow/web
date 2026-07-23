@@ -37,6 +37,51 @@
   flex-wrap: wrap;
 }
 
+.icpGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.icpCard {
+  border-top: 1px solid var(--color-navy);
+  padding: 24px 8px 8px;
+}
+
+.icpNum {
+  font: 700 12px var(--font-display);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.icpTitle {
+  font: 700 20px/28px var(--font-sans);
+  letter-spacing: -0.4px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.icpDesc {
+  font: 400 15px/24px var(--font-sans);
+  color: var(--color-muted);
+}
+
+.icpFoot {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.icpMicro {
+  margin: 0;
+  font: 400 13px/20px var(--font-sans);
+  color: var(--color-soft);
+  max-width: 720px;
+}
+
 .metrics {
   padding: 0 var(--gutter);
 }
@@ -197,6 +242,63 @@
   justify-content: center;
 }
 
+.assessShort {
+  display: none;
+}
+
+.caseOpen {
+  background: var(--color-navy-deep);
+}
+
+.caseOpen .caseTitle,
+.caseOpen .caseDesc,
+.caseOpen .caseResult {
+  color: var(--color-white);
+}
+
+.caseOpen .caseDesc {
+  color: var(--color-mist);
+}
+
+.caseOpen .text-link,
+.caseOpen :global(.text-link) {
+  color: var(--color-cta-link);
+}
+
+.founder {
+  padding: 64px var(--gutter);
+  background: var(--color-white);
+  border-top: 1px solid var(--color-line);
+}
+
+.founderInner {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 32px;
+  align-items: center;
+  max-width: 820px;
+}
+
+.founderPhoto {
+  width: 120px;
+  height: 120px;
+  border-radius: 4px;
+  background: linear-gradient(140deg, #86e8ce, #e686b5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 28px var(--font-sans);
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.founderBody {
+  margin: 0 0 16px;
+  font: 400 16px/26px var(--font-sans);
+  color: var(--color-muted);
+  max-width: 640px;
+}
+
 .cases {
   background: var(--color-off-white);
   padding: 104px var(--gutter);
@@ -317,6 +419,10 @@
     grid-template-columns: 1fr;
   }
 
+  .icpGrid {
+    grid-template-columns: 1fr;
+  }
+
   .metricsGrid {
     grid-template-columns: 1fr 1fr;
   }
@@ -324,9 +430,21 @@
   .metric:nth-child(2n) {
     border-right: none;
   }
+
+  .founderInner {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
+  .assessLong {
+    display: none;
+  }
+
+  .assessShort {
+    display: inline;
+  }
+
   .metricsGrid {
     grid-template-columns: 1fr;
   }

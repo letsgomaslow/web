@@ -4,9 +4,9 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact | Maslow AI",
+  title: "Contact | Maslow AI · Book a working session",
   description:
-    "Book a 30-minute working session. Bring one painful workflow — we'll sketch the harness, data pipeline and cost curve.",
+    "A 30-minute working session, not a sales pitch. Bring one painful workflow; leave with an architecture sketch and a cost estimate.",
 };
 
 const steps = [
@@ -20,7 +20,7 @@ const steps = [
     num: "02",
     color: "#A070A6",
     title: "You get a sketch, free",
-    desc: "A one-page architecture and cost estimate within two days.",
+    desc: "A one-page architecture and cost estimate within two business days.",
   },
   {
     num: "03",
@@ -53,8 +53,8 @@ export default function ContactPage() {
               style={{ animationDelay: "0.3s" }}
             >
               A 30-minute working session, not a sales pitch. Bring one painful
-              workflow; we&apos;ll sketch the harness, the data pipeline and the
-              cost curve on the call.
+              workflow; we&apos;ll sketch the harness, the data pipeline, and
+              the cost curve on the call.
             </p>
             <div
               className={`${styles.steps} mz-rise`}
@@ -85,7 +85,7 @@ export default function ContactPage() {
             className={`${styles.card} mz-rise`}
             style={{ animationDelay: "0.3s" }}
           >
-            <div className={styles.cardTitle}>Book a consultation</div>
+            <div className={styles.cardTitle}>Book a working session</div>
             <ContactForm />
           </div>
         </div>

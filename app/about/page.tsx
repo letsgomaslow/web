@@ -3,13 +3,14 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
-import { principles, team } from "@/lib/content/site";
+import { ctaPrimaryLabel } from "@/lib/brand";
+import { founder, principles } from "@/lib/content/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "About | Maslow AI",
+  title: "About | Maslow AI · Founder-led AI transformation",
   description:
-    "AI should meet your needs, not the other way around. Our mission is to reduce the cost of AI adoption.",
+    "Led by a former CIO/CTO with twenty years of enterprise technology behind him. Four commitments in writing, and a mission to reduce the cost of AI adoption.",
 };
 
 export default function AboutPage() {
@@ -47,8 +48,8 @@ export default function AboutPage() {
             >
               We named ourselves after the hierarchy of needs for a reason: AI
               adoption fails when companies chase the peak before securing the
-              base. We build from the foundation up: your data, your workflows,
-              your hardware, so the impressive parts actually stand on
+              base. We build from the foundation up (your data, your workflows,
+              your hardware) so the impressive parts actually stand on
               something.
             </p>
           </div>
@@ -97,29 +98,25 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className={styles.team} data-screen-label="Team">
+        <section className={styles.team} data-screen-label="Founder">
           <div className="wrap">
-            <div className="eyebrow">THE TEAM</div>
-            <h2 className="h2" style={{ marginBottom: 12 }}>
-              Engineers and operators
+            <div className="eyebrow">WHO YOU&apos;LL WORK WITH</div>
+            <h2 className="h2" style={{ marginBottom: 36 }}>
+              Founder-led, by design.
             </h2>
-            <p className={styles.teamLede}>
-              People who&apos;ve shipped AI inside real enterprises.{" "}
-              <span className={styles.teamHint}>
-                (Drop your team photos onto the placeholders.)
-              </span>
-            </p>
-            <div className={styles.teamGrid}>
-              {team.map((m) => (
-                <div key={m.role} className={styles.member}>
-                  <div className={styles.photo} aria-hidden />
-                  <div>
-                    <div className={styles.memberRole}>{m.role}</div>
-                    <div className={styles.memberName}>{m.name}</div>
-                  </div>
+            <Reveal className={styles.founder}>
+              <div className={styles.founderPhoto} aria-hidden>
+                <span>RD</span>
+              </div>
+              <div>
+                <div className={styles.founderName}>
+                  {founder.name} · {founder.role}
                 </div>
-              ))}
-            </div>
+                <p className={styles.founderBio}>{founder.bio}</p>
+                <p className={styles.founderPull}>{founder.pull}</p>
+                <p className={styles.founderBench}>{founder.bench}</p>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -128,7 +125,7 @@ export default function AboutPage() {
             <h2 className={styles.ctaTitle}>
               Work with a team that builds AI you can own.
             </h2>
-            <CtaButton href="/contact">BOOK A CONSULTATION</CtaButton>
+            <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
           </div>
         </section>
       </>

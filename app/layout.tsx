@@ -26,17 +26,17 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://maslow.ai"),
   title: {
-    default: "Maslow AI — AI transformation, without the transformation budget",
+    default: "Maslow AI | AI transformation, without the transformation budget",
     template: "%s · Maslow AI",
   },
   description:
-    "We vertically integrate AI into your business: your files become knowledge, your tools become skills, and virtual employees show up in Teams, Slack and email.",
+    "AI employees in Teams, Slack, and email, standing on knowledge systems and infrastructure you own. Fixed fees, 90-day foundations, no lock-in.",
   openGraph: {
     type: "website",
     siteName: "Maslow AI",
-    title: "Maslow AI — AI transformation, without the transformation budget",
+    title: "Maslow AI | AI transformation, without the transformation budget",
     description:
-      "Vertically integrated AI transformation on models and hardware you own.",
+      "AI employees in Teams, Slack, and email, standing on knowledge systems and infrastructure you own. Fixed fees, 90-day foundations, no lock-in.",
     images: [{ url: "/assets/maslow-mark-gradient.svg" }],
   },
 };

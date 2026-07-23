@@ -3,7 +3,15 @@ import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
-import { concepts, homeCases, metrics, stages } from "@/lib/content/home";
+import { ctaPrimaryLabel } from "@/lib/brand";
+import {
+  concepts,
+  founderStrip,
+  homeCases,
+  metrics,
+  stages,
+  whoWeWorkWith,
+} from "@/lib/content/home";
 import styles from "./page.module.css";
 
 export default function HomePage() {
@@ -30,7 +38,7 @@ export default function HomePage() {
               className="eyebrow mz-rise"
               style={{ animationDelay: "0.05s" }}
             >
-              AI TRANSFORMATION, VERTICALLY INTEGRATED
+              AI EMPLOYEES · KNOWLEDGE SYSTEMS · OWNED INFRASTRUCTURE
             </div>
             <h1
               className="h1 mz-rise"
@@ -47,19 +55,19 @@ export default function HomePage() {
               className="lede mz-rise"
               style={{
                 animationDelay: "0.3s",
-                maxWidth: 560,
+                maxWidth: 620,
                 marginBottom: 40,
               }}
             >
-              We vertically integrate AI into your business: your files become
-              knowledge, your tools become skills, and virtual employees show up
-              in Teams, Slack and email.
+              Your files become knowledge. Your tools become skills. AI
+              employees show up for work in Teams, Slack, and email. And
+              everything we build stands on foundations you own.
             </p>
             <div
               className={`${styles.ctaRow} mz-rise`}
               style={{ animationDelay: "0.45s" }}
             >
-              <CtaButton href="/contact">BOOK A CONSULTATION</CtaButton>
+              <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
               <CtaButton href="/assessment" variant="secondary">
                 TAKE THE 2-MINUTE ASSESSMENT
               </CtaButton>
@@ -77,6 +85,43 @@ export default function HomePage() {
               </div>
             ))}
           </Reveal>
+        </section>
+
+        <section className="section" data-screen-label="Who We Work With">
+          <div className="wrap">
+            <Reveal>
+              <div className="eyebrow">WHO WE WORK WITH</div>
+              <h2 className="h2" style={{ marginBottom: 32 }}>
+                Built for the mid-market.
+              </h2>
+            </Reveal>
+            <div className={styles.icpGrid}>
+              {whoWeWorkWith.map((item) => (
+                <Reveal key={item.num}>
+                  <div className={styles.icpCard}>
+                    <span
+                      className={styles.icpNum}
+                      style={{ color: item.tick }}
+                    >
+                      {item.num}
+                    </span>
+                    <div className={styles.icpTitle}>{item.title}</div>
+                    <div className={styles.icpDesc}>{item.desc}</div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal className={styles.icpFoot}>
+              <p className={styles.icpMicro}>
+                Typically $20M to $500M in revenue. If you&apos;re a Fortune 500
+                running a procurement cycle, we&apos;re probably not your firm,
+                and we&apos;ll tell you so on the first call.
+              </p>
+              <Link href="/assessment" className="text-link">
+                NOT SURE IF THAT&apos;S YOU? TAKE THE ASSESSMENT&nbsp;&nbsp;&gt;
+              </Link>
+            </Reveal>
+          </div>
         </section>
 
         <section className="section" id="concepts" data-screen-label="Concepts">
@@ -154,8 +199,13 @@ export default function HomePage() {
               ))}
             </Reveal>
             <Reveal className={styles.centerCta}>
-              <CtaButton href="/assessment">
-                NOT SURE WHERE YOU ARE? TAKE THE ASSESSMENT
+              <CtaButton href="/assessment" className={styles.assessPill}>
+                <span className={styles.assessLong}>
+                  NOT SURE WHERE YOU ARE? TAKE THE ASSESSMENT
+                </span>
+                <span className={styles.assessShort}>
+                  TAKE THE 2-MINUTE ASSESSMENT
+                </span>
               </CtaButton>
             </Reveal>
           </div>
@@ -175,7 +225,10 @@ export default function HomePage() {
             <div className={styles.caseGrid}>
               {homeCases.map((cs) => (
                 <Reveal key={cs.title}>
-                  <Link href={cs.href} className={styles.caseCard}>
+                  <Link
+                    href={cs.href}
+                    className={`${styles.caseCard} ${cs.openSlot ? styles.caseOpen : ""}`}
+                  >
                     <div
                       className={styles.caseArt}
                       style={{ background: cs.art }}
@@ -185,15 +238,34 @@ export default function HomePage() {
                     <div className={styles.caseBody}>
                       <div className={styles.caseTitle}>{cs.title}</div>
                       <div className={styles.caseDesc}>{cs.desc}</div>
-                      <div className={styles.caseResult}>{cs.result}</div>
+                      {cs.result ? (
+                        <div className={styles.caseResult}>{cs.result}</div>
+                      ) : null}
                       <span className="text-link">
-                        VIEW CASE STUDY&nbsp;&nbsp;&gt;
+                        {cs.cta}&nbsp;&nbsp;&gt;
                       </span>
                     </div>
                   </Link>
                 </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className={styles.founder} data-screen-label="Founder">
+          <div className="wrap">
+            <Reveal className={styles.founderInner}>
+              <div className={styles.founderPhoto} aria-hidden>
+                <span>RD</span>
+              </div>
+              <div>
+                <div className="eyebrow">WHO YOU&apos;LL WORK WITH</div>
+                <p className={styles.founderBody}>{founderStrip.body}</p>
+                <Link href={founderStrip.href} className="text-link">
+                  {founderStrip.cta}&nbsp;&nbsp;&gt;
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -211,10 +283,10 @@ export default function HomePage() {
               .
             </div>
             <p className={styles.missionBody}>
-              Our mission is to reduce the cost of AI adoption, through open
-              models, local hardware and engineering that lasts.
+              Our mission is to reduce the cost of AI adoption: open models,
+              local hardware, and engineering that outlasts any single model.
             </p>
-            <CtaButton href="/contact">BOOK A CONSULTATION</CtaButton>
+            <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
           </Reveal>
         </section>
       </>

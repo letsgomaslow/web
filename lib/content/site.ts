@@ -177,9 +177,16 @@ export const principles = [
   },
 ];
 
+export const founder = {
+  name: "Rakesh David",
+  role: "Founder & CEO",
+  bio: "Rakesh spent more than twenty years in enterprise technology before founding Maslow, including CIO and CTO roles at Expedia and Aurobindo Pharma. He has owned the budgets, the legacy systems, and the board questions that most AI vendors have only read about. Today he builds AI systems hands-on: knowledge graphs, agentic harnesses, and the AI employees they support. He also serves as Chief AI Officer at Rivalista and writes about AI cognition.",
+  pull: "You work directly with someone who has sat in your chair, on your side of the table.",
+  bench:
+    "For each engagement, Rakesh brings in specialist engineers from a small, trusted bench, under the same four commitments and the same accountability: his.",
+};
+
+/** @deprecated Use founder. Kept temporarily for any residual imports. */
 export const team = [
-  { role: "Founder & CEO", name: "NAME GOES HERE" },
-  { role: "Head of Engineering", name: "NAME GOES HERE" },
-  { role: "Head of AI Transformation", name: "NAME GOES HERE" },
-  { role: "Head of Infrastructure", name: "NAME GOES HERE" },
+  { role: founder.role, name: founder.name },
 ];

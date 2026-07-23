@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { companyLinks, conceptLinks, startLinks } from "@/lib/brand";
+import {
+  companyLinks,
+  conceptLinks,
+  ctaPrimaryLabel,
+  engagementBadge,
+  startLinks,
+  trustLinks,
+} from "@/lib/brand";
 import styles from "./SiteFooter.module.css";
 
 type SiteFooterProps = {
@@ -22,7 +29,7 @@ export function SiteFooter({
             sketch the harness, the data pipeline and the cost curve.
           </p>
           <Link href="/contact" className="cta">
-            BOOK A CONSULTATION
+            {ctaPrimaryLabel}
           </Link>
         </section>
       )}
@@ -47,7 +54,7 @@ export function SiteFooter({
                 </p>
                 <span className={styles.badge}>
                   <span className={styles.dot} />
-                  Open for new engagements
+                  {engagementBadge}
                 </span>
               </div>
 
@@ -63,6 +70,15 @@ export function SiteFooter({
               <div className={styles.col}>
                 <span className={styles.colTitle}>Company</span>
                 {companyLinks.map((l) => (
+                  <Link key={l.href} href={l.href}>
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
+
+              <div className={styles.col}>
+                <span className={styles.colTitle}>Trust</span>
+                {trustLinks.map((l) => (
                   <Link key={l.href} href={l.href}>
                     {l.label}
                   </Link>

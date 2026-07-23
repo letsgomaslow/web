@@ -11,8 +11,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 32px;
   margin-bottom: 48px;
 }
 
@@ -116,6 +116,12 @@
 
 .compactLinks a:hover {
   color: var(--color-white);
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
 }
 
 @media (max-width: 860px) {

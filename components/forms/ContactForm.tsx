@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { ctaContactSubmitLabel } from "@/lib/brand";
 import styles from "./forms.module.css";
 
 const INTERESTS = [
@@ -43,14 +44,19 @@ export function ContactForm() {
       const json = (await res.json()) as { ok?: boolean; error?: string };
       if (!res.ok || !json.ok) {
         throw new Error(
-          json.error || "Something went wrong. Please try again.",
+          json.error ||
+            "That didn't send. Try again, or just email hello@maslow.ai. We're not precious about channels.",
         );
       }
       setStatus("success");
       form.reset();
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Something went wrong.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "That didn't send. Try again, or just email hello@maslow.ai. We're not precious about channels.",
+      );
     }
   }
 
@@ -131,14 +137,16 @@ export function ContactForm() {
         className={styles.submit}
         disabled={status === "loading"}
       >
-        {status === "loading" ? "SENDING…" : "REQUEST THE SESSION"}
+        {status === "loading" ? "SENDING…" : ctaContactSubmitLabel}
       </button>
       {status === "idle" && (
-        <p className={styles.hint}>We reply within one business day.</p>
+        <p className={styles.hint}>
+          We reply within one business day. Prefer email? hello@maslow.ai
+        </p>
       )}
       {status === "success" && (
         <p className={`${styles.status} ${styles.statusOk}`}>
-          Thanks — we&apos;ll be in touch within one business day.
+          Got it. A real person replies within one business day.
         </p>
       )}
       {status === "error" && (

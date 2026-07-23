@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useState } from "react";
-import { navLinks, ticks } from "@/lib/brand";
+import { ctaPrimaryLabel, navLinks, ticks } from "@/lib/brand";
 import styles from "./SiteNav.module.css";
 
 type SiteNavProps = {
@@ -70,34 +70,27 @@ export function SiteNav({
         {!minimal && (
           <nav className={styles.links} aria-label="Primary">
             {navLinks.map((link) => {
-              const active =
-                highlightConcepts && link.label === "CONCEPTS"
-                  ? true
-                  : isHere(link.href);
+              const active = isHere(link.href);
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={styles.link}
-                  style={
-                    active && link.label === "CONCEPTS"
-                      ? { color: "#DA85B2" }
-                      : undefined
-                  }
+                  style={active ? { color: "#DA85B2" } : undefined}
                 >
                   {link.label}
                 </Link>
               );
             })}
             <Link href="/contact" className={styles.book}>
-              BOOK A CONSULTATION
+              {ctaPrimaryLabel}
             </Link>
           </nav>
         )}
 
         {minimal && (
           <Link href="/contact" className={styles.book}>
-            BOOK A CONSULTATION
+            {ctaPrimaryLabel}
           </Link>
         )}
       </header>
@@ -106,7 +99,7 @@ export function SiteNav({
         <>
           <div className={styles.cluster}>
             <Link href="/contact" className={styles.bookMobile}>
-              <span className={styles.bookLong}>BOOK A CALL</span>
+              <span className={styles.bookLong}>BOOK SESSION</span>
               <span className={styles.bookShort}>BOOK</span>
             </Link>
             <button
@@ -181,7 +174,7 @@ export function SiteNav({
                 }}
               >
                 <Link href="/contact" className="cta" onClick={close}>
-                  BOOK A CONSULTATION
+                  {ctaPrimaryLabel}
                 </Link>
                 <Link
                   href="/assessment"

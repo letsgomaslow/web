@@ -6,9 +6,9 @@ import { assessmentLegend } from "@/lib/content/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "AI Readiness Assessment | Maslow AI",
+  title: "AI Readiness Assessment | Maslow AI · Free, no email required",
   description:
-    "Six questions, two minutes. Get a stage on the transformation journey and the services that fit it.",
+    "Six questions, two minutes, instant result. Get your stage on the AI transformation journey and the services that fit it. Nothing sent anywhere unless you ask.",
 };
 
 export default function AssessmentPage() {
@@ -21,7 +21,7 @@ export default function AssessmentPage() {
               className="eyebrow mz-rise"
               style={{ animationDelay: "0.05s" }}
             >
-              AI TRANSFORMATION ASSESSMENT · FREE, NO EMAIL
+              AI TRANSFORMATION ASSESSMENT · FREE, NO EMAIL REQUIRED
             </div>
             <h1
               className="h1 mz-rise"
@@ -35,12 +35,13 @@ export default function AssessmentPage() {
             </h1>
             <p
               className="lede mz-rise"
-              style={{ animationDelay: "0.3s", maxWidth: 620 }}
+              style={{ animationDelay: "0.3s", maxWidth: 640 }}
             >
               Six questions, two minutes. You&apos;ll get a stage on the
               transformation journey and the services that fit it, including
               &ldquo;start with everything&rdquo; if that&apos;s the honest
-              answer.
+              answer. Your answers stay in your browser unless you choose to
+              email yourself the report.
             </p>
           </div>
         </section>

@@ -1,3 +1,5 @@
+import { FIXED_FEE_MONTHLY_TAG, FIXED_FEE_TAG } from "./pricing";
+
 export const serviceStages = [
   { num: "01", name: "Assess", q: "Where does AI pay?", anchor: "#assess" },
   {
@@ -21,20 +23,20 @@ export const serviceCatalog = [
     services: [
       {
         name: "AI readiness assessment",
-        desc: "A structured review of your data, workflows, tooling and governance, scored against the transformation journey.",
+        desc: "A structured review of your data, workflows, tooling, and governance, scored against the transformation journey.",
         fit: "you don't know where to start",
         deliverable: "READINESS REPORT + STAGE SCORE",
       },
       {
         name: "Workflow discovery",
-        desc: 'We shadow your teams, map the workflows, and rank them by AI payback: effort vs impact, with honest "don\'t bother"s.',
+        desc: 'We shadow your teams, map the workflows, and rank them by AI payback: effort vs. impact, with honest "don\'t bother"s.',
         fit: "you suspect AI could help but can't name where",
-        deliverable: "RANKED OPPORTUNITY MAP",
+        deliverable: `RANKED OPPORTUNITY MAP · ${FIXED_FEE_TAG}`,
       },
       {
         name: "Cost & architecture sketch",
-        desc: "For a chosen workflow: the harness design, data pipeline and cloud-vs-local cost curve on one page.",
-        fit: "you need a business case for the board",
+        desc: "For a chosen workflow: the harness design, data pipeline, and cloud-vs-local cost curve on one page.",
+        fit: "you need a business case the board will read",
         deliverable: "1-PAGE ARCHITECTURE + COST CURVE",
       },
     ],
@@ -48,7 +50,7 @@ export const serviceCatalog = [
     services: [
       {
         name: "Knowledge foundation build",
-        desc: "Full ingestion of your files, shares and mailboxes into a hybrid RAG stack: chunked, embedded, entity-extracted, cited.",
+        desc: "Full ingestion of your files, shares, and mailboxes into a hybrid RAG stack: chunked, embedded, entity-extracted, cited.",
         fit: "answers exist somewhere but nobody can find them",
         deliverable: "VECTOR DB + KNOWLEDGE GRAPH",
       },
@@ -60,7 +62,7 @@ export const serviceCatalog = [
       },
       {
         name: "Context audit",
-        desc: "We trace ten real questions through your existing AI setup and show exactly where retrieval fails and why.",
+        desc: "We trace ten real questions through your existing AI setup and show exactly where retrieval fails, and why.",
         fit: "you have AI but the answers disappoint",
         deliverable: "RETRIEVAL GAP REPORT",
       },
@@ -71,23 +73,23 @@ export const serviceCatalog = [
     num: "03",
     accent: "#EBA93D",
     name: "Build the harness",
-    desc: "The engineering around the model: skills, tools, memory and guardrails that turn intelligence into dependable work.",
+    desc: "The engineering around the model: skills, tools, memory, and guardrails that turn intelligence into dependable work.",
     services: [
       {
         name: "Custom agentic harness",
-        desc: "A harness engineered for your workflow: model-agnostic, with approvals, audit trail and escalation built in.",
+        desc: "A harness engineered for your workflow: model-agnostic, with approvals, audit trail, and escalation built in.",
         fit: "off-the-shelf agents don't fit how you work",
         deliverable: "PRODUCTION HARNESS",
       },
       {
         name: "Skills authoring",
-        desc: "Your procedures written as versioned, testable skills with your domain experts, reusable across every agent.",
+        desc: "Your procedures, written with your domain experts as versioned, testable skills, reusable across every agent.",
         fit: "your know-how lives in a few people's heads",
         deliverable: "SKILL LIBRARY (VERSIONED)",
       },
       {
         name: "Gateway integrations",
-        desc: "Secure connectors into Microsoft Teams, Slack and email, plus your CRM, ERP and document systems as scoped tools.",
+        desc: "Secure connectors into Microsoft Teams, Slack, and email, plus your CRM, ERP, and document systems as scoped tools.",
         fit: "AI should show up where work already happens",
         deliverable: "CHANNEL + TOOL CONNECTORS",
       },
@@ -97,24 +99,24 @@ export const serviceCatalog = [
     id: "deploy",
     num: "04",
     accent: "#469DBB",
-    name: "Deploy AI teammates",
+    name: "Deploy AI employees",
     desc: "Agents go to work inside your channels: supervised, cited, and measured against the workflow they own.",
     services: [
       {
         name: "Virtual AI employee pilot",
-        desc: "One agent, one workflow, one channel: live in weeks with human approval on every consequential action.",
+        desc: "One agent, one workflow, one channel: live in weeks, with human approval on every consequential action.",
         fit: "you want proof before commitment",
         deliverable: "6-WEEK SUPERVISED PILOT",
       },
       {
         name: "Workforce rollout",
-        desc: "Scale from one agent to a roster: shared skills, shared memory, per-team guardrails and usage analytics.",
+        desc: "Scale from one agent to a roster: shared skills, shared memory, per-team guardrails, and usage analytics.",
         fit: "the pilot worked and teams are asking for more",
         deliverable: "MULTI-AGENT DEPLOYMENT",
       },
       {
         name: "Team enablement",
-        desc: "Training for the humans: how to direct, correct and audit AI teammates, turning sceptics into operators.",
+        desc: "Training for the humans: how to direct, correct, and audit AI employees, turning skeptics into operators.",
         fit: "adoption is your bottleneck, not technology",
         deliverable: "TRAINING + PLAYBOOKS",
       },
@@ -129,7 +131,7 @@ export const serviceCatalog = [
     services: [
       {
         name: "Local AI deployment",
-        desc: "Hardware sizing, procurement guidance and open models tuned to your workload, run entirely on-premises.",
+        desc: "Hardware sizing, procurement guidance, and open models tuned to your workload, run entirely on premises.",
         fit: "metered bills or data egress keep you up at night",
         deliverable: "ON-PREM INFERENCE STACK",
       },
@@ -143,7 +145,7 @@ export const serviceCatalog = [
         name: "Managed operations",
         desc: "We run what we built (monitoring, model upgrades, skill maintenance) until your team is ready to take the keys.",
         fit: "no in-house ML ops team (yet)",
-        deliverable: "SLA-BACKED OPERATIONS",
+        deliverable: FIXED_FEE_MONTHLY_TAG,
       },
     ],
   },

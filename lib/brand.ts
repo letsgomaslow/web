@@ -37,9 +37,13 @@ export const ticks = [
   colors.mint,
 ] as const;
 
+export const ctaPrimaryLabel = "BOOK A WORKING SESSION";
+export const ctaContactSubmitLabel = "BOOK MY WORKING SESSION";
+export const engagementBadge = "TAKING TWO NEW ENGAGEMENTS FOR Q4 2026";
+
 export const navLinks = [
   { href: "/services", label: "SERVICES" },
-  { href: "/#concepts", label: "CONCEPTS" },
+  { href: "/how-we-engage", label: "HOW WE ENGAGE" },
   { href: "/case-studies", label: "CASE STUDIES" },
   { href: "/blog", label: "BLOG" },
   { href: "/about", label: "ABOUT" },
@@ -56,17 +60,20 @@ export const conceptLinks = [
 
 export const companyLinks = [
   { href: "/services", label: "Services" },
-  { href: "/case-studies", label: "Case studies" },
+  { href: "/how-we-engage", label: "How We Engage" },
+  { href: "/case-studies", label: "Case Studies" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
+export const trustLinks = [
+  { href: "/security", label: "Security & Data" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/manufacturing", label: "Manufacturing" },
+] as const;
+
 export const startLinks = [
-  { href: "/assessment", label: "AI readiness assessment" },
-  {
-    href: "/campaigns/virtual-ai-employees",
-    label: "Virtual employees campaign",
-  },
-  { href: "/contact", label: "Book a consultation" },
+  { href: "/assessment", label: "Assessment" },
+  { href: "/contact", label: "Book a working session" },
 ] as const;

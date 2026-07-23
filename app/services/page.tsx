@@ -4,13 +4,15 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
+import { ctaPrimaryLabel } from "@/lib/brand";
+import { twoDoors } from "@/lib/content/engagement";
 import { serviceCatalog, serviceStages } from "@/lib/content/services";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Services | Maslow AI",
+  title: "Services | Maslow AI · Five stages, fifteen doors",
   description:
-    "Five stages, fifteen doors. Pick your entry point — Assess, Structure, Build, Deploy, or Own — and we meet you there.",
+    "Enter at any stage: Assess, Structure, Build, Deploy, or Own. Fixed fees, named deliverables, and a 90-day path from idea to working AI foundation.",
 };
 
 export default function ServicesPage() {
@@ -59,12 +61,48 @@ export default function ServicesPage() {
               className={`${styles.heroCta} mz-rise`}
               style={{ animationDelay: "0.45s" }}
             >
-              <CtaButton href="/assessment" variant="secondary">
-                NOT SURE WHERE YOU ARE? TAKE THE ASSESSMENT
+              <CtaButton
+                href="/assessment"
+                variant="secondary"
+                className={styles.assessPill}
+              >
+                <span className={styles.assessLong}>
+                  NOT SURE WHERE YOU ARE? TAKE THE ASSESSMENT
+                </span>
+                <span className={styles.assessShort}>
+                  TAKE THE 2-MINUTE ASSESSMENT
+                </span>
               </CtaButton>
               <span className={styles.heroHint}>
                 2 minutes · get a stage + recommended services
               </span>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.doors} data-screen-label="Two Doors">
+          <div className="wrap">
+            <Reveal>
+              <h2 className="h2" style={{ marginBottom: 28 }}>
+                Most clients start at one of two doors.
+              </h2>
+            </Reveal>
+            <div className={styles.doorGrid}>
+              {twoDoors.map((door) => (
+                <Reveal key={door.name}>
+                  <div className={styles.doorCard}>
+                    <div className={styles.doorName}>{door.name}</div>
+                    <div className={styles.doorDesc}>{door.desc}</div>
+                    <div className={styles.doorFit}>
+                      <b>For you if:</b> {door.fit}
+                    </div>
+                    <div className={styles.doorTag}>{door.tag}</div>
+                    <Link href={door.ctaHref} className="text-link">
+                      {door.ctaLabel}&nbsp;&nbsp;&gt;
+                    </Link>
+                  </div>
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
@@ -152,14 +190,15 @@ export default function ServicesPage() {
                 End-to-end AI transformation
               </h2>
               <p className={styles.e2eBody}>
-                Starting from zero? We run all five stages as one engagement
-                (assessment through owned infrastructure) with a single
-                accountable team and milestones you can hold us to. Most clients
-                start here or with a single stage; both are fine.
+                Starting from zero? We run all five stages as one engagement,
+                assessment through owned infrastructure, with a single
+                accountable team and milestones you can hold us to. We take a
+                maximum of two Foundation engagements at a time, so every client
+                gets the founder, not a bench.
               </p>
             </div>
             <div className={styles.e2eActions}>
-              <CtaButton href="/contact">BOOK A CONSULTATION</CtaButton>
+              <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
               <Link href="/assessment" className={styles.e2eSecondary}>
                 START WITH THE ASSESSMENT
               </Link>
