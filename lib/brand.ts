@@ -64,6 +64,7 @@ export const companyLinks = [
   { href: "/case-studies", label: "Case Studies" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
+  { href: "/diligence", label: "Diligence Pack" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
