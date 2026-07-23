@@ -147,6 +147,11 @@ export function AssessmentQuiz() {
             <div className={styles.stageTag}>{stage.tag}</div>
             <div className={styles.stageName}>{stage.name}</div>
             <div className={styles.stageDesc}>{stage.desc}</div>
+            <p className={styles.candor}>
+              If your score says AI doesn&apos;t pay here yet, that&apos;s a
+              real answer — take it. The stages above tell you what would change
+              it.
+            </p>
             <div className={styles.recLabel}>RECOMMENDED FOR YOU</div>
             <div className={styles.recs}>
               {recs.map((r) => (
@@ -175,7 +180,9 @@ export function AssessmentQuiz() {
 
             {showEmail ? (
               <div className={styles.emailCapture}>
-                <div className={styles.emailTitle}>Want this as a one-pager?</div>
+                <div className={styles.emailTitle}>
+                  Want this as a one-pager?
+                </div>
                 <p className={styles.emailBody}>
                   We&apos;ll send your stage, the dimension breakdown, and the
                   recommended path as a single PDF. One useful email, no drip
@@ -201,7 +208,9 @@ export function AssessmentQuiz() {
                       className={styles.emailSubmit}
                       disabled={emailStatus === "loading"}
                     >
-                      {emailStatus === "loading" ? "SENDING…" : "SEND MY REPORT"}
+                      {emailStatus === "loading"
+                        ? "SENDING…"
+                        : "SEND MY REPORT"}
                     </button>
                   </form>
                 )}
@@ -217,7 +226,9 @@ export function AssessmentQuiz() {
                 ) : null}
                 <p className={styles.emailPrivacy}>
                   We never share your email.{" "}
-                  <Link href="/security">See how we handle data&nbsp;&nbsp;&gt;</Link>
+                  <Link href="/security">
+                    See how we handle data&nbsp;&nbsp;&gt;
+                  </Link>
                 </p>
               </div>
             ) : null}
