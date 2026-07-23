@@ -3,8 +3,10 @@ import Link from "next/link";
 import {
   companyLinks,
   conceptLinks,
+  contactEmail,
   ctaPrimaryLabel,
   engagementBadge,
+  socialLinks,
   startLinks,
   trustLinks,
 } from "@/lib/brand";
@@ -97,7 +99,23 @@ export function SiteFooter({
 
             <div className={styles.bottom}>
               <span>© 2026 Maslow AI · Transform with purpose.</span>
-              <a href="mailto:hello@maslow.ai">hello@maslow.ai</a>
+              <div className={styles.bottomLinks}>
+                <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+                <a
+                  href={socialLinks.companyLinkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn ↗
+                </a>
+                <a
+                  href={socialLinks.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub ↗
+                </a>
+              </div>
             </div>
           </div>
         </footer>
@@ -117,6 +135,20 @@ export function SiteFooter({
               <Link href="/">Home</Link>
               <Link href="/services">Services</Link>
               <Link href="/contact">Contact</Link>
+              <a
+                href={socialLinks.companyLinkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn ↗
+              </a>
+              <a
+                href={socialLinks.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
             </div>
           </div>
         </footer>

@@ -1,8 +1,10 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { ctaContactSubmitLabel } from "@/lib/brand";
+import { contactEmail, ctaContactSubmitLabel } from "@/lib/brand";
 import styles from "./forms.module.css";
+
+const sendError = `That didn't send. Try again, or just email ${contactEmail}. We're not precious about channels.`;
 
 const INTERESTS = [
   "AI readiness assessment",
@@ -44,8 +46,7 @@ export function ContactForm() {
       const json = (await res.json()) as { ok?: boolean; error?: string };
       if (!res.ok || !json.ok) {
         throw new Error(
-          json.error ||
-            "That didn't send. Try again, or just email hello@maslow.ai. We're not precious about channels.",
+          json.error || sendError,
         );
       }
       setStatus("success");
@@ -55,7 +56,7 @@ export function ContactForm() {
       setError(
         err instanceof Error
           ? err.message
-          : "That didn't send. Try again, or just email hello@maslow.ai. We're not precious about channels.",
+          : sendError,
       );
     }
   }
@@ -141,7 +142,8 @@ export function ContactForm() {
       </button>
       {status === "idle" && (
         <p className={styles.hint}>
-          We reply within one business day. Prefer email? hello@maslow.ai
+          We reply within one business day. Prefer email?{" "}
+          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
         </p>
       )}
       {status === "success" && (

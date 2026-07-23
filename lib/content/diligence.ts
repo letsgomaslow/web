@@ -1,3 +1,5 @@
+import { contactEmail } from "@/lib/brand";
+
 /**
  * The diligence pack index. Statuses are public claims: nothing may say
  * AVAILABLE until the artifact actually exists and has been reviewed —
@@ -67,4 +69,4 @@ export const diligenceArtifacts: readonly {
 ];
 
 export const diligenceClosing =
-  "We're a boutique that wins on architecture, and we'd rather show you the controls than ask you to trust the adjectives. Anything this page doesn't answer: hello@maslow.ai, answered in writing.";
+  `We're a boutique that wins on architecture, and we'd rather show you the controls than ask you to trust the adjectives. Anything this page doesn't answer: ${contactEmail}, answered in writing.`;

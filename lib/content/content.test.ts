@@ -16,6 +16,11 @@ import {
 import { foundationWeeks, twoDoors } from "@/lib/content/engagement";
 import { conceptFailures } from "@/lib/content/explainers";
 import { copilotSection, costOfWaiting } from "@/lib/content/home";
+import {
+  contactEmail,
+  founderHeadshot,
+  socialLinks,
+} from "@/lib/brand";
 
 describe("content modules", () => {
   it("has six assessment questions with four options each", () => {
@@ -106,6 +111,16 @@ describe("content modules", () => {
     expect(twoDoors[1].desc).toMatch(/weeks 2, 4, and 10/);
     expect(twoDoors[1].desc).not.toMatch(/billed/i);
     expect(foundationWeeks.filter((w) => w.gate)).toHaveLength(3);
+  });
+
+  it("publishes the current founder and company identity", () => {
+    expect(contactEmail).toBe("rakesh@maslow.ai");
+    expect(founderHeadshot.src).toBe("/assets/rakesh-david-founder.jpg");
+    expect(socialLinks).toEqual({
+      founderLinkedIn: "https://www.linkedin.com/in/rakeshdavid/",
+      companyLinkedIn: "https://www.linkedin.com/company/letsgomaslow/",
+      github: "https://github.com/letsgomaslow",
+    });
   });
 });
 

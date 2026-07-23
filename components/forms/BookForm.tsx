@@ -1,7 +1,10 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { contactEmail } from "@/lib/brand";
 import styles from "./forms.module.css";
+
+const sendError = `That didn't send. Try again, or just email ${contactEmail}. We're not precious about channels.`;
 
 const FOCUS = [
   "Inbox / email triage",
@@ -47,8 +50,7 @@ export function BookForm({
       const json = (await res.json()) as { ok?: boolean; error?: string };
       if (!res.ok || !json.ok) {
         throw new Error(
-          json.error ||
-            "That didn't send. Try again, or just email hello@maslow.ai. We're not precious about channels.",
+          json.error || sendError,
         );
       }
       setStatus("success");
@@ -58,7 +60,7 @@ export function BookForm({
       setError(
         err instanceof Error
           ? err.message
-          : "That didn't send. Try again, or just email hello@maslow.ai. We're not precious about channels.",
+          : sendError,
       );
     }
   }

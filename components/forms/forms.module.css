@@ -118,6 +118,10 @@
   text-align: center;
 }
 
+.hint a {
+  font-weight: 600;
+}
+
 .status {
   font: 400 13.5px/20px var(--font-sans);
   text-align: center;

@@ -171,6 +171,43 @@ test.describe("responsive layout", () => {
   });
 });
 
+test.describe("founder and company identity", () => {
+  test("publishes the founder photo and current contact destinations", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(
+      page
+        .locator('[data-screen-label="Founder"]')
+        .getByRole("img", { name: /Rakesh David, Founder and CEO/i }),
+    ).toBeVisible();
+
+    await page.goto("/about");
+    await expect(
+      page.getByRole("link", { name: /Rakesh on LinkedIn/i }),
+    ).toHaveAttribute("href", "https://www.linkedin.com/in/rakeshdavid/");
+
+    await page.goto("/contact");
+    await expect(
+      page.getByRole("link", { name: /Rakesh David/i }),
+    ).toHaveAttribute("href", "https://www.linkedin.com/in/rakeshdavid/");
+    await expect(
+      page.getByRole("link", { name: /Maslow AI on LinkedIn/i }),
+    ).toHaveAttribute(
+      "href",
+      "https://www.linkedin.com/company/letsgomaslow/",
+    );
+    await expect(
+      page
+        .locator('[data-screen-label="Contact"]')
+        .getByRole("link", { name: /GitHub/i }),
+    ).toHaveAttribute("href", "https://github.com/letsgomaslow");
+    await expect(
+      page.getByRole("main").locator('a[href="mailto:rakesh@maslow.ai"]'),
+    ).toHaveCount(2);
+  });
+});
+
 test.describe("forwardable sections", () => {
   test("faq deep link opens the target question", async ({ page }) => {
     await page.goto("/faq#q-07");
