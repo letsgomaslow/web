@@ -4,7 +4,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { ctaPrimaryLabel } from "@/lib/brand";
-import { founder, principles } from "@/lib/content/site";
+import { founder, principles, standingLine } from "@/lib/content/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -95,6 +95,10 @@ export default function AboutPage() {
                 </Reveal>
               ))}
             </div>
+            <Reveal className={styles.standing}>
+              <div className="eyebrow">HOW WE RUN</div>
+              <p className={styles.standingBody}>{standingLine}</p>
+            </Reveal>
           </div>
         </section>
 
@@ -116,6 +120,10 @@ export default function AboutPage() {
                 <p className={styles.founderPull}>{founder.pull}</p>
                 <p className={styles.founderBench}>{founder.bench}</p>
               </div>
+            </Reveal>
+            <Reveal className={styles.elsewhere}>
+              <span className="eyebrow">ELSEWHERE</span>
+              <p>{founder.elsewhere}</p>
             </Reveal>
           </div>
         </section>

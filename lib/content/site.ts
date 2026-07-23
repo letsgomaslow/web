@@ -180,13 +180,16 @@ export const principles = [
 export const founder = {
   name: "Rakesh David",
   role: "Founder & CEO",
-  bio: "Rakesh spent more than twenty years in enterprise technology before founding Maslow, including CIO and CTO roles at Expedia and Aurobindo Pharma. He has owned the budgets, the legacy systems, and the board questions that most AI vendors have only read about. Today he builds AI systems hands-on: knowledge graphs, agentic harnesses, and the AI employees they support. He also serves as Chief AI Officer at Rivalista and writes about AI cognition.",
+  bio: "Rakesh spent more than twenty years in enterprise technology, including CIO and CTO roles at Expedia and Aurobindo Pharma — owning the budgets, the legacy systems, and the board questions most AI vendors have only read about. He founded Maslow to fix, from the vendor side, the problem he kept meeting on the buyer side: critical know-how locked in a few irreplaceable people, and transformation programs priced like moonshots. Today he builds AI systems hands-on: knowledge graphs, agentic harnesses, and the AI employees they support.",
   pull: "You work directly with someone who has sat in your chair, on your side of the table.",
   bench:
-    "For each engagement, Rakesh brings in specialist engineers from a small, trusted bench, under the same four commitments and the same accountability: his.",
+    "For each engagement, Rakesh brings in specialist engineers from a small, trusted bench, under the same four commitments and the same accountability: his. And because every artifact — code, pipelines, skills, docs, status history — lives in your repositories from day one, an engagement never depends on any one person's availability. We diagnose key-person risk for a living. We don't ask you to accept it from your vendor.",
+  elsewhere:
+    "Rakesh serves as Chief AI Officer at Rivalista, where the same operating model runs in a second industry, and writes about AI cognition.",
 };
 
+export const standingLine =
+  "We run Maslow on the same system we build for you: our procedures are versioned skills, our engagements ship weekly written status, and our work product lives in your repos, not ours. The first proof of the product is the company.";
+
 /** @deprecated Use founder. Kept temporarily for any residual imports. */
-export const team = [
-  { role: founder.role, name: founder.name },
-];
+export const team = [{ role: founder.role, name: founder.name }];
