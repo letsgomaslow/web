@@ -2,7 +2,7 @@ import styles from "./LayerDiagram.module.css";
 
 /**
  * The Copilot argument as a picture: keep what they have, add the layer it's
- * missing. Decorative — the section body carries the claim for readers and AT.
+ * missing. Decorative; the section body carries the claim for readers and AT.
  */
 export function LayerDiagram() {
   return (

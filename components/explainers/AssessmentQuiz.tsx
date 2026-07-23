@@ -35,7 +35,7 @@ export function AssessmentQuiz() {
     if (total <= 3) {
       recs = [
         {
-          name: "End-to-end AI transformation",
+          name: "90-Day AI Foundation",
           why: "All five stages, one accountable team",
           href: "/services",
         },
@@ -148,9 +148,8 @@ export function AssessmentQuiz() {
             <div className={styles.stageName}>{stage.name}</div>
             <div className={styles.stageDesc}>{stage.desc}</div>
             <p className={styles.candor}>
-              If your score says AI doesn&apos;t pay here yet, that&apos;s a
-              real answer — take it. The stages above tell you what would change
-              it.
+              If your score says AI is unlikely to pay here yet, use that result.
+              The stages above show what would need to change.
             </p>
             <div className={styles.recLabel}>RECOMMENDED FOR YOU</div>
             <div className={styles.recs}>

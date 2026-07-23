@@ -11,7 +11,7 @@ import { serviceCatalog, serviceStages } from "@/lib/content/services";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Services | Maslow AI · Five stages, fifteen doors" },
+  title: { absolute: "Services | Maslow AI · Five stages, fifteen services" },
   description:
     "Enter at any stage: Assess, Structure, Build, Deploy, or Own. Fixed fees, named deliverables, and a 90-day path from idea to working AI foundation.",
 };
@@ -43,7 +43,7 @@ export default function ServicesPage() {
                 marginBottom: 24,
               }}
             >
-              Five stages. Fifteen doors. Each priced on its own.
+              Choose the stage you need. Each service has its own price.
             </h1>
             <p
               className="lede mz-rise"
@@ -53,9 +53,9 @@ export default function ServicesPage() {
                 marginBottom: 36,
               }}
             >
-              Enter at any stage; leave with the deliverable named on the door.
-              No bundle you can&apos;t unbundle, no blended rate hiding what any
-              one piece costs. Fixed fee, quoted in writing, before we start.
+              Each service has a named deliverable and a fixed fee quoted before
+              work begins. Start with one service or combine the stages into a
+              90-day Foundation.
             </p>
             <div
               className={`${styles.heroCta} mz-rise`}
@@ -84,7 +84,7 @@ export default function ServicesPage() {
           <div className="wrap">
             <Reveal>
               <h2 className="h2" style={{ marginBottom: 28 }}>
-                Most clients start at one of two doors.
+                Most clients start with one of two scopes.
               </h2>
             </Reveal>
             <div className={styles.doorGrid}>
@@ -195,17 +195,16 @@ export default function ServicesPage() {
           <div className={styles.e2eInner}>
             <div>
               <div className="eyebrow eyebrow-ice">
-                OR TAKE THE WHOLE JOURNEY
+                START FROM ZERO
               </div>
               <h2 className="h2" style={{ color: "#fff", marginBottom: 14 }}>
-                End-to-end AI transformation
+                One 90-day engagement across all five stages
               </h2>
               <p className={styles.e2eBody}>
-                Starting from zero? We run all five stages as one engagement,
-                assessment through owned infrastructure, with a single
-                accountable team and milestones you can hold us to. We take a
-                maximum of two Foundation engagements at a time, so every client
-                gets the founder, not a bench.
+                We run assessment through deployment with one accountable team
+                and milestones you can hold us to. We take a maximum of two
+                Foundation engagements at a time, so the founder remains directly
+                involved in every one.
               </p>
             </div>
             <div className={styles.e2eActions}>

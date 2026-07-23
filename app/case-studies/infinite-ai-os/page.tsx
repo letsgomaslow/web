@@ -128,12 +128,12 @@ export default function InfiniteAiOsPage() {
           <div className="wrap">
             <div className="eyebrow">WHAT WE BUILT</div>
             <h2 className="h2" style={{ marginBottom: 12 }}>
-              An operating system, not a chatbot
+              An operating system for four AI employees
             </h2>
             <p className={styles.builtLede}>
               Above the line: four AI employees people actually talk to. Below
-              it: the six-layer root system that makes them dependable: the real
-              asset.
+              it: the six-layer system that supplies context, tools, and review
+              controls.
             </p>
             <div className={styles.osCard}>
               <div className={styles.osLabel}>
@@ -196,7 +196,7 @@ export default function InfiniteAiOsPage() {
           <div className="wrap">
             <div className="eyebrow">PROOF IT WORKS</div>
             <h2 className="h2" style={{ marginBottom: 40 }}>
-              Already working in real channels
+              Working in production channels
             </h2>
             <div className={styles.proofGrid}>
               <div className={styles.proofCard}>
@@ -269,11 +269,11 @@ export default function InfiniteAiOsPage() {
           <div className={styles.split}>
             <div>
               <div className="eyebrow">CURRENT STATE</div>
-              <h2 className={styles.sectionH2}>An honest status board</h2>
+              <h2 className={styles.sectionH2}>Current production status</h2>
               <p className={styles.statusLede}>
                 Three systems verified live in production; two in structured
-                review. Engineering discipline, not spin. This transparency is
-                part of how we work.
+                review. The table separates working components from items still
+                being hardened.
               </p>
             </div>
             <div className={styles.statusList}>
@@ -300,14 +300,14 @@ export default function InfiniteAiOsPage() {
           <div className="wrap">
             <div className="eyebrow eyebrow-ice">WHAT IT IS WORTH</div>
             <h2 className={styles.navyH2}>
-              A defensible path to one-third more enterprise value
+              A scenario model for future operating value
             </h2>
             <p className={styles.navyLede}>
-              Two drivers: EBITDA uplift (faster estimating, search and
-              reporting; less rework) and multiple expansion (lower key-person
-              risk, documented process, cleaner diligence). Enterprise value =
-              adjusted EBITDA × market multiple, baseline 3.75× for small
-              private manufacturing.
+              This model tests two possible drivers: EBITDA improvement from
+              faster estimating, search, and reporting; and multiple expansion
+              from lower key-person risk and cleaner diligence. It is a planning
+              model, not a realized client result. The baseline uses a 3.75×
+              multiple for small private manufacturing.
             </p>
             <div className={styles.valueGrid}>
               {cs.valueScenarios.map((v) => (
@@ -326,9 +326,8 @@ export default function InfiniteAiOsPage() {
               ))}
             </div>
             <p className={styles.valueNote}>
-              Scenario model grounded in standard appraisal practice, built to
-              survive buyer diligence. Day-180 target: every claim backed by a
-              measured number: hours saved, quotes accelerated, rework avoided.
+              The day-180 target is to replace assumptions with measured hours
+              saved, quote-cycle changes, and rework avoided.
             </p>
           </div>
         </section>

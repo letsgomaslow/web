@@ -14,7 +14,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: { absolute: "Security & Data Handling | Maslow AI" },
   description:
-    "Your data stays in your tenant, on your infrastructure, under your control. Scoped access, no training on client data, audit trails, and export-anytime by design.",
+    "Your data stays in your tenant or on infrastructure you control. Access is scoped and revocable, client data is not used for training, and consequential actions are logged.",
 };
 
 export default function SecurityPage() {
@@ -43,9 +43,9 @@ export default function SecurityPage() {
               className="lede mz-rise"
               style={{ animationDelay: "0.3s", maxWidth: 640 }}
             >
-              We&apos;re a small firm, so we won&apos;t show you a wall of
-              badges. We&apos;ll show you the architecture instead, and answer
-              any question your IT team asks, in writing.
+              We document where your data runs, which systems can access it,
+              and what happens when an engagement ends. Your IT team can review
+              the architecture and send follow-up questions in writing.
             </p>
           </div>
         </section>

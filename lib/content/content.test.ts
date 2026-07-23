@@ -1,3 +1,5 @@
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   assessmentQuestions,
@@ -6,7 +8,7 @@ import {
 } from "@/lib/content/site";
 import { serviceCatalog, serviceStages } from "@/lib/content/services";
 import { concepts, metrics } from "@/lib/content/home";
-import { blogPosts, getBlogArticle, getAllBlogSlugs } from "@/lib/content/blog";
+import { getBlogArticle, getAllBlogSlugs } from "@/lib/content/blog";
 import { caseStudiesIndex } from "@/lib/content/case-studies";
 import {
   faqItems,
@@ -21,6 +23,14 @@ import {
   founderHeadshot,
   socialLinks,
 } from "@/lib/brand";
+
+function sourceFiles(root: string): string[] {
+  return readdirSync(root, { withFileTypes: true }).flatMap((entry) => {
+    const path = join(root, entry.name);
+    if (entry.isDirectory()) return sourceFiles(path);
+    return /\.(ts|tsx)$/.test(entry.name) ? [path] : [];
+  });
+}
 
 describe("content modules", () => {
   it("has six assessment questions with four options each", () => {
@@ -65,8 +75,11 @@ describe("content modules", () => {
     expect(linked.some((c) => c.href.includes("agenthub"))).toBe(true);
   });
 
-  it("blog posts list is non-empty", () => {
-    expect(blogPosts.length).toBeGreaterThanOrEqual(5);
+  it("only publishes articles that have a complete body", () => {
+    expect(getAllBlogSlugs()).toEqual(["context-engineering"]);
+    getAllBlogSlugs().forEach((slug) => {
+      expect(getBlogArticle(slug)?.body.length).toBeGreaterThan(3);
+    });
   });
 
   it("trust content carries the copy-v3 invariants", () => {
@@ -97,15 +110,15 @@ describe("content modules", () => {
 
   it("homepage copilot and cost-of-waiting sections are populated", () => {
     expect(copilotSection.h2).toMatch(/Keep Copilot/);
-    expect(copilotSection.body).toMatch(/right call/);
-    expect(costOfWaiting.body).toMatch(/queue compounds/);
+    expect(copilotSection.body).toMatch(/personal productivity/);
+    expect(costOfWaiting.body).toMatch(/quotes still queue/);
     expect(costOfWaiting.ctaHref).toBe("/assessment");
   });
 
   it("engagement gates are surfaced, conservatively", () => {
     expect(twoDoors).toHaveLength(2);
     expect(foundationWeeks).toHaveLength(4);
-    // Gates named on the first metric and the Foundation door; the billing
+    // Gates named on the first metric and the Foundation scope; the billing
     // sentence stays out until the mechanics are verified.
     expect(metrics[0].label).toMatch(/gates at weeks 2, 4, and 10/);
     expect(twoDoors[1].desc).toMatch(/weeks 2, 4, and 10/);
@@ -120,6 +133,43 @@ describe("content modules", () => {
       founderLinkedIn: "https://www.linkedin.com/in/rakeshdavid/",
       companyLinkedIn: "https://www.linkedin.com/company/letsgomaslow/",
       github: "https://github.com/letsgomaslow",
+    });
+  });
+
+  it("keeps public source free of copy scaffolding and em dashes", () => {
+    const roots = ["app", "components", "lib/content"];
+    const forbidden = [
+      String.fromCodePoint(0x2014),
+      "Placeholder" + " metrics",
+      "swap per" + " campaign",
+      "93 of" + " 100",
+      "virtual AI" + " employee",
+      "organi" + "sation",
+      "organi" + "sed",
+      "priori" + "tise",
+      "quanti" + "sation",
+      "neigh" + "bours",
+      "data cen" + "tre",
+      "colour-" + "coded",
+    ];
+
+    roots.flatMap(sourceFiles).forEach((file) => {
+      const source = readFileSync(file, "utf8");
+      const normalizedSource = source.replace(/\s+/g, " ");
+      forbidden.forEach((fragment) => {
+        expect(normalizedSource, `${file} contains ${fragment}`).not.toContain(
+          fragment,
+        );
+      });
+    });
+  });
+
+  it("labels scenario cards without fabricated performance numbers", () => {
+    const scenarios = caseStudiesIndex.filter((study) => study.illustrative);
+    expect(scenarios.length).toBeGreaterThan(0);
+    scenarios.forEach((study) => {
+      expect(study.metric).toBe("SCENARIO");
+      expect(study.metricLabel).toMatch(/not a client result/i);
     });
   });
 });

@@ -6,9 +6,9 @@ import { CtaButton } from "@/components/ui/CtaButton";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Hire Your First Virtual AI Employee | Maslow AI",
+  title: "Put Your First AI Employee to Work | Maslow AI",
   description:
-    "An AI teammate that triages your inbox, drafts grounded responses and hands you the decisions - live in Teams, Slack or email.",
+    "An AI employee that triages your inbox, drafts responses from your documents, and routes decisions to your team in Teams, Slack, or email.",
 };
 
 const pains = [
@@ -45,23 +45,8 @@ const steps = [
   },
   {
     when: "ONGOING",
-    title: "It gets better, and cheaper",
-    desc: "Feedback tunes the harness. When volume justifies it, we move models onto your own hardware.",
-  },
-];
-
-const proofs = [
-  {
-    value: "3.2×",
-    label: "intake capacity at a law firm, same headcount",
-  },
-  {
-    value: "<15 min",
-    label: "first response on every inbound request",
-  },
-  {
-    value: "100%",
-    label: "of sends reviewed by a human while trust builds",
+    title: "We improve quality and unit cost",
+    desc: "Review feedback improves the workflow. When volume justifies it, we can move suitable models onto your hardware.",
   },
 ];
 
@@ -89,15 +74,15 @@ export default function VirtualAiEmployeesCampaignPage() {
                 className={`${styles.title} mz-rise`}
                 style={{ animationDelay: "0.15s" }}
               >
-                Hire your first virtual AI employee.
+                Put your first AI employee to work.
               </h1>
               <p
                 className={`${styles.subhead} mz-rise`}
                 style={{ animationDelay: "0.3s" }}
               >
-                An AI teammate that triages your inbox, drafts grounded
-                responses and hands you the decisions, deployed into the tools
-                your firm already uses.
+                It triages your inbox, drafts responses from your documents,
+                and routes decisions to your team inside the tools your firm
+                already uses.
               </p>
               <div
                 className={`${styles.checks} mz-rise`}
@@ -125,7 +110,7 @@ export default function VirtualAiEmployeesCampaignPage() {
                 Book a 30-minute consultation
               </div>
               <div className={styles.bookLede}>
-                We&apos;ll map one workflow where a virtual employee pays for
+                We&apos;ll map one workflow where an AI employee could pay for
                 itself.
               </div>
               <BookForm ctaLabel="BOOK A WORKING SESSION" />
@@ -157,7 +142,7 @@ export default function VirtualAiEmployeesCampaignPage() {
           <div className="wrap">
             <div className="eyebrow eyebrow-ice">THE PATH</div>
             <h2 className={styles.pathTitle}>
-              From kickoff to colleague in three steps
+              What happens in the first four weeks
             </h2>
             <div className={styles.pathGrid}>
               {steps.map((s) => (
@@ -171,29 +156,15 @@ export default function VirtualAiEmployeesCampaignPage() {
           </div>
         </section>
 
-        <section className={styles.proof} data-screen-label="Proof">
-          <div className={styles.proofGrid}>
-            {proofs.map((p) => (
-              <div key={p.value} className={styles.proofCard}>
-                <div className={styles.proofValue}>{p.value}</div>
-                <div className={styles.proofLabel}>{p.label}</div>
-              </div>
-            ))}
-          </div>
-          <p className={styles.proofCaption}>
-            Placeholder metrics from the case-study library; swap per campaign.
-          </p>
-        </section>
-
         <section className={styles.final} data-screen-label="Final CTA">
           <div className={styles.finalInner}>
             <h2 className={styles.finalTitle}>
-              Your next hire doesn&apos;t need a{" "}
-              <span className={styles.hl}>desk</span>.
+              Start with the workflow already consuming your team&apos;s{" "}
+              <span className={styles.hl}>time</span>.
             </h2>
             <p className={styles.finalLede}>
-              30 minutes. One workflow. A clear answer on whether a virtual AI
-              employee pays for itself.
+              Bring one workflow to a 30-minute session. We will estimate what
+              an AI employee would cost and where the return could come from.
             </p>
             <CtaButton href="#book">BOOK A WORKING SESSION</CtaButton>
           </div>

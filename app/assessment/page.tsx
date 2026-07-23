@@ -6,9 +6,11 @@ import { assessmentLegend } from "@/lib/content/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI Readiness Assessment | Maslow AI · Free, no email required" },
+  title: {
+    absolute: "AI Readiness Assessment | Maslow AI · Free, no email required",
+  },
   description:
-    "Six questions, two minutes, instant result. Get your stage on the AI transformation journey and the services that fit it. Nothing sent anywhere unless you ask.",
+    "Answer six questions in two minutes. Get your AI readiness stage and the services that fit it. Your answers stay in your browser unless you request the report by email.",
 };
 
 export default function AssessmentPage() {
@@ -21,7 +23,7 @@ export default function AssessmentPage() {
               className="eyebrow mz-rise"
               style={{ animationDelay: "0.05s" }}
             >
-              AI TRANSFORMATION ASSESSMENT · FREE, NO EMAIL REQUIRED
+              AI READINESS ASSESSMENT · FREE, NO EMAIL REQUIRED
             </div>
             <h1
               className="h1 mz-rise"
@@ -31,17 +33,16 @@ export default function AssessmentPage() {
                 marginBottom: 22,
               }}
             >
-              Where are you on the journey?
+              What is your AI readiness stage?
             </h1>
             <p
               className="lede mz-rise"
               style={{ animationDelay: "0.3s", maxWidth: 640 }}
             >
-              Six questions, two minutes. You&apos;ll get a stage on the
-              transformation journey and the services that fit it, including
-              &ldquo;start with everything&rdquo; if that&apos;s the honest
-              answer. Your answers stay in your browser unless you choose to
-              email yourself the report.
+              Answer six questions to get a readiness stage and a short list of
+              relevant services. If the result recommends starting with the
+              foundations, it will say so. Your answers stay in your browser
+              unless you choose to email yourself the report.
             </p>
           </div>
         </section>

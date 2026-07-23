@@ -51,8 +51,8 @@ export function SiteFooter({
                   <span>MASLOW</span>
                 </div>
                 <p className={styles.blurb}>
-                  Vertically integrated AI transformation, on models and
-                  hardware you own.
+                  AI employees built on knowledge systems and infrastructure
+                  your company owns.
                 </p>
                 <span className={styles.badge}>
                   <span className={styles.dot} />
@@ -98,7 +98,7 @@ export function SiteFooter({
             </div>
 
             <div className={styles.bottom}>
-              <span>© 2026 Maslow AI · Transform with purpose.</span>
+              <span>© 2026 Maslow AI · AI systems your company owns.</span>
               <div className={styles.bottomLinks}>
                 <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
                 <a

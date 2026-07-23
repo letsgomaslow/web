@@ -5,7 +5,7 @@ import { diligenceArtifacts } from "@/lib/content/diligence";
 import styles from "./ArtifactManifest.module.css";
 
 /**
- * The readiness matrix as UI: numbered artifacts with honest status chips.
+ * The readiness matrix as UI: numbered artifacts with current status chips.
  * Rows are individually linkable so a champion can forward one artifact.
  */
 export function ArtifactManifest() {

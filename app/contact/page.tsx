@@ -12,7 +12,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: { absolute: "Contact | Maslow AI · Book a working session" },
   description:
-    "A working session, not a sales call. Thirty minutes, one workflow, and a map of where AI pays in it — you keep the map either way.",
+    "Bring one workflow to a 30-minute working session. Leave with a map of where AI could pay and what the first build would require.",
 };
 
 const steps = [
@@ -31,8 +31,8 @@ const steps = [
   {
     num: "03",
     color: "#EBA93D",
-    title: "No lock-in, ever",
-    desc: "Everything we build is yours: models, pipelines, hardware.",
+    title: "You keep the work",
+    desc: "Code, pipelines, documentation, and configured infrastructure remain yours.",
   },
 ];
 
@@ -52,16 +52,16 @@ export default function ContactPage() {
               className={`${styles.title} mz-rise`}
               style={{ animationDelay: "0.15s" }}
             >
-              A working session, not a sales call.
+              Bring one workflow. Leave with a plan.
             </h1>
             <p
               className={`${styles.lede} mz-rise`}
               style={{ animationDelay: "0.3s" }}
             >
-              Thirty minutes. Bring one workflow that annoys you — quoting,
-              intake, reporting, anything that queues behind a busy person.
-              We&apos;ll map where AI pays in it, and tell you plainly if it
-              doesn&apos;t. You leave with the map either way.
+              Bring quoting, intake, reporting, or another task that keeps
+              queuing behind a busy person. In 30 minutes, we will map the
+              workflow, identify where AI could help, and outline the first
+              build. You keep the map even if we recommend no further work.
             </p>
             <div
               className={`${styles.steps} mz-rise`}

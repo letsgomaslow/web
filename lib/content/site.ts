@@ -1,6 +1,6 @@
 export const assessmentQuestions = [
   {
-    title: "Where is AI in your organisation today?",
+    title: "Where is AI in your organization today?",
     dim: "USAGE",
     options: [
       "Nowhere: we haven't started",
@@ -78,7 +78,7 @@ export const assessmentRecMap = [
     href: "/services#structure",
   },
   {
-    name: "Virtual AI employee pilot",
+    name: "AI employee pilot",
     why: "One agent, one workflow, live in weeks",
     href: "/services#deploy",
   },
@@ -154,36 +154,36 @@ export const principles = [
   {
     num: "01",
     accent: "#73C1AE",
-    name: "Local-first, by default",
-    desc: "If a workload can run on hardware you own, we put it there. Privacy stops being a policy and becomes physics.",
+    name: "Run suitable workloads locally",
+    desc: "When quality, volume, and security requirements support it, we run the workload on hardware you own.",
   },
   {
     num: "02",
     accent: "#A070A6",
-    name: "Open over locked-in",
-    desc: "Open models, open standards, exportable data. You should be able to fire us without losing anything we built.",
+    name: "Keep every artifact portable",
+    desc: "We use open models and standards where they meet the quality bar. Your data, code, and documentation remain exportable.",
   },
   {
     num: "03",
     accent: "#EBA93D",
-    name: "Humans in the loop",
-    desc: "Every consequential action our agents take is approved by a person. Trust is earned in increments, with an audit trail.",
+    name: "Require approval for consequential actions",
+    desc: "A person approves consequential actions, and each decision is recorded in an audit trail.",
   },
   {
     num: "04",
     accent: "#469DBB",
-    name: "Outcomes over hype",
-    desc: "We scope engagements around a measurable workflow result, not model demos. If it doesn't pay, we tell you.",
+    name: "Set a measurable workflow target",
+    desc: "Every engagement starts with a workflow result and a baseline. If the economics do not work, we recommend stopping.",
   },
 ];
 
 export const founder = {
   name: "Rakesh David",
   role: "Founder & CEO",
-  bio: "Rakesh spent more than twenty years in enterprise technology, including CIO and CTO roles at Expedia and Aurobindo Pharma — owning the budgets, the legacy systems, and the board questions most AI vendors have only read about. He founded Maslow to fix, from the vendor side, the problem he kept meeting on the buyer side: critical know-how locked in a few irreplaceable people, and transformation programs priced like moonshots. Today he builds AI systems hands-on: knowledge graphs, agentic harnesses, and the AI employees they support.",
+  bio: "Rakesh spent more than twenty years in enterprise technology, including CIO and CTO roles at Expedia and Aurobindo Pharma. He owned the budgets, legacy systems, and board questions that come with large technology programs. He founded Maslow after repeatedly seeing critical know-how locked in a few irreplaceable people and projects priced beyond the reach of mid-market companies. Today he builds knowledge graphs, agentic harnesses, and the AI employees they support.",
   pull: "You work directly with someone who has sat in your chair, on your side of the table.",
   bench:
-    "For each engagement, Rakesh brings in specialist engineers from a small, trusted bench, under the same four commitments and the same accountability: his. And because every artifact — code, pipelines, skills, docs, status history — lives in your repositories from day one, an engagement never depends on any one person's availability. We diagnose key-person risk for a living. We don't ask you to accept it from your vendor.",
+    "For each engagement, Rakesh brings in specialist engineers from a small, trusted bench while retaining accountability for the work. Code, pipelines, skills, documentation, and status history live in your repositories from day one. That makes the engagement less dependent on any one person's availability, including his.",
   elsewhere:
     "Rakesh serves as Chief AI Officer at Rivalista, where the same operating model runs in a second industry, and writes about AI cognition.",
 };

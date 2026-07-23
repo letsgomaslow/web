@@ -97,7 +97,7 @@ export const localHardwareTiers = [
     tag: "TIER 2",
     name: "Server",
     price: "from ~$45k",
-    desc: "Rack-mounted multi-GPU inference. Department-scale virtual employees with headroom for growth.",
+    desc: "Rack-mounted multi-GPU inference. Department-scale AI employees with headroom for growth.",
     accent: "#FFF860",
     featured: true,
   },
@@ -292,7 +292,7 @@ export const skillLibrary: SkillDef[] = [
   {
     name: "Client intake triage",
     version: "v2.0",
-    summary: "Classify, prioritise and route new client requests.",
+    summary: "Classify, prioritize and route new client requests.",
     meta: "UPDATED 3D AGO · 210 RUNS THIS WEEK",
     desc: "Every inbound request gets classified, checked for conflicts, and routed to the right person with context attached.",
     steps: [
@@ -427,7 +427,7 @@ export const harnessNodes: HarnessNode[] = [
     bullets: [
       "Procedures written with your domain experts",
       "Versioned and testable like code",
-      "Shared across all your virtual employees",
+      "Shared across all your AI employees",
     ],
   },
   {
@@ -467,7 +467,7 @@ export const harnessNodes: HarnessNode[] = [
     tag: "06 / GATEWAYS",
     label: "GATEWAYS",
     title: "Gateways",
-    desc: "Where the agent meets your organisation: Microsoft Teams, Slack, shared inboxes. No new app to learn; the AI shows up where work already happens.",
+    desc: "The agent works through Microsoft Teams, Slack, and shared inboxes, so staff can use it inside their existing channels.",
     bullets: [
       "Teams, Slack and email connectors",
       "One agent, many channels",
@@ -484,8 +484,8 @@ export const harnessPayoffs = [
   },
   {
     accent: "#A070A6",
-    title: "Dependable by design",
-    desc: "Guardrails, approvals and audit trails live in the harness, so reliability is engineered, not hoped for.",
+    title: "Controls you can inspect",
+    desc: "The harness contains the guardrails, approvals, and audit trails used to review reliability.",
   },
   {
     accent: "#EBA93D",
@@ -556,8 +556,8 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     crumb: "Context engineering",
     badge: "TECHNOLOGY",
     badgeColor: "#73C1AE",
-    title: "Your AI is only as smart as its briefing.",
-    lede: "Before a model acts, it reads a briefing: the context. Context engineering decides what earns a place in it. Try it yourself: build the briefing below and watch the answer change.",
+    title: "Your AI needs the right briefing.",
+    lede: "Before a model acts, it receives a set of documents, instructions, and current data. Context engineering controls what is included. Build a briefing below and see how the answer changes.",
     next: { href: "/concepts/hybrid-rag", label: "Hybrid RAG →" },
   },
   "local-ai": {
@@ -571,11 +571,11 @@ export const explainerPages: Record<string, ExplainerMeta> = {
   },
   "virtual-ai-employees": {
     slug: "virtual-ai-employees",
-    crumb: "Virtual AI employees & gateways",
+    crumb: "AI employees & gateways",
     badge: "DESIGN + TECHNOLOGY",
     badgeColor: "#EBA93D",
-    title: "One teammate. Every channel your business runs on.",
-    lede: "A virtual AI employee isn't another app to log into. Through gateways, the same agent shows up in Microsoft Teams, Slack and email: same knowledge, same skills, same guardrails. Switch channels below.",
+    title: "One AI employee across your working channels.",
+    lede: "The same AI employee can work through Microsoft Teams, Slack, and email while using the same knowledge, skills, and approval rules. Switch channels below to see the interaction.",
     prev: { href: "/concepts/agentic-harness", label: "← Agentic Harness" },
     next: {
       href: "/campaigns/virtual-ai-employees",
@@ -587,12 +587,12 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     crumb: "Skills & gateways",
     badge: "STRATEGY",
     badgeColor: "#A070A6",
-    title: "Teach it once. Every agent knows it. Every channel has it.",
-    lede: "A skill is your firm's way of doing something, written down so an agent can follow it, versioned and testable like code, not buried in a prompt. Gateways carry those skills into Teams, Slack and email. Browse the library below.",
+    title: "Write a procedure once, then reuse it across agents.",
+    lede: "A skill records your firm's procedure in a versioned, testable format an agent can follow. Gateways make those skills available in Teams, Slack, and email. Browse the library below.",
     prev: { href: "/concepts/agentic-harness", label: "← Agentic Harness" },
     next: {
       href: "/concepts/virtual-ai-employees",
-      label: "Virtual AI Employees →",
+      label: "AI Employees →",
     },
   },
   "agentic-harness": {
@@ -600,8 +600,8 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     crumb: "Harness engineering",
     badge: "STRATEGY + TECHNOLOGY",
     badgeColor: "#A070A6",
-    title: "What surrounds the model matters more than the model.",
-    lede: "A raw model is potential, not performance. The agentic harness is the engineered structure around it (context, skills, tools, memory, guardrails and gateways) that turns intelligence into dependable work. Drag the model below; tap any component.",
+    title: "A model needs a system around it.",
+    lede: "An agentic harness connects the model to current context, approved tools, memory, guardrails, and working channels. Those components let it carry a workflow and leave an audit trail. Drag the model below and select a component.",
     prev: { href: "/concepts/hybrid-rag", label: "← Hybrid RAG" },
     next: { href: "/concepts/local-ai", label: "Local AI →" },
   },
@@ -621,7 +621,7 @@ export const explainerPages: Record<string, ExplainerMeta> = {
 };
 
 /**
- * "What breaks without it" — each concept tied to the production failure it
+ * "What breaks without it" ties each concept to the production failure it
  * prevents. Scar tissue, not vocabulary: a competitor's "our engineer could
  * DIY this in two weeks" lands unless the failure mode is named.
  */
@@ -631,29 +631,29 @@ export const conceptFailures: Record<
 > = {
   "agentic-harness": {
     headline: "The demo dies quietly by week six.",
-    body: "Without a harness, the demo that wowed the boardroom answers from stale files by week six, nobody can say why, and the pilot dies quietly. The harness is what makes AI boring enough to trust: versioned skills you can diff, approvals that leave an audit trail, staleness alerts before wrong answers ship, and a model you can swap without rebuilding anything. DIY stacks skip this part first — it's invisible in a demo and load-bearing in production.",
+    body: "A demo can start answering from stale files within weeks, with no record of which retrieval produced the response. A production harness adds versioned skills, approval records, staleness alerts, and a replaceable model interface. These controls are easy to miss in a demo and essential once people rely on the workflow.",
     demo: "Week one: the model answers everything, the room is impressed, and someone says it could take over the whole intake queue by Christmas.",
     production:
-      "Week six: the files have gone stale, two answers were confidently wrong, nobody can say which retrieval produced them — and the pilot dies quietly.",
+      "Week six: the files have gone stale, two answers were wrong, and nobody can identify which retrieval produced them. The pilot loses its users.",
   },
   "context-engineering": {
     headline: "The right answer, from the wrong year.",
-    body: "Without context discipline, the model retrieves the right answer from the wrong year: the 2021 spec, the superseded rate card, the policy two revisions old. Every answer sounds confident, because the model can't know what it wasn't shown. Context engineering is the difference between an assistant that happens to be right and a system that can say where its answer came from — and what it deliberately left out.",
+    body: "A model can retrieve the 2021 specification, a superseded rate card, or a policy that is two revisions old. It cannot identify missing context unless the retrieval system supplies dates, authority, and exclusions. Context engineering gives each answer a traceable source and records which material was left out.",
   },
   "hybrid-rag": {
     headline: "Keyword search can't answer why.",
-    body: 'Without hybrid retrieval you get keyword search with better manners: it finds documents that mention the words, then goes quiet the moment you ask why. "Which contracts changed after the reorg?" needs relationships — people, projects, dates — not string matches. Pure-vector stacks hit the same wall from the other side: everything is vaguely similar and nothing is precisely true. The graph is what lets an answer cite its reasons.',
+    body: 'Keyword search can find documents that mention the right terms, but it cannot reliably answer "Which contracts changed after the reorganization?" That question depends on relationships among people, projects, dates, and agreements. A vector database finds related language; a knowledge graph resolves the relationships and gives the answer traceable reasons.',
   },
   "local-ai": {
     headline: "The bill spikes the month adoption succeeds.",
-    body: "The pilot was cheap because nobody used it; the rollout is expensive because everyone does. On metered APIs the bill spikes in exactly the month adoption succeeds, so teams start rationing questions — quietly killing the habit the whole project existed to build. Local inference flips the curve: flat cost, privacy that's physics, and success stops being the expensive outcome.",
+    body: "A lightly used pilot can hide the cost of metered APIs. When adoption increases, teams may begin rationing queries to control the bill. For stable, high-volume workloads, local inference can replace per-token charges with hardware depreciation, electricity, and support costs while keeping data on site.",
   },
   "skills-and-gateways": {
     headline: "Your best prompt lives in one person's notes.",
-    body: "Without a skills library, your best prompt is unversioned, untested, and gone when its author is. Every team reinvents it a little worse, and nobody can say which version produced last quarter's numbers. Written as skills, procedures get what code got decades ago: versions you can diff, tests that catch drift, and reuse across every agent instead of heroics in one chat window.",
+    body: "A useful prompt stored in one person's notes has no version history, tests, or clear owner. Other teams copy and alter it, and the organization loses track of which version produced a result. Writing the procedure as a skill adds version control, tests for drift, and reuse across agents.",
   },
   "virtual-ai-employees": {
     headline: "A chatbot answers; nobody finishes.",
-    body: "A chatbot answers questions all day and finishes nothing: the quote still waits for someone to open the ERP, paste the numbers, and route the approval. An AI employee is accountable for the outcome — it carries the request from intake to approved, under a person's supervision, and the workflow's status is its problem. That's the difference between answering about work and doing it.",
+    body: "A chatbot can answer a question while leaving the underlying task untouched. The quote still waits for someone to open the ERP, copy the numbers, and route the approval. An AI employee carries the request through those steps under human supervision and reports the workflow status until the work is complete.",
   },
 };

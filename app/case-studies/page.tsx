@@ -8,9 +8,9 @@ import { caseStudiesIndex } from "@/lib/content/case-studies";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Case Studies | Maslow AI · Proof, not promises" },
+  title: { absolute: "Case Studies | Maslow AI · Production work and status" },
   description:
-    "Real engagements with honest numbers: AI employees in Microsoft Teams, contract review with citations, and 90-day foundations you can audit.",
+    "Production engagements with current status and measured results, followed by clearly labeled architecture scenarios.",
 };
 
 function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
@@ -100,15 +100,14 @@ export default function CaseStudiesPage() {
               className="h1 mz-rise"
               style={{ animationDelay: "0.15s", marginBottom: 20 }}
             >
-              Proof, not promises
+              Production work and current status
             </h1>
             <p
               className="lede mz-rise"
               style={{ animationDelay: "0.3s", maxWidth: 680 }}
             >
-              How real organizations used context engineering, agentic harnesses,
-              and owned infrastructure to change what a workday looks like.
-              Every number below survived contact with production.
+              Two production engagements, followed by clearly labeled scenarios
+              showing where the same architecture can be applied next.
             </p>
           </div>
         </section>
@@ -127,10 +126,10 @@ export default function CaseStudiesPage() {
                   What a typical engagement looks like.
                 </h2>
                 <p className={styles.illustrativeBody}>
-                  The scenarios below are illustrative composites: real
-                  architectures, representative numbers, no named client behind
-                  them. We publish them so you can see the shape of the work.
-                  The two engagements above are real and referenceable.
+                  The scenarios below are composites, not client results. They
+                  show representative architectures without attaching invented
+                  performance numbers to them. The two engagements above are
+                  production work and are referenceable.
                 </p>
               </div>
             </Reveal>
@@ -150,9 +149,8 @@ export default function CaseStudiesPage() {
                 Your operation could be the next one here.
               </h2>
               <p className={styles.ctaLede}>
-                Start with a 30-minute working session. We&apos;ll map where AI
-                pays in your workflows, and tell you plainly if it doesn&apos;t
-                yet.
+                Start with a 30-minute working session. We will map where AI may
+                pay in your workflows and identify where it is unlikely to help.
               </p>
             </div>
             <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>

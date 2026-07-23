@@ -13,10 +13,10 @@ export default function NotFound() {
         <div className="wrap" style={{ maxWidth: 640 }}>
           <div className="eyebrow">404</div>
           <h1 className="h1" style={{ marginBottom: 18 }}>
-            This page doesn&apos;t exist. Yet.
+            We couldn&apos;t find that page.
           </h1>
           <p className="lede" style={{ marginBottom: 28 }}>
-            Like most things here, it could probably be built in 90 days.
+            Check the address or return to the homepage.
           </p>
           <Link href="/" className="text-link">
             BACK TO HOME&nbsp;&nbsp;&gt;

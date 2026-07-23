@@ -7,7 +7,7 @@ export const metrics: {
   {
     value: "90 days",
     label:
-      "idea to working foundation — with go/no-go gates at weeks 2, 4, and 10",
+      "from idea to working foundation, with go/no-go gates at weeks 2, 4, and 10",
     tick: "#73C1AE",
     gates: ["W2", "W4", "W10"],
   },
@@ -39,7 +39,7 @@ export const whoWeWorkWith = [
     num: "02",
     tick: "#A070A6",
     title: "Your know-how lives in a few senior people.",
-    desc: "Estimating, quoting, client intake, compliance answers. They're the reason you win work — and the ceiling on how much of it you can take.",
+    desc: "Estimating, quoting, client intake, compliance answers. These people help you win work, but every request still waits for their time.",
   },
   {
     num: "03",
@@ -74,7 +74,7 @@ export const concepts = [
   {
     num: "04",
     tick: "#EBA93D",
-    name: "Virtual AI employees",
+    name: "AI employees",
     desc: "Agents that live where your team works (Teams, Slack, email) and carry whole workflows, not just chats.",
     href: "/concepts/virtual-ai-employees",
   },
@@ -132,7 +132,7 @@ export const homeCases = [
     sector: "MANUFACTURING · REAL ENGAGEMENT",
     art: "linear-gradient(140deg,#86E8CE,#E686B5)",
     title: "Infinite AI OS: an AI operating system in 90 days",
-    desc: "Four named AI employees working in Microsoft Teams, standing on a six-layer root system: company memory, knowledge map, file intake, employee profiles, tool connectors, and observability.",
+    desc: "Four named AI employees working in Microsoft Teams on a six-layer system: company memory, knowledge map, file intake, employee profiles, tool connectors, and observability.",
     result: "4 AI employees live · 90 days to foundation",
     href: "/case-studies/infinite-ai-os",
     cta: "VIEW CASE STUDY",
@@ -142,7 +142,7 @@ export const homeCases = [
     sector: "HEALTHCARE ENTERPRISE · REAL ENGAGEMENT",
     art: "linear-gradient(140deg,#4C4C4C,#F37779)",
     title: "AgentHub: contracts you can question",
-    desc: "A prompt library as the front door; behind it, a contract-review agent with hybrid retrieval and a citation on every answer.",
+    desc: "A shared prompt library paired with a contract-review agent that uses hybrid retrieval and cites each answer.",
     result: "Field-level citations · 50-document grounded corpus",
     href: "/case-studies/agenthub",
     cta: "VIEW CASE STUDY",
@@ -163,7 +163,7 @@ export const homeCases = [
 export const copilotSection = {
   eyebrow: "IF YOU ALREADY PAY FOR COPILOT",
   h2: "Keep Copilot. Add the layer it's missing.",
-  body: "Rolling out Microsoft Copilot was the right call — it's the best personal assistant your people can have, and we'll tell you to keep it. What it structurally can't do is own a workflow: it doesn't know your estimating logic, can't carry a quote from request to approval across your systems, and doesn't answer from a knowledge base you govern. That's the layer we build. Most of our clients run both: Copilot for individuals, AI employees for the workflows.",
+  body: "Copilot is strong at personal productivity, and most clients should keep it. It does not know your estimating logic, carry a quote from request to approval across systems, or answer from a knowledge base you govern. We build that workflow layer. Copilot assists individuals; AI employees carry the workflow.",
   ctaLabel: "SEE WHAT THE LAYER CONTAINS",
   ctaHref: "/concepts/virtual-ai-employees",
 } as const;
@@ -171,13 +171,13 @@ export const copilotSection = {
 export const costOfWaiting = {
   eyebrow: "THE OTHER OPTION",
   h2: "Doing nothing has a price too.",
-  body: "Every quarter you wait: the quotes still queue behind one person, and the queue compounds. The know-how you most need captured gets one quarter closer to walking out the door. The files pile deeper, in formats only humans can search. None of that shows up as a line item — which is why it never gets fixed. The assessment takes two minutes and tells you whether AI pays in your operation. If it doesn't, we'll say so.",
+  body: "Every quarter you wait, quotes still queue behind one person. The know-how you most need gets closer to walking out the door, while files keep piling up in formats only humans can search. Those costs rarely appear as a line item, so the work gets deferred. The assessment takes two minutes and tells you whether AI is likely to pay in your operation.",
   ctaLabel: "TAKE THE 2-MINUTE ASSESSMENT",
   ctaHref: "/assessment",
 } as const;
 
 export const founderStrip = {
-  body: "Maslow is led by Rakesh David, a former CIO/CTO who ran enterprise technology for twenty years — and founded Maslow to fix, from the vendor side, the key-person problem he kept meeting on the buyer side. You work directly with someone who has sat in your chair. And because everything we build lands in your repositories from day one, nothing about your system depends on any one person. Including him.",
+  body: "Maslow is led by Rakesh David, a former CIO and CTO with twenty years in enterprise technology. He founded Maslow after repeatedly seeing critical work depend on a few overloaded people. You work directly with someone who has owned the budgets, systems, and board questions. Everything we build lands in your repositories from day one, so the resulting system does not depend on any one person, including him.",
   href: "/about",
   cta: "MEET THE FOUNDER",
 };

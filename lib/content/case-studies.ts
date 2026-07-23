@@ -12,7 +12,7 @@ export const caseStudiesIndex = [
     challenge:
       "Estimating, quoting, reporting, and file search all ran on manual effort and knowledge locked in people's heads: high cost to serve, and high key-person risk.",
     solution:
-      "Four named AI employees (a manager and three specialists) working in Microsoft Teams, standing on a six-layer root system: company memory, knowledge map, file intake, profiles, tool connectors, and observability.",
+      "Four named AI employees (a manager and three specialists) working in Microsoft Teams on a six-layer system: company memory, knowledge map, file intake, profiles, tool connectors, and observability.",
     results: [
       "4 AI employees live in Teams",
       "3 core systems in production",
@@ -28,14 +28,13 @@ export const caseStudiesIndex = [
     metric: "93%",
     metricLabel: "intent routing on first try",
     metricGloss:
-      "93 of 100 test questions routed to the right specialist agent on the first try, measured on a live 28-case suite.",
+      "26 of 28 test cases routed to the expected first tool call through the live streaming pipeline (92.9%).",
     illustrative: false,
-    title:
-      "AgentHub: an AI hub that reviews contracts, not just stores prompts",
+    title: "AgentHub: a prompt library with a contract-review system",
     challenge:
       "Knowledge workers had no shared home for prompts that work, and no fast, trustworthy way to interrogate dense Statement-of-Work documents.",
     solution:
-      "A department-organized prompt library as the front door; behind it, an agentic SOW reviewer with parallel vector and knowledge-graph retrieval, a citation on every field it extracts, and a generative-UI chat that answers in charts, tables, and drafted documents.",
+      "A department-organized prompt library paired with an agentic SOW reviewer. Parallel vector and knowledge-graph retrieval supports field-level citations, while the chat can return charts, tables, and drafted documents.",
     results: [
       "A citation on every answer",
       "50-SOW grounded corpus",
@@ -48,8 +47,8 @@ export const caseStudiesIndex = [
     slug: "financial-knowledge-graph",
     sector: "FINANCIAL SERVICES",
     art: "#121D35",
-    metric: "−58%",
-    metricLabel: "time-to-answer across compliance teams",
+    metric: "SCENARIO",
+    metricLabel: "representative workflow, not a client result",
     metricGloss: "",
     illustrative: true,
     title: "120,000 documents, one knowledge graph",
@@ -58,9 +57,9 @@ export const caseStudiesIndex = [
     solution:
       "Full ingestion pipeline: files chunked and embedded into a vector DB, entities and obligations extracted into a knowledge graph. Hybrid RAG with citations, deployed behind their firewall.",
     results: [
-      "−58% time-to-answer",
-      "100% citation coverage",
-      "14-day ingestion",
+      "Illustrative time-to-answer model",
+      "Citation-backed retrieval",
+      "On-prem deployment pattern",
     ],
     stack: ["HYBRID_RAG", "KNOWLEDGE_GRAPH", "ON_PREM"],
     href: "#",
@@ -69,19 +68,19 @@ export const caseStudiesIndex = [
     slug: "virtual-paralegal",
     sector: "LEGAL",
     art: "#401877",
-    metric: "3.2×",
-    metricLabel: "client intake capacity, same headcount",
+    metric: "SCENARIO",
+    metricLabel: "representative workflow, not a client result",
     metricGloss: "",
     illustrative: true,
-    title: "A virtual paralegal in the inbox",
+    title: "An AI intake employee in the shared inbox",
     challenge:
       "Intake requests arrived by email at all hours. Partners triaged manually; slow responses were losing engagements to faster firms.",
     solution:
-      "A virtual AI employee connected to the shared inbox via an email gateway. It triages intake, drafts engagement letters grounded in precedent, escalates edge cases with full audit trail.",
+      "An AI employee connected to the shared inbox through an email gateway. It triages intake, drafts engagement letters from precedent, and escalates edge cases with a full audit trail.",
     results: [
-      "3.2× intake capacity",
-      "<15 min first response",
-      "Zero unreviewed sends",
+      "Human-reviewed intake",
+      "Cited draft responses",
+      "Documented escalation path",
     ],
     stack: ["VIRTUAL_EMPLOYEE", "EMAIL_GATEWAY", "HARNESS"],
     href: "#",
@@ -90,8 +89,8 @@ export const caseStudiesIndex = [
     slug: "local-ai-factory",
     sector: "MANUFACTURING",
     art: "#192332",
-    metric: "−63%",
-    metricLabel: "inference cost after moving on-prem",
+    metric: "SCENARIO",
+    metricLabel: "representative workflow, not a client result",
     metricGloss: "",
     illustrative: true,
     title: "Local AI on the factory floor",
@@ -100,9 +99,9 @@ export const caseStudiesIndex = [
     solution:
       "Right-sized GPU hardware on site, open models fine-tuned on their procedures, and an agentic harness wired into Teams for the floor supervisors.",
     results: [
-      "−63% inference cost",
-      "Zero data egress",
-      "Flat monthly cost curve",
+      "Modeled cost comparison",
+      "No external data transfer",
+      "Workload-based capacity plan",
     ],
     stack: ["LOCAL_AI", "OPEN_MODELS", "TEAMS_GATEWAY"],
     href: "#",
@@ -121,7 +120,7 @@ export const infiniteAiOs = {
     { label: "90-DAY ENGAGEMENT", variant: "navy" as const },
   ],
   title: "From tribal knowledge to an AI operating system, in 90 days.",
-  lede: "How a private manufacturing group went from idea to a working AI foundation: four AI employees conversing in Microsoft Teams, a searchable company memory, and a defensible path to one-third more enterprise value.",
+  lede: "How a private manufacturing group went from idea to a working AI foundation: four AI employees in Microsoft Teams, a searchable company memory, and a plan to measure operating value over the next 90 days.",
   metrics: [
     {
       value: "4",
@@ -142,8 +141,8 @@ export const infiniteAiOs = {
       dark: false,
     },
     {
-      value: "1.33×",
-      label: "base-case enterprise value path (appraisal math)",
+      value: "Day 180",
+      label: "target for measured operating results",
       accent: "#FFF860",
       dark: true,
     },
@@ -169,7 +168,7 @@ export const infiniteAiOs = {
     {
       when: "JUNE–JULY · BUILD",
       name: "Build the foundation",
-      desc: "The durable root system: company memory, knowledge map, file intake, employee profiles, tool connectors, and observability.",
+      desc: "The production system: company memory, knowledge map, file intake, employee profiles, tool connectors, and observability.",
       q: "What makes AI repeatable?",
     },
   ],
@@ -227,7 +226,7 @@ export const infiniteAiOs = {
     {
       num: "01",
       name: "Company memory",
-      desc: "Meaning-based search finds concepts, not just filenames.",
+      desc: "Meaning-based search finds concepts across filenames and folders.",
     },
     {
       num: "02",
@@ -324,10 +323,10 @@ export const infiniteAiOs = {
     { name: "Knowledge foundation build", href: "/services#structure" },
     { name: "Custom agentic harness", href: "/services#build" },
     { name: "Gateway integrations", href: "/services#build" },
-    { name: "Virtual AI employee pilot", href: "/services#deploy" },
+    { name: "AI employee pilot", href: "/services#deploy" },
   ],
   quote:
-    "The first 90 days built the root system. The next 90 turn it into measured business results.",
+    "The first 90 days built the production system. The next 90 measure how it changes operating work.",
   quoteAttr: "90-DAY PROGRESS REPORT TO STAKEHOLDERS",
   ctaTitle: "Your business could have its own AI OS in 90 days.",
   ctaLede:
@@ -342,9 +341,8 @@ export const agentHub = {
     { label: "HEALTHCARE ENTERPRISE", variant: "outline" as const },
     { label: "AGENTHUB", variant: "navy" as const },
   ],
-  title:
-    "An enterprise AI hub that reviews contracts, not just stores prompts.",
-  lede: "Built for a global healthcare company's internal innovation program under the Maslow AI brand: a department-organised prompt library as the front door; behind it, a Statement-of-Work review agent with graph-augmented retrieval, field-level citations, and a chat that answers in charts, tables and drafted documents instead of walls of text.",
+  title: "An enterprise prompt library with a contract-review system.",
+  lede: "Built for a global healthcare company's internal innovation program under the Maslow AI brand: a department-organized prompt library backed by a Statement-of-Work review agent with graph retrieval, field-level citations, and structured answers.",
   metrics: [
     {
       value: "7",
@@ -371,10 +369,10 @@ export const agentHub = {
       dark: false,
     },
   ],
-  challengeTitle: "Two problems wearing one interface",
+  challengeTitle: "The product needed to support two jobs",
   challengeBody: [
     'Enterprise knowledge workers had no shared home for the prompts that actually work, and no fast, trustworthy way to interrogate dense Statement-of-Work documents. "What are the termination terms?" meant an afternoon of reading. "Where\'s the duplicate-spend risk across these vendors?" meant nobody checked.',
-    "So AgentHub is two products in one: a curated, community-style **prompt library** organised by department as the front door, and an **agentic SOW reviewer** as the engine, grounded in the documents themselves.",
+    "AgentHub combines a curated **prompt library**, organized by department, with an **agentic SOW reviewer** grounded in the source documents.",
   ],
   departments: [
     "Marketing",
@@ -401,7 +399,7 @@ export const agentHub = {
       num: "03",
       tag: "RETRIEVE ×2",
       name: "Two legs in parallel",
-      desc: "Dense vector search (top-5) runs alongside a knowledge-graph query for matching entities (vendors, clients, deliverables) plus their one-hop neighbours.",
+      desc: "Dense vector search (top-5) runs alongside a knowledge-graph query for matching entities (vendors, clients, deliverables) plus their one-hop neighbors.",
     },
     {
       num: "04",

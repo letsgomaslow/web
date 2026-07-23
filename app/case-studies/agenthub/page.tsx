@@ -110,7 +110,7 @@ export default function AgentHubPage() {
               <div className={styles.layerLabel}>THE FRONT DOOR</div>
               <div className={styles.layerTitle}>Department prompt library</div>
               <div className={styles.layerBody}>
-                Eleven colour-coded departments, real-time search, likes and
+                Eleven color-coded departments, real-time search, likes and
                 comments, public/private prompts, per-author categories. Every
                 prompt opens straight into the AI chat; the library is how
                 people discover what the agent can do.
@@ -134,7 +134,7 @@ export default function AgentHubPage() {
               </div>
               <div className={styles.monoList}>
                 <span>▸ VECTOR SEARCH · top-5 · 3072-dim embeddings</span>
-                <span>▸ KNOWLEDGE GRAPH · entities + one-hop neighbours</span>
+                <span>▸ KNOWLEDGE GRAPH · entities + one-hop neighbors</span>
                 <span>▸ CITATIONS · down to the exact jsonPath field</span>
               </div>
             </div>
@@ -212,7 +212,7 @@ export default function AgentHubPage() {
                 </div>
               </div>
               <div className={styles.testPanel}>
-                <div className={styles.osLabel}>TESTED, NOT VIBED</div>
+                <div className={styles.osLabel}>LIVE TEST RESULT</div>
                 <div className={styles.testScore}>26 / 28</div>
                 <div className={styles.testBody}>
                   intent→tool cases pass through the live streaming pipeline
@@ -250,8 +250,8 @@ export default function AgentHubPage() {
               <div className={styles.trustList}>
                 {[
                   [
-                    "Explainable by design",
-                    "the Activity Panel makes retrieval and reasoning visible, not a black box",
+                    "Visible retrieval record",
+                    "the Activity Panel displays retrieval steps, tool calls, and source paths",
                   ],
                   [
                     "Field-level citations",
@@ -259,7 +259,7 @@ export default function AgentHubPage() {
                   ],
                   [
                     "Graceful degradation",
-                    "graph down means vector-only, never a silent failure",
+                    "if the graph is unavailable, the system records a vector-only fallback",
                   ],
                   [
                     "Tool-hallucination guardrails",
@@ -309,10 +309,11 @@ export default function AgentHubPage() {
                 </div>
               </div>
               <div className={styles.stackNote}>
-                Precisely stated: field-level-cited, graph-augmented SOW review
-                with an intent-routed generative-UI agent. Dense + graph
-                retrieval fused as grounded context; intent routing is
-                engineered orchestration, not an ML classifier.
+                The system provides field-level citations for graph-augmented
+                SOW review and uses intent routing to select response tools.
+                Dense and graph retrieval are combined into one context packet;
+                the intent route is deterministic orchestration rather than a
+                trained classifier.
               </div>
             </div>
           </div>

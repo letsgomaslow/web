@@ -62,7 +62,7 @@ export default function ContextEngineeringPage() {
               What context engineering actually involves
             </h2>
             <p className="lede" style={{ maxWidth: 600 }}>
-              It&apos;s a pipeline, not a prompt. We build and run every stage.
+              It is an operating pipeline with four stages that we build and run.
             </p>
           </Reveal>
           <div className={styles.points}>

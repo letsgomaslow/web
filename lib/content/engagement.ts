@@ -3,16 +3,16 @@ import { FIXED_FEE_TAG } from "./pricing";
 export const twoDoors = [
   {
     name: "Workflow Discovery",
-    desc: 'Two to three weeks. We shadow your teams, map the workflows, and rank them by AI payback, with honest "don\'t bother"s. A deliberately small, fixed price to learn what the real project would cost — before anyone asks you to commit to one. You leave with a ranked opportunity map and one architecture-and-cost sketch, whether or not we ever work together again.',
-    fit: "you want proof of thinking before proof of concept",
+    desc: "Over two to three weeks, we shadow your teams, map the workflows, and rank them by expected AI payback. The fixed-fee engagement gives you a ranked opportunity map and one architecture-and-cost sketch before you decide whether to fund a build. You keep both deliverables.",
+    fit: "you want to see how we think before funding a build",
     tag: FIXED_FEE_TAG,
     ctaLabel: "BOOK A WORKING SESSION",
     ctaHref: "/contact",
   },
   {
     name: "The 90-Day AI Foundation",
-    desc: "One accountable team runs assessment through deployment: knowledge systems, agentic harness, and your first AI employee live in a real channel, supervised. Scoped around one measurable workflow result, with go/no-go gates at weeks 2, 4, and 10.",
-    fit: "you're done piloting and want something real",
+    desc: "One accountable team runs assessment through deployment. The scope covers a knowledge system, an agentic harness, and your first supervised AI employee in a working channel. Go/no-go gates at weeks 2, 4, and 10 keep the engagement tied to one measurable workflow result.",
+    fit: "you are ready to move one workflow into production",
     tag: FIXED_FEE_TAG,
     ctaLabel: "SEE HOW WE ENGAGE",
     ctaHref: "/how-we-engage",
@@ -27,25 +27,25 @@ export const foundationWeeks: readonly {
 }[] = [
   {
     label: "WEEKS 1-2 · LEARN THE WORK",
-    desc: "We shadow the people who do the job today. Workflows mapped, knowledge sources inventoried, key-person risks named. No technology decisions yet, on purpose.",
+    desc: "We shadow the people who do the job today, map the workflows, inventory knowledge sources, and document key-person risks. Technology choices come after this work.",
     tag: "WORKFLOW MAP + OPPORTUNITY RANKING",
     gate: "GO/NO-GO · END OF WEEK 2",
   },
   {
     label: "WEEKS 3-4 · PROVE THE VALUE",
-    desc: "A working proof on your real data, not a demo on ours. We test retrieval quality against questions your own team wrote, measure a baseline, and hold the first go/no-go gate: if the numbers don't clear the bar, we stop, and you keep the map.",
+    desc: "We build a working proof with your data and questions, then measure retrieval quality against an agreed baseline. If the result does not clear the bar at the first go/no-go gate, we stop and you keep the map.",
     tag: "PROOF OF VALUE + GO/NO-GO",
     gate: "GO/NO-GO · END OF WEEK 4",
   },
   {
     label: "WEEKS 5-10 · BUILD THE FOUNDATION",
-    desc: "Knowledge systems first (vector DB, knowledge graph, freshness pipelines), then the harness (skills, tools, approvals, audit trail), then your first AI employee, live in one channel, supervised on every consequential action.",
+    desc: "We build the knowledge system first, followed by the harness and then the AI employee. The first deployment runs in one channel with human approval for consequential actions.",
     tag: "PRODUCTION FOUNDATION + FIRST AI EMPLOYEE",
     gate: "GO/NO-GO · END OF WEEK 10",
   },
   {
     label: "WEEKS 11-12 · HAND OVER THE KEYS",
-    desc: "Your team learns to direct, correct, and audit the system. Playbooks written, dashboards live, and a decision point: your IT runs it, or we do under a managed operations agreement until they're ready.",
+    desc: "Your team learns to direct, correct, and audit the system. We deliver playbooks and dashboards, then your IT team takes over or uses managed operations until it is ready.",
     tag: "TRAINING + PLAYBOOKS + OPS DECISION",
   },
 ] as const;
@@ -54,7 +54,7 @@ export const expectations = {
   youGet:
     "A single accountable team led by the founder. Weekly written status you can forward to your board. Every artifact (code, pipelines, skills, docs) in your repositories from day one, not handed over at the end.",
   weAsk:
-    "A workflow owner for about two hours a week. A decision-maker at the three milestone gates. Read access to the systems the workflow touches, scoped and revocable. That's the whole list.",
+    "We ask for a workflow owner for about two hours a week, a decision-maker at the three milestone gates, and scoped, revocable read access to the systems the workflow touches.",
 } as const;
 
 export const pricingPrinciples = [

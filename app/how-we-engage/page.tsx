@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     absolute: "How We Engage | Maslow AI · Fixed fees, named milestones",
   },
   description:
-    "Two doors in: a fixed-fee Workflow Discovery or the 90-Day AI Foundation. Week-by-week anatomy, go/no-go gates, and a walk-away clause in writing.",
+    "Start with fixed-fee Workflow Discovery or the 90-Day AI Foundation. See the weekly deliverables, go/no-go gates, and walk-away terms.",
 };
 
 export default function HowWeEngagePage() {
@@ -41,15 +41,15 @@ export default function HowWeEngagePage() {
                 marginBottom: 24,
               }}
             >
-              Two doors in. One accountable team.
+              Two ways to start, with one accountable team.
             </h1>
             <p
               className="lede mz-rise"
               style={{ animationDelay: "0.3s", maxWidth: 640 }}
             >
-              No open-ended retainers, no discovery that never ends. Every
-              engagement has a fixed fee, a named deliverable, and a gate where
-              you can stop. Here is exactly what happens after you say yes.
+              Start with Workflow Discovery or the 90-Day AI Foundation. Each
+              engagement has a fixed fee, a named deliverable, and decision
+              points where you can stop. Here is what happens after kickoff.
             </p>
           </div>
         </section>
@@ -58,7 +58,7 @@ export default function HowWeEngagePage() {
           <div className="wrap">
             <Reveal>
               <h2 className="h2" id="two-doors" style={{ marginBottom: 28 }}>
-                Most clients start at one of two doors.
+                Most clients start with one of two scopes.
                 <SectionAnchor id="two-doors" label="The two doors" />
               </h2>
             </Reveal>
@@ -86,7 +86,7 @@ export default function HowWeEngagePage() {
           <div className="wrap">
             <Reveal>
               <h2 className="h2" id="ninety-days" style={{ marginBottom: 36 }}>
-                Learn the work. Prove the value. Then build.
+                What happens across the 90-day Foundation.
                 <SectionAnchor id="ninety-days" label="The 90-day anatomy" />
               </h2>
             </Reveal>
@@ -121,7 +121,7 @@ export default function HowWeEngagePage() {
                 id="pricing"
                 style={{ color: "#fff", marginBottom: 36 }}
               >
-                Priced before we start. Gated so you can stop.
+                Fixed fees and three decision points.
                 <SectionAnchor id="pricing" label="Pricing principles" />
               </h2>
             </Reveal>
@@ -140,7 +140,7 @@ export default function HowWeEngagePage() {
                   </div>
                 );
                 // The walk-away clause renders deliberately still: no reveal
-                // animation, no hover response — the site's only static moment.
+                // animation or hover response. It is the site's only static moment.
                 return walkAway ? (
                   <div key={p.num}>{row}</div>
                 ) : (

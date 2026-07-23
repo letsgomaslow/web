@@ -1,12 +1,3 @@
-export const blogCategories = [
-  "All",
-  "Concepts",
-  "Cost",
-  "Engineering",
-  "Local AI",
-  "Case Notes",
-] as const;
-
 export const catColors: Record<string, string> = {
   CONCEPTS: "#73C1AE",
   COST: "#EBA93D",
@@ -23,57 +14,6 @@ export const featuredPost = {
   title: "Context engineering, explained for operators",
   desc: "Why the quality of what your AI sees matters more than which model you pick, and how to audit the context your systems are actually working with.",
 };
-
-export const blogPosts = [
-  {
-    slug: "when-local-models-beat-the-api-bill",
-    cat: "COST",
-    read: "5 MIN",
-    date: "Jun 2026",
-    title: "When local models beat the API bill",
-    desc: "A framework for deciding what belongs on your hardware and what stays in the cloud.",
-  },
-  {
-    slug: "anatomy-of-an-agentic-harness",
-    cat: "ENGINEERING",
-    read: "8 MIN",
-    date: "Jun 2026",
-    title: "Anatomy of an agentic harness",
-    desc: "Skills, tools, memory, guardrails: how the pieces fit around a model to produce dependable work.",
-  },
-  {
-    slug: "vector-database-or-knowledge-graph",
-    cat: "CONCEPTS",
-    read: "4 MIN",
-    date: "May 2026",
-    title: "Vector database or knowledge graph?",
-    desc: "Meaning vs facts: what each structure is for, and why serious retrieval uses both.",
-  },
-  {
-    slug: "deploying-a-virtual-employee-into-a-shared-inbox",
-    cat: "CASE NOTES",
-    read: "6 MIN",
-    date: "May 2026",
-    title: "Deploying a virtual employee into a shared inbox",
-    desc: "What we learned shipping an AI teammate into email triage at a professional services firm.",
-  },
-  {
-    slug: "sizing-hardware-for-on-prem-inference",
-    cat: "LOCAL AI",
-    read: "7 MIN",
-    date: "Apr 2026",
-    title: "Sizing hardware for on-prem inference",
-    desc: "GPUs, quantisation and throughput: a practical sizing guide for your first local deployment.",
-  },
-  {
-    slug: "what-skills-actually-are",
-    cat: "CONCEPTS",
-    read: "5 MIN",
-    date: "Apr 2026",
-    title: "What “skills” actually are",
-    desc: "Reusable, auditable procedures your agents share, and why they beat prompt libraries.",
-  },
-];
 
 export const blogArticles: Record<
   string,
@@ -108,20 +48,20 @@ export const blogArticles: Record<
     body: [
       {
         type: "p",
-        text: "Every AI vendor will tell you their model is smarter. Almost none will ask the question that actually determines whether your deployment works: **what does the model get to see?**",
+        text: "Model choice matters, but it cannot compensate for missing or outdated source material. Before comparing models, ask: **what does the model get to see?**",
       },
       {
         type: "p",
-        text: "A frontier model with poor context loses to a modest model with great context. Reliably, and by a wide margin. Context engineering is the discipline of making sure that at the moment your AI acts, it is looking at the right information: fresh, relevant, structured and complete.",
+        text: "Context engineering determines which information is available when your AI acts. The source material should be current, relevant, structured, and complete enough for the task.",
       },
       { type: "h2", text: "The context window is a budget" },
       {
         type: "p",
-        text: "A model's context window is finite. Think of it as a briefing you hand a new employee before a meeting. Stuff it with everything and the important sentence drowns. Curate it and even a junior performs like a veteran.",
+        text: "A model's context window is finite. Treat it like a briefing for a new employee before a meeting. Including every available document can bury the decisive sentence, while careful selection makes the relevant facts easier to use.",
       },
       {
         type: "quote",
-        text: "The model is the engine. Context is the fuel, and most enterprises are running on fumes.",
+        text: "A better model cannot recover a fact that the retrieval system never supplied.",
       },
       {
         type: "p",
@@ -148,7 +88,7 @@ export const blogArticles: Record<
       { type: "h2", text: "Where this goes next" },
       {
         type: "p",
-        text: "Context engineering is the foundation the rest of the stack stands on: the agentic harness, skills, and virtual employees all inherit their competence from it. Start here, and everything downstream gets easier and cheaper.",
+        text: "The agentic harness, reusable skills, and AI employees all depend on this retrieval layer. Fixing it first reduces rework in every later stage.",
       },
     ],
   },
@@ -160,8 +100,4 @@ export function getBlogArticle(slug: string) {
 
 export function getAllBlogSlugs() {
   return Object.keys(blogArticles);
-}
-
-export function getPost(slug: string) {
-  return blogPosts.find((p) => p.slug === slug) ?? featuredPost;
 }
