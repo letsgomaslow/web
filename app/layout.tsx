@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, IBM_Plex_Mono, Manrope } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -53,7 +54,10 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${dmSans.variable} ${ibmPlexMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
