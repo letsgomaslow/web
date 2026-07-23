@@ -139,9 +139,13 @@ export default function HomePage() {
             </div>
             <Reveal className={styles.icpFoot}>
               <p className={styles.icpMicro}>
-                Typically $20M to $500M in revenue. If you&apos;re a Fortune 500
-                running a procurement cycle, we&apos;re probably not your firm,
-                and we&apos;ll tell you so on the first call.
+                Typically $20M to $500M in revenue. If you need a global SI with
+                a thousand consultants, we&apos;re not that. If your board runs
+                a real vendor review, good —{" "}
+                <Link href="/diligence" className={styles.icpLink}>
+                  our diligence pack
+                </Link>{" "}
+                was built for exactly that.
               </p>
               <Link href="/assessment" className="text-link">
                 NOT SURE IF THAT&apos;S YOU? TAKE THE ASSESSMENT&nbsp;&nbsp;&gt;
@@ -236,6 +240,11 @@ export default function HomePage() {
                   vectorEffect="non-scaling-stroke"
                 />
               </svg>
+              <div className={styles.gateMarks} aria-hidden="true">
+                {[20, 40, 80].map((x) => (
+                  <span key={x} style={{ left: `${x}%` }} />
+                ))}
+              </div>
               {stages.map((st) => (
                 <Link key={st.num} href={st.href} className={styles.stage}>
                   <div className={styles.stageNum}>{st.num}</div>

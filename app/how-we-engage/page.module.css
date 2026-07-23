@@ -60,6 +60,9 @@
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--color-navy);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .weekRow {
@@ -68,6 +71,38 @@
   gap: 20px;
   padding: 28px 8px;
   border-bottom: 1px solid var(--color-line);
+  border-left: 2px solid transparent;
+}
+
+/* Checkpoint fill: rows light as they enter view, pausing the rail at gates */
+.weekRow[data-active] {
+  border-left-color: var(--color-ice);
+}
+
+:global(body.mz-anim) .weekRow:not([data-active]) {
+  opacity: 0.45;
+}
+
+:global(body.mz-anim) .weekRow {
+  transition:
+    opacity 0.6s var(--ease),
+    border-left-color 0.6s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(body.mz-anim) .weekRow:not([data-active]) {
+    opacity: 1;
+  }
+
+  :global(body.mz-anim) .weekRow {
+    transition: none;
+  }
+}
+
+@media print {
+  :global(body.mz-anim) .weekRow:not([data-active]) {
+    opacity: 1;
+  }
 }
 
 .weekNum {

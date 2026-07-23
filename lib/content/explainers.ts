@@ -627,11 +627,14 @@ export const explainerPages: Record<string, ExplainerMeta> = {
  */
 export const conceptFailures: Record<
   string,
-  { headline: string; body: string }
+  { headline: string; body: string; demo?: string; production?: string }
 > = {
   "agentic-harness": {
     headline: "The demo dies quietly by week six.",
     body: "Without a harness, the demo that wowed the boardroom answers from stale files by week six, nobody can say why, and the pilot dies quietly. The harness is what makes AI boring enough to trust: versioned skills you can diff, approvals that leave an audit trail, staleness alerts before wrong answers ship, and a model you can swap without rebuilding anything. DIY stacks skip this part first — it's invisible in a demo and load-bearing in production.",
+    demo: "Week one: the model answers everything, the room is impressed, and someone says it could take over the whole intake queue by Christmas.",
+    production:
+      "Week six: the files have gone stale, two answers were confidently wrong, nobody can say which retrieval produced them — and the pilot dies quietly.",
   },
   "context-engineering": {
     headline: "The right answer, from the wrong year.",
