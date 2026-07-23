@@ -1,0 +1,25 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 18px;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: 700 9px/1 var(--font-sans);
+  letter-spacing: 2px;
+  color: var(--color-cta-link);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
+.action:hover {
+  color: var(--color-cta);
+}

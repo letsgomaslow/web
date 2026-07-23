@@ -27,6 +27,8 @@
   --color-navy-line: #3a4a6b;
   --color-mist: #b8c4d9;
   --color-green: #2cd552;
+  /* Cost/failure signal — the "expensive/bad" line in charts and warnings */
+  --color-coral: #f37779;
   --font-sans:
     var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;

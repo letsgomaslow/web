@@ -130,7 +130,7 @@ export function BriefingBuilder() {
       qualityLabel:
         quality >= 60 ? "Precise" : quality >= 30 ? "Partial" : "Unreliable",
       qualityColor:
-        quality >= 60 ? "#73C1AE" : quality >= 30 ? "#EBA93D" : "#F37779",
+        quality >= 60 ? "#73C1AE" : quality >= 30 ? "#EBA93D" : "var(--color-coral)",
     };
   }, [on]);
 

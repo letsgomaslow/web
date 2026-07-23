@@ -1,0 +1,72 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step + .step::before {
+  content: "→";
+  font: 500 12px/1 var(--font-mono);
+  color: var(--color-soft);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px 5px;
+  border-radius: 2px;
+  font: 500 10px/1.4 var(--font-mono);
+  letter-spacing: 1.2px;
+}
+
+.pill[data-tone="flagged"] {
+  color: #7a5410;
+  background: rgba(235, 169, 61, 0.14);
+  border: 1px solid rgba(235, 169, 61, 0.5);
+}
+
+.pill[data-tone="caught"] {
+  color: #2c6e5c;
+  background: rgba(115, 193, 174, 0.14);
+  border: 1px solid rgba(115, 193, 174, 0.55);
+}
+
+.pill[data-tone="approved"] {
+  color: #1e7c38;
+  background: rgba(44, 213, 82, 0.12);
+  border: 1px solid rgba(44, 213, 82, 0.45);
+}
+
+/* Reveal contract: chips stage in only while animations are active */
+:global(body.mz-anim .mz-reveal:not([data-mz-in])) .step {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+:global(body.mz-anim) .step {
+  transition:
+    opacity 0.45s var(--ease),
+    transform 0.45s var(--ease);
+  transition-delay: calc(0.15s + var(--i) * 0.12s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(body.mz-anim .mz-reveal:not([data-mz-in])) .step {
+    opacity: 1;
+    transform: none;
+  }
+
+  :global(body.mz-anim) .step {
+    transition: none;
+  }
+}
