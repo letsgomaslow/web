@@ -11,9 +11,12 @@ import {
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI for Manufacturers | Maslow AI · Tribal knowledge into infrastructure" },
+  title: {
+    absolute:
+      "AI for Manufacturers | Maslow AI · Tribal knowledge into infrastructure",
+  },
   description:
-    "Estimating, quoting, and file search run on knowledge locked in senior heads. We turn it into AI employees in Microsoft Teams, in 90 days, on systems you own.",
+    "Estimating, quoting, and file search wait on your most senior people. We turn their judgment into AI employees in Microsoft Teams — in 90 days, on systems you own.",
 };
 
 export default function ManufacturingPage() {
@@ -22,7 +25,10 @@ export default function ManufacturingPage() {
       <>
         <section className={styles.hero} data-screen-label="Hero">
           <div className="wrap">
-            <div className="eyebrow mz-rise" style={{ animationDelay: "0.05s" }}>
+            <div
+              className="eyebrow mz-rise"
+              style={{ animationDelay: "0.05s" }}
+            >
               FOR MANUFACTURERS · BUILT IN THE TRI-STATE, WORKS ANYWHERE
             </div>
             <h1
@@ -88,10 +94,11 @@ export default function ManufacturingPage() {
                 A private manufacturing group came to us with estimating,
                 quoting, reporting, and file search all running on manual
                 effort. Ninety days later: four named AI employees working in
-                Microsoft Teams (a manager and three specialists), standing on
-                company memory, a knowledge map, file intake, tool connectors,
-                and observability. Three core systems in production, every
-                consequential action approved by a human.
+                Microsoft Teams (a manager and three specialists), standing on a
+                six-layer root system: company memory, a knowledge map, file
+                intake, employee profiles, tool connectors, and observability.
+                Three core systems in production, every consequential action
+                approved by a human.
               </p>
               <div className={styles.chips}>
                 <span>4 AI employees in Teams</span>
@@ -138,6 +145,24 @@ export default function ManufacturingPage() {
               <Link href="/security" className="text-link">
                 HOW WE HANDLE YOUR DATA&nbsp;&nbsp;&gt;
               </Link>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className={styles.estimator} data-screen-label="Estimator">
+          <div className="wrap">
+            <Reveal className={styles.estimatorInner}>
+              <div className="eyebrow">BEFORE YOU BOOK ANYTHING</div>
+              <h2 className="h2" style={{ marginBottom: 14 }}>
+                Show this page to your estimator.
+              </h2>
+              <p className={styles.estimatorBody}>
+                If they hate the idea, we want to hear why — they know things
+                about your quoting logic that no assessment will surface. Skills
+                authoring starts with them, on their terms, with their name on
+                the output. The system exists to multiply their judgment, not to
+                replace it.
+              </p>
             </Reveal>
           </div>
         </section>
