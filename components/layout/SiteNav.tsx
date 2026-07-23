@@ -8,14 +8,12 @@ import { ctaPrimaryLabel, navLinks, ticks } from "@/lib/brand";
 import styles from "./SiteNav.module.css";
 
 type SiteNavProps = {
+  /** Kept for PageShell API; Concepts is no longer in primary nav. */
   highlightConcepts?: boolean;
   minimal?: boolean;
 };
 
-export function SiteNav({
-  highlightConcepts = false,
-  minimal = false,
-}: SiteNavProps) {
+export function SiteNav({ minimal = false }: SiteNavProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const menuId = useId();

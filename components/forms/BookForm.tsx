@@ -18,7 +18,9 @@ type BookFormProps = {
   ctaLabel?: string;
 };
 
-export function BookForm({ ctaLabel = "Book a consultation" }: BookFormProps) {
+export function BookForm({
+  ctaLabel = "BOOK A WORKING SESSION",
+}: BookFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
@@ -45,14 +47,19 @@ export function BookForm({ ctaLabel = "Book a consultation" }: BookFormProps) {
       const json = (await res.json()) as { ok?: boolean; error?: string };
       if (!res.ok || !json.ok) {
         throw new Error(
-          json.error || "Something went wrong. Please try again.",
+          json.error ||
+            "That didn't send. Try again, or just email hello@maslow.ai. We're not precious about channels.",
         );
       }
       setStatus("success");
       form.reset();
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Something went wrong.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "That didn't send. Try again, or just email hello@maslow.ai. We're not precious about channels.",
+      );
     }
   }
 
@@ -132,7 +139,7 @@ export function BookForm({ ctaLabel = "Book a consultation" }: BookFormProps) {
       )}
       {status === "success" && (
         <p className={`${styles.status} ${styles.statusOk}`}>
-          Thanks — we&apos;ll be in touch within one business day.
+          Got it. A real person replies within one business day.
         </p>
       )}
       {status === "error" && (

@@ -8,7 +8,7 @@ import { founder, principles } from "@/lib/content/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "About | Maslow AI · Founder-led AI transformation",
+  title: { absolute: "About | Maslow AI · Founder-led AI transformation" },
   description:
     "Led by a former CIO/CTO with twenty years of enterprise technology behind him. Four commitments in writing, and a mission to reduce the cost of AI adoption.",
 };

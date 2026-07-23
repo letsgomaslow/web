@@ -4,6 +4,7 @@ import AxeBuilder from "@axe-core/playwright";
 const routes = [
   "/",
   "/services",
+  "/how-we-engage",
   "/assessment",
   "/about",
   "/contact",
@@ -12,6 +13,9 @@ const routes = [
   "/case-studies",
   "/case-studies/infinite-ai-os",
   "/case-studies/agenthub",
+  "/manufacturing",
+  "/security",
+  "/faq",
   "/concepts/context-engineering",
   "/concepts/agentic-harness",
   "/concepts/hybrid-rag",
@@ -90,8 +94,8 @@ test.describe("interactive islands", () => {
     await page.goto("/contact");
     await page.getByPlaceholder("Full name").fill("Test User");
     await page.getByPlaceholder("Work email").fill("not-an-email");
-    await page.getByRole("button", { name: /REQUEST THE SESSION/i }).click();
-    // HTML5 validation should prevent submit — still on contact
+    await page.getByRole("button", { name: /BOOK MY WORKING SESSION/i }).click();
+    // HTML5 validation should prevent submit - still on contact
     await expect(page).toHaveURL(/\/contact/);
   });
 });

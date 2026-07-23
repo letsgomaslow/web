@@ -368,7 +368,7 @@ export default function InfiniteAiOsPage() {
               <h2 className={styles.ctaTitle}>{cs.ctaTitle}</h2>
               <p className={styles.ctaLede}>{cs.ctaLede}</p>
             </div>
-            <CtaButton href="/contact">BOOK A CONSULTATION</CtaButton>
+            <CtaButton href="/contact">BOOK A WORKING SESSION</CtaButton>
           </div>
           <div className={styles.ctaLinks}>
             <Link href="/case-studies">← All case studies</Link>

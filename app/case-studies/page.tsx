@@ -8,7 +8,7 @@ import { caseStudiesIndex } from "@/lib/content/case-studies";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Case Studies | Maslow AI · Proof, not promises",
+  title: { absolute: "Case Studies | Maslow AI · Proof, not promises" },
   description:
     "Real engagements with honest numbers: AI employees in Microsoft Teams, contract review with citations, and 90-day foundations you can audit.",
 };

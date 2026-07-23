@@ -38,14 +38,19 @@ export function NewsletterForm({
       const json = (await res.json()) as { ok?: boolean; error?: string };
       if (!res.ok || !json.ok) {
         throw new Error(
-          json.error || "Something went wrong. Please try again.",
+          json.error ||
+            "That didn't send. Try again, or just email hello@maslow.ai. We're not precious about channels.",
         );
       }
       setStatus("success");
       form.reset();
     } catch (err) {
       setStatus("error");
-      setError(err instanceof Error ? err.message : "Something went wrong.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "That didn't send. Try again, or just email hello@maslow.ai. We're not precious about channels.",
+      );
     }
   }
 
@@ -89,7 +94,7 @@ export function NewsletterForm({
         <p
           className={`${styles.newsletterStatus} ${styles.newsletterStatusOk}`}
         >
-          You&apos;re on the list.
+          You&apos;re on the list. One useful email a month.
         </p>
       )}
       {status === "error" && (

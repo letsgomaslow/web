@@ -8,7 +8,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Hire Your First Virtual AI Employee | Maslow AI",
   description:
-    "An AI teammate that triages your inbox, drafts grounded responses and hands you the decisions — live in Teams, Slack or email.",
+    "An AI teammate that triages your inbox, drafts grounded responses and hands you the decisions - live in Teams, Slack or email.",
 };
 
 const pains = [
@@ -128,7 +128,7 @@ export default function VirtualAiEmployeesCampaignPage() {
                 We&apos;ll map one workflow where a virtual employee pays for
                 itself.
               </div>
-              <BookForm ctaLabel="Book a consultation" />
+              <BookForm ctaLabel="BOOK A WORKING SESSION" />
             </div>
           </div>
         </section>
@@ -195,7 +195,7 @@ export default function VirtualAiEmployeesCampaignPage() {
               30 minutes. One workflow. A clear answer on whether a virtual AI
               employee pays for itself.
             </p>
-            <CtaButton href="#book">BOOK A CONSULTATION</CtaButton>
+            <CtaButton href="#book">BOOK A WORKING SESSION</CtaButton>
           </div>
         </section>
       </>

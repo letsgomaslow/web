@@ -10,7 +10,7 @@ import { serviceCatalog, serviceStages } from "@/lib/content/services";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Services | Maslow AI · Five stages, fifteen doors",
+  title: { absolute: "Services | Maslow AI · Five stages, fifteen doors" },
   description:
     "Enter at any stage: Assess, Structure, Build, Deploy, or Own. Fixed fees, named deliverables, and a 90-day path from idea to working AI foundation.",
 };

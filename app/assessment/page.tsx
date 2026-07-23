@@ -6,7 +6,7 @@ import { assessmentLegend } from "@/lib/content/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "AI Readiness Assessment | Maslow AI · Free, no email required",
+  title: { absolute: "AI Readiness Assessment | Maslow AI · Free, no email required" },
   description:
     "Six questions, two minutes, instant result. Get your stage on the AI transformation journey and the services that fit it. Nothing sent anywhere unless you ask.",
 };

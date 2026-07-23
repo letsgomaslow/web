@@ -1,0 +1,149 @@
+.hero {
+  padding: 96px var(--gutter) 72px;
+  background: var(--color-white);
+}
+
+.ctaRow {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pains {
+  padding: 24px var(--gutter) 80px;
+}
+
+.painGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.painCard {
+  border-top: 1px solid var(--color-navy);
+  padding: 24px 8px 8px;
+}
+
+.painNum {
+  font: 700 12px var(--font-display);
+  letter-spacing: 1px;
+  color: var(--color-ice-text);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.painTitle {
+  font: 700 20px/28px var(--font-sans);
+  letter-spacing: -0.4px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.painDesc {
+  font: 400 15px/24px var(--font-sans);
+  color: var(--color-muted);
+}
+
+.proof {
+  padding: 80px var(--gutter);
+  background: var(--color-off-white);
+}
+
+.proofBody {
+  margin: 0 0 20px;
+  font: 400 16px/26px var(--font-sans);
+  color: var(--color-muted);
+  max-width: 780px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chips span {
+  font: 400 11px var(--font-mono);
+  letter-spacing: 1px;
+  color: var(--color-navy);
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+  padding: 8px 12px;
+}
+
+.monday {
+  padding: 80px var(--gutter);
+  background: var(--color-white);
+}
+
+.mondayList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 780px;
+}
+
+.mondayList li {
+  font: 400 16px/26px var(--font-sans);
+  color: var(--color-muted);
+  padding-left: 22px;
+  position: relative;
+}
+
+.mondayList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-ice);
+}
+
+.local {
+  padding: 72px var(--gutter);
+  background: var(--color-navy-deep);
+}
+
+.localBody {
+  margin: 0 0 20px;
+  font: 400 15px/24px var(--font-sans);
+  color: var(--color-mist);
+  max-width: 640px;
+}
+
+.close {
+  padding: 72px var(--gutter);
+  background: var(--color-white);
+}
+
+.closeInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.closeInner p {
+  margin: 0;
+  font: 400 15px/24px var(--font-sans);
+  color: var(--color-muted);
+  max-width: 520px;
+}
+
+@media (max-width: 900px) {
+  .painGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .closeInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

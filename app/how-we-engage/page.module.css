@@ -1,0 +1,182 @@
+.hero {
+  padding: 96px var(--gutter) 56px;
+  background: var(--color-white);
+}
+
+.doors {
+  padding: 8px var(--gutter) 72px;
+}
+
+.doorGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.doorCard {
+  border: 1px solid #f1f1f1;
+  border-radius: 4px;
+  padding: 32px 28px;
+  background: var(--color-white);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.doorName {
+  font: 700 24px/30px var(--font-sans);
+  letter-spacing: -0.4px;
+  color: #1a1a1a;
+}
+
+.doorDesc {
+  font: 400 15px/24px var(--font-sans);
+  color: var(--color-muted);
+  flex: 1;
+}
+
+.doorFit {
+  font: 400 13px/19px var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-off-white);
+  border-left: 2px solid var(--color-ice);
+  border-radius: 0 4px 4px 0;
+  padding: 10px 12px;
+}
+
+.doorTag {
+  font: 400 10px var(--font-mono);
+  letter-spacing: 1px;
+  color: #a5a5a5;
+}
+
+.weeks {
+  padding: 72px var(--gutter);
+  background: var(--color-off-white);
+}
+
+.weekList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-navy);
+}
+
+.weekRow {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  padding: 28px 8px;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.weekNum {
+  font: 700 12px var(--font-display);
+  letter-spacing: 1px;
+  color: var(--color-ice-text);
+  padding-top: 4px;
+}
+
+.weekLabel {
+  font: 700 18px/26px var(--font-sans);
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.weekDesc {
+  font: 400 15px/24px var(--font-sans);
+  color: var(--color-muted);
+  margin-bottom: 12px;
+  max-width: 760px;
+}
+
+.weekTag {
+  font: 400 10px var(--font-mono);
+  letter-spacing: 1px;
+  color: #a5a5a5;
+}
+
+.expect {
+  padding: 80px var(--gutter);
+  background: var(--color-white);
+}
+
+.expectGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.expectCol p {
+  margin: 16px 0 0;
+  font: 400 16px/26px var(--font-sans);
+  color: var(--color-muted);
+}
+
+.pricing {
+  padding: 88px var(--gutter);
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+}
+
+.pricingList {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pricingRow {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+}
+
+.pricingNum {
+  font: 700 12px var(--font-display);
+  letter-spacing: 1px;
+  color: var(--color-ice);
+}
+
+.pricingTitle {
+  font: 700 18px/26px var(--font-sans);
+  margin-bottom: 6px;
+}
+
+.pricingBody {
+  font: 400 15px/24px var(--font-sans);
+  color: var(--color-mist);
+  max-width: 720px;
+}
+
+.capacity {
+  padding: 64px var(--gutter);
+  background: var(--color-white);
+}
+
+.capacityInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.capacityInner p {
+  margin: 0;
+  font: 400 15px/24px var(--font-sans);
+  color: var(--color-muted);
+  max-width: 560px;
+}
+
+@media (max-width: 900px) {
+  .doorGrid,
+  .expectGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .capacityInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

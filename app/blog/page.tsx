@@ -163,7 +163,8 @@ export default function BlogPage() {
                 One useful email a month
               </h2>
               <p className={styles.newsletterLede}>
-                Concept explainers, cost benchmarks and case studies. No hype.
+                What we built, what it cost, what broke. No announcements about
+                our announcements.
               </p>
             </div>
             <NewsletterForm />

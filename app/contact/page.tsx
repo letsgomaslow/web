@@ -4,7 +4,7 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact | Maslow AI · Book a working session",
+  title: { absolute: "Contact | Maslow AI · Book a working session" },
   description:
     "A 30-minute working session, not a sales pitch. Bring one painful workflow; leave with an architecture sketch and a cost estimate.",
 };

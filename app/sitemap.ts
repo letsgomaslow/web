@@ -5,6 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/services",
+    "/how-we-engage",
     "/assessment",
     "/about",
     "/contact",
@@ -13,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/case-studies",
     "/case-studies/infinite-ai-os",
     "/case-studies/agenthub",
+    "/manufacturing",
+    "/security",
+    "/faq",
     "/concepts/agentic-harness",
     "/concepts/hybrid-rag",
     "/concepts/context-engineering",
