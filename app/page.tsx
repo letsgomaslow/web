@@ -4,8 +4,12 @@ import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { ctaPrimaryLabel } from "@/lib/brand";
+import { LayerDiagram } from "@/components/home/LayerDiagram";
+import { QueueMotif } from "@/components/home/QueueMotif";
 import {
   concepts,
+  copilotSection,
+  costOfWaiting,
   founderStrip,
   homeCases,
   metrics,
@@ -143,6 +147,26 @@ export default function HomePage() {
                 NOT SURE IF THAT&apos;S YOU? TAKE THE ASSESSMENT&nbsp;&nbsp;&gt;
               </Link>
             </Reveal>
+          </div>
+        </section>
+
+        <section className={styles.copilot} data-screen-label="Keep Copilot">
+          <div className="wrap">
+            <div className={styles.copilotGrid}>
+              <Reveal>
+                <div className="eyebrow">{copilotSection.eyebrow}</div>
+                <h2 className="h2" style={{ marginBottom: 18 }}>
+                  {copilotSection.h2}
+                </h2>
+                <p className={styles.copilotBody}>{copilotSection.body}</p>
+                <Link href={copilotSection.ctaHref} className="text-link">
+                  {copilotSection.ctaLabel}&nbsp;&nbsp;&gt;
+                </Link>
+              </Reveal>
+              <Reveal className={styles.copilotViz}>
+                <LayerDiagram />
+              </Reveal>
+            </div>
           </div>
         </section>
 
@@ -294,6 +318,28 @@ export default function HomePage() {
                 </Link>
               </div>
             </Reveal>
+          </div>
+        </section>
+
+        <section className={styles.waiting} data-screen-label="Cost of Waiting">
+          <div className="wrap">
+            <div className={styles.waitingGrid}>
+              <Reveal>
+                <div className="eyebrow">{costOfWaiting.eyebrow}</div>
+                <h2 className="h2" style={{ marginBottom: 18 }}>
+                  {costOfWaiting.h2}
+                </h2>
+                <p className={styles.waitingBody}>{costOfWaiting.body}</p>
+                <div className={styles.waitingCta}>
+                  <CtaButton href={costOfWaiting.ctaHref} variant="secondary">
+                    {costOfWaiting.ctaLabel}
+                  </CtaButton>
+                </div>
+              </Reveal>
+              <Reveal className={styles.waitingViz}>
+                <QueueMotif />
+              </Reveal>
+            </div>
           </div>
         </section>
 

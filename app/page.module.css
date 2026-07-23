@@ -468,6 +468,62 @@
   }
 }
 
+/* Copilot: credit the purchase, then show the missing layer */
+.copilot {
+  padding: 96px var(--gutter);
+  background: var(--color-off-white);
+}
+
+.copilotGrid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.copilotBody {
+  margin: 0 0 24px;
+  font: 400 16px/27px var(--font-sans);
+  color: var(--color-muted);
+  max-width: 560px;
+}
+
+/* Cost of waiting: the do-nothing option, priced factually */
+.waiting {
+  padding: 96px var(--gutter);
+  background: var(--color-off-white);
+}
+
+.waitingGrid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.waitingBody {
+  margin: 0;
+  font: 400 16px/27px var(--font-sans);
+  color: var(--color-muted);
+  max-width: 560px;
+}
+
+.waitingCta {
+  margin-top: 28px;
+}
+
+@media (max-width: 900px) {
+  .copilotGrid,
+  .waitingGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
 /* Gate ticks under the 90-days metric: three audited checkpoints made visible */
 .gateRail {
   position: relative;
