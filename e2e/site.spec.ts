@@ -167,3 +167,25 @@ test.describe("responsive layout", () => {
     await expect(page.locator("#assess")).toBeVisible();
   });
 });
+
+test.describe("forwardable sections", () => {
+  test("faq deep link opens the target question", async ({ page }) => {
+    await page.goto("/faq#q-07");
+    await expect(page.locator("#q-07")).toHaveJSProperty("open", true);
+  });
+
+  test("copy anchor reports its copied state", async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, "clipboard", {
+        value: { writeText: async () => undefined },
+        configurable: true,
+      });
+    });
+    await page.goto("/faq");
+    const anchor = page
+      .locator("#q-01 summary")
+      .getByRole("button", { name: /copy link/i });
+    await anchor.click();
+    await expect(anchor).toContainText("COPIED");
+  });
+});
