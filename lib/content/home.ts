@@ -8,42 +8,42 @@ export const metrics: {
     value: "90 days",
     label:
       "from idea to working foundation, with go/no-go gates at weeks 2, 4, and 10",
-    tick: "#73C1AE",
+    tick: "var(--color-ice-text)",
     gates: ["W2", "W4", "W10"],
   },
   {
     value: "4 AI employees",
     label: "live in one client's Microsoft Teams today",
-    tick: "#A070A6",
+    tick: "var(--color-plum-text)",
   },
   {
     value: "100%",
     label: "of what we build is yours. No lock-in.",
-    tick: "#EBA93D",
+    tick: "var(--color-gold-text)",
   },
   {
     value: "Fixed fees",
     label: "priced in writing before we start",
-    tick: "#DA85B2",
+    tick: "var(--color-cta-link)",
   },
 ];
 
 export const whoWeWorkWith = [
   {
     num: "01",
-    tick: "#73C1AE",
+    tick: "var(--color-ice-text)",
     title: "You run on Microsoft 365 or Google Workspace.",
     desc: "Teams, Slack, email, shared drives. Your AI should show up there, not in another tab nobody opens.",
   },
   {
     num: "02",
-    tick: "#A070A6",
+    tick: "var(--color-plum-text)",
     title: "Your know-how lives in a few senior people.",
     desc: "Estimating, quoting, client intake, compliance answers. These people help you win work, but every request still waits for their time.",
   },
   {
     num: "03",
-    tick: "#EBA93D",
+    tick: "var(--color-gold-text)",
     title: "You don't have an ML team, and you shouldn't need one.",
     desc: "We build systems your existing IT can run, and we stay until they can.",
   },
@@ -52,42 +52,42 @@ export const whoWeWorkWith = [
 export const concepts = [
   {
     num: "01",
-    tick: "#73C1AE",
+    tick: "var(--color-ice-text)",
     name: "Context engineering",
     desc: "Deciding exactly what your AI sees: the right data, structured and retrievable, at the right moment.",
     href: "/concepts/context-engineering",
   },
   {
     num: "02",
-    tick: "#A070A6",
+    tick: "var(--color-plum-text)",
     name: "Harness engineering",
     desc: "The scaffolding around a model (skills, tools, memory, and guardrails) that turns raw intelligence into dependable work.",
     href: "/concepts/agentic-harness",
   },
   {
     num: "03",
-    tick: "#73C1AE",
+    tick: "var(--color-ice-text)",
     name: "Hybrid RAG",
     desc: "Your unstructured files, converted into vector databases and knowledge graphs your AI can actually reason over.",
     href: "/concepts/hybrid-rag",
   },
   {
     num: "04",
-    tick: "#EBA93D",
+    tick: "var(--color-gold-text)",
     name: "AI employees",
     desc: "Agents that live where your team works (Teams, Slack, email) and carry whole workflows, not just chats.",
     href: "/concepts/virtual-ai-employees",
   },
   {
     num: "05",
-    tick: "#A070A6",
+    tick: "var(--color-plum-text)",
     name: "Skills & gateways",
     desc: "Your procedures, written once as reusable skills, shared by every agent, delivered through the channels you already run on.",
     href: "/concepts/skills-and-gateways",
   },
   {
     num: "06",
-    tick: "#73C1AE",
+    tick: "var(--color-ice-text)",
     name: "Local AI",
     desc: "Models on your own hardware: private by default, with a flat monthly cost instead of a metered bill.",
     href: "/concepts/local-ai",

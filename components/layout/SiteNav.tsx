@@ -3,13 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useId, useState } from "react";
-import {
-  contactEmail,
-  ctaPrimaryLabel,
-  navLinks,
-  ticks,
-} from "@/lib/brand";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { contactEmail, ctaPrimaryLabel, navLinks } from "@/lib/brand";
 import styles from "./SiteNav.module.css";
 
 type SiteNavProps = {
@@ -22,6 +17,9 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const menuId = useId();
+  const menuRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const wasOpenRef = useRef(false);
 
   const close = useCallback(() => setOpen(false), []);
   const toggle = useCallback(() => setOpen((v) => !v), []);
@@ -42,12 +40,48 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
   }, [pathname, close]);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
+    const background = document.querySelectorAll<HTMLElement>(
+      "header, main, footer",
+    );
+
+    if (!open) {
+      background.forEach((element) => element.removeAttribute("inert"));
+      if (wasOpenRef.current) {
+        requestAnimationFrame(() => triggerRef.current?.focus());
+      }
+      wasOpenRef.current = false;
+      return;
+    }
+
+    wasOpenRef.current = true;
+    background.forEach((element) => element.setAttribute("inert", ""));
+    const menu = menuRef.current;
+    const focusable = menu?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    const first = focusable?.[0];
+    const last = focusable?.[focusable.length - 1];
+    requestAnimationFrame(() => first?.focus());
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+        return;
+      }
+      if (event.key !== "Tab" || !first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
+
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [close]);
+  }, [open, close]);
 
   const isHere = (href: string) => {
     if (href.includes("#")) return false;
@@ -78,34 +112,39 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={styles.link}
-                  style={active ? { color: "#DA85B2" } : undefined}
+                  className={`${styles.link} ${active ? styles.linkActive : ""}`}
+                  aria-current={active ? "page" : undefined}
                 >
                   {link.label}
                 </Link>
               );
             })}
             <Link href="/contact" className={styles.book}>
-              {ctaPrimaryLabel}
+              <span className={styles.bookLong}>{ctaPrimaryLabel}</span>
+              <span className={styles.bookShort}>BOOK</span>
             </Link>
           </nav>
         )}
 
         {minimal && (
-          <Link href="/contact" className={styles.book}>
-            {ctaPrimaryLabel}
+          <Link
+            href="/contact"
+            className={styles.book}
+            aria-label={ctaPrimaryLabel}
+          >
+            <span className={styles.bookLong}>{ctaPrimaryLabel}</span>
+            <span className={styles.bookShort}>BOOK</span>
           </Link>
         )}
-      </header>
 
-      {!minimal && (
-        <>
+        {!minimal && (
           <div className={styles.cluster}>
             <Link href="/contact" className={styles.bookMobile}>
               <span className={styles.bookLong}>BOOK SESSION</span>
               <span className={styles.bookShort}>BOOK</span>
             </Link>
             <button
+              ref={triggerRef}
               type="button"
               className={styles.burger}
               aria-label={open ? "Close menu" : "Open menu"}
@@ -113,15 +152,20 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
               aria-controls={menuId}
               onClick={toggle}
             >
-              <span className={styles.burgerInner}>
+              <span className={styles.burgerInner} aria-hidden="true">
                 <span className={`${styles.bar} ${styles.bar1}`} />
                 <span className={`${styles.bar} ${styles.bar2}`} />
                 <span className={`${styles.bar} ${styles.bar3}`} />
               </span>
             </button>
           </div>
+        )}
+      </header>
 
+      {!minimal && (
+        <>
           <div
+            ref={menuRef}
             id={menuId}
             className={`${styles.menu} ${open ? styles.menuOpen : ""}`}
             role="dialog"
@@ -131,6 +175,14 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
             {...(!open ? { inert: true } : {})}
           >
             <div className={styles.menuInner}>
+              <button
+                type="button"
+                className={styles.menuClose}
+                aria-label="Close menu"
+                onClick={close}
+              >
+                <span aria-hidden="true">×</span>
+              </button>
               <Link href="/" className={styles.menuBrand} onClick={close}>
                 <Image
                   src="/assets/maslow-mark-white.svg"
@@ -155,10 +207,9 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
                       className={styles.menuLink}
                       style={{ ["--d" as string]: `${0.14 + i * 0.055}s` }}
                       onClick={close}
+                      aria-current={here ? "page" : undefined}
                     >
-                      <span style={{ color: ticks[i % ticks.length] }}>
-                        0{i + 1}
-                      </span>
+                      <span>0{i + 1}</span>
                       <span style={{ color: here ? "#FFF860" : "#FFFFFF" }}>
                         {link.label}
                       </span>

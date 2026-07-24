@@ -70,9 +70,14 @@ export default function LocalAiPage() {
             <Reveal>
               <article
                 className={styles.point}
-                style={{ borderTop: "2px solid #73C1AE", padding: 36 }}
+                style={{
+                  borderTop: "2px solid var(--color-ice-text)",
+                  padding: 36,
+                }}
               >
-                <span style={{ color: "#73C1AE", letterSpacing: 2 }}>
+                <span
+                  style={{ color: "var(--color-ice-text)", letterSpacing: 2 }}
+                >
                   RUNS BEAUTIFULLY LOCAL
                 </span>
                 <ul className={styles.checkList}>
@@ -90,15 +95,18 @@ export default function LocalAiPage() {
             <Reveal>
               <article
                 className={styles.point}
-                style={{ borderTop: "2px solid #A5A5A5", padding: 36 }}
+                style={{
+                  borderTop: "2px solid var(--color-muted)",
+                  padding: 36,
+                }}
               >
-                <span style={{ color: "#838383", letterSpacing: 2 }}>
+                <span style={{ color: "var(--color-muted)", letterSpacing: 2 }}>
                   KEEP ON FRONTIER (FOR NOW)
                 </span>
                 <ul className={styles.checkList}>
                   {localKeepFrontier.map((item) => (
                     <li key={item}>
-                      <span style={{ color: "#A5A5A5" }}>→</span>
+                      <span style={{ color: "var(--color-muted)" }}>→</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -150,7 +158,7 @@ export default function LocalAiPage() {
             style={{
               margin: "16px 4px 0",
               font: "400 12px var(--font-sans)",
-              color: "#A5A5A5",
+              color: "var(--color-muted)",
             }}
           >
             Indicative tiers; we spec against your actual workload during the

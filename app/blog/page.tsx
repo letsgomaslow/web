@@ -83,7 +83,9 @@ export default function BlogPage() {
                 <div className={styles.meta}>
                   <span
                     style={{
-                      color: catColors[featuredPost.cat] || "#73C1AE",
+                      color:
+                        catColors[featuredPost.cat] ||
+                        "var(--color-ice-text)",
                       fontWeight: 700,
                     }}
                   >

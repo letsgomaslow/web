@@ -243,7 +243,7 @@ export default function AgentHubPage() {
             <div className={styles.trustCard}>
               <div
                 className={styles.trustTitle}
-                style={{ color: "var(--color-ice)" }}
+                style={{ color: "var(--color-ice-text)" }}
               >
                 BUILT FOR A REGULATED ENTERPRISE
               </div>
@@ -282,7 +282,7 @@ export default function AgentHubPage() {
             <div className={styles.stackCard}>
               <div
                 className={styles.trustTitle}
-                style={{ color: "var(--color-plum)" }}
+                style={{ color: "var(--color-plum-text)" }}
               >
                 UNDER THE HOOD
               </div>

@@ -21,5 +21,5 @@
 }
 
 .action:hover {
-  color: var(--color-cta);
+  color: var(--color-cta-link-hover);
 }

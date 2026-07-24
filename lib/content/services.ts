@@ -37,7 +37,7 @@ export const serviceCatalog: ServiceGroup[] = [
   {
     id: "assess",
     num: "01",
-    accent: "#A070A6",
+    accent: "var(--color-plum-text)",
     name: "Assess & plan",
     desc: "Before anything is built: find where AI actually pays in your business, and what it will really cost.",
     services: [
@@ -64,7 +64,7 @@ export const serviceCatalog: ServiceGroup[] = [
   {
     id: "structure",
     num: "02",
-    accent: "#73C1AE",
+    accent: "var(--color-ice-text)",
     name: "Structure your knowledge",
     desc: "Your unstructured files become infrastructure: a vector database for meaning, a knowledge graph for facts.",
     services: [
@@ -91,7 +91,7 @@ export const serviceCatalog: ServiceGroup[] = [
   {
     id: "build",
     num: "03",
-    accent: "#EBA93D",
+    accent: "var(--color-gold-text)",
     name: "Build the harness",
     desc: "Skills, tools, memory, approvals, and audit trails that let a model carry a workflow reliably.",
     services: [
@@ -118,7 +118,7 @@ export const serviceCatalog: ServiceGroup[] = [
   {
     id: "deploy",
     num: "04",
-    accent: "#469DBB",
+    accent: "var(--color-navy)",
     name: "Deploy AI employees",
     desc: "Agents go to work inside your channels: supervised, cited, and measured against the workflow they own.",
     services: [

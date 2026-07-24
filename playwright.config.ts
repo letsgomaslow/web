@@ -19,6 +19,7 @@ export default defineConfig({
       use: {
         ...devices["Pixel 5"],
         browserName: "chromium",
+        viewport: { width: 320, height: 800 },
       },
     },
   ],

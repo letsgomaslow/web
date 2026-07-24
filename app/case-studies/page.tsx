@@ -63,22 +63,16 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
             ))}
           </div>
           {cs.href !== "#" && (
-            <span className="text-link">VIEW CASE STUDY&nbsp;&nbsp;&gt;</span>
+            <Link href={cs.href} className="text-link">
+              VIEW CASE STUDY&nbsp;&nbsp;&gt;
+            </Link>
           )}
         </div>
       </div>
     </>
   );
 
-  if (cs.href === "#") {
-    return <div className={styles.card}>{inner}</div>;
-  }
-
-  return (
-    <Link href={cs.href} className={styles.card}>
-      {inner}
-    </Link>
-  );
+  return <article className={styles.card}>{inner}</article>;
 }
 
 export default function CaseStudiesPage() {

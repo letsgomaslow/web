@@ -62,10 +62,14 @@ export function ContactForm() {
   }
 
   return (
-    <form className={styles.stack} onSubmit={onSubmit} noValidate>
+    <form
+      className={styles.stack}
+      onSubmit={onSubmit}
+      aria-busy={status === "loading"}
+    >
       <div className={styles.row}>
         <label className={styles.field}>
-          <span className={styles.srOnly}>Full name</span>
+          <span className={styles.fieldLabel}>Full name</span>
           <input
             className={styles.input}
             name="name"
@@ -73,12 +77,11 @@ export function ContactForm() {
             required
             autoComplete="name"
             placeholder="Full name"
-            aria-label="Full name"
             disabled={status === "loading"}
           />
         </label>
         <label className={styles.field}>
-          <span className={styles.srOnly}>Work email</span>
+          <span className={styles.fieldLabel}>Work email</span>
           <input
             className={styles.input}
             name="email"
@@ -86,31 +89,28 @@ export function ContactForm() {
             required
             autoComplete="email"
             placeholder="Work email"
-            aria-label="Work email"
             disabled={status === "loading"}
           />
         </label>
       </div>
       <label className={styles.field}>
-        <span className={styles.srOnly}>Company</span>
+        <span className={styles.fieldLabel}>Company</span>
         <input
           className={styles.input}
           name="company"
           type="text"
           autoComplete="organization"
           placeholder="Company"
-          aria-label="Company"
           disabled={status === "loading"}
         />
       </label>
       <label className={styles.field}>
-        <span className={styles.srOnly}>What are you exploring?</span>
+        <span className={styles.fieldLabel}>What are you exploring?</span>
         <select
           className={styles.select}
           name="interest"
           required
           defaultValue=""
-          aria-label="What are you exploring?"
           disabled={status === "loading"}
         >
           <option value="" disabled>
@@ -124,12 +124,11 @@ export function ContactForm() {
         </select>
       </label>
       <label className={styles.field}>
-        <span className={styles.srOnly}>Message</span>
+        <span className={styles.fieldLabel}>Message</span>
         <textarea
           className={styles.textarea}
           name="message"
           placeholder="Tell us about the workflow (optional)"
-          aria-label="Message"
           disabled={status === "loading"}
         />
       </label>
@@ -147,12 +146,14 @@ export function ContactForm() {
         </p>
       )}
       {status === "success" && (
-        <p className={`${styles.status} ${styles.statusOk}`}>
+        <p className={`${styles.status} ${styles.statusOk}`} role="status">
           Got it. A real person replies within one business day.
         </p>
       )}
       {status === "error" && (
-        <p className={`${styles.status} ${styles.statusErr}`}>{error}</p>
+        <p className={`${styles.status} ${styles.statusErr}`} role="alert">
+          {error}
+        </p>
       )}
     </form>
   );

@@ -57,23 +57,26 @@ export function NewsletterForm({
   }
 
   return (
-    <form className={styles.newsletter} onSubmit={onSubmit} noValidate>
+    <form
+      className={styles.newsletter}
+      onSubmit={onSubmit}
+      aria-busy={status === "loading"}
+    >
       {showName && (
         <label className={styles.newsletterField}>
-          <span className={styles.srOnly}>Your name</span>
+          <span className={styles.fieldLabel}>Your name</span>
           <input
             className={styles.newsletterInput}
             name="name"
             type="text"
             autoComplete="name"
             placeholder="Your name"
-            aria-label="Your name"
             disabled={status === "loading"}
           />
         </label>
       )}
       <label className={styles.newsletterField}>
-        <span className={styles.srOnly}>Work email</span>
+        <span className={styles.fieldLabel}>Work email</span>
         <input
           className={styles.newsletterInput}
           name="email"
@@ -81,7 +84,6 @@ export function NewsletterForm({
           required
           autoComplete="email"
           placeholder="you@company.com"
-          aria-label="Work email"
           disabled={status === "loading"}
         />
       </label>
@@ -95,6 +97,7 @@ export function NewsletterForm({
       {status === "success" && (
         <p
           className={`${styles.newsletterStatus} ${styles.newsletterStatusOk}`}
+          role="status"
         >
           You&apos;re on the list. One useful email a month.
         </p>
@@ -102,6 +105,7 @@ export function NewsletterForm({
       {status === "error" && (
         <p
           className={`${styles.newsletterStatus} ${styles.newsletterStatusErr}`}
+          role="alert"
         >
           {error}
         </p>

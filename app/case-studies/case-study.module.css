@@ -36,7 +36,7 @@
 }
 
 .tag[data-variant="solid"] {
-  background: var(--color-plum);
+  background: var(--color-plum-text);
   color: var(--color-white);
 }
 
@@ -227,7 +227,7 @@
 .osLabel {
   font: 500 10px var(--font-mono);
   letter-spacing: 2px;
-  color: #a5a5a5;
+  color: var(--color-muted);
   margin-bottom: 20px;
 }
 
@@ -292,7 +292,7 @@
 .divider em {
   font: 500 10px var(--font-mono);
   letter-spacing: 2px;
-  color: #a5a5a5;
+  color: var(--color-muted);
   font-style: normal;
 }
 
@@ -314,7 +314,7 @@
 
 .rootNum {
   font: 700 12px var(--font-display);
-  color: var(--color-ice);
+  color: var(--color-ice-text);
   flex: none;
 }
 
@@ -360,7 +360,7 @@
 .proofLabel {
   font: 700 12px var(--font-display);
   letter-spacing: 1.5px;
-  color: var(--color-ice);
+  color: var(--color-ice-text);
 }
 
 .bubble {
@@ -399,12 +399,12 @@
 }
 
 .warn {
-  color: #b06a1f;
+  color: var(--color-gold-text);
 }
 
 .warn span {
   font-weight: 700;
-  color: var(--color-gold);
+  color: var(--color-gold-text);
 }
 
 .proofMono {
@@ -460,14 +460,14 @@
 
 .reportFoot {
   font: 400 11px var(--font-sans);
-  color: #a5a5a5;
+  color: var(--color-muted);
   margin-top: 10px;
 }
 
 .caption {
   margin: 16px 4px 0;
   font: 400 12px var(--font-sans);
-  color: #a5a5a5;
+  color: var(--color-muted);
 }
 
 .status {
@@ -632,7 +632,7 @@
 
 .quoteMark {
   font: 800 56px/36px var(--font-sans);
-  color: var(--color-ice);
+  color: var(--color-ice-text);
 }
 
 .quoteText {
@@ -739,7 +739,7 @@
 .layerLabel {
   font: 500 10px var(--font-mono);
   letter-spacing: 2px;
-  color: #a5a5a5;
+  color: var(--color-muted);
   margin-bottom: 14px;
 }
 
@@ -847,6 +847,8 @@
 .provenanceBody {
   font: 400 13.5px/21px var(--font-sans);
   color: var(--color-mist);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .intent {
@@ -1025,5 +1027,10 @@
 
   .widgetGrid {
     grid-template-columns: 1fr;
+  }
+
+  .provenance {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

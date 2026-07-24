@@ -14,19 +14,19 @@ export const metadata: Metadata = {
 const pains = [
   {
     num: "01",
-    color: "#A070A6",
+    color: "var(--color-plum-text)",
     title: "The inbox never empties",
     desc: "Skilled people spend hours on triage, routing and first drafts that follow the same pattern every day.",
   },
   {
     num: "02",
-    color: "#73C1AE",
+    color: "var(--color-ice-text)",
     title: "The answers exist, somewhere",
     desc: "Policies, contracts and precedent live in files nobody can search. Every answer is re-derived from scratch.",
   },
   {
     num: "03",
-    color: "#EBA93D",
+    color: "var(--color-gold-text)",
     title: "Chatbots didn't help",
     desc: "Generic AI tools answer generic questions. They don't know your clients, your terms or your way of working.",
   },

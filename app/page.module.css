@@ -89,7 +89,7 @@
 }
 
 .icpLink:hover {
-  color: var(--color-cta);
+  color: var(--color-cta-link-hover);
 }
 
 .metrics {
@@ -256,7 +256,7 @@
   display: none;
 }
 
-.caseOpen {
+.caseCard.caseOpen {
   background: var(--color-navy-deep);
 }
 
@@ -272,7 +272,7 @@
 
 .caseOpen .text-link,
 .caseOpen :global(.text-link) {
-  color: var(--color-cta-link);
+  color: var(--color-cta);
 }
 
 .founder {

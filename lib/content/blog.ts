@@ -1,8 +1,8 @@
 export const catColors: Record<string, string> = {
-  CONCEPTS: "#73C1AE",
-  COST: "#EBA93D",
-  ENGINEERING: "#A070A6",
-  "LOCAL AI": "#469DBB",
+  CONCEPTS: "var(--color-ice-text)",
+  COST: "var(--color-gold-text)",
+  ENGINEERING: "var(--color-plum-text)",
+  "LOCAL AI": "var(--color-navy)",
   "CASE NOTES": "#654C8F",
 };
 

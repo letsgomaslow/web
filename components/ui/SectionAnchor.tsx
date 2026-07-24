@@ -5,8 +5,7 @@ import styles from "./SectionAnchor.module.css";
 
 /**
  * Copy-link affordance for forwardable sections. Pages are ammunition for the
- * forwarded-to reader; this makes forwarding a one-click act. Safe inside a
- * <summary>: the click never toggles the parent <details>.
+ * forwarded-to reader; this makes forwarding a one-click act.
  */
 export function SectionAnchor({ id, label }: { id: string; label: string }) {
   const { copied, copy } = useCopyFeedback();

@@ -156,23 +156,30 @@ export function SkillLibrary() {
             key={s.name}
             type="button"
             className={styles.item}
-            style={{
-              borderColor: i === selected ? "#73C1AE" : "#3A4A6B",
-              background:
-                i === selected ? "rgba(115,193,174,.1)" : "transparent",
-            }}
+            data-selected={i === selected || undefined}
+            aria-pressed={i === selected}
+            aria-controls="skill-detail"
             onClick={() => setSelected(i)}
           >
             <div className={styles.itemName}>
-              {s.name} <span>{s.version}</span>
+              {s.name} <span className={styles.version}>{s.version}</span>
+              {i === selected && (
+                <span className={styles.selectedMark}>✓ Selected</span>
+              )}
             </div>
             <div className={styles.itemSummary}>{s.summary}</div>
           </button>
         ))}
       </div>
-      <div className={styles.detail}>
+      <div
+        className={styles.detail}
+        id="skill-detail"
+        role="region"
+        aria-labelledby="skill-detail-title"
+        aria-live="polite"
+      >
         <div className={styles.meta}>{sel.meta}</div>
-        <h3>{sel.name}</h3>
+        <h2 id="skill-detail-title">{sel.name}</h2>
         <p>{sel.desc}</p>
         <div className={styles.steps}>
           {sel.steps.map((st) => (
@@ -200,7 +207,17 @@ export function SkillLibrary() {
 
 export function GatewayDiagram() {
   return (
-    <div className={styles.diagramCard}>
+    <div
+      className={styles.diagramCard}
+      tabIndex={0}
+      role="region"
+      aria-label="Gateway architecture diagram. Scroll horizontally to view the full diagram."
+    >
+      <span className="sr-only">
+        Teams, Slack, and email connect through one secure gateway to an agent
+        harness containing skills, memory, context, guardrails, and a model
+        core.
+      </span>
       <svg viewBox="0 0 1120 340" className={styles.svg} aria-hidden>
         <g
           stroke="#73C1AE"
@@ -239,7 +256,7 @@ export function GatewayDiagram() {
           <rect x="916" y="186" width="124" height="26" rx="2" fill="none" stroke="#E1E1E1" />
           <text x="978" y="203" textAnchor="middle">MODEL CORE</text>
         </g>
-        <g fontFamily="Manrope,sans-serif" fontSize="11.5" fill="#A5A5A5">
+        <g fontFamily="Manrope,sans-serif" fontSize="11.5" fill="#666666">
           <text x="310" y="150" textAnchor="middle">messages · files</text>
           <text x="310" y="196" textAnchor="middle">approvals · replies</text>
           <text x="690" y="160" textAnchor="middle">one secure link</text>
