@@ -55,6 +55,12 @@ export const metadata: Metadata = {
   },
   description:
     "AI employees in Teams, Slack, and email, built on knowledge systems and infrastructure you own. Fixed fees, 90-day foundations, and no lock-in.",
+  icons: {
+    icon: {
+      url: "/assets/maslow-mark-gradient.svg",
+      type: "image/svg+xml",
+    },
+  },
   openGraph: {
     type: "website",
     siteName: "Maslow AI",
