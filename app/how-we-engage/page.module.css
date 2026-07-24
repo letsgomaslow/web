@@ -15,7 +15,7 @@
 
 .doorCard {
   border: 1px solid #f1f1f1;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 32px 28px;
   background: var(--color-white);
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.06);
@@ -41,7 +41,7 @@
   color: var(--color-text);
   background: var(--color-off-white);
   border-left: 2px solid var(--color-ice);
-  border-radius: 0 4px 4px 0;
+  border-radius: var(--radius-structural);
   padding: 10px 12px;
 }
 
@@ -210,7 +210,7 @@
   margin-top: 10px;
   padding: 5px 10px 4px;
   border: 1px solid rgba(115, 193, 174, 0.55);
-  border-radius: 2px;
+  border-radius: var(--radius-structural);
   background: rgba(115, 193, 174, 0.08);
   font: 500 10px/1 var(--font-mono);
   letter-spacing: 1.5px;

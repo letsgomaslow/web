@@ -19,6 +19,8 @@ import { foundationWeeks, twoDoors } from "@/lib/content/engagement";
 import { conceptFailures } from "@/lib/content/explainers";
 import { copilotSection, costOfWaiting } from "@/lib/content/home";
 import {
+  actionTheme,
+  colors,
   contactEmail,
   founderHeadshot,
   socialLinks,
@@ -29,6 +31,14 @@ function sourceFiles(root: string): string[] {
     const path = join(root, entry.name);
     if (entry.isDirectory()) return sourceFiles(path);
     return /\.(ts|tsx)$/.test(entry.name) ? [path] : [];
+  });
+}
+
+function styleFiles(root: string): string[] {
+  return readdirSync(root, { withFileTypes: true }).flatMap((entry) => {
+    const path = join(root, entry.name);
+    if (entry.isDirectory()) return styleFiles(path);
+    return entry.name.endsWith(".css") ? [path] : [];
   });
 }
 
@@ -171,6 +181,50 @@ describe("content modules", () => {
       expect(study.metric).toBe("SCENARIO");
       expect(study.metricLabel).toMatch(/not a client result/i);
     });
+  });
+});
+
+describe("brand design system", () => {
+  it("locks the navy primary action hierarchy and square structural shape", () => {
+    expect(actionTheme).toEqual({
+      primaryBackground: colors.navy,
+      primaryForeground: colors.white,
+      inverseBackground: colors.white,
+      inverseForeground: colors.navy,
+      signal: "#EE7BB3",
+      structuralRadius: 0,
+    });
+
+    const globals = readFileSync(join("app", "globals.css"), "utf8");
+    expect(globals).toMatch(/--color-action-primary:\s*#192332;/i);
+    expect(globals).toMatch(/--color-action-inverse:\s*#ffffff;/i);
+    expect(globals).toMatch(/--color-action-signal:\s*#ee7bb3;/i);
+    expect(globals).toMatch(/--radius-structural:\s*0px;/i);
+  });
+
+  it("reserves pink backgrounds for pseudo-element interaction signals", () => {
+    const pinkBackground =
+      /background(?:-color)?\s*:\s*(?:#(?:ee7bb3|da85b2)|rgb\(\s*(?:238\s*,\s*123\s*,\s*179|218\s*,\s*133\s*,\s*178)\s*\)|var\(--color-(?:cta|action-signal)\))/i;
+    const offenders: string[] = [];
+
+    ["app", "components"].flatMap(styleFiles).forEach((file) => {
+      const css = readFileSync(file, "utf8");
+      for (const match of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+        const selector = match[1].trim();
+        const declarations = match[2];
+        if (
+          pinkBackground.test(declarations) &&
+          !/::(?:before|after)/i.test(selector)
+        ) {
+          offenders.push(`${file}: ${selector}`);
+        }
+      }
+    });
+
+    expect(
+      offenders,
+      "Pink is reserved for small pseudo-element signals, not element fills.",
+    ).toEqual([]);
   });
 });
 

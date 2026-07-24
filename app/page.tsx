@@ -260,7 +260,11 @@ export default function HomePage() {
               </p>
             </Reveal>
             <Reveal className={styles.centerCta}>
-              <CtaButton href="/assessment" className={styles.assessPill}>
+              <CtaButton
+                href="/assessment"
+                variant="inverse"
+                className={styles.assessPill}
+              >
                 <span className={styles.assessLong}>
                   NOT SURE WHERE YOU ARE? TAKE THE ASSESSMENT
                 </span>

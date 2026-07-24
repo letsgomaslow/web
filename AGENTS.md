@@ -13,6 +13,13 @@
 - Use US English and "AI employee" consistently in visible copy.
 - Keep diligence artifact statuses at "IN PREPARATION" until the artifact exists and has been reviewed.
 
+## Action hierarchy
+
+- Use navy `#192332` for default primary buttons on light surfaces and white for inverse primary buttons on dark surfaces.
+- Keep pink `#EE7BB3` as a sparse interaction signal or exceptional emphasis. Do not use it as the default button fill.
+- New pages must use `components/ui/CtaButton.tsx` or the semantic `--color-action-*` tokens for filled actions. Never use `--color-cta`, `--color-action-signal`, `#EE7BB3`, or `#DA85B2` as an element background.
+- Use a `0px` border radius for buttons, cards, panels, inputs, navigation controls, pills, and badges. Preserve circles only for avatars, status dots, step markers, and small interaction signals whose shape carries meaning.
+
 ## Copy verification
 
 - Run `npm test` after copy changes. The content suite rejects em dashes and known placeholder markers.

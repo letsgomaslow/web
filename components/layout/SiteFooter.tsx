@@ -30,7 +30,7 @@ export function SiteFooter({
             A 30-minute working session. Bring one painful workflow; we&apos;ll
             sketch the harness, the data pipeline and the cost curve.
           </p>
-          <Link href="/contact" className="cta">
+          <Link href="/contact" className="cta cta-inverse">
             {ctaPrimaryLabel}
           </Link>
         </section>

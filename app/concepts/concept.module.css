@@ -95,7 +95,7 @@
   padding: 28px;
   background: #fff;
   border: 1px solid #f1f1f1;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s;
 }
@@ -132,7 +132,7 @@
 
 .tier {
   padding: 32px;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   border: 1px solid #f1f1f1;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.04);
 }

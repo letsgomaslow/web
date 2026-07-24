@@ -166,7 +166,9 @@ export default function VirtualAiEmployeesCampaignPage() {
               Bring one workflow to a 30-minute session. We will estimate what
               an AI employee would cost and where the return could come from.
             </p>
-            <CtaButton href="#book">BOOK A WORKING SESSION</CtaButton>
+            <CtaButton href="#book" variant="inverse">
+              BOOK A WORKING SESSION
+            </CtaButton>
           </div>
         </section>
       </>

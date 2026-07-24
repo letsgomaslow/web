@@ -47,7 +47,7 @@
 .formCard {
   background: var(--color-navy-mid);
   border: 1px solid var(--color-navy-line);
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 32px;
 }
 

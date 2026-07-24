@@ -8,7 +8,7 @@
 .bar {
   display: block;
   height: 8px;
-  border-radius: 2px;
+  border-radius: var(--radius-structural);
   background: var(--color-mist);
 }
 

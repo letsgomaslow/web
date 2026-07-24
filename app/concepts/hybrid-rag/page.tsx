@@ -91,7 +91,7 @@ export default function HybridRagPage() {
                       color: c.dark ? "#fff" : "#333",
                       background: c.dark ? "#1A2847" : "#F6F7F9",
                       borderLeft: `2px solid ${c.accent}`,
-                      borderRadius: "0 4px 4px 0",
+                      borderRadius: 0,
                       padding: "12px 14px",
                     }}
                   >

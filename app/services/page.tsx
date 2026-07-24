@@ -208,7 +208,9 @@ export default function ServicesPage() {
               </p>
             </div>
             <div className={styles.e2eActions}>
-              <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
+              <CtaButton href="/contact" variant="inverse">
+                {ctaPrimaryLabel}
+              </CtaButton>
               <Link href="/assessment" className={styles.e2eSecondary}>
                 START WITH THE ASSESSMENT
               </Link>

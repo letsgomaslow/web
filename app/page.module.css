@@ -292,7 +292,7 @@
 .founderPhoto {
   width: 120px;
   height: 120px;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   object-fit: cover;
   box-shadow: var(--shadow-headshot);
 }
@@ -320,7 +320,7 @@
   flex-direction: column;
   background: #fff;
   border: 1px solid #f1f1f1;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   overflow: hidden;
   color: var(--color-text);
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
