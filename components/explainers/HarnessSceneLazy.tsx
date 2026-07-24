@@ -12,7 +12,7 @@ const HarnessScene = dynamic(
         style={{
           height: 420,
           background: "#121D35",
-          borderRadius: 4,
+          borderRadius: 0,
           color: "#B8C4D9",
           display: "flex",
           alignItems: "center",

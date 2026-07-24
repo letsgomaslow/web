@@ -227,7 +227,11 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
                   ["--d" as string]: `${0.14 + navLinks.length * 0.055 + 0.06}s`,
                 }}
               >
-                <Link href="/contact" className="cta" onClick={close}>
+                <Link
+                  href="/contact"
+                  className="cta cta-inverse"
+                  onClick={close}
+                >
                   {ctaPrimaryLabel}
                 </Link>
                 <Link

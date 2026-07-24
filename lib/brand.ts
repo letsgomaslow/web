@@ -8,8 +8,11 @@ export const colors = {
   lineSoft: "#E6EAF3",
   offWhite: "#F6F7F9",
   white: "#FFFFFF",
-  cta: "#EE7BB3",
-  ctaInk: "#333333",
+  cta: "#192332",
+  ctaInk: "#FFFFFF",
+  ctaEmphasis: "#EE7BB3",
+  ctaInverse: "#FFFFFF",
+  ctaInverseInk: "#192332",
   ctaLink: "#9D4B8E",
   ctaLinkHover: "#654C8F",
   ice: "#73C1AE",
@@ -31,6 +34,15 @@ export const colors = {
   error: "#B42318",
   successText: "#1E7C38",
   focus: "#401877",
+} as const;
+
+export const actionTheme = {
+  primaryBackground: colors.cta,
+  primaryForeground: colors.ctaInk,
+  inverseBackground: colors.ctaInverse,
+  inverseForeground: colors.ctaInverseInk,
+  signal: colors.ctaEmphasis,
+  structuralRadius: 0,
 } as const;
 
 export const ticks = [

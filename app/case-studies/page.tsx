@@ -147,7 +147,9 @@ export default function CaseStudiesPage() {
                 pay in your workflows and identify where it is unlikely to help.
               </p>
             </div>
-            <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
+            <CtaButton href="/contact" variant="inverse">
+              {ctaPrimaryLabel}
+            </CtaButton>
           </div>
         </section>
       </>

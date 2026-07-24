@@ -162,7 +162,9 @@ export default function AboutPage() {
             <h2 className={styles.ctaTitle}>
               Work with a team that builds AI you can own.
             </h2>
-            <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
+            <CtaButton href="/contact" variant="inverse">
+              {ctaPrimaryLabel}
+            </CtaButton>
           </div>
         </section>
       </>

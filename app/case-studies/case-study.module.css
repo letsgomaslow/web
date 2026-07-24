@@ -30,7 +30,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0 18px;
-  border-radius: 17px;
+  border-radius: var(--radius-structural);
   font: 600 12px var(--font-sans);
   letter-spacing: 2px;
 }
@@ -74,7 +74,7 @@
 
 .metric,
 .metricDark {
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 22px;
 }
 
@@ -218,7 +218,7 @@
 .osCard {
   background: var(--color-white);
   border: 1px solid #f1f1f1;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.06);
   padding: 44px;
   margin-bottom: 18px;
@@ -240,7 +240,7 @@
 
 .teammate {
   border: 1px solid #f1f1f1;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 22px;
   text-align: center;
   transition: transform 0.3s;
@@ -308,7 +308,7 @@
   align-items: baseline;
   background: var(--color-off-white);
   border-left: 2px solid var(--color-ice);
-  border-radius: 0 4px 4px 0;
+  border-radius: var(--radius-structural);
   padding: 18px 20px;
 }
 
@@ -349,7 +349,7 @@
 .proofCard {
   background: var(--color-white);
   border: 1px solid #f1f1f1;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 26px;
   display: flex;
   flex-direction: column;
@@ -366,7 +366,7 @@
 .bubble {
   font: 400 13px/20px var(--font-sans);
   background: var(--color-off-white);
-  border-radius: 8px;
+  border-radius: var(--radius-structural);
   padding: 12px 15px;
   color: var(--color-text);
 }
@@ -374,7 +374,7 @@
 .bubbleReply {
   font: 400 13px/20px var(--font-sans);
   background: rgba(115, 193, 174, 0.12);
-  border-radius: 8px;
+  border-radius: var(--radius-structural);
   padding: 12px 15px;
   color: var(--color-navy);
 }
@@ -417,7 +417,7 @@
 
 .report {
   border: 1px solid var(--color-line);
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 16px;
 }
 
@@ -436,7 +436,7 @@
   gap: 5px;
   height: 16px;
   padding: 0 8px;
-  border-radius: 2px;
+  border-radius: var(--radius-structural);
   background: var(--color-line-soft);
   font: 500 7px var(--font-sans);
   letter-spacing: 0.4px;
@@ -454,7 +454,7 @@
 .bar {
   height: 6px;
   background: #f1f1f1;
-  border-radius: 2px;
+  border-radius: var(--radius-structural);
   margin-bottom: 6px;
 }
 
@@ -492,7 +492,7 @@
   align-items: center;
   gap: 20px;
   border: 1px solid #f1f1f1;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 18px 22px;
   background: var(--color-white);
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.04);
@@ -515,7 +515,7 @@
   gap: 6px;
   height: 20px;
   padding: 0 10px;
-  border-radius: 2px;
+  border-radius: var(--radius-structural);
   font: 500 9px var(--font-sans);
   letter-spacing: 0.6px;
   white-space: nowrap;
@@ -539,7 +539,7 @@
 .valueCard,
 .valueCardHot {
   border: 1px solid var(--color-navy-line);
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 32px;
   text-align: center;
 }
@@ -600,7 +600,7 @@
   align-items: center;
   padding: 0 18px;
   border: 1px solid var(--color-line);
-  border-radius: 17px;
+  border-radius: var(--radius-structural);
   color: var(--color-text);
   white-space: nowrap;
   transition:
@@ -615,7 +615,7 @@
 
 .quoteBox {
   background: var(--color-off-white);
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 44px;
   display: flex;
   gap: 20px;
@@ -624,7 +624,7 @@
 .quoteBoxDark {
   background: var(--color-navy-deep);
   color: var(--color-white);
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 44px;
   display: flex;
   gap: 20px;
@@ -721,7 +721,7 @@
 
 .layerCard,
 .layerCardDark {
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 38px;
 }
 
@@ -773,7 +773,7 @@
   font: 600 11.5px var(--font-sans);
   padding: 7px 14px;
   background: var(--color-off-white);
-  border-radius: 17px;
+  border-radius: var(--radius-structural);
   color: var(--color-navy);
 }
 
@@ -793,7 +793,7 @@
 
 .pipelineCard {
   border: 1px solid var(--color-navy-line);
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 26px;
   background: var(--color-navy-mid);
 }
@@ -830,7 +830,7 @@
 .provenance {
   margin-top: 24px;
   border: 1px dashed var(--color-navy-line);
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 20px 26px;
   display: flex;
   gap: 18px;
@@ -874,7 +874,7 @@
   gap: 12px;
   align-items: baseline;
   border: 1px solid #f1f1f1;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 14px 16px;
   background: var(--color-white);
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.04);
@@ -893,7 +893,7 @@
 
 .testPanel {
   background: var(--color-off-white);
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 32px;
 }
 
@@ -920,7 +920,7 @@
 
 .testCase {
   background: var(--color-white);
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 10px 13px;
 }
 
@@ -946,7 +946,7 @@
 .trustCard,
 .stackCard {
   border: 1px solid #f1f1f1;
-  border-radius: 4px;
+  border-radius: var(--radius-structural);
   padding: 36px;
 }
 

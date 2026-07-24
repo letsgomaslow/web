@@ -16,7 +16,7 @@
   width: 100%;
   border: none;
   border-bottom: 1px solid var(--color-muted);
-  border-radius: 0;
+  border-radius: var(--radius-structural);
   background: transparent;
   color: var(--color-text);
   font: 400 15px var(--font-sans);
@@ -100,9 +100,10 @@
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 8px;
-  background: var(--color-cta);
-  color: var(--color-cta-ink);
+  gap: 12px;
+  border-radius: var(--radius-action);
+  background: var(--color-action-primary);
+  color: var(--color-action-primary-ink);
   font: 600 12px var(--font-sans);
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -113,9 +114,30 @@
     opacity 0.25s;
 }
 
+.submit::after,
+.newsletterSubmit::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-action-signal);
+}
+
 .submit:hover:not(:disabled) {
+  background: var(--color-action-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(238, 123, 179, 0.4);
+  box-shadow: 0 12px 28px rgba(25, 35, 50, 0.24);
+}
+
+.dark .submit {
+  background: var(--color-action-inverse);
+  color: var(--color-action-inverse-ink);
+}
+
+.dark .submit:hover:not(:disabled) {
+  background: var(--color-off-white);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
 }
 
 .submit:disabled {
@@ -200,9 +222,10 @@
   align-items: center;
   padding: 0 18px;
   border: none;
-  border-radius: 8px;
-  background: var(--color-cta);
-  color: var(--color-cta-ink);
+  gap: 10px;
+  border-radius: var(--radius-action);
+  background: var(--color-action-inverse);
+  color: var(--color-action-inverse-ink);
   font: 600 12px var(--font-sans);
   letter-spacing: 2px;
   white-space: nowrap;
@@ -211,6 +234,7 @@
 }
 
 .newsletterSubmit:hover:not(:disabled) {
+  background: var(--color-off-white);
   transform: translateY(-2px);
 }
 

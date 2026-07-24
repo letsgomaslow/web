@@ -140,7 +140,9 @@ export default async function BlogArticlePage({ params }: Props) {
         <section className={styles.cta} data-screen-label="CTA">
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>{article.ctaTitle}</h2>
-            <CtaButton href="/contact">BOOK A WORKING SESSION</CtaButton>
+            <CtaButton href="/contact" variant="inverse">
+              BOOK A WORKING SESSION
+            </CtaButton>
           </div>
         </section>
       </>
