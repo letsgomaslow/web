@@ -38,17 +38,19 @@ export function FaqList() {
     <div className={styles.faqList}>
       {faqItems.map((item) => (
         <Reveal key={item.num}>
-          <details className={styles.item} id={`q-${item.num}`}>
-            <summary className={styles.summary}>
-              <span className={styles.num}>{item.num}</span>
-              <span className={styles.question}>{item.q}</span>
-              <SectionAnchor id={`q-${item.num}`} label={item.q} />
-              <span className={styles.chevron} aria-hidden>
-                +
-              </span>
-            </summary>
-            <div className={styles.answer}>{item.a}</div>
-          </details>
+          <div className={styles.itemWrap}>
+            <details className={styles.item} id={`q-${item.num}`}>
+              <summary className={styles.summary}>
+                <span className={styles.num}>{item.num}</span>
+                <span className={styles.question}>{item.q}</span>
+                <span className={styles.chevron} aria-hidden>
+                  +
+                </span>
+              </summary>
+              <div className={styles.answer}>{item.a}</div>
+            </details>
+            <SectionAnchor id={`q-${item.num}`} label={item.q} />
+          </div>
         </Reveal>
       ))}
     </div>

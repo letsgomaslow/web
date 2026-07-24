@@ -83,7 +83,7 @@
   border: none;
   border-radius: 8px;
   background: var(--color-cta);
-  color: #fff;
+  color: var(--color-cta-ink);
   font: 600 11px var(--font-sans);
   letter-spacing: 1px;
   cursor: pointer;

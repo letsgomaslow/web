@@ -18,19 +18,19 @@ export const metadata: Metadata = {
 const steps = [
   {
     num: "01",
-    color: "#73C1AE",
+    color: "var(--color-ice-text)",
     title: "We listen first",
     desc: "Your workflow, your constraints, your data reality.",
   },
   {
     num: "02",
-    color: "#A070A6",
+    color: "var(--color-plum-text)",
     title: "You get a sketch, free",
     desc: "A one-page architecture and cost estimate within two business days.",
   },
   {
     num: "03",
-    color: "#EBA93D",
+    color: "var(--color-gold-text)",
     title: "You keep the work",
     desc: "Code, pipelines, documentation, and configured infrastructure remain yours.",
   },

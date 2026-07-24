@@ -55,10 +55,14 @@ export function DiligenceForm() {
   }
 
   return (
-    <form className={styles.stack} onSubmit={onSubmit} noValidate>
+    <form
+      className={`${styles.stack} ${styles.dark}`}
+      onSubmit={onSubmit}
+      aria-busy={status === "loading"}
+    >
       <div className={styles.row}>
         <label className={styles.field}>
-          <span className={styles.srOnly}>Full name</span>
+          <span className={styles.fieldLabel}>Full name</span>
           <input
             className={styles.input}
             name="name"
@@ -66,12 +70,11 @@ export function DiligenceForm() {
             required
             autoComplete="name"
             placeholder="Full name"
-            aria-label="Full name"
             disabled={status === "loading"}
           />
         </label>
         <label className={styles.field}>
-          <span className={styles.srOnly}>Work email</span>
+          <span className={styles.fieldLabel}>Work email</span>
           <input
             className={styles.input}
             name="email"
@@ -79,30 +82,27 @@ export function DiligenceForm() {
             required
             autoComplete="email"
             placeholder="Work email"
-            aria-label="Work email"
             disabled={status === "loading"}
           />
         </label>
       </div>
       <label className={styles.field}>
-        <span className={styles.srOnly}>Company</span>
+        <span className={styles.fieldLabel}>Company</span>
         <input
           className={styles.input}
           name="company"
           type="text"
           autoComplete="organization"
           placeholder="Company"
-          aria-label="Company"
           disabled={status === "loading"}
         />
       </label>
       <label className={styles.field}>
-        <span className={styles.srOnly}>What does your review need first?</span>
+        <span className={styles.fieldLabel}>What does your review need first?</span>
         <textarea
           className={styles.textarea}
           name="message"
           placeholder="What does your review need first? (optional)"
-          aria-label="What does your review need first?"
           disabled={status === "loading"}
         />
       </label>
@@ -119,12 +119,14 @@ export function DiligenceForm() {
         </p>
       )}
       {status === "success" && (
-        <p className={`${styles.status} ${styles.statusOk}`}>
+        <p className={`${styles.status} ${styles.statusOk}`} role="status">
           Got it. The pack goes out from a real person within one business day.
         </p>
       )}
       {status === "error" && (
-        <p className={`${styles.status} ${styles.statusErr}`}>{error}</p>
+        <p className={`${styles.status} ${styles.statusErr}`} role="alert">
+          {error}
+        </p>
       )}
     </form>
   );

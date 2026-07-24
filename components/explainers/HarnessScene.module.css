@@ -97,7 +97,6 @@
   font: 400 11px var(--font-mono);
   letter-spacing: 1px;
   color: var(--color-mist);
-  opacity: 0.6;
 }
 
 .fallback {

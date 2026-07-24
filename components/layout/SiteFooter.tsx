@@ -24,8 +24,8 @@ export function SiteFooter({
   return (
     <>
       {showCtaBand && (
-        <section className="cta-band">
-          <h2>Ready to find where AI pays?</h2>
+        <section className="cta-band" aria-labelledby="site-cta-heading">
+          <h2 id="site-cta-heading">Ready to find where AI pays?</h2>
           <p>
             A 30-minute working session. Bring one painful workflow; we&apos;ll
             sketch the harness, the data pipeline and the cost curve.

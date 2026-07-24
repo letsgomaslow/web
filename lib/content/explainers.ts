@@ -59,26 +59,26 @@ export const contextDiscipline: {
 }[] = [
   {
     num: "01",
-    accent: "#73C1AE",
+    accent: "var(--color-ice-text)",
     name: "Ingestion",
     desc: "Every file format, every silo, chunked with structure and metadata intact.",
   },
   {
     num: "02",
-    accent: "#A070A6",
+    accent: "var(--color-plum-text)",
     name: "Structuring",
     desc: "Vector DB for meaning, knowledge graph for facts:",
     link: { href: "/concepts/hybrid-rag", label: "hybrid RAG" },
   },
   {
     num: "03",
-    accent: "#EBA93D",
+    accent: "var(--color-gold-text)",
     name: "Freshness",
     desc: "Sync pipelines so your AI never lives in last quarter. Stale data is worse than none.",
   },
   {
     num: "04",
-    accent: "#469DBB",
+    accent: "var(--color-navy)",
     name: "Routing",
     desc: "Per-task retrieval that decides which facts earn a place in the briefing.",
   },
@@ -90,7 +90,7 @@ export const localHardwareTiers = [
     name: "Workstation",
     price: "from ~$15k",
     desc: "A single GPU workstation. Runs mid-size open models for a team: document Q&A, drafting, triage.",
-    accent: "#73C1AE",
+    accent: "var(--color-ice-text)",
     featured: false,
   },
   {
@@ -106,7 +106,7 @@ export const localHardwareTiers = [
     name: "Cluster",
     price: "custom",
     desc: "Multi-node estate for org-wide workloads, fine-tuning and redundancy. Designed with your IT team.",
-    accent: "#A070A6",
+    accent: "var(--color-plum-text)",
     featured: false,
   },
 ];
@@ -217,25 +217,25 @@ export const channelDemos: ChannelDef[] = [
 export const rileyDayTimeline = [
   {
     time: "07:00",
-    accent: "#73C1AE",
+    accent: "var(--color-ice-text)",
     title: "Overnight triage",
     desc: "42 inbound emails sorted, classified and routed before anyone logs in.",
   },
   {
     time: "09:30",
-    accent: "#A070A6",
+    accent: "var(--color-plum-text)",
     title: "Grounded drafts",
     desc: "Replies drafted with citations, queued in Teams for one-tap approval.",
   },
   {
     time: "14:00",
-    accent: "#EBA93D",
+    accent: "var(--color-gold-text)",
     title: "Smart escalation",
     desc: "A contract conflict it can't resolve goes to the right human, with full context attached.",
   },
   {
     time: "18:00",
-    accent: "#469DBB",
+    accent: "var(--color-navy)",
     title: "Shift report",
     desc: "What was handled, what's pending, what needs you tomorrow, posted to the channel.",
   },
@@ -478,17 +478,17 @@ export const harnessNodes: HarnessNode[] = [
 
 export const harnessPayoffs = [
   {
-    accent: "#73C1AE",
+    accent: "var(--color-ice-text)",
     title: "Model-agnostic",
     desc: "Swap the core (frontier API today, local open model tomorrow) without rebuilding the workflow. The harness is the constant.",
   },
   {
-    accent: "#A070A6",
+    accent: "var(--color-plum-text)",
     title: "Controls you can inspect",
     desc: "The harness contains the guardrails, approvals, and audit trails used to review reliability.",
   },
   {
-    accent: "#EBA93D",
+    accent: "var(--color-gold-text)",
     title: "Compounding asset",
     desc: "Every skill you add and every workflow you wire becomes reusable infrastructure; your AI capability compounds.",
   },
@@ -515,7 +515,7 @@ export const hybridRagStages = [
 export const hybridRagComparison = [
   {
     kind: "VECTOR DATABASE",
-    accent: "#73C1AE",
+    accent: "var(--color-ice-text)",
     title: "Finds by meaning",
     desc: '"Find everything similar to this." Great for fuzzy questions, summaries, and discovering related material.',
     example: '"What do our contracts say about early termination?"',
@@ -523,7 +523,7 @@ export const hybridRagComparison = [
   },
   {
     kind: "KNOWLEDGE GRAPH",
-    accent: "#A070A6",
+    accent: "var(--color-plum-text)",
     title: "Finds by fact",
     desc: '"Which entities connect to which?" Exact answers across relationships: customers, contracts, dates, obligations.',
     example: '"Which vendors have net-45 terms AND an active NDA?"',
@@ -555,7 +555,7 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     slug: "context-engineering",
     crumb: "Context engineering",
     badge: "TECHNOLOGY",
-    badgeColor: "#73C1AE",
+    badgeColor: "var(--color-ice-text)",
     title: "Your AI needs the right briefing.",
     lede: "Before a model acts, it receives a set of documents, instructions, and current data. Context engineering controls what is included. Build a briefing below and see how the answer changes.",
     next: { href: "/concepts/hybrid-rag", label: "Hybrid RAG →" },
@@ -564,7 +564,7 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     slug: "local-ai",
     crumb: "Local AI",
     badge: "TECHNOLOGY",
-    badgeColor: "#73C1AE",
+    badgeColor: "var(--color-ice-text)",
     title: "Own the hardware. Flatten the bill.",
     lede: "Cloud AI bills grow with every query. Local AI is an investment: buy the hardware once, run open models on it, and watch cost per query fall toward electricity. Use the calculator to find your breakeven.",
     prev: { href: "/concepts/agentic-harness", label: "← Agentic Harness" },
@@ -573,7 +573,7 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     slug: "virtual-ai-employees",
     crumb: "AI employees & gateways",
     badge: "DESIGN + TECHNOLOGY",
-    badgeColor: "#EBA93D",
+    badgeColor: "var(--color-gold-text)",
     title: "One AI employee across your working channels.",
     lede: "The same AI employee can work through Microsoft Teams, Slack, and email while using the same knowledge, skills, and approval rules. Switch channels below to see the interaction.",
     prev: { href: "/concepts/agentic-harness", label: "← Agentic Harness" },
@@ -586,7 +586,7 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     slug: "skills-and-gateways",
     crumb: "Skills & gateways",
     badge: "STRATEGY",
-    badgeColor: "#A070A6",
+    badgeColor: "var(--color-plum-text)",
     title: "Write a procedure once, then reuse it across agents.",
     lede: "A skill records your firm's procedure in a versioned, testable format an agent can follow. Gateways make those skills available in Teams, Slack, and email. Browse the library below.",
     prev: { href: "/concepts/agentic-harness", label: "← Agentic Harness" },
@@ -599,7 +599,7 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     slug: "agentic-harness",
     crumb: "Harness engineering",
     badge: "STRATEGY + TECHNOLOGY",
-    badgeColor: "#A070A6",
+    badgeColor: "var(--color-plum-text)",
     title: "A model needs a system around it.",
     lede: "An agentic harness connects the model to current context, approved tools, memory, guardrails, and working channels. Those components let it carry a workflow and leave an audit trail. Drag the model below and select a component.",
     prev: { href: "/concepts/hybrid-rag", label: "← Hybrid RAG" },
@@ -609,7 +609,7 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     slug: "hybrid-rag",
     crumb: "Hybrid RAG",
     badge: "TECHNOLOGY",
-    badgeColor: "#73C1AE",
+    badgeColor: "var(--color-ice-text)",
     title: "Your files, turned into something an AI can reason over.",
     lede: "Most of your company's knowledge lives in unstructured files. Hybrid RAG converts them into two complementary structures: a vector database for meaning and a knowledge graph for facts. Scroll to watch it happen.",
     prev: {

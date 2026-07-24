@@ -195,7 +195,7 @@ export const infiniteAiOs = {
       border: "#F1F1F1",
       avatarBg: "rgba(160,112,166,.18)",
       avatarFg: "#A070A6",
-      roleColor: "#A070A6",
+      roleColor: "var(--color-plum-text)",
     },
     {
       initial: "J",
@@ -207,7 +207,7 @@ export const infiniteAiOs = {
       border: "#F1F1F1",
       avatarBg: "rgba(235,169,61,.18)",
       avatarFg: "#B06A1F",
-      roleColor: "#EBA93D",
+      roleColor: "var(--color-gold-text)",
     },
     {
       initial: "L",
@@ -219,7 +219,7 @@ export const infiniteAiOs = {
       border: "#F1F1F1",
       avatarBg: "rgba(115,193,174,.2)",
       avatarFg: "#3E8A75",
-      roleColor: "#73C1AE",
+      roleColor: "var(--color-ice-text)",
     },
   ],
   roots: [
@@ -260,7 +260,7 @@ export const infiniteAiOs = {
       desc: "All four AI employees responding on their Teams paths",
       badge: "LIVE",
       badgeBg: "rgba(44,213,82,.12)",
-      badgeFg: "#1E9E3E",
+      badgeFg: "#1E7C38",
       dot: "#2CD552",
     },
     {
@@ -268,7 +268,7 @@ export const infiniteAiOs = {
       desc: "Search engine verified in production, v1.18",
       badge: "LIVE",
       badgeBg: "rgba(44,213,82,.12)",
-      badgeFg: "#1E9E3E",
+      badgeFg: "#1E7C38",
       dot: "#2CD552",
     },
     {
@@ -276,7 +276,7 @@ export const infiniteAiOs = {
       desc: "AI employees remember context across sessions",
       badge: "LIVE",
       badgeBg: "rgba(44,213,82,.12)",
-      badgeFg: "#1E9E3E",
+      badgeFg: "#1E7C38",
       dot: "#2CD552",
     },
     {
@@ -284,7 +284,7 @@ export const infiniteAiOs = {
       desc: "Built and connected; completing stability review before rollout",
       badge: "HARDENING",
       badgeBg: "rgba(235,169,61,.15)",
-      badgeFg: "#B06A1F",
+      badgeFg: "#7A5410",
       dot: "#EBA93D",
     },
     {

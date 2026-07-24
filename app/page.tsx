@@ -217,7 +217,7 @@ export default function HomePage() {
                   Start at the stage your operation needs.
                 </h2>
               </div>
-              <Link href="/services" className="text-link">
+              <Link href="/services" className="text-link text-link-on-dark">
                 BROWSE ALL SERVICES&nbsp;&nbsp;&gt;
               </Link>
             </Reveal>

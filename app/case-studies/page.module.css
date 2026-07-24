@@ -25,15 +25,6 @@
   background: var(--color-white);
   color: var(--color-text);
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.06);
-  transition:
-    transform 0.35s var(--ease),
-    box-shadow 0.35s;
-}
-
-a.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 17px 9px 5px rgba(0, 0, 0, 0.15);
-  color: var(--color-text);
 }
 
 .art {
@@ -143,11 +134,11 @@ a.card:hover {
 }
 
 .colLabel[data-tone="plum"] {
-  color: var(--color-plum);
+  color: var(--color-plum-text);
 }
 
 .colLabel[data-tone="ice"] {
-  color: var(--color-ice);
+  color: var(--color-ice-text);
 }
 
 .colText {
@@ -238,5 +229,46 @@ a.card:hover {
   .ctaInner {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .art {
+    min-height: 280px;
+    padding: 24px 20px;
+  }
+
+  .illustrativePill {
+    position: static;
+    align-self: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .sector {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .metric {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .body {
+    padding: 28px 20px;
+  }
+
+  .result,
+  .stackTag {
+    height: auto;
+    min-height: 34px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    white-space: normal;
+  }
+
+  .foot {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

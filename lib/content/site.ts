@@ -153,25 +153,25 @@ export const assessmentLegend = [
 export const principles = [
   {
     num: "01",
-    accent: "#73C1AE",
+    accent: "var(--color-ice-text)",
     name: "Run suitable workloads locally",
     desc: "When quality, volume, and security requirements support it, we run the workload on hardware you own.",
   },
   {
     num: "02",
-    accent: "#A070A6",
+    accent: "var(--color-plum-text)",
     name: "Keep every artifact portable",
     desc: "We use open models and standards where they meet the quality bar. Your data, code, and documentation remain exportable.",
   },
   {
     num: "03",
-    accent: "#EBA93D",
+    accent: "var(--color-gold-text)",
     name: "Require approval for consequential actions",
     desc: "A person approves consequential actions, and each decision is recorded in an audit trail.",
   },
   {
     num: "04",
-    accent: "#469DBB",
+    accent: "var(--color-navy)",
     name: "Set a measurable workflow target",
     desc: "Every engagement starts with a workflow result and a baseline. If the economics do not work, we recommend stopping.",
   },

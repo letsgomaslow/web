@@ -77,7 +77,7 @@
 .doorTag {
   font: 400 10px var(--font-mono);
   letter-spacing: 1px;
-  color: #a5a5a5;
+  color: var(--color-muted);
 }
 
 .journey {
@@ -258,7 +258,7 @@
 .deliverable {
   font: 400 10px var(--font-mono);
   letter-spacing: 1px;
-  color: #a5a5a5;
+  color: var(--color-muted);
 }
 
 .e2e {

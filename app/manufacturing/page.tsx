@@ -154,7 +154,7 @@ export default function ManufacturingPage() {
                 predictable monthly cost and keep process data inside the
                 building.
               </p>
-              <Link href="/security" className="text-link">
+              <Link href="/security" className="text-link text-link-on-dark">
                 HOW WE HANDLE YOUR DATA&nbsp;&nbsp;&gt;
               </Link>
             </Reveal>

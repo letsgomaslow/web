@@ -18,8 +18,13 @@ export function PageShell({
 }: PageShellProps) {
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
       <SiteNav highlightConcepts={highlightConcepts} minimal={minimalNav} />
-      <main>{children}</main>
+      <main id="main-content" tabIndex={-1}>
+        {children}
+      </main>
       {footer !== "none" && (
         <SiteFooter variant={footer} showCtaBand={showCtaBand} />
       )}

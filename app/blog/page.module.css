@@ -43,7 +43,7 @@
   padding: 0 18px;
   border-radius: 17px;
   background: var(--color-gold-solid);
-  color: var(--color-white);
+  color: var(--color-navy);
   font: 600 12px var(--font-sans);
   letter-spacing: 2px;
   position: relative;
@@ -81,7 +81,7 @@
   align-items: center;
   font: 400 12px var(--font-display);
   letter-spacing: 0.5px;
-  color: #a5a5a5;
+  color: var(--color-muted);
 }
 
 .featuredTitle {

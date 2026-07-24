@@ -240,7 +240,7 @@
 }
 
 .failure :global(.eyebrow) {
-  color: var(--color-coral);
+  color: var(--color-error);
 }
 
 .failureHead {

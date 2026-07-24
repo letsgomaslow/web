@@ -17,3 +17,12 @@
 
 - Run `npm test` after copy changes. The content suite rejects em dashes and known placeholder markers.
 - Check page metadata, shared content modules, and inline JSX together; public copy lives in all three places.
+
+## Accessibility and responsive verification
+
+- Use the semantic `*-text` color tokens for readable text on light surfaces. Keep brighter accent tokens for decoration, borders, backgrounds, and text on dark surfaces.
+- Keep visible form labels, visible keyboard focus, a working skip link, and one `h1` on every public route.
+- Modal navigation must move focus inside, trap Tab and Shift+Tab, close on Escape, and restore focus to its trigger.
+- Do not place buttons or links inside a `<summary>`. Keep interactive controls available when the related `<details>` element is closed.
+- Run `npm test`, `npm run lint`, `npm run build`, and the full Playwright suite after accessibility or responsive changes.
+- Keep Playwright coverage for every public route at 320, 768, 1024, and 1440 pixels, plus WCAG text spacing and reduced-motion modes.

@@ -234,3 +234,22 @@
     line-height: 40px;
   }
 }
+
+@media (max-width: 540px) {
+  .hero,
+  .pain,
+  .path,
+  .finalInner {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .bookCard,
+  .painCard {
+    padding: 24px 20px;
+  }
+
+  .hl {
+    white-space: normal;
+  }
+}
