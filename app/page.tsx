@@ -200,7 +200,9 @@ export default function HomePage() {
                     </span>
                     <span className={styles.conceptName}>{c.name}</span>
                     <span className={styles.conceptDesc}>{c.desc}</span>
-                    <span className="text-link">EXPLORE&nbsp;&nbsp;&gt;</span>
+                    <span className={`${styles.conceptCta} text-link`}>
+                      EXPLORE&nbsp;&nbsp;&gt;
+                    </span>
                   </Link>
                 </Reveal>
               ))}

@@ -62,7 +62,7 @@ export const caseStudiesIndex = [
       "On-prem deployment pattern",
     ],
     stack: ["HYBRID_RAG", "KNOWLEDGE_GRAPH", "ON_PREM"],
-    href: "#",
+    href: null,
   },
   {
     slug: "virtual-paralegal",
@@ -83,7 +83,7 @@ export const caseStudiesIndex = [
       "Documented escalation path",
     ],
     stack: ["VIRTUAL_EMPLOYEE", "EMAIL_GATEWAY", "HARNESS"],
-    href: "#",
+    href: null,
   },
   {
     slug: "local-ai-factory",
@@ -104,7 +104,7 @@ export const caseStudiesIndex = [
       "Workload-based capacity plan",
     ],
     stack: ["LOCAL_AI", "OPEN_MODELS", "TEAMS_GATEWAY"],
-    href: "#",
+    href: null,
   },
 ];
 

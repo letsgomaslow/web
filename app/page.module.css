@@ -186,6 +186,12 @@
   color: var(--color-muted);
 }
 
+.conceptRow .conceptCta {
+  justify-self: end;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
 .journey {
   background: var(--color-navy-deep);
   color: #fff;
@@ -408,8 +414,12 @@
   }
 
   .conceptDesc,
-  .conceptRow .text-link {
+  .conceptCta {
     grid-column: 2;
+  }
+
+  .conceptRow .conceptCta {
+    justify-self: start;
   }
 
   .stages {

@@ -80,9 +80,9 @@ describe("content modules", () => {
 
   it("case studies index has real engagement hrefs", () => {
     expect(caseStudiesIndex.length).toBeGreaterThanOrEqual(2);
-    const linked = caseStudiesIndex.filter((c) => c.href !== "#");
-    expect(linked.some((c) => c.href.includes("infinite-ai-os"))).toBe(true);
-    expect(linked.some((c) => c.href.includes("agenthub"))).toBe(true);
+    const linked = caseStudiesIndex.filter((c) => Boolean(c.href));
+    expect(linked.some((c) => c.href?.includes("infinite-ai-os"))).toBe(true);
+    expect(linked.some((c) => c.href?.includes("agenthub"))).toBe(true);
   });
 
   it("only publishes articles that have a complete body", () => {
@@ -180,6 +180,7 @@ describe("content modules", () => {
     scenarios.forEach((study) => {
       expect(study.metric).toBe("SCENARIO");
       expect(study.metricLabel).toMatch(/not a client result/i);
+      expect(study.href).toBeNull();
     });
   });
 });

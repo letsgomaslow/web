@@ -99,6 +99,72 @@ test.describe("navigation", () => {
   });
 });
 
+test.describe("card interactions and layout", () => {
+  test("concept CTAs keep a readable mobile grid position", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    await page.goto("/");
+
+    const row = page
+      .locator('[data-screen-label="Concepts"]')
+      .locator('a[href="/concepts/context-engineering"]');
+    const cta = row.locator(".text-link");
+    const [rowBox, ctaBox, ctaStyle] = await Promise.all([
+      row.boundingBox(),
+      cta.boundingBox(),
+      cta.evaluate((element) => ({
+        whiteSpace: getComputedStyle(element).whiteSpace,
+        text: element.textContent?.replace(/\s+/g, " ").trim(),
+      })),
+    ]);
+
+    expect(rowBox).not.toBeNull();
+    expect(ctaBox).not.toBeNull();
+    expect(ctaStyle.text).toBe("EXPLORE >");
+    expect(ctaStyle.whiteSpace).toBe("nowrap");
+    expect(ctaBox!.x).toBeGreaterThan(rowBox!.x + 48);
+    expect(ctaBox!.height).toBeLessThanOrEqual(20);
+  });
+
+  test("the full production card is the case-study link", async ({ page }) => {
+    await page.goto("/case-studies");
+
+    const link = page.getByRole("link", {
+      name: /View case study: Infinite AI OS/i,
+    });
+    const article = link.locator('article[data-card-slug="infinite-ai-os"]');
+    const [linkBox, articleBox] = await Promise.all([
+      link.boundingBox(),
+      article.boundingBox(),
+    ]);
+
+    expect(linkBox).toEqual(articleBox);
+    await link.click({ position: { x: 24, y: 24 } });
+    await expect(page).toHaveURL(/\/case-studies\/infinite-ai-os/);
+  });
+
+  test("scenario metadata is structured, non-overlapping, and not linked", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/case-studies");
+
+    const card = page.locator(
+      'article[data-card-slug="financial-knowledge-graph"]',
+    );
+    const status = card.locator("[data-scenario-status]");
+    const sector = card.locator("[data-card-sector]");
+    const [statusBox, sectorBox] = await Promise.all([
+      status.boundingBox(),
+      sector.boundingBox(),
+    ]);
+
+    expect(await card.getByRole("link").count()).toBe(0);
+    expect(statusBox).not.toBeNull();
+    expect(sectorBox).not.toBeNull();
+    expect(statusBox!.y + statusBox!.height).toBeLessThanOrEqual(sectorBox!.y);
+  });
+});
+
 test.describe("interactive islands", () => {
   test("assessment quiz answers update progress", async ({ page }) => {
     await page.goto("/assessment");

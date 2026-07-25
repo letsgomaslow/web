@@ -25,6 +25,12 @@
 - Run `npm test` after copy changes. The content suite rejects em dashes and known placeholder markers.
 - Check page metadata, shared content modules, and inline JSX together; public copy lives in all three places.
 
+## Card interaction and layout
+
+- When a card has a destination, use one semantic link for the full card and keep nested CTA text non-interactive. Cards without a destination must stay non-interactive and use `null`, never `"#"`, for missing routes.
+- Keep repeated card labels and status metadata in normal layout flow with explicit gaps. Do not absolutely position metadata that must scale to new sectors, statuses, or viewport widths.
+- Give responsive card elements a local CSS-module class when their grid placement changes. Do not rely on styling a global utility class through a scoped CSS-module selector.
+
 ## Accessibility and responsive verification
 
 - Use the semantic `*-text` color tokens for readable text on light surfaces. Keep brighter accent tokens for decoration, borders, backgrounds, and text on dark surfaces.
