@@ -17,12 +17,16 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
   const inner = (
     <>
       <div className={styles.art} style={{ background: cs.art }}>
-        {cs.illustrative ? (
-          <span className={styles.illustrativePill}>
-            ILLUSTRATIVE SCENARIO · NOT A CLIENT
+        <div className={styles.artMeta}>
+          {cs.illustrative ? (
+            <span className={styles.illustrativePill} data-scenario-status>
+              ILLUSTRATIVE SCENARIO · NOT A CLIENT
+            </span>
+          ) : null}
+          <span className={styles.sector} data-card-sector>
+            {cs.sector}
           </span>
-        ) : null}
-        <span className={styles.sector}>{cs.sector}</span>
+        </div>
         <div className={styles.metricBlock}>
           <div className={styles.metric}>{cs.metric}</div>
           <div className={styles.metricLabel}>{cs.metricLabel}</div>
@@ -62,17 +66,37 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
               </span>
             ))}
           </div>
-          {cs.href !== "#" && (
-            <Link href={cs.href} className="text-link">
+          {cs.href ? (
+            <span className={`${styles.caseStudyCta} text-link`} aria-hidden>
               VIEW CASE STUDY&nbsp;&nbsp;&gt;
-            </Link>
-          )}
+            </span>
+          ) : null}
         </div>
       </div>
     </>
   );
 
-  return <article className={styles.card}>{inner}</article>;
+  const card = (
+    <article
+      className={`${styles.card} ${cs.href ? styles.linkedCard : ""}`}
+      data-card-kind={cs.href ? "case-study" : "scenario"}
+      data-card-slug={cs.slug}
+    >
+      {inner}
+    </article>
+  );
+
+  if (!cs.href) return card;
+
+  return (
+    <Link
+      href={cs.href}
+      className={styles.cardLink}
+      aria-label={`View case study: ${cs.title}`}
+    >
+      {card}
+    </Link>
+  );
 }
 
 export default function CaseStudiesPage() {
