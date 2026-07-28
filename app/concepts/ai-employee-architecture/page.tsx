@@ -6,6 +6,7 @@ import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { concepts, homeCases } from "@/lib/content/home";
 import { architectureCapabilities } from "@/lib/content/architecture";
+import { architectureArticles } from "@/lib/content/blog";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -180,6 +181,37 @@ export default function AiEmployeeArchitecturePage() {
           </div>
         </section>
 
+        <section className={styles.articles} data-screen-label="Architecture Articles">
+          <div className="wrap">
+            <Reveal className={styles.sectionHead}>
+              <div>
+                <div className="eyebrow">SUPPORTING ARTICLES</div>
+                <h2 className="h2">Read the operating details</h2>
+              </div>
+              <Link href="/blog" className="text-link">
+                VIEW ALL ARTICLES&nbsp;&nbsp;&gt;
+              </Link>
+            </Reveal>
+            <div className={styles.articleGrid}>
+              {architectureArticles.map((article) => (
+                <Reveal key={article.slug}>
+                  <Link
+                    href={`/blog/${article.slug}`}
+                    className={styles.articleCard}
+                  >
+                    <span>
+                      {article.cat} · {article.read}
+                    </span>
+                    <h3>{article.title}</h3>
+                    <p>{article.desc}</p>
+                    <em>READ THE ARTICLE&nbsp;&nbsp;&gt;</em>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className={styles.cta} data-screen-label="CTA">
           <div className={styles.ctaInner}>
             <div>
@@ -198,4 +230,3 @@ export default function AiEmployeeArchitecturePage() {
     </PageShell>
   );
 }
-

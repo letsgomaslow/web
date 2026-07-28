@@ -290,6 +290,79 @@
   color: var(--color-ice-on-dark);
 }
 
+.articles {
+  padding: 96px var(--gutter);
+  background: var(--color-off-white);
+}
+
+.articleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--color-navy);
+}
+
+.articleCard {
+  display: flex;
+  height: 100%;
+  padding: 28px 24px 30px;
+  border-right: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-white);
+  color: var(--color-text);
+  flex-direction: column;
+  transition: background 0.25s var(--ease);
+}
+
+.articleGrid > :last-child .articleCard {
+  border-right: 0;
+}
+
+.articleCard:hover {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.articleCard > span {
+  margin-bottom: 28px;
+  color: var(--color-plum-text);
+  font: 700 10px/16px var(--font-mono);
+  letter-spacing: 1px;
+}
+
+.articleCard h3 {
+  margin: 0 0 12px;
+  color: var(--color-navy);
+  font: 700 23px/29px var(--font-sans);
+  letter-spacing: -0.4px;
+}
+
+.articleCard p {
+  margin: 0 0 24px;
+  color: var(--color-muted);
+  font: 400 14px/23px var(--font-sans);
+  flex: 1;
+}
+
+.articleCard em {
+  color: var(--color-cta-link);
+  font: 700 10px/16px var(--font-sans);
+  font-style: normal;
+  letter-spacing: 1.5px;
+}
+
+.articleCard:hover > span,
+.articleCard:hover em {
+  color: var(--color-ice-on-dark);
+}
+
+.articleCard:hover h3 {
+  color: var(--color-white);
+}
+
+.articleCard:hover p {
+  color: var(--color-mist);
+}
+
 .cta {
   padding: 76px var(--gutter);
   background: var(--color-navy);
@@ -344,6 +417,15 @@
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .articleGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .articleCard,
+  .articleGrid > :last-child .articleCard {
+    border-right: 0;
+  }
 }
 
 @media (max-width: 700px) {
@@ -360,7 +442,8 @@
   .comparison,
   .inspect,
   .deepDives,
-  .production {
+  .production,
+  .articles {
     padding: 64px var(--gutter);
   }
 

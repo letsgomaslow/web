@@ -8,7 +8,13 @@ import {
 } from "@/lib/content/site";
 import { serviceCatalog, serviceStages } from "@/lib/content/services";
 import { concepts, metrics } from "@/lib/content/home";
-import { getBlogArticle, getAllBlogSlugs } from "@/lib/content/blog";
+import {
+  blogArticles,
+  featuredPost,
+  getBlogArticle,
+  getAllBlogSlugs,
+  publishedArticles,
+} from "@/lib/content/blog";
 import { caseStudiesIndex } from "@/lib/content/case-studies";
 import {
   faqItems,
@@ -108,10 +114,20 @@ describe("content modules", () => {
   });
 
   it("only publishes articles that have a complete body", () => {
-    expect(getAllBlogSlugs()).toEqual(["context-engineering"]);
+    expect(getAllBlogSlugs()).toEqual([
+      "what-makes-an-ai-employee-work",
+      "context-memory-and-skills",
+      "permissions-approvals-audit-trails",
+      "context-engineering",
+    ]);
     getAllBlogSlugs().forEach((slug) => {
-      expect(getBlogArticle(slug)?.body.length).toBeGreaterThan(3);
+      expect(getBlogArticle(slug)?.body.length).toBeGreaterThan(10);
     });
+    expect(featuredPost.featured).toBe(true);
+    expect(publishedArticles.every((article) => article.published)).toBe(true);
+    expect(publishedArticles).toHaveLength(
+      Object.values(blogArticles).filter((article) => article.published).length,
+    );
   });
 
   it("trust content carries the copy-v3 invariants", () => {
