@@ -4,6 +4,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { infiniteAiOs as cs } from "@/lib/content/case-studies";
+import { architectureCapabilities } from "@/lib/content/architecture";
 import styles from "../case-study.module.css";
 
 export const metadata: Metadata = {
@@ -262,6 +263,38 @@ export default function InfiniteAiOsPage() {
               Stylized recreations of proof-of-concept sessions from the May
               pilot phase.
             </p>
+          </div>
+        </section>
+
+        <section className={styles.architecture} data-screen-label="Architecture Mapping">
+          <div className="wrap">
+            <div className="eyebrow">PRODUCTION ARCHITECTURE MAP</div>
+            <h2 className={styles.sectionH2}>
+              The working components in shared language
+            </h2>
+            <p className={styles.architectureLede}>
+              Each mapping below points to a component evidenced in the current
+              production system. The related walkthrough shows how the same
+              responsibilities can carry an RFQ from intake to review.
+            </p>
+            <div className={styles.architectureGrid}>
+              {cs.architectureMap.map((item) => {
+                const capability = architectureCapabilities.find(
+                  ({ id }) => id === item.capabilityId,
+                );
+                if (!capability) return null;
+                return (
+                  <article key={item.capabilityId}>
+                    <span>{capability.businessLabel}</span>
+                    <h3>{capability.technicalLabel}</h3>
+                    <p>{item.evidence}</p>
+                  </article>
+                );
+              })}
+            </div>
+            <Link href={cs.architectureHref} className="text-link">
+              {cs.architectureLabel}&nbsp;&nbsp;&gt;
+            </Link>
           </div>
         </section>
 

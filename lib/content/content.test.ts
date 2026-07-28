@@ -15,7 +15,11 @@ import {
   getAllBlogSlugs,
   publishedArticles,
 } from "@/lib/content/blog";
-import { caseStudiesIndex } from "@/lib/content/case-studies";
+import {
+  agentHub,
+  caseStudiesIndex,
+  infiniteAiOs,
+} from "@/lib/content/case-studies";
 import {
   faqItems,
   manufacturingBottlenecks,
@@ -219,7 +223,29 @@ describe("content modules", () => {
     scenarios.forEach((study) => {
       expect(study.metric).toBe("SCENARIO");
       expect(study.metricLabel).toMatch(/not a client result/i);
-      expect(study.href).toBeNull();
+      expect(study.href).toBeTruthy();
+    });
+    expect(scenarios.map(({ href }) => href)).toEqual([
+      "/concepts/ai-employee-architecture#workflow-compliance",
+      "/concepts/ai-employee-architecture#workflow-intake",
+      "/concepts/local-ai",
+    ]);
+  });
+
+  it("maps only named production evidence to architecture capabilities", () => {
+    const capabilityIds = new Set(
+      architectureCapabilities.map(({ id }) => id),
+    );
+
+    [infiniteAiOs, agentHub].forEach((study) => {
+      expect(study.architectureMap.length).toBeGreaterThan(0);
+      expect(new Set(study.architectureMap.map(({ capabilityId }) => capabilityId))).toHaveLength(
+        study.architectureMap.length,
+      );
+      study.architectureMap.forEach(({ capabilityId, evidence }) => {
+        expect(capabilityIds.has(capabilityId)).toBe(true);
+        expect(evidence.length).toBeGreaterThan(30);
+      });
     });
   });
 });

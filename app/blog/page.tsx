@@ -7,7 +7,7 @@ import { catColors, featuredPost, secondaryPosts } from "@/lib/content/blog";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Blog | Maslow AI",
+  title: "Blog",
   description:
     "Plain-language writing on production AI systems: what works, what it costs, and how to own it.",
 };

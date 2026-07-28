@@ -1,3 +1,10 @@
+import type { ArchitectureCapabilityId } from "@/lib/content/architecture";
+
+export type ArchitectureEvidence = {
+  capabilityId: ArchitectureCapabilityId;
+  evidence: string;
+};
+
 export const caseStudiesIndex = [
   {
     slug: "infinite-ai-os",
@@ -62,7 +69,7 @@ export const caseStudiesIndex = [
       "On-prem deployment pattern",
     ],
     stack: ["HYBRID_RAG", "KNOWLEDGE_GRAPH", "ON_PREM"],
-    href: null,
+    href: "/concepts/ai-employee-architecture#workflow-compliance",
   },
   {
     slug: "virtual-paralegal",
@@ -83,7 +90,7 @@ export const caseStudiesIndex = [
       "Documented escalation path",
     ],
     stack: ["VIRTUAL_EMPLOYEE", "EMAIL_GATEWAY", "HARNESS"],
-    href: null,
+    href: "/concepts/ai-employee-architecture#workflow-intake",
   },
   {
     slug: "local-ai-factory",
@@ -104,7 +111,7 @@ export const caseStudiesIndex = [
       "Workload-based capacity plan",
     ],
     stack: ["LOCAL_AI", "OPEN_MODELS", "TEAMS_GATEWAY"],
-    href: null,
+    href: "/concepts/local-ai",
   },
 ];
 
@@ -112,6 +119,34 @@ export const caseStudiesIndex = [
 export const caseStudyIndex = caseStudiesIndex;
 
 export const infiniteAiOs = {
+  architectureHref: "/concepts/ai-employee-architecture#workflow-rfq",
+  architectureLabel: "FOLLOW THE RFQ ARCHITECTURE",
+  architectureMap: [
+    {
+      capabilityId: "intake",
+      evidence: "Teams paths and file intake receive work and source files.",
+    },
+    {
+      capabilityId: "briefing",
+      evidence: "Company memory and the knowledge map assemble relevant context.",
+    },
+    {
+      capabilityId: "procedure",
+      evidence: "Employee profiles define roles, instructions, boundaries, and handoffs.",
+    },
+    {
+      capabilityId: "access",
+      evidence: "Tool connectors provide approved access to business systems.",
+    },
+    {
+      capabilityId: "decision",
+      evidence: "Human approval gates hold consequential actions for review.",
+    },
+    {
+      capabilityId: "record",
+      evidence: "Observability makes AI activity traceable and reviewable.",
+    },
+  ] satisfies ArchitectureEvidence[],
   clientName: "a private manufacturing group",
   breadcrumb: "Manufacturing",
   tags: [
@@ -334,6 +369,30 @@ export const infiniteAiOs = {
 };
 
 export const agentHub = {
+  architectureHref: "/concepts/ai-employee-architecture#workflow-compliance",
+  architectureLabel: "FOLLOW THE COMPLIANCE ARCHITECTURE",
+  architectureMap: [
+    {
+      capabilityId: "intake",
+      evidence: "A chat request enters the live streaming pipeline with its task intent.",
+    },
+    {
+      capabilityId: "briefing",
+      evidence: "Vector and graph retrieval assemble cited contract context.",
+    },
+    {
+      capabilityId: "procedure",
+      evidence: "Deterministic intent routing governs the multi-round tool loop.",
+    },
+    {
+      capabilityId: "access",
+      evidence: "The classified request gates which response tools are available.",
+    },
+    {
+      capabilityId: "record",
+      evidence: "The Activity Panel exposes searches, tool rounds, and source paths.",
+    },
+  ] satisfies ArchitectureEvidence[],
   clientName: "a global healthcare company's internal innovation program",
   breadcrumb: "Enterprise AI Hub",
   tags: [
