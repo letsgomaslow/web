@@ -17,6 +17,7 @@ const routes = [
   "/security",
   "/faq",
   "/diligence",
+  "/concepts/ai-employee-architecture",
   "/concepts/context-engineering",
   "/concepts/agentic-harness",
   "/concepts/hybrid-rag",
@@ -166,6 +167,60 @@ test.describe("card interactions and layout", () => {
 });
 
 test.describe("interactive islands", () => {
+  test("architecture workflow tabs support hashes and keyboard navigation", async ({
+    page,
+  }) => {
+    await page.goto("/concepts/ai-employee-architecture#workflow-intake");
+
+    const tabs = page.getByRole("tab");
+    await expect(tabs).toHaveCount(3);
+    const intakeTab = page.getByRole("tab", { name: /Shared inbox intake/i });
+    await expect(intakeTab).toHaveAttribute("aria-selected", "true");
+    await expect(
+      page.getByRole("heading", {
+        name: "Client inquiry to partner-reviewed response",
+      }),
+    ).toBeVisible();
+
+    await intakeTab.focus();
+    await page.keyboard.press("ArrowRight");
+    await expect(
+      page.getByRole("tab", { name: /Compliance answer/i }),
+    ).toHaveAttribute("aria-selected", "true");
+    await expect(page).toHaveURL(/#workflow-compliance$/);
+
+    await page.keyboard.press("Home");
+    await expect(
+      page.getByRole("tab", { name: /RFQ \+ estimating/i }),
+    ).toHaveAttribute("aria-selected", "true");
+    await expect(page).toHaveURL(/#workflow-rfq$/);
+  });
+
+  test("architecture workflows remain available without JavaScript", async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto("/concepts/ai-employee-architecture");
+
+    await expect(page.locator("[data-workflow-panel]")).toHaveCount(3);
+    await expect(
+      page.getByRole("heading", {
+        name: "RFQ received to approved estimate draft",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        name: "Client inquiry to partner-reviewed response",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Policy question to cited answer" }),
+    ).toBeVisible();
+
+    await context.close();
+  });
+
   test("assessment quiz answers update progress", async ({ page }) => {
     await page.goto("/assessment");
     await expect(page.getByText("0 / 6 answered")).toBeVisible();

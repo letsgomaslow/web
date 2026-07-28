@@ -97,6 +97,9 @@ export default function AgenticHarnessPage() {
             ) : null}
           </Reveal>
           <div className={styles.related}>
+            <Link href="/concepts/ai-employee-architecture">
+              See the whole system
+            </Link>
             {meta.prev && <Link href={meta.prev.href}>{meta.prev.label}</Link>}
             {meta.next && <Link href={meta.next.href}>{meta.next.label}</Link>}
           </div>

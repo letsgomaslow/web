@@ -17,6 +17,10 @@ import {
 } from "@/lib/content/trust";
 import { foundationWeeks, twoDoors } from "@/lib/content/engagement";
 import { conceptFailures } from "@/lib/content/explainers";
+import {
+  architectureCapabilities,
+  architectureWorkflows,
+} from "@/lib/content/architecture";
 import { copilotSection, costOfWaiting } from "@/lib/content/home";
 import {
   actionTheme,
@@ -69,6 +73,24 @@ describe("content modules", () => {
     expect(concepts).toHaveLength(6);
     expect(metrics).toHaveLength(4);
     concepts.forEach((c) => expect(c.href.startsWith("/concepts/")).toBe(true));
+  });
+
+  it("architecture workflows cover the same six responsibilities in order", () => {
+    const capabilityIds = architectureCapabilities.map(({ id }) => id);
+    expect(architectureCapabilities).toHaveLength(6);
+    expect(new Set(capabilityIds)).toHaveLength(6);
+    expect(architectureWorkflows).toHaveLength(3);
+
+    architectureWorkflows.forEach((workflow) => {
+      expect(workflow.steps.map(({ capabilityId }) => capabilityId)).toEqual(
+        capabilityIds,
+      );
+      expect(workflow.statusLabel).toMatch(/not a client result/i);
+      expect(workflow.relatedHref).toMatch(/^\/concepts\//);
+      if (workflow.proofHref) {
+        expect(workflow.proofHref).toMatch(/^\/case-studies\//);
+      }
+    });
   });
 
   it("blog article generates for featured slug", () => {
@@ -161,6 +183,7 @@ describe("content modules", () => {
       "neigh" + "bours",
       "data cen" + "tre",
       "colour-" + "coded",
+      "Her" + "mes",
     ];
 
     roots.flatMap(sourceFiles).forEach((file) => {

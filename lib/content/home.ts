@@ -165,7 +165,7 @@ export const copilotSection = {
   h2: "Keep Copilot. Add the layer it's missing.",
   body: "Copilot is strong at personal productivity, and most clients should keep it. It does not know your estimating logic, carry a quote from request to approval across systems, or answer from a knowledge base you govern. We build that workflow layer. Copilot assists individuals; AI employees carry the workflow.",
   ctaLabel: "SEE WHAT THE LAYER CONTAINS",
-  ctaHref: "/concepts/virtual-ai-employees",
+  ctaHref: "/concepts/ai-employee-architecture",
 } as const;
 
 export const costOfWaiting = {

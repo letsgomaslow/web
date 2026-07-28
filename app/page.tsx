@@ -16,6 +16,7 @@ import {
   stages,
   whoWeWorkWith,
 } from "@/lib/content/home";
+import { architectureOverview } from "@/lib/content/architecture";
 import styles from "./page.module.css";
 
 /** Gate positions along the 90-day (≈13-week) rail, as percentages. */
@@ -184,6 +185,17 @@ export default function HomePage() {
               <span className={styles.aside}>
                 Each opens an interactive explainer
               </span>
+            </Reveal>
+            <Reveal>
+              <Link
+                href={architectureOverview.href}
+                className={styles.conceptOverview}
+              >
+                <span>{architectureOverview.eyebrow}</span>
+                <strong>{architectureOverview.title}</strong>
+                <p>{architectureOverview.desc}</p>
+                <em>{architectureOverview.cta}&nbsp;&nbsp;&gt;</em>
+              </Link>
             </Reveal>
             <div className={styles.conceptList}>
               {concepts.map((c) => (

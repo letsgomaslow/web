@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/manufacturing",
     "/security",
     "/faq",
+    "/concepts/ai-employee-architecture",
     "/concepts/agentic-harness",
     "/concepts/hybrid-rag",
     "/concepts/context-engineering",
