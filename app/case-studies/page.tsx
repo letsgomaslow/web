@@ -68,7 +68,8 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
           </div>
           {cs.href ? (
             <span className={`${styles.caseStudyCta} text-link`} aria-hidden>
-              VIEW CASE STUDY&nbsp;&nbsp;&gt;
+              {cs.illustrative ? "EXPLORE THE PATTERN" : "VIEW CASE STUDY"}
+              &nbsp;&nbsp;&gt;
             </span>
           ) : null}
         </div>
@@ -79,7 +80,7 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
   const card = (
     <article
       className={`${styles.card} ${cs.href ? styles.linkedCard : ""}`}
-      data-card-kind={cs.href ? "case-study" : "scenario"}
+      data-card-kind={cs.illustrative ? "scenario" : "case-study"}
       data-card-slug={cs.slug}
     >
       {inner}
@@ -92,7 +93,7 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
     <Link
       href={cs.href}
       className={styles.cardLink}
-      aria-label={`View case study: ${cs.title}`}
+      aria-label={`${cs.illustrative ? "Explore scenario" : "View case study"}: ${cs.title}`}
     >
       {card}
     </Link>

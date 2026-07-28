@@ -10,7 +10,7 @@ import { architectureArticles } from "@/lib/content/blog";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "The system behind an AI employee | Maslow AI",
+  title: "The system behind an AI employee",
   description:
     "Follow work through context, reusable procedures, approved tools, human decisions, and a reviewable record.",
 };

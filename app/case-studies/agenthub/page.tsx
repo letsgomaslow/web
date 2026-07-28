@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { agentHub as cs } from "@/lib/content/case-studies";
+import { architectureCapabilities } from "@/lib/content/architecture";
 import styles from "../case-study.module.css";
 
 export const metadata: Metadata = {
@@ -177,6 +178,38 @@ export default function AgentHubPage() {
                 prompt modifications as they happen.
               </span>
             </div>
+          </div>
+        </section>
+
+        <section className={styles.architecture} data-screen-label="Architecture Mapping">
+          <div className="wrap">
+            <div className="eyebrow">PRODUCTION ARCHITECTURE MAP</div>
+            <h2 className={styles.sectionH2}>
+              The demonstrated components in shared language
+            </h2>
+            <p className={styles.architectureLede}>
+              This map includes only components demonstrated in the current
+              system. The related walkthrough extends the vocabulary through a
+              reviewer-controlled compliance answer.
+            </p>
+            <div className={styles.architectureGrid}>
+              {cs.architectureMap.map((item) => {
+                const capability = architectureCapabilities.find(
+                  ({ id }) => id === item.capabilityId,
+                );
+                if (!capability) return null;
+                return (
+                  <article key={item.capabilityId}>
+                    <span>{capability.businessLabel}</span>
+                    <h3>{capability.technicalLabel}</h3>
+                    <p>{item.evidence}</p>
+                  </article>
+                );
+              })}
+            </div>
+            <Link href={cs.architectureHref} className="text-link">
+              {cs.architectureLabel}&nbsp;&nbsp;&gt;
+            </Link>
           </div>
         </section>
 

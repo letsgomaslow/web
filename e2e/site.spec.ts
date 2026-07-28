@@ -146,26 +146,38 @@ test.describe("card interactions and layout", () => {
     await expect(page).toHaveURL(/\/case-studies\/infinite-ai-os/);
   });
 
-  test("scenario metadata is structured, non-overlapping, and not linked", async ({
+  test("scenario cards use one full-card link and retain status metadata", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto("/case-studies");
 
-    const card = page.locator(
+    const link = page.getByRole("link", {
+      name: /Explore scenario: 120,000 documents, one knowledge graph/i,
+    });
+    const card = link.locator(
       'article[data-card-slug="financial-knowledge-graph"]',
     );
     const status = card.locator("[data-scenario-status]");
     const sector = card.locator("[data-card-sector]");
-    const [statusBox, sectorBox] = await Promise.all([
+    const [linkBox, cardBox, statusBox, sectorBox] = await Promise.all([
+      link.boundingBox(),
+      card.boundingBox(),
       status.boundingBox(),
       sector.boundingBox(),
     ]);
 
+    expect(linkBox).toEqual(cardBox);
     expect(await card.getByRole("link").count()).toBe(0);
     expect(statusBox).not.toBeNull();
     expect(sectorBox).not.toBeNull();
     expect(statusBox!.y + statusBox!.height).toBeLessThanOrEqual(sectorBox!.y);
+
+    await link.click({ position: { x: 24, y: 24 } });
+    await expect(page).toHaveURL(/#workflow-compliance$/);
+    await expect(
+      page.getByRole("tab", { name: /Compliance answer/i }),
+    ).toHaveAttribute("aria-selected", "true");
   });
 });
 
