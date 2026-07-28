@@ -1,10 +1,10 @@
 .hero {
-  padding: 84px var(--gutter) 76px;
+  padding: 52px var(--gutter) 48px;
   background: var(--color-white);
 }
 
 .crumb {
-  margin-bottom: 26px;
+  margin-bottom: 18px;
   color: var(--color-soft);
   font: 400 13px/20px var(--font-sans);
 }
@@ -19,19 +19,30 @@
   font-weight: 600;
 }
 
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.72fr);
+  gap: 72px;
+  align-items: end;
+}
+
+.heroCopy {
+  padding-bottom: 4px;
+}
+
 .title {
-  max-width: 900px;
-  margin: 0 0 24px;
+  max-width: 800px;
+  margin: 18px 0 0;
   color: var(--color-navy);
-  font: 600 58px/62px var(--font-sans);
+  font: 600 54px/58px var(--font-sans);
   letter-spacing: -1.4px;
 }
 
 .lede {
-  max-width: 760px;
+  max-width: 720px;
   margin: 0;
   color: var(--color-muted);
-  font: 400 18px/30px var(--font-sans);
+  font: 400 17px/28px var(--font-sans);
   letter-spacing: -0.2px;
 }
 
@@ -40,25 +51,25 @@
   flex-wrap: wrap;
   gap: 22px;
   align-items: center;
-  margin-top: 36px;
+  margin-top: 28px;
 }
 
 .journeyBand {
-  padding: 88px var(--gutter) 96px;
+  padding: 64px var(--gutter) 72px;
   background: var(--color-navy-deep);
   color: var(--color-white);
 }
 
 .journeyIntro {
   max-width: var(--max);
-  margin: 0 auto 40px;
+  margin: 0 auto 28px;
 }
 
 .journeyIntro h2 {
   max-width: 700px;
   margin: 0 0 14px;
   color: var(--color-white);
-  font: 500 42px/50px var(--font-sans);
+  font: 500 38px/45px var(--font-sans);
   letter-spacing: -0.8px;
 }
 
@@ -70,7 +81,7 @@
 }
 
 .comparison {
-  padding: 88px var(--gutter);
+  padding: 64px var(--gutter);
   background: var(--color-off-white);
 }
 
@@ -95,9 +106,8 @@
   font: 400 17px/29px var(--font-sans);
 }
 
-.inspect,
 .deepDives {
-  padding: 96px var(--gutter);
+  padding: 80px var(--gutter);
 }
 
 .deepDives {
@@ -109,7 +119,7 @@
   justify-content: space-between;
   gap: 40px;
   align-items: flex-end;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .sectionHead h2 {
@@ -123,63 +133,6 @@
   font: 400 15px/24px var(--font-sans);
 }
 
-.capabilityGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.capability {
-  padding: 28px;
-  border: 1px solid var(--color-line);
-  background: var(--color-white);
-}
-
-.capabilityNum {
-  display: block;
-  margin-bottom: 18px;
-  font: 700 11px/16px var(--font-mono);
-  letter-spacing: 1px;
-}
-
-.capability h3 {
-  margin: 0 0 5px;
-  color: var(--color-navy);
-  font: 700 21px/28px var(--font-sans);
-}
-
-.technicalLabel {
-  margin-bottom: 18px;
-  color: var(--color-plum-text);
-  font: 600 11px/16px var(--font-mono);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.capability p {
-  min-height: 96px;
-  margin: 0;
-  color: var(--color-muted);
-  font: 400 14px/24px var(--font-sans);
-}
-
-.inspectRow {
-  min-height: 67px;
-  margin: 22px 0 20px;
-  padding-top: 15px;
-  border-top: 1px solid var(--color-line);
-  color: var(--color-soft);
-  font: 400 12px/19px var(--font-sans);
-}
-
-.inspectRow span {
-  display: block;
-  margin-bottom: 3px;
-  color: var(--color-ice-text);
-  font: 700 9px/14px var(--font-mono);
-  letter-spacing: 1px;
-}
-
 .deepDiveList {
   border-top: 1px solid var(--color-navy);
 }
@@ -189,7 +142,7 @@
   grid-template-columns: 48px 260px 1fr 120px;
   gap: 24px;
   align-items: baseline;
-  padding: 25px 8px;
+  padding: 20px 8px;
   border-bottom: 1px solid var(--color-line);
   color: var(--color-text);
 }
@@ -224,7 +177,7 @@
 
 .production {
   scroll-margin-top: 80px;
-  padding: 96px var(--gutter);
+  padding: 72px var(--gutter);
   background: var(--color-navy-deep);
   color: var(--color-white);
 }
@@ -245,9 +198,9 @@
 
 .productionCard {
   display: flex;
-  min-height: 330px;
+  min-height: 230px;
   flex-direction: column;
-  padding: 34px;
+  padding: 28px;
   border: 1px solid var(--color-navy-line);
   background: var(--color-navy-mid);
   color: var(--color-white);
@@ -260,7 +213,7 @@
 }
 
 .productionCard > span {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   color: var(--color-ice-on-dark);
   font: 600 10px/16px var(--font-mono);
   letter-spacing: 1.4px;
@@ -273,14 +226,14 @@
 }
 
 .productionCard p {
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   color: var(--color-mist);
   font: 400 15px/25px var(--font-sans);
 }
 
 .productionCard strong {
   margin-top: auto;
-  padding: 18px 0;
+  padding: 14px 0;
   border-top: 1px solid var(--color-navy-line);
   color: var(--color-white);
   font: 600 13px/20px var(--font-sans);
@@ -291,7 +244,7 @@
 }
 
 .articles {
-  padding: 96px var(--gutter);
+  padding: 80px var(--gutter);
   background: var(--color-off-white);
 }
 
@@ -364,7 +317,7 @@
 }
 
 .cta {
-  padding: 76px var(--gutter);
+  padding: 64px var(--gutter);
   background: var(--color-navy);
   color: var(--color-white);
 }
@@ -393,13 +346,17 @@
 }
 
 @media (max-width: 980px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   .title {
     font-size: 46px;
     line-height: 51px;
   }
 
-  .comparisonInner,
-  .capabilityGrid {
+  .comparisonInner {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -430,21 +387,21 @@
 
 @media (max-width: 700px) {
   .hero {
-    padding: 58px var(--gutter) 54px;
+    padding: 40px var(--gutter) 44px;
   }
 
   .title {
+    margin-top: 14px;
     font-size: 38px;
     line-height: 43px;
   }
 
   .journeyBand,
   .comparison,
-  .inspect,
   .deepDives,
   .production,
   .articles {
-    padding: 64px var(--gutter);
+    padding: 56px var(--gutter);
   }
 
   .journeyIntro h2,
@@ -455,7 +412,6 @@
   }
 
   .comparisonInner,
-  .capabilityGrid,
   .productionGrid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -465,10 +421,6 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 14px;
-  }
-
-  .capability p {
-    min-height: 0;
   }
 
   .productionCard {

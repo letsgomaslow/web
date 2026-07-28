@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArchitectureJourney } from "@/components/explainers/ArchitectureJourney";
+import { ArchitectureMap } from "@/components/explainers/ArchitectureMap";
+import { ArchitectureTrackedLink } from "@/components/explainers/ArchitectureTrackedLink";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { concepts, homeCases } from "@/lib/content/home";
-import { architectureCapabilities } from "@/lib/content/architecture";
 import { architectureArticles } from "@/lib/content/blog";
 import styles from "./page.module.css";
 
@@ -27,98 +27,111 @@ export default function AiEmployeeArchitecturePage() {
               <Link href="/#concepts">Concepts</Link> /{" "}
               <span>The system behind an AI employee</span>
             </div>
-            <div
-              className="eyebrow mz-rise"
-              style={{ animationDelay: "0.05s" }}
-            >
-              AI EMPLOYEE ARCHITECTURE
-            </div>
-            <h1
-              className={`${styles.title} mz-rise`}
-              style={{ animationDelay: "0.15s" }}
-            >
-              The system behind an AI employee.
-            </h1>
-            <p
-              className={`${styles.lede} mz-rise`}
-              style={{ animationDelay: "0.3s" }}
-            >
-              A model supplies intelligence. The surrounding system receives
-              work, assembles the right briefing, follows your procedures, uses
-              approved tools, pauses for decisions, and records what happened.
-            </p>
-            <div
-              className={`${styles.heroActions} mz-rise`}
-              style={{ animationDelay: "0.45s" }}
-            >
-              <CtaButton href="#workflow-rfq">FOLLOW A WORKFLOW</CtaButton>
-              <Link href="#production" className="text-link">
-                SEE PRODUCTION WORK&nbsp;&nbsp;&gt;
-              </Link>
+            <div className={styles.heroGrid}>
+              <div>
+                <div
+                  className="eyebrow mz-rise"
+                  style={{ animationDelay: "0.05s" }}
+                >
+                  AI EMPLOYEE ARCHITECTURE
+                </div>
+                <h1
+                  className={`${styles.title} mz-rise`}
+                  style={{ animationDelay: "0.15s" }}
+                >
+                  The system behind an AI employee.
+                </h1>
+              </div>
+              <div className={styles.heroCopy}>
+                <p
+                  className={`${styles.lede} mz-rise`}
+                  style={{ animationDelay: "0.3s" }}
+                >
+                  A model supplies intelligence. The surrounding system
+                  receives work, assembles the right briefing, follows your
+                  procedures, uses approved tools, pauses for decisions, and
+                  records the result.
+                </p>
+                <div
+                  className={`${styles.heroActions} mz-rise`}
+                  style={{ animationDelay: "0.45s" }}
+                >
+                  <CtaButton href="#architecture-map">
+                    EXPLORE THE SYSTEM
+                  </CtaButton>
+                  <Link href="#production" className="text-link">
+                    SEE PRODUCTION WORK&nbsp;&nbsp;&gt;
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         <section className={styles.journeyBand} data-screen-label="Workflows">
           <div className={styles.journeyIntro}>
-            <div className="eyebrow eyebrow-ice">ONE REQUEST · SIX RESPONSIBILITIES</div>
-            <h2>Follow the work through the system.</h2>
+            <div className="eyebrow eyebrow-ice">
+              ONE SYSTEM · THREE GUIDED VIEWS
+            </div>
+            <h2>See how the whole system carries the work.</h2>
             <p>
-              Switch workflows to see how the same architecture supports
-              different work while keeping the business and technical view in
-              the same frame.
+              Choose a view, apply a workflow, and open any node for the
+              business outcome, technical mechanism, and review evidence.
             </p>
           </div>
-          <ArchitectureJourney />
+          <ArchitectureMap />
         </section>
 
         <section className={styles.comparison} data-screen-label="Comparison">
           <div className="wrap">
             <Reveal className={styles.comparisonInner}>
               <div>
-                <div className="eyebrow">THE OPERATING DIFFERENCE</div>
-                <h2>A chatbot can answer. An AI employee carries the work.</h2>
+                <div className="eyebrow">THE OPERATING SYSTEM</div>
+                <h2>
+                  The model supplies reasoning. The system gives it a
+                  responsibility.
+                </h2>
               </div>
               <p>
-                The useful unit is a tracked responsibility with an owner,
-                current context, a procedure, approved access, decision rules,
-                and a record. That is what lets your team inspect where the work
-                stands and what still needs a person.
+                Channels bring the work in. Context and procedures shape the
+                response. Approved access, human decisions, and a recorded
+                result keep the responsibility inspectable.
               </p>
             </Reveal>
           </div>
         </section>
 
-        <section className={styles.inspect} data-screen-label="Architecture Responsibilities">
+        <section
+          className={styles.production}
+          id="production"
+          data-screen-label="Production Work"
+        >
           <div className="wrap">
             <Reveal className={styles.sectionHead}>
               <div>
-                <div className="eyebrow">WHAT YOUR TEAM CAN INSPECT</div>
-                <h2 className="h2">Six responsibilities with visible boundaries</h2>
+                <div className="eyebrow eyebrow-ice">PRODUCTION WORK</div>
+                <h2 className="h2">See which parts are working today</h2>
               </div>
-              <p>Business purpose and technical mechanism stay together.</p>
+              <p>
+                Production engagements keep current status and measured results
+                separate from the illustrative walkthroughs.
+              </p>
             </Reveal>
-            <div className={styles.capabilityGrid}>
-              {architectureCapabilities.map((capability) => (
-                <Reveal key={capability.id} as="article" className={styles.capability}>
-                  <span
-                    className={styles.capabilityNum}
-                    style={{ color: capability.accent }}
+            <div className={styles.productionGrid}>
+              {productionCases.map((item) => (
+                <Reveal key={item.href}>
+                  <ArchitectureTrackedLink
+                    href={item.href}
+                    className={styles.productionCard}
+                    eventName="Architecture production evidence clicked"
+                    eventData={{ caseStudy: item.href }}
                   >
-                    {capability.num}
-                  </span>
-                  <h3>{capability.businessLabel}</h3>
-                  <div className={styles.technicalLabel}>
-                    {capability.technicalLabel}
-                  </div>
-                  <p>{capability.summary}</p>
-                  <div className={styles.inspectRow}>
-                    <span>INSPECT</span>
-                    {capability.inspection}
-                  </div>
-                  <Link href={capability.relatedHref} className="text-link">
-                    OPEN THE DEEP DIVE&nbsp;&nbsp;&gt;
-                  </Link>
+                    <span>{item.sector}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                    <strong>{item.result}</strong>
+                    <em>VIEW CASE STUDY&nbsp;&nbsp;&gt;</em>
+                  </ArchitectureTrackedLink>
                 </Reveal>
               ))}
             </div>
@@ -150,38 +163,9 @@ export default function AiEmployeeArchitecturePage() {
         </section>
 
         <section
-          className={styles.production}
-          id="production"
-          data-screen-label="Production Work"
+          className={styles.articles}
+          data-screen-label="Architecture Articles"
         >
-          <div className="wrap">
-            <Reveal className={styles.sectionHead}>
-              <div>
-                <div className="eyebrow eyebrow-ice">PRODUCTION WORK</div>
-                <h2 className="h2">See which parts are working today</h2>
-              </div>
-              <p>
-                These are production engagements with current status and
-                measured results kept separate from the walkthroughs above.
-              </p>
-            </Reveal>
-            <div className={styles.productionGrid}>
-              {productionCases.map((item) => (
-                <Reveal key={item.href}>
-                  <Link href={item.href} className={styles.productionCard}>
-                    <span>{item.sector}</span>
-                    <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
-                    <strong>{item.result}</strong>
-                    <em>VIEW CASE STUDY&nbsp;&nbsp;&gt;</em>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.articles} data-screen-label="Architecture Articles">
           <div className="wrap">
             <Reveal className={styles.sectionHead}>
               <div>
@@ -221,9 +205,14 @@ export default function AiEmployeeArchitecturePage() {
                 the human decisions, and the likely architecture.
               </p>
             </div>
-            <CtaButton href="/contact" variant="inverse">
+            <ArchitectureTrackedLink
+              href="/contact"
+              className="cta cta-inverse"
+              eventName="Architecture CTA clicked"
+              eventData={{ location: "architecture-footer" }}
+            >
               BOOK A WORKING SESSION
-            </CtaButton>
+            </ArchitectureTrackedLink>
           </div>
         </section>
       </>

@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
@@ -29,7 +29,10 @@ import { foundationWeeks, twoDoors } from "@/lib/content/engagement";
 import { conceptFailures } from "@/lib/content/explainers";
 import {
   architectureCapabilities,
-  architectureWorkflows,
+  architectureMapEdges,
+  architectureMapNodes,
+  architectureScenarioOverlays,
+  architectureViews,
 } from "@/lib/content/architecture";
 import { copilotSection, costOfWaiting } from "@/lib/content/home";
 import {
@@ -54,6 +57,16 @@ function styleFiles(root: string): string[] {
     if (entry.isDirectory()) return styleFiles(path);
     return entry.name.endsWith(".css") ? [path] : [];
   });
+}
+
+function publicRouteExists(href: string): boolean {
+  const [pathname] = href.split("#");
+
+  if (pathname.startsWith("/blog/")) {
+    return Boolean(getBlogArticle(pathname.replace("/blog/", "")));
+  }
+
+  return existsSync(join("app", pathname.replace(/^\//, ""), "page.tsx"));
 }
 
 describe("content modules", () => {
@@ -85,22 +98,89 @@ describe("content modules", () => {
     concepts.forEach((c) => expect(c.href.startsWith("/concepts/")).toBe(true));
   });
 
-  it("architecture workflows cover the same six responsibilities in order", () => {
+  it("architecture views and scenarios cover the shared operating system", () => {
     const capabilityIds = architectureCapabilities.map(({ id }) => id);
+    const capabilityIdSet = new Set<string>(capabilityIds);
+    const nodeIds = architectureMapNodes.map(({ id }) => id);
     expect(architectureCapabilities).toHaveLength(6);
     expect(new Set(capabilityIds)).toHaveLength(6);
-    expect(architectureWorkflows).toHaveLength(3);
+    expect(new Set(nodeIds)).toHaveLength(architectureMapNodes.length);
+    expect(architectureViews.map(({ id }) => id)).toEqual([
+      "run",
+      "control",
+      "improve",
+    ]);
+    expect(architectureScenarioOverlays).toHaveLength(3);
 
-    architectureWorkflows.forEach((workflow) => {
-      expect(workflow.steps.map(({ capabilityId }) => capabilityId)).toEqual(
+    architectureScenarioOverlays.forEach((scenario) => {
+      expect(scenario.steps.map(({ capabilityId }) => capabilityId)).toEqual(
         capabilityIds,
       );
-      expect(workflow.statusLabel).toMatch(/not a client result/i);
-      expect(workflow.relatedHref).toMatch(/^\/concepts\//);
-      if (workflow.proofHref) {
-        expect(workflow.proofHref).toMatch(/^\/case-studies\//);
+      expect(scenario.statusLabel).toMatch(/not a client result/i);
+      expect(scenario.relatedHref).toMatch(/^\/concepts\//);
+      if (scenario.proofHref) {
+        expect(scenario.proofHref).toMatch(/^\/case-studies\//);
+      }
+
+      architectureViews.forEach((view) => {
+        view.nodeIds.forEach((nodeId) => {
+          const coveredByStep =
+            view.id === "run" && capabilityIdSet.has(nodeId);
+          expect(
+            coveredByStep || Boolean(scenario.examples[view.id]?.[nodeId]),
+            `${scenario.id} does not explain ${view.id}:${nodeId}`,
+          ).toBe(true);
+        });
+      });
+    });
+
+    architectureViews.forEach((view) => {
+      expect(view.nodeIds).toContain(view.defaultNodeId);
+      view.nodeIds.forEach((nodeId) => expect(nodeIds).toContain(nodeId));
+    });
+    architectureMapEdges.forEach((edge) => {
+      expect(nodeIds).toContain(edge.from);
+      expect(nodeIds).toContain(edge.to);
+      const view = architectureViews.find(({ id }) => id === edge.viewId);
+      expect(view?.nodeIds).toContain(edge.from);
+      expect(view?.nodeIds).toContain(edge.to);
+    });
+
+    const improveView = architectureViews.find(({ id }) => id === "improve");
+    expect(improveView?.statusLabel).toMatch(/not a production claim/i);
+    improveView?.nodeIds.forEach((nodeId) => {
+      expect(
+        architectureMapNodes.find(({ id }) => id === nodeId)?.claimStatus,
+      ).toMatch(/not a production claim/i);
+    });
+  });
+
+  it("resolves every architecture deep dive and evidence destination", () => {
+    architectureMapNodes.forEach((node) => {
+      if (node.relatedHref) expect(publicRouteExists(node.relatedHref)).toBe(true);
+    });
+
+    architectureScenarioOverlays.forEach((scenario) => {
+      expect(publicRouteExists(scenario.relatedHref)).toBe(true);
+      if (scenario.proofHref) {
+        expect(publicRouteExists(scenario.proofHref)).toBe(true);
       }
     });
+  });
+
+  it("keeps product-specific research terms out of architecture content", () => {
+    const content = JSON.stringify({
+      architectureCapabilities,
+      architectureMapNodes,
+      architectureScenarioOverlays,
+      architectureViews,
+    });
+
+    ["Her" + "mes", "C" + "LI", "T" + "UI", "bill" + "ing", "pe" + "ts"].forEach(
+      (term) => {
+        expect(content).not.toMatch(new RegExp(`\\b${term}\\b`, "i"));
+      },
+    );
   });
 
   it("blog article generates for featured slug", () => {

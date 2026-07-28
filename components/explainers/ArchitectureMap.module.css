@@ -1,0 +1,669 @@
+.map {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.map [hidden] {
+  display: none;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.controlLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-ice-on-dark);
+  font: 700 9px/14px var(--font-mono);
+  letter-spacing: 1.4px;
+}
+
+.viewTabs,
+.scenarioTabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--color-navy-line);
+}
+
+.viewTabs a,
+.scenarioTabs a {
+  position: relative;
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  border-right: 1px solid var(--color-navy-line);
+  background: var(--color-navy-mid);
+  color: var(--color-white);
+  font: 600 13px/19px var(--font-sans);
+  transition:
+    background 0.2s var(--ease),
+    color 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.viewTabs a {
+  gap: 10px;
+  padding: 14px 16px;
+}
+
+.scenarioTabs a {
+  justify-content: center;
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.viewTabs a:last-child,
+.scenarioTabs a:last-child {
+  border-right: 0;
+}
+
+.viewTabs a > span {
+  color: var(--color-ice-on-dark);
+  font: 700 9px/14px var(--font-mono);
+  letter-spacing: 1px;
+}
+
+.viewTabs a:hover,
+.scenarioTabs a:hover,
+.viewTabs a[aria-selected="true"],
+.scenarioTabs a[aria-selected="true"] {
+  background: var(--color-white);
+  color: var(--color-navy);
+}
+
+.viewTabs a:hover > span,
+.viewTabs a[aria-selected="true"] > span {
+  color: var(--color-ice-text);
+}
+
+.viewTabs a[aria-selected="true"]::after,
+.scenarioTabs a[aria-selected="true"]::after {
+  position: absolute;
+  right: 10px;
+  bottom: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-action-signal);
+  content: "";
+}
+
+.scenarioPanels,
+.viewPanels {
+  background: var(--color-white);
+  color: var(--color-text);
+}
+
+.scenarioPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.36fr);
+  gap: 32px;
+  padding: 28px 32px;
+  border: 1px solid var(--color-navy-line);
+  border-bottom: 0;
+  scroll-margin-top: 96px;
+}
+
+.map[data-enhanced="false"] .scenarioPanel + .scenarioPanel {
+  border-top: 0;
+}
+
+.sector,
+.viewEyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-plum-text);
+  font: 700 9px/14px var(--font-mono);
+  letter-spacing: 1.5px;
+}
+
+.scenarioPanel h3 {
+  margin: 0 0 8px;
+  color: var(--color-navy);
+  font: 600 24px/30px var(--font-sans);
+  letter-spacing: -0.4px;
+}
+
+.scenarioPanel p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--color-muted);
+  font: 400 14px/23px var(--font-sans);
+}
+
+.scenarioMeta {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.scenarioStatus,
+.viewStatus {
+  display: inline-flex;
+  max-width: 250px;
+  padding: 8px 10px;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold-text);
+  font: 700 8px/14px var(--font-mono);
+  letter-spacing: 1px;
+  text-align: right;
+}
+
+.scenarioLinks {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scenarioLinks a,
+.detailLink {
+  color: var(--color-cta-link);
+  font: 700 9px/14px var(--font-sans);
+  letter-spacing: 1.3px;
+}
+
+.staticScenarioContent {
+  grid-column: 1 / -1;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-line);
+}
+
+.staticScenarioContent h4 {
+  margin: 20px 0 8px;
+  color: var(--color-navy);
+  font: 700 16px/22px var(--font-sans);
+}
+
+.staticScenarioContent ol,
+.staticScenarioContent ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.staticScenarioContent li {
+  color: var(--color-muted);
+  font: 400 13px/21px var(--font-sans);
+}
+
+.staticScenarioContent strong,
+.staticScenarioContent span {
+  display: block;
+}
+
+.map[data-enhanced="true"] .staticScenarioContent {
+  display: none;
+}
+
+.viewPanel {
+  padding: 32px;
+  border: 1px solid var(--color-navy-line);
+  scroll-margin-top: 96px;
+}
+
+.map[data-enhanced="false"] .viewPanels > div + div .viewPanel {
+  border-top: 0;
+}
+
+.viewHeading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.viewHeading h3 {
+  margin: 0 0 8px;
+  color: var(--color-navy);
+  font: 600 28px/35px var(--font-sans);
+  letter-spacing: -0.5px;
+}
+
+.viewHeading p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--color-muted);
+  font: 400 14px/23px var(--font-sans);
+}
+
+.viewStatus {
+  border-color: var(--color-plum);
+  color: var(--color-plum-text);
+}
+
+.mapFrame {
+  border: 1px solid var(--color-line);
+  background: var(--color-off-white);
+}
+
+.boundaryLabels {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--color-line);
+  color: var(--color-soft);
+  font: 700 8px/13px var(--font-mono);
+  letter-spacing: 1.2px;
+}
+
+.boundaryLabels span:last-child {
+  text-align: right;
+}
+
+.canvas {
+  position: relative;
+  min-height: 332px;
+  padding: 28px 16px 24px;
+  overflow: hidden;
+}
+
+.connectors {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.connectors path {
+  fill: none;
+  stroke: var(--color-navy-line);
+  stroke-width: 0.35;
+  vector-effect: non-scaling-stroke;
+}
+
+.connectors marker path {
+  fill: var(--color-navy-line);
+  stroke: none;
+}
+
+.connectors .support {
+  stroke: var(--color-plum);
+  stroke-dasharray: 4 5;
+}
+
+.connectors .feedback {
+  stroke: var(--color-ice-text);
+  stroke-dasharray: 7 5;
+  animation: traceLoop 8s linear infinite;
+}
+
+.nodeGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nodeGrid_run,
+.nodeGrid_control {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.nodeGrid_improve {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding-top: 20px;
+}
+
+.nodeGrid_run > li[data-node-id="model"] {
+  grid-column: 3 / 5;
+  margin-top: 24px;
+}
+
+.node {
+  position: relative;
+  display: flex;
+  min-height: 210px;
+  height: 100%;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--color-line);
+  background: var(--color-white);
+  color: var(--color-navy);
+  transition:
+    border-color 0.2s var(--ease),
+    background 0.2s var(--ease),
+    color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.nodeGrid_run > li[data-node-id="model"] .node {
+  min-height: 112px;
+}
+
+.node:hover {
+  border-color: var(--color-plum-text);
+  color: var(--color-navy);
+  transform: translateY(-2px);
+}
+
+.node[aria-expanded="true"] {
+  border-color: var(--color-navy);
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.nodeNumber {
+  margin-bottom: 12px;
+  font: 700 10px/14px var(--font-mono);
+  letter-spacing: 1px;
+}
+
+.node strong {
+  margin-bottom: 6px;
+  color: currentColor;
+  font: 700 16px/21px var(--font-sans);
+}
+
+.nodeTechnical {
+  min-height: 40px;
+  color: var(--color-plum-text);
+  font: 700 9px/14px var(--font-mono);
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.node[aria-expanded="true"] .nodeTechnical {
+  color: var(--color-ice-on-dark);
+}
+
+.node[aria-expanded="true"] .nodeNumber {
+  color: var(--color-ice-on-dark) !important;
+}
+
+.nodeExample {
+  margin-top: 14px;
+  color: var(--color-muted);
+  font: 400 12px/18px var(--font-sans);
+}
+
+.node[aria-expanded="true"] .nodeExample {
+  color: var(--color-mist);
+}
+
+.nodeState {
+  margin-top: auto;
+  padding-top: 14px;
+  color: var(--color-cta-link);
+  font: 700 8px/12px var(--font-mono);
+  letter-spacing: 1.2px;
+}
+
+.node[aria-expanded="true"] .nodeState {
+  color: var(--color-white);
+}
+
+.details {
+  min-height: 300px;
+  border: 1px solid var(--color-line);
+  border-top: 0;
+  background: var(--color-white);
+}
+
+.detail {
+  padding: 28px 32px 32px;
+}
+
+.detailHeading {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.detailHeading > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+  font: 700 9px/14px var(--font-mono);
+  place-items: center;
+}
+
+.detailHeading h4 {
+  margin: 0 0 3px;
+  color: var(--color-navy);
+  font: 700 23px/29px var(--font-sans);
+}
+
+.detailHeading p {
+  margin: 0;
+  color: var(--color-plum-text);
+  font: 700 9px/14px var(--font-mono);
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
+
+.outcome {
+  max-width: 820px;
+  margin: 0 0 24px;
+  color: var(--color-text);
+  font: 500 17px/27px var(--font-sans);
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.detailGrid > div {
+  padding-top: 14px;
+  border-top: 1px solid var(--color-line);
+}
+
+.detailGrid span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--color-ice-text);
+  font: 700 8px/13px var(--font-mono);
+  letter-spacing: 1.1px;
+}
+
+.detailGrid p {
+  margin: 0;
+  color: var(--color-muted);
+  font: 400 13px/21px var(--font-sans);
+}
+
+@keyframes traceLoop {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@media (max-width: 1000px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .canvas {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .connectors {
+    display: none;
+  }
+
+  .nodeGrid_run,
+  .nodeGrid_control,
+  .nodeGrid_improve {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  .nodeGrid_run > li[data-node-id="model"] {
+    grid-column: auto;
+    margin-top: 0;
+  }
+
+  .nodeGrid > li {
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .nodeGrid > li::before {
+    position: absolute;
+    top: -13px;
+    bottom: -13px;
+    left: 5px;
+    width: 1px;
+    background: var(--color-navy-line);
+    content: "";
+  }
+
+  .nodeGrid > li::after {
+    position: absolute;
+    top: 32px;
+    left: 2px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    content: "";
+  }
+
+  .nodeGrid > li:first-child::before {
+    top: 32px;
+  }
+
+  .nodeGrid > li:last-child::before {
+    bottom: calc(100% - 33px);
+  }
+
+  .node,
+  .nodeGrid_run > li[data-node-id="model"] .node {
+    min-height: 0;
+  }
+
+  .nodeTechnical {
+    min-height: 0;
+  }
+
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .viewTabs,
+  .scenarioTabs {
+    grid-template-columns: 1fr;
+  }
+
+  .viewTabs a,
+  .scenarioTabs a,
+  .viewTabs a:last-child,
+  .scenarioTabs a:last-child {
+    min-height: 50px;
+    justify-content: flex-start;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-navy-line);
+    text-align: left;
+  }
+
+  .viewTabs a:last-child,
+  .scenarioTabs a:last-child {
+    border-bottom: 0;
+  }
+
+  .scenarioPanel,
+  .viewHeading {
+    grid-template-columns: 1fr;
+  }
+
+  .scenarioPanel,
+  .viewPanel,
+  .detail {
+    padding: 24px 20px;
+  }
+
+  .scenarioMeta {
+    align-items: flex-start;
+  }
+
+  .scenarioStatus,
+  .viewStatus {
+    max-width: none;
+    text-align: left;
+  }
+
+  .scenarioLinks {
+    align-items: flex-start;
+  }
+
+  .staticScenarioContent ol,
+  .staticScenarioContent ul {
+    grid-template-columns: 1fr;
+  }
+
+  .boundaryLabels {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .boundaryLabels span:last-child {
+    text-align: left;
+  }
+
+  .canvas {
+    padding: 20px 16px;
+  }
+
+  .details {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .node,
+  .viewTabs a,
+  .scenarioTabs a,
+  .connectors .feedback {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media print {
+  .controls,
+  .connectors,
+  .nodeState {
+    display: none;
+  }
+
+  .map [hidden],
+  .map[data-enhanced="true"] .staticScenarioContent {
+    display: block !important;
+  }
+
+  .scenarioPanel,
+  .viewPanel,
+  .detail {
+    break-inside: avoid;
+  }
+
+  .scenarioPanel,
+  .viewPanel {
+    border-color: var(--color-line);
+  }
+}

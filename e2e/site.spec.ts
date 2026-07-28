@@ -182,14 +182,26 @@ test.describe("card interactions and layout", () => {
 });
 
 test.describe("interactive islands", () => {
-  test("architecture workflow tabs support hashes and keyboard navigation", async ({
+  test("architecture map supports view and workflow hashes with keyboard navigation", async ({
     page,
   }) => {
     await page.goto("/concepts/ai-employee-architecture#workflow-intake");
 
-    const tabs = page.getByRole("tab");
-    await expect(tabs).toHaveCount(3);
-    const intakeTab = page.getByRole("tab", { name: /Shared inbox intake/i });
+    const viewTabs = page.getByRole("tablist", {
+      name: "Choose an architecture view",
+    });
+    const scenarioTabs = page.getByRole("tablist", {
+      name: "Choose an illustrative workflow",
+    });
+    await expect(viewTabs.getByRole("tab")).toHaveCount(3);
+    await expect(scenarioTabs.getByRole("tab")).toHaveCount(3);
+    await expect(
+      viewTabs.getByRole("tab", { name: /Run the work/i }),
+    ).toHaveAttribute("aria-selected", "true");
+
+    const intakeTab = scenarioTabs.getByRole("tab", {
+      name: /Shared inbox intake/i,
+    });
     await expect(intakeTab).toHaveAttribute("aria-selected", "true");
     await expect(
       page.getByRole("heading", {
@@ -200,15 +212,43 @@ test.describe("interactive islands", () => {
     await intakeTab.focus();
     await page.keyboard.press("ArrowRight");
     await expect(
-      page.getByRole("tab", { name: /Compliance answer/i }),
+      scenarioTabs.getByRole("tab", { name: /Compliance answer/i }),
     ).toHaveAttribute("aria-selected", "true");
     await expect(page).toHaveURL(/#workflow-compliance$/);
 
     await page.keyboard.press("Home");
     await expect(
-      page.getByRole("tab", { name: /RFQ \+ estimating/i }),
+      scenarioTabs.getByRole("tab", { name: /RFQ \+ estimating/i }),
     ).toHaveAttribute("aria-selected", "true");
     await expect(page).toHaveURL(/#workflow-rfq$/);
+
+    const runTab = viewTabs.getByRole("tab", { name: /Run the work/i });
+    await runTab.focus();
+    await page.keyboard.press("ArrowRight");
+    await expect(
+      viewTabs.getByRole("tab", { name: /Control the work/i }),
+    ).toHaveAttribute("aria-selected", "true");
+    await expect(page).toHaveURL(/#view-control$/);
+
+    await page.keyboard.press("End");
+    await expect(
+      viewTabs.getByRole("tab", { name: /Improve the system/i }),
+    ).toHaveAttribute("aria-selected", "true");
+    await expect(page).toHaveURL(/#view-improve$/);
+    await expect(
+      page.getByText("ILLUSTRATIVE CAPABILITY · NOT A PRODUCTION CLAIM", {
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    const proposal = page.getByRole("button", {
+      name: /Propose an update/i,
+    });
+    await proposal.click();
+    await expect(proposal).toHaveAttribute("aria-expanded", "true");
+    await expect(
+      page.locator('[data-node-detail="proposal"]'),
+    ).toBeVisible();
   });
 
   test("architecture workflows remain available without JavaScript", async ({
@@ -232,8 +272,62 @@ test.describe("interactive islands", () => {
     await expect(
       page.getByRole("heading", { name: "Policy question to cited answer" }),
     ).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        name: "Follow one responsibility from request to result.",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        name: "See the boundaries around every action.",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        name: "See how review signals could become a safer procedure.",
+      }),
+    ).toBeVisible();
 
     await context.close();
+  });
+
+  test("architecture map opens each guided view for every workflow", async ({
+    page,
+  }) => {
+    await page.goto("/concepts/ai-employee-architecture");
+    const viewTabs = page.getByRole("tablist", {
+      name: "Choose an architecture view",
+    });
+    const scenarioTabs = page.getByRole("tablist", {
+      name: "Choose an illustrative workflow",
+    });
+
+    for (const scenario of [
+      "RFQ + estimating",
+      "Shared inbox intake",
+      "Compliance answer",
+    ]) {
+      await scenarioTabs.getByRole("tab", { name: scenario }).click();
+      for (const view of ["Run the work", "Control the work", "Improve the system"]) {
+        await viewTabs.getByRole("tab", { name: view }).click();
+        await expect(page.locator("[data-architecture-view]:visible")).toHaveCount(1);
+        await expect(page.locator("[data-node-detail]:visible")).toHaveCount(1);
+      }
+    }
+  });
+
+  test("architecture controls enter the first desktop viewport", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/concepts/ai-employee-architecture");
+
+    const mapBox = await page.locator("#architecture-map").boundingBox();
+    expect(mapBox).not.toBeNull();
+    expect(mapBox!.y).toBeLessThan(900);
+    await expect(
+      page.getByRole("tablist", { name: "Choose an architecture view" }),
+    ).toBeVisible();
   });
 
   test("assessment quiz answers update progress", async ({ page }) => {
