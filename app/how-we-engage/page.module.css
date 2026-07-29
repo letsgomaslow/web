@@ -25,6 +25,7 @@
 }
 
 .doorName {
+  margin: 0;
   font: 700 24px/30px var(--font-sans);
   letter-spacing: -0.4px;
   color: #1a1a1a;
@@ -51,9 +52,68 @@
   color: var(--color-muted);
 }
 
+.doorAction {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  white-space: normal;
+}
+
+.earlyCta {
+  padding: 0 var(--gutter) 72px;
+  background: var(--color-white);
+}
+
+.earlyCtaInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 48px;
+  padding: 40px;
+  border-left: 4px solid var(--color-ice);
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+}
+
+.earlyCopy {
+  max-width: 720px;
+}
+
+.earlyEyebrow {
+  margin-bottom: 14px;
+  font: 700 10px/14px var(--font-mono);
+  letter-spacing: 1.6px;
+  color: var(--color-ice);
+}
+
+.earlyTitle {
+  margin: 0 0 14px;
+  max-width: 660px;
+  font: 500 30px/38px var(--font-sans);
+  letter-spacing: -0.6px;
+  color: var(--color-white);
+}
+
+.earlyBody {
+  margin: 0;
+  max-width: 680px;
+  font: 400 15px/24px var(--font-sans);
+  color: var(--color-mist);
+}
+
+.earlyAction {
+  flex-shrink: 0;
+}
+
 .weeks {
   padding: 72px var(--gutter);
   background: var(--color-off-white);
+}
+
+.weeksHeading {
+  margin-bottom: 36px;
+  scroll-margin-top: 96px;
 }
 
 .weekList {
@@ -67,41 +127,38 @@
 
 .weekRow {
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 56px minmax(0, 1fr);
   gap: 20px;
-  padding: 28px 8px;
+  padding: 32px 12px;
   border-bottom: 1px solid var(--color-line);
   border-left: 2px solid transparent;
+  opacity: 1;
+  transition:
+    background-color 180ms var(--ease),
+    border-left-color 180ms var(--ease),
+    box-shadow 180ms var(--ease);
 }
 
-/* Checkpoint fill: rows light as they enter view, pausing the rail at gates */
-.weekRow[data-active] {
+/* Scroll enhancement marks reading progress without representing project state. */
+.weekRow[data-active="1"] {
   border-left-color: var(--color-ice);
 }
 
-:global(body.mz-anim) .weekRow:not([data-active]) {
-  opacity: 0.45;
-}
-
-:global(body.mz-anim) .weekRow {
-  transition:
-    opacity 0.6s var(--ease),
-    border-left-color 0.6s var(--ease);
+.weekRow[data-reading] {
+  background: var(--color-white);
+  box-shadow: inset 3px 0 0 var(--color-ice);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :global(body.mz-anim) .weekRow:not([data-active]) {
-    opacity: 1;
-  }
-
-  :global(body.mz-anim) .weekRow {
+  .weekRow {
     transition: none;
   }
 }
 
 @media print {
-  :global(body.mz-anim) .weekRow:not([data-active]) {
-    opacity: 1;
+  .weekRow {
+    background: transparent;
+    box-shadow: none;
   }
 }
 
@@ -112,23 +169,76 @@
   padding-top: 4px;
 }
 
+.weekContent {
+  min-width: 0;
+}
+
+.weekPhase {
+  margin-bottom: 5px;
+  font: 700 10px/14px var(--font-mono);
+  letter-spacing: 1.8px;
+  color: var(--color-ice-text);
+}
+
 .weekLabel {
+  margin: 0 0 8px;
   font: 700 18px/26px var(--font-sans);
   color: #1a1a1a;
-  margin-bottom: 8px;
 }
 
 .weekDesc {
+  margin: 0 0 16px;
   font: 400 15px/24px var(--font-sans);
   color: var(--color-muted);
-  margin-bottom: 12px;
   max-width: 760px;
 }
 
-.weekTag {
-  font: 400 10px var(--font-mono);
-  letter-spacing: 1px;
+.weekDeliverable {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin-bottom: 18px;
+}
+
+.weekDeliverable span,
+.weekDetail dt {
+  font: 700 9px/13px var(--font-mono);
+  letter-spacing: 1.4px;
   color: var(--color-muted);
+}
+
+.weekDeliverable strong {
+  overflow-wrap: anywhere;
+  font: 700 11px/16px var(--font-sans);
+  letter-spacing: 0.6px;
+  color: var(--color-navy);
+}
+
+.weekDetails {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.weekDetail {
+  min-width: 0;
+  padding: 14px 16px;
+  border-left: 2px solid rgba(115, 193, 174, 0.7);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.weekDetail dt {
+  margin-bottom: 7px;
+  color: var(--color-navy);
+}
+
+.weekDetail dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font: 400 13px/20px var(--font-sans);
+  color: var(--color-text);
 }
 
 .expect {
@@ -146,6 +256,10 @@
   margin: 16px 0 0;
   font: 400 16px/26px var(--font-sans);
   color: var(--color-muted);
+}
+
+.expectHeading {
+  margin: 0;
 }
 
 .pricing {
@@ -204,19 +318,6 @@
   max-width: 560px;
 }
 
-/* Gate chip on foundation weeks: the stop points made visible */
-.weekGate {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 10px 4px;
-  border: 1px solid rgba(115, 193, 174, 0.55);
-  border-radius: var(--radius-structural);
-  background: rgba(115, 193, 174, 0.08);
-  font: 500 10px/1 var(--font-mono);
-  letter-spacing: 1.5px;
-  color: var(--color-navy);
-}
-
 /* The walk-away clause: deliberately still — extra room, a rule above, no motion */
 .walkAway {
   margin-top: 26px;
@@ -230,8 +331,62 @@
     grid-template-columns: 1fr;
   }
 
+  .earlyCtaInner {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 28px;
+  }
+
   .capacityInner {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 72px;
+  }
+
+  .doors,
+  .earlyCta {
+    padding-bottom: 56px;
+  }
+
+  .doorCard {
+    padding: 26px 22px;
+  }
+
+  .earlyCtaInner {
+    gap: 24px;
+    padding: 28px 22px;
+  }
+
+  .earlyTitle {
+    font-size: 25px;
+    line-height: 32px;
+  }
+
+  .earlyAction {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .weeks {
+    padding-block: 56px;
+  }
+
+  .weekRow {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 12px;
+    padding: 26px 4px;
+  }
+
+  .weekDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .weekDetail {
+    padding: 13px 14px;
   }
 }

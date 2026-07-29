@@ -92,6 +92,23 @@
   gap: 20px;
 }
 
+.workflowContext {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--color-ice);
+  background: var(--color-off-white);
+  color: var(--color-muted);
+  font: 400 12px/18px var(--font-sans);
+}
+
+.workflowContext strong {
+  color: var(--color-navy);
+  font: 700 10px/15px var(--font-mono);
+  letter-spacing: 1px;
+}
+
 .submit {
   margin-top: 6px;
   width: 100%;

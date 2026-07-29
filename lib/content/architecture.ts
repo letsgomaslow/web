@@ -1,3 +1,5 @@
+import type { EvidenceReceiptData } from "@/lib/content/evidence";
+
 export type ArchitectureCapabilityId =
   | "intake"
   | "briefing"
@@ -101,12 +103,260 @@ export type ArchitectureScenarioOverlay = {
 };
 
 export const architectureOverview = {
-  eyebrow: "START WITH THE WHOLE SYSTEM",
-  title: "The system behind an AI employee",
-  desc: "Follow one request through context, procedure, approved tools, human decisions, and a reviewable work record.",
+  eyebrow: "START WITH ONE WAITING WORKFLOW",
+  title: "See what the AI prepares, where a person decides, and what remains.",
+  desc: "Follow a delayed deliverable from intake to a supervised, reviewable result, then map the same ownership path around your work.",
   href: "/concepts/ai-employee-architecture",
-  cta: "EXPLORE THE ARCHITECTURE",
+  cta: "SEE THE BUYER VIEW",
+  technicalHref: "/concepts/ai-employee-architecture/technical",
+  technicalCta: "BROWSE THE TECHNICAL LIBRARY",
 } as const;
+
+export type BuyerArchitectureStage = {
+  num: string;
+  title: string;
+  summary: string;
+  inspect: string;
+};
+
+export const buyerArchitectureStages: BuyerArchitectureStage[] = [
+  {
+    num: "01",
+    title: "Work arrives",
+    summary:
+      "A request, file, event, or schedule becomes a tracked responsibility with an owner and due state.",
+    inspect: "Request, source, due date, owner",
+  },
+  {
+    num: "02",
+    title: "The AI prepares",
+    summary:
+      "Current source material and the approved procedure are assembled before the system drafts or acts.",
+    inspect: "Sources, procedure, open questions",
+  },
+  {
+    num: "03",
+    title: "A person decides or stops",
+    summary:
+      "A named owner keeps authority over pricing, risk, exceptions, and external commitments.",
+    inspect: "Decision, approver, exception",
+  },
+  {
+    num: "04",
+    title: "The result stays reviewable",
+    summary:
+      "The output returns with its sources, approvals, status, and next owner attached.",
+    inspect: "Result, evidence, approval, next step",
+  },
+];
+
+export const architectureOwnershipEvidence: EvidenceReceiptData = {
+  claim:
+    "The four-stage ownership path is Maslow's working model for mapping an AI employee workflow.",
+  scope:
+    "A buyer-facing method for identifying the waiting deliverable, responsible owner, human decision, and review record.",
+  status: "illustrative",
+  owner: "Maslow AI",
+  limitations:
+    "Each workflow still requires validation of its sources, controls, decision authority, and recovery path.",
+};
+
+const architectureProductionEvidenceByHref: Record<
+  string,
+  EvidenceReceiptData
+> = {
+  "/case-studies/infinite-ai-os": {
+    claim:
+      "The Infinite AI OS engagement includes four named AI employees, company memory, file intake, tool connectors, approval gates, and observable work state.",
+    scope: "Published case study for one manufacturing engagement.",
+    status: "production",
+    owner: "Maslow AI delivery team",
+    limitations:
+      "The engagement demonstrates delivered architecture and a 90-day foundation. It does not predict results for another workflow.",
+    href: "/case-studies/infinite-ai-os",
+    linkLabel: "VIEW THE CASE STUDY",
+  },
+  "/case-studies/agenthub": {
+    claim:
+      "The AgentHub engagement includes contract retrieval, field-level citations, controlled tool routing, and a visible activity record.",
+    scope: "Published case study for one healthcare enterprise engagement.",
+    status: "production",
+    owner: "Maslow AI delivery team",
+    limitations:
+      "The case documents a 50-document grounded corpus. It does not predict accuracy or results for a different corpus.",
+    href: "/case-studies/agenthub",
+    linkLabel: "VIEW THE CASE STUDY",
+  },
+};
+
+export function architectureProductionEvidenceFor(href: string) {
+  return architectureProductionEvidenceByHref[href] ?? null;
+}
+
+export type WorkflowMapperQuestionId =
+  | "deliverable"
+  | "owner"
+  | "source"
+  | "boundary";
+
+export type WorkflowMapperOption = {
+  id: string;
+  label: string;
+};
+
+export type WorkflowMapperQuestion = {
+  id: WorkflowMapperQuestionId;
+  eyebrow: string;
+  title: string;
+  help: string;
+  options: WorkflowMapperOption[];
+};
+
+export const workflowMapperQuestions: WorkflowMapperQuestion[] = [
+  {
+    id: "deliverable",
+    eyebrow: "THE WAITING WORK",
+    title: "Which deliverable keeps getting delayed?",
+    help: "Choose the closest pattern. You can add the specific details in a working session.",
+    options: [
+      { id: "estimate", label: "Estimate or quote" },
+      { id: "knowledge-answer", label: "Contract or document answer" },
+      { id: "client-response", label: "Client or compliance response" },
+      { id: "internal-report", label: "Internal report or approval" },
+    ],
+  },
+  {
+    id: "owner",
+    eyebrow: "THE RESPONSIBLE PERSON",
+    title: "Whose judgment is the work waiting for?",
+    help: "Name the role that owns the consequential decision, not the person doing the research.",
+    options: [
+      { id: "operations", label: "Operations or estimating lead" },
+      { id: "finance", label: "Finance leader" },
+      { id: "legal", label: "Legal or compliance reviewer" },
+      { id: "service", label: "Client or service owner" },
+    ],
+  },
+  {
+    id: "source",
+    eyebrow: "THE SOURCE OF TRUTH",
+    title: "Where does the current information live?",
+    help: "The first system can be simple. What matters is that the team agrees which source governs the work.",
+    options: [
+      { id: "channels", label: "Email, Teams, or Slack" },
+      { id: "documents", label: "SharePoint, Drive, or file repository" },
+      { id: "systems", label: "CRM, ERP, or business system" },
+      { id: "multiple", label: "Several systems and repositories" },
+    ],
+  },
+  {
+    id: "boundary",
+    eyebrow: "THE HUMAN BOUNDARY",
+    title: "What must never happen without a person?",
+    help: "This answer defines the stop point before any workflow is designed for production.",
+    options: [
+      { id: "commitment", label: "Price or business commitment" },
+      { id: "interpretation", label: "Risk or policy interpretation" },
+      { id: "external", label: "External message or submission" },
+      { id: "exception", label: "Exception or missing information" },
+    ],
+  },
+];
+
+export type WorkflowEvidenceStatus =
+  | "PRODUCTION ENGAGEMENT"
+  | "ILLUSTRATIVE PATTERN";
+
+export type WorkflowMapperPattern = {
+  id: string;
+  deliverableId: string;
+  title: string;
+  prepare: string;
+  record: string;
+  evidenceStatus: WorkflowEvidenceStatus;
+  evidenceDescription: string;
+  evidenceHref: string;
+  evidenceLabel: string;
+};
+
+export const workflowMapperPatterns: WorkflowMapperPattern[] = [
+  {
+    id: "estimate-review",
+    deliverableId: "estimate",
+    title: "Request to estimator-reviewed draft",
+    prepare:
+      "The AI employee assembles the request, similar work, rate information, and missing-input questions into an estimate draft.",
+    record:
+      "The draft returns with its assumptions, sources, estimator decision, and next owner.",
+    evidenceStatus: "PRODUCTION ENGAGEMENT",
+    evidenceDescription:
+      "The Infinite AI OS engagement demonstrates file intake, company memory, role instructions, tool connectors, human approval gates, and observable work state.",
+    evidenceHref: "/case-studies/infinite-ai-os",
+    evidenceLabel: "VIEW PRODUCTION EVIDENCE",
+  },
+  {
+    id: "cited-answer",
+    deliverableId: "knowledge-answer",
+    title: "Question to cited, reviewable answer",
+    prepare:
+      "The AI employee retrieves the governing documents, assembles the relevant facts, and drafts an answer with source-level citations.",
+    record:
+      "The answer keeps its citations, reviewer changes, and the source versions used at the time.",
+    evidenceStatus: "PRODUCTION ENGAGEMENT",
+    evidenceDescription:
+      "The AgentHub engagement demonstrates contract retrieval, field-level citations, controlled tool routing, and a visible activity record.",
+    evidenceHref: "/case-studies/agenthub",
+    evidenceLabel: "VIEW PRODUCTION EVIDENCE",
+  },
+  {
+    id: "reviewed-response",
+    deliverableId: "client-response",
+    title: "Shared request to owner-reviewed response",
+    prepare:
+      "The AI employee collects the required facts, checks approved precedent, identifies missing details, and prepares a response for review.",
+    record:
+      "The approved draft, decision basis, and next handoff return to the shared queue before anything is sent.",
+    evidenceStatus: "ILLUSTRATIVE PATTERN",
+    evidenceDescription:
+      "This ownership path is an illustrative workflow. It is not presented as a client deployment or measured result.",
+    evidenceHref:
+      "/concepts/ai-employee-architecture/technical#workflow-intake",
+    evidenceLabel: "OPEN THE ILLUSTRATIVE WALKTHROUGH",
+  },
+  {
+    id: "controlled-report",
+    deliverableId: "internal-report",
+    title: "Source records to owner-approved report",
+    prepare:
+      "The AI employee assembles current records, applies the reporting procedure, and marks unsupported or conflicting inputs.",
+    record:
+      "The report remains attached to the source set, owner decision, unresolved exceptions, and next reporting date.",
+    evidenceStatus: "ILLUSTRATIVE PATTERN",
+    evidenceDescription:
+      "This ownership path is an illustrative workflow. The exact sources, controls, and evidence would need to be validated for the operation.",
+    evidenceHref:
+      "/concepts/ai-employee-architecture/technical#view-control",
+    evidenceLabel: "OPEN THE CONTROL REFERENCE",
+  },
+];
+
+export const architectureFitBoundaries = [
+  {
+    status: "START WITH OWNERSHIP",
+    title: "No one owns the final decision",
+    body: "Name the person who can approve, change, or stop the result before automating the preparation around that decision.",
+  },
+  {
+    status: "PREPARE THE FOUNDATION",
+    title: "The source material cannot be trusted",
+    body: "Fix ownership, currency, and retrieval of the governing records before asking an AI employee to use them.",
+  },
+  {
+    status: "DO NOT DEPLOY YET",
+    title: "There is no review boundary",
+    body: "Consequential actions need a defined human decision, escalation path, and work record before production use.",
+  },
+] as const;
 
 export const architectureCapabilities: ArchitectureCapability[] = [
   {

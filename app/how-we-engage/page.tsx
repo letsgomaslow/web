@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionAnchor } from "@/components/ui/SectionAnchor";
 import { ctaPrimaryLabel, engagementBadge } from "@/lib/brand";
 import {
+  earlyWorkingSession,
   expectations,
   pricingPrinciples,
   twoDoors,
@@ -66,13 +67,16 @@ export default function HowWeEngagePage() {
               {twoDoors.map((door) => (
                 <Reveal key={door.name}>
                   <div className={styles.doorCard}>
-                    <div className={styles.doorName}>{door.name}</div>
+                    <h3 className={styles.doorName}>{door.name}</h3>
                     <div className={styles.doorDesc}>{door.desc}</div>
                     <div className={styles.doorFit}>
                       <b>For you if:</b> {door.fit}
                     </div>
                     <div className={styles.doorTag}>{door.tag}</div>
-                    <Link href={door.ctaHref} className="text-link">
+                    <Link
+                      href={door.ctaHref}
+                      className={`text-link ${styles.doorAction}`}
+                    >
                       {door.ctaLabel}&nbsp;&nbsp;&gt;
                     </Link>
                   </div>
@@ -82,10 +86,44 @@ export default function HowWeEngagePage() {
           </div>
         </section>
 
+        <section
+          className={styles.earlyCta}
+          aria-labelledby="engagement-early-title"
+          data-engagement-early-cta
+          data-screen-label="Working Session"
+        >
+          <div className="wrap">
+            <Reveal className={styles.earlyCtaInner}>
+              <div className={styles.earlyCopy}>
+                <div className={styles.earlyEyebrow}>
+                  {earlyWorkingSession.eyebrow}
+                </div>
+                <h2
+                  className={styles.earlyTitle}
+                  id="engagement-early-title"
+                >
+                  {earlyWorkingSession.heading}
+                </h2>
+                <p className={styles.earlyBody}>{earlyWorkingSession.body}</p>
+              </div>
+              <CtaButton
+                href={earlyWorkingSession.ctaHref}
+                variant="inverse"
+                className={styles.earlyAction}
+              >
+                {earlyWorkingSession.ctaLabel}
+              </CtaButton>
+            </Reveal>
+          </div>
+        </section>
+
         <section className={styles.weeks} data-screen-label="90 Days">
           <div className="wrap">
             <Reveal>
-              <h2 className="h2" id="ninety-days" style={{ marginBottom: 36 }}>
+              <h2
+                className={`h2 ${styles.weeksHeading}`}
+                id="ninety-days"
+              >
                 What happens across the 90-day Foundation.
                 <SectionAnchor id="ninety-days" label="The 90-day anatomy" />
               </h2>
@@ -99,13 +137,17 @@ export default function HowWeEngagePage() {
             <div className={styles.expectGrid}>
               <Reveal>
                 <div className={styles.expectCol}>
-                  <div className="eyebrow">WHAT YOU GET</div>
+                  <h2 className={`eyebrow ${styles.expectHeading}`}>
+                    WHAT YOU GET
+                  </h2>
                   <p>{expectations.youGet}</p>
                 </div>
               </Reveal>
               <Reveal>
                 <div className={styles.expectCol}>
-                  <div className="eyebrow">WHAT WE ASK</div>
+                  <h2 className={`eyebrow ${styles.expectHeading}`}>
+                    WHAT WE ASK
+                  </h2>
                   <p>{expectations.weAsk}</p>
                 </div>
               </Reveal>

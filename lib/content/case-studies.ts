@@ -1,4 +1,5 @@
 import type { ArchitectureCapabilityId } from "@/lib/content/architecture";
+import type { EvidenceReceiptData } from "@/lib/content/evidence";
 
 export type ArchitectureEvidence = {
   capabilityId: ArchitectureCapabilityId;
@@ -8,11 +9,12 @@ export type ArchitectureEvidence = {
 export const caseStudiesIndex = [
   {
     slug: "infinite-ai-os",
-    sector: "MANUFACTURING · REAL ENGAGEMENT",
+    sector: "MANUFACTURING · PRODUCTION ENGAGEMENT",
     art: "linear-gradient(140deg,#86E8CE,#E686B5)",
     metric: "90 days",
     metricLabel: "idea to foundation",
     metricGloss: "",
+    evidenceLabel: "PRODUCTION EVIDENCE",
     illustrative: false,
     title:
       "Infinite AI OS: from tribal knowledge to an AI operating system in 90 days",
@@ -25,25 +27,31 @@ export const caseStudiesIndex = [
       "3 core systems in production",
       "90 days idea to foundation",
     ],
-    stack: ["VIRTUAL_EMPLOYEES", "KNOWLEDGE_GRAPH", "TEAMS_GATEWAY", "HARNESS"],
+    stack: [
+      "AI_EMPLOYEES",
+      "KNOWLEDGE_GRAPH",
+      "TEAMS_CONNECTION",
+      "WORKFLOW_SYSTEM",
+    ],
     href: "/case-studies/infinite-ai-os",
   },
   {
     slug: "agenthub",
-    sector: "HEALTHCARE ENTERPRISE · REAL ENGAGEMENT",
+    sector: "HEALTHCARE ENTERPRISE · DEPLOYED DEMO",
     art: "linear-gradient(140deg,#4C4C4C,#F37779)",
     metric: "93%",
-    metricLabel: "intent routing on first try",
+    metricLabel: "expected first-tool routing",
     metricGloss:
       "26 of 28 test cases routed to the expected first tool call through the live streaming pipeline (92.9%).",
+    evidenceLabel: "PRODUCTION EVIDENCE",
     illustrative: false,
     title: "AgentHub: a prompt library with a contract-review system",
     challenge:
       "Knowledge workers had no shared home for prompts that work, and no fast, trustworthy way to interrogate dense Statement-of-Work documents.",
     solution:
-      "A department-organized prompt library paired with an agentic SOW reviewer. Parallel vector and knowledge-graph retrieval supports field-level citations, while the chat can return charts, tables, and drafted documents.",
+      "A department-organized prompt library paired with an SOW review system. Parallel vector and knowledge-graph retrieval supports field-level citations, while the chat can return charts, tables, and drafted documents.",
     results: [
-      "A citation on every answer",
+      "Field-level citations in drafted SOW sections",
       "50-SOW grounded corpus",
       "7 generative-UI widgets",
     ],
@@ -55,8 +63,9 @@ export const caseStudiesIndex = [
     sector: "FINANCIAL SERVICES",
     art: "#121D35",
     metric: "SCENARIO",
-    metricLabel: "representative workflow, not a client result",
+    metricLabel: "representative workflow pattern",
     metricGloss: "",
+    evidenceLabel: "ILLUSTRATIVE PATTERN",
     illustrative: true,
     title: "120,000 documents, one knowledge graph",
     challenge:
@@ -69,48 +78,50 @@ export const caseStudiesIndex = [
       "On-prem deployment pattern",
     ],
     stack: ["HYBRID_RAG", "KNOWLEDGE_GRAPH", "ON_PREM"],
-    href: "/concepts/ai-employee-architecture#workflow-compliance",
+    href: "/concepts/ai-employee-architecture/technical#workflow-compliance",
   },
   {
     slug: "virtual-paralegal",
     sector: "LEGAL",
     art: "#401877",
     metric: "SCENARIO",
-    metricLabel: "representative workflow, not a client result",
+    metricLabel: "representative workflow pattern",
     metricGloss: "",
+    evidenceLabel: "ILLUSTRATIVE PATTERN",
     illustrative: true,
     title: "An AI intake employee in the shared inbox",
     challenge:
       "Intake requests arrived by email at all hours. Partners triaged manually; slow responses were losing engagements to faster firms.",
     solution:
-      "An AI employee connected to the shared inbox through an email gateway. It triages intake, drafts engagement letters from precedent, and escalates edge cases with a full audit trail.",
+      "An AI employee connected to the shared inbox through an approved email connection. It triages intake, drafts engagement letters from precedent, and escalates edge cases with a full audit trail.",
     results: [
       "Human-reviewed intake",
       "Cited draft responses",
       "Documented escalation path",
     ],
-    stack: ["VIRTUAL_EMPLOYEE", "EMAIL_GATEWAY", "HARNESS"],
-    href: "/concepts/ai-employee-architecture#workflow-intake",
+    stack: ["AI_EMPLOYEE", "EMAIL_CONNECTION", "WORKFLOW_SYSTEM"],
+    href: "/concepts/ai-employee-architecture/technical#workflow-intake",
   },
   {
     slug: "local-ai-factory",
     sector: "MANUFACTURING",
     art: "#192332",
     metric: "SCENARIO",
-    metricLabel: "representative workflow, not a client result",
+    metricLabel: "representative workflow pattern",
     metricGloss: "",
+    evidenceLabel: "ILLUSTRATIVE PATTERN",
     illustrative: true,
     title: "Local AI on the factory floor",
     challenge:
       "Cloud AI costs scaled with every query, and sensitive process data was leaving the building to third-party APIs.",
     solution:
-      "Right-sized GPU hardware on site, open models fine-tuned on their procedures, and an agentic harness wired into Teams for the floor supervisors.",
+      "Right-sized GPU hardware on site, open models fine-tuned on their procedures, and a controlled workflow system connected to Teams for floor supervisors.",
     results: [
       "Modeled cost comparison",
       "No external data transfer",
       "Workload-based capacity plan",
     ],
-    stack: ["LOCAL_AI", "OPEN_MODELS", "TEAMS_GATEWAY"],
+    stack: ["LOCAL_AI", "OPEN_MODELS", "TEAMS_CONNECTION"],
     href: "/concepts/local-ai",
   },
 ];
@@ -119,7 +130,7 @@ export const caseStudiesIndex = [
 export const caseStudyIndex = caseStudiesIndex;
 
 export const infiniteAiOs = {
-  architectureHref: "/concepts/ai-employee-architecture#workflow-rfq",
+  architectureHref: "/concepts/ai-employee-architecture/technical#workflow-rfq",
   architectureLabel: "FOLLOW THE RFQ ARCHITECTURE",
   architectureMap: [
     {
@@ -128,11 +139,13 @@ export const infiniteAiOs = {
     },
     {
       capabilityId: "briefing",
-      evidence: "Company memory and the knowledge map assemble relevant context.",
+      evidence:
+        "Company memory and the knowledge map assemble relevant context.",
     },
     {
       capabilityId: "procedure",
-      evidence: "Employee profiles define roles, instructions, boundaries, and handoffs.",
+      evidence:
+        "Employee profiles define roles, instructions, boundaries, and handoffs.",
     },
     {
       capabilityId: "access",
@@ -156,36 +169,81 @@ export const infiniteAiOs = {
   ],
   title: "From tribal knowledge to an AI operating system, in 90 days.",
   lede: "How a private manufacturing group went from idea to a working AI foundation: four AI employees in Microsoft Teams, a searchable company memory, and a plan to measure operating value over the next 90 days.",
+  executiveSummary: {
+    waitingWork:
+      "Estimating, quoting, reporting, and file search depended on manual effort and knowledge held by a few people.",
+    whatChanged:
+      "A 90-day foundation introduced four named AI employees in Teams, shared company memory, file intake, tool connectors, and an observable operating layer.",
+    humanDecision:
+      "People retain final approval for sensitive or external actions and decide which pilot patterns move into production.",
+    evidenceState:
+      "The production foundation and current deployment status are documented. The May proof panels are stylized recreations. Operating-value scenarios remain illustrative.",
+  },
+  evidence: {
+    foundation: {
+      claim:
+        "The engagement reached a working 90-day foundation with four named AI employees responding in Teams and three listed foundation components live.",
+      scope:
+        "One private manufacturing engagement and its delivery-status snapshot after the first 90 days.",
+      status: "production",
+      owner: "Maslow AI delivery team with client workflow owners",
+      limitations:
+        "Connectors remained in hardening, self-improvement remained a pilot, and operating-value measurement was targeted for day 180.",
+    } satisfies EvidenceReceiptData,
+    pilotRecreations: {
+      claim:
+        "These cards recreate workflow patterns explored during the May proof-of-concept phase.",
+      scope: "Illustrative Teams, RFQ-review, and reporting interactions.",
+      status: "illustrative",
+      owner: "Maslow AI delivery team",
+      limitations:
+        "Names, messages, checklist details, status states, and timing are recreations. Production records and measured outcomes are outside their scope.",
+    } satisfies EvidenceReceiptData,
+    valueModel: {
+      claim:
+        "The displayed 1.12x, 1.33x, and 1.65x multipliers model possible future operating-value scenarios.",
+      scope:
+        "Planning cases that vary EBITDA improvement and valuation multiple assumptions for a small private manufacturer.",
+      status: "illustrative",
+      owner: "Maslow AI planning model",
+      limitations:
+        "Realized client results, forecasts, and valuation advice are outside this scenario evidence.",
+    } satisfies EvidenceReceiptData,
+  },
   metrics: [
     {
       value: "4",
-      label: "AI employees hired: named, role-based, managed",
+      label: "named, role-based AI employees responding in Teams",
       accent: "#73C1AE",
       dark: false,
+      evidenceLabel: "PRODUCTION EVIDENCE",
     },
     {
       value: "3",
       label: "core systems verified live in production",
       accent: "#A070A6",
       dark: false,
+      evidenceLabel: "PRODUCTION EVIDENCE",
     },
     {
       value: "90",
       label: "days from kickoff to working foundation",
       accent: "#EBA93D",
       dark: false,
+      evidenceLabel: "PRODUCTION EVIDENCE",
     },
     {
       value: "Day 180",
       label: "target for measured operating results",
       accent: "#FFF860",
       dark: true,
+      evidenceLabel: "MEASUREMENT IN PROGRESS",
     },
   ],
   challengeTitle: "The business ran on knowledge locked in people's heads",
   challengeBody: [
     "A private manufacturing group with one goal: **reduce the cost of operating the business**. Estimating, quoting, reporting and file search all depended on manual effort and tribal knowledge, and on the owner personally. That meant high cost to serve, high key-person risk, and a harder story to tell in any future diligence.",
-    "The bet: AI becomes valuable when it's connected to company memory, approved tools and human approval gates, *not* when it's a chat window. So we didn't deploy a chatbot. We built an operating system.",
+    "The bet: AI becomes valuable when it is connected to company memory, approved tools, and human approval gates. A standalone chat window was insufficient, so we built an operating system.",
   ],
   phases: [
     {
@@ -197,7 +255,7 @@ export const infiniteAiOs = {
     {
       when: "MAY · PROOF OF CONCEPT",
       name: "Prove the value",
-      desc: "Tested AI teammates in Teams and email: estimating support, file intake and report generation.",
+      desc: "Tested AI employees in Teams and email: estimating support, file intake, and report generation.",
       q: "Which patterns earn hardening?",
     },
     {
@@ -348,7 +406,7 @@ export const infiniteAiOs = {
     },
     {
       value: "1.65×",
-      name: "Proven ROI",
+      name: "Illustrative high case",
       detail: "+30% EBITDA · 4.75× multiple",
       highlight: false,
       color: "#A070A6",
@@ -356,25 +414,27 @@ export const infiniteAiOs = {
   ],
   services: [
     { name: "Knowledge foundation build", href: "/services#structure" },
-    { name: "Custom agentic harness", href: "/services#build" },
-    { name: "Gateway integrations", href: "/services#build" },
+    { name: "Custom workflow system", href: "/services#build" },
+    { name: "Channel and system connections", href: "/services#build" },
     { name: "AI employee pilot", href: "/services#deploy" },
   ],
   quote:
     "The first 90 days built the production system. The next 90 measure how it changes operating work.",
-  quoteAttr: "90-DAY PROGRESS REPORT TO STAKEHOLDERS",
-  ctaTitle: "Your business could have its own AI OS in 90 days.",
+  quoteAttr: "DELIVERY STATUS · OPERATING MEASUREMENT IN PROGRESS",
+  ctaTitle: "What could a 90-day foundation include for your business?",
   ctaLede:
     "Same playbook: learn the work, prove the value, build only what earns it.",
 };
 
 export const agentHub = {
-  architectureHref: "/concepts/ai-employee-architecture#workflow-compliance",
+  architectureHref:
+    "/concepts/ai-employee-architecture/technical#workflow-compliance",
   architectureLabel: "FOLLOW THE COMPLIANCE ARCHITECTURE",
   architectureMap: [
     {
       capabilityId: "intake",
-      evidence: "A chat request enters the live streaming pipeline with its task intent.",
+      evidence:
+        "A chat request enters the live streaming pipeline with its task intent.",
     },
     {
       capabilityId: "briefing",
@@ -382,15 +442,18 @@ export const agentHub = {
     },
     {
       capabilityId: "procedure",
-      evidence: "Deterministic intent routing governs the multi-round tool loop.",
+      evidence:
+        "Deterministic intent routing governs the multi-round tool loop.",
     },
     {
       capabilityId: "access",
-      evidence: "The classified request gates which response tools are available.",
+      evidence:
+        "The classified request gates which response tools are available.",
     },
     {
       capabilityId: "record",
-      evidence: "The Activity Panel exposes searches, tool rounds, and source paths.",
+      evidence:
+        "The Activity Panel exposes searches, tool rounds, and source paths.",
     },
   ] satisfies ArchitectureEvidence[],
   clientName: "a global healthcare company's internal innovation program",
@@ -401,37 +464,92 @@ export const agentHub = {
     { label: "AGENTHUB", variant: "navy" as const },
   ],
   title: "An enterprise prompt library with a contract-review system.",
-  lede: "Built for a global healthcare company's internal innovation program under the Maslow AI brand: a department-organized prompt library backed by a Statement-of-Work review agent with graph retrieval, field-level citations, and structured answers.",
+  lede: "Built for a global healthcare company's internal innovation program under the Maslow AI brand: a department-organized prompt library backed by a Statement-of-Work review system with graph retrieval, field-level citations, and structured answers.",
+  executiveSummary: {
+    waitingWork:
+      "Knowledge workers lacked a shared prompt library and a fast way to review dense Statements of Work with traceable source fields.",
+    whatChanged:
+      "A department prompt library and SOW reviewer now combine vector and graph retrieval, structured response tools, and field-level citations.",
+    humanDecision:
+      "Procurement and legal reviewers inspect cited source fields and decide whether drafted answers or documents can move forward.",
+    evidenceState:
+      "The deployed implementation and 26-of-28 first-tool routing result are production evidence. Adoption and business-impact measurement are still in progress.",
+  },
+  evidence: {
+    implementation: {
+      claim:
+        "The deployed AgentHub includes an 11-department prompt library, a 50-SOW corpus, and seven structured response widgets.",
+      scope:
+        "The current Maslow-branded deployment for the internal innovation program.",
+      status: "production",
+      owner: "Maslow AI delivery team",
+      limitations:
+        "This records deployed implementation scope. Adoption and business-impact measures are still in progress.",
+    } satisfies EvidenceReceiptData,
+    retrieval: {
+      claim:
+        "The deployed SOW reviewer combines vector and graph retrieval with field-level citations and a recorded vector-only fallback.",
+      scope: "The current 50-SOW corpus and live streaming review pipeline.",
+      status: "production",
+      owner: "Maslow AI delivery team",
+      limitations:
+        "Answer quality, adoption, and business impact are outside this implementation evidence.",
+    } satisfies EvidenceReceiptData,
+    routing: {
+      claim:
+        "26 of 28 live-pipeline cases selected the expected first tool, displayed as 93% after rounding.",
+      scope:
+        "A 28-case intent-to-first-tool test suite run through the live streaming pipeline.",
+      status: "production",
+      owner: "Maslow AI delivery team",
+      limitations:
+        "The test suite checks expected first-tool selection only. It does not test answer correctness, citation accuracy, retrieval quality, unseen-query reliability, adoption, or business impact.",
+    } satisfies EvidenceReceiptData,
+    trustControls: {
+      claim:
+        "The deployed implementation demonstrates contract retrieval, source-field citations, controlled tool routing, and a visible activity record against a 50-SOW corpus.",
+      scope:
+        "One deployed AgentHub implementation in a healthcare-enterprise engagement.",
+      status: "production",
+      owner: "Maslow AI delivery team",
+      limitations:
+        "Legal accuracy, independent security or regulatory certification, organization-wide adoption, and performance on another corpus are outside its scope.",
+    } satisfies EvidenceReceiptData,
+  },
   metrics: [
     {
       value: "7",
-      label: "generative-UI widgets the agent can answer with",
+      label: "generative-UI widgets available for structured responses",
       accent: "#73C1AE",
       dark: false,
+      evidenceLabel: "PRODUCTION EVIDENCE",
     },
     {
       value: "93%",
-      label: "intent-routing accuracy on a 28-case live test suite",
+      label: "expected first-tool routing on a 28-case live test suite",
       accent: "#FFF860",
       dark: true,
+      evidenceLabel: "PRODUCTION TEST RESULT",
     },
     {
       value: "50",
       label: "SOW corpus, chunked by document structure",
       accent: "#A070A6",
       dark: false,
+      evidenceLabel: "PRODUCTION EVIDENCE",
     },
     {
       value: "11",
       label: "departments in the curated prompt library",
       accent: "#EBA93D",
       dark: false,
+      evidenceLabel: "PRODUCTION EVIDENCE",
     },
   ],
   challengeTitle: "The product needed to support two jobs",
   challengeBody: [
-    'Enterprise knowledge workers had no shared home for the prompts that actually work, and no fast, trustworthy way to interrogate dense Statement-of-Work documents. "What are the termination terms?" meant an afternoon of reading. "Where\'s the duplicate-spend risk across these vendors?" meant nobody checked.',
-    "AgentHub combines a curated **prompt library**, organized by department, with an **agentic SOW reviewer** grounded in the source documents.",
+    'Enterprise knowledge workers had no shared home for reviewed prompts, and no fast, trustworthy way to interrogate dense Statement-of-Work documents. "What are the termination terms?" meant an afternoon of reading. "Where\'s the duplicate-spend risk across these vendors?" meant nobody checked.',
+    "AgentHub combines a curated **prompt library**, organized by department, with an **SOW review system** grounded in the source documents.",
   ],
   departments: [
     "Marketing",
@@ -446,7 +564,7 @@ export const agentHub = {
       num: "01",
       tag: "INGEST",
       name: "Structure-aware chunking",
-      desc: "Contracts are chunked by document structure (not fixed token windows), with breadcrumb metadata (section path, field names) preserved on every chunk.",
+      desc: "Contracts follow their document structure during chunking, with breadcrumb metadata (section path and field names) preserved on every chunk.",
     },
     {
       num: "02",
@@ -469,7 +587,7 @@ export const agentHub = {
     {
       num: "05",
       tag: "GENERATE",
-      name: "Agentic tool loop",
+      name: "Multi-step response loop",
       desc: "The model answers in a multi-round tool loop, streaming tokens, reasoning and widgets live over server-sent events.",
     },
     {
@@ -502,15 +620,15 @@ export const agentHub = {
   ],
   services: [
     { name: "Knowledge foundation build", href: "/services#structure" },
-    { name: "Custom agentic harness", href: "/services#build" },
+    { name: "Custom workflow system", href: "/services#build" },
     { name: "Skills authoring", href: "/services#build" },
     { name: "Team enablement", href: "/services#deploy" },
   ],
   quote:
-    "The prompt library is the front door. The engineering story is a contract-review agent that shows its sources, down to the exact field.",
+    "The prompt library is the front door. The engineering story is a contract-review system that shows its sources, down to the exact field.",
   quoteAttr:
     "Live demo deployed · 11-department library · 50-SOW corpus · adoption metrics in progress",
   ctaTitle: "Have documents your teams are afraid to ask questions of?",
   ctaLede:
-    "We build grounded, citable, explainable review agents on your data, behind your walls.",
+    "We build grounded, citable review systems within the agreed data and access boundary.",
 };

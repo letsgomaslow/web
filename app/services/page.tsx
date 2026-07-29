@@ -2,12 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
-import { CatchChips } from "@/components/ui/CatchChips";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { ctaPrimaryLabel } from "@/lib/brand";
 import { twoDoors } from "@/lib/content/engagement";
-import { serviceCatalog, serviceStages } from "@/lib/content/services";
+import { ServiceExplorer } from "./ServiceExplorer";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -91,13 +90,16 @@ export default function ServicesPage() {
               {twoDoors.map((door) => (
                 <Reveal key={door.name}>
                   <div className={styles.doorCard}>
-                    <div className={styles.doorName}>{door.name}</div>
+                    <h3 className={styles.doorName}>{door.name}</h3>
                     <div className={styles.doorDesc}>{door.desc}</div>
                     <div className={styles.doorFit}>
                       <b>For you if:</b> {door.fit}
                     </div>
                     <div className={styles.doorTag}>{door.tag}</div>
-                    <Link href={door.ctaHref} className="text-link">
+                    <Link
+                      href={door.ctaHref}
+                      className={`text-link ${styles.doorAction}`}
+                    >
                       {door.ctaLabel}&nbsp;&nbsp;&gt;
                     </Link>
                   </div>
@@ -107,82 +109,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className={styles.journey} data-screen-label="Journey Map">
-          <div className={styles.journeyInner}>
-            <div className={styles.stages}>
-              <svg
-                className={styles.stageLine}
-                viewBox="0 0 100 2"
-                preserveAspectRatio="none"
-                aria-hidden
-              >
-                <line
-                  x1="0"
-                  y1="1"
-                  x2="100"
-                  y2="1"
-                  stroke="rgba(115,193,174,.5)"
-                  strokeWidth="1"
-                  strokeDasharray="3 4"
-                  style={{ animation: "mzDash 3s linear infinite" }}
-                  vectorEffect="non-scaling-stroke"
-                />
-              </svg>
-              <div className={styles.gateMarks} aria-hidden="true">
-                {[20, 40, 80].map((x) => (
-                  <span key={x} style={{ left: `${x}%` }} />
-                ))}
-              </div>
-              {serviceStages.map((st) => (
-                <a key={st.num} href={st.anchor} className={styles.stage}>
-                  <div className={styles.stageNum}>{st.num}</div>
-                  <div className={styles.stageName}>{st.name}</div>
-                  <div className={styles.stageQ}>{st.q}</div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.catalog} data-screen-label="Service Catalog">
-          <div className={styles.catalogInner}>
-            {serviceCatalog.map((grp) => (
-              <Reveal key={grp.id} id={grp.id} className={styles.group}>
-                <div className={styles.groupHead}>
-                  <span
-                    className={styles.groupNum}
-                    style={{ color: grp.accent }}
-                  >
-                    {grp.num}
-                  </span>
-                  <h2 className={styles.groupName}>{grp.name}</h2>
-                </div>
-                <p className={styles.groupDesc}>{grp.desc}</p>
-                <div className={styles.serviceGrid}>
-                  {grp.services.map((s) => (
-                    <div key={s.name} className={styles.serviceCard}>
-                      <div className={styles.serviceName}>{s.name}</div>
-                      <div className={styles.serviceDesc}>{s.desc}</div>
-                      <div
-                        className={styles.serviceFit}
-                        style={{ borderLeftColor: grp.accent }}
-                      >
-                        <b>For you if:</b> {s.fit}
-                      </div>
-                      <div className={styles.deliverable}>{s.deliverable}</div>
-                      {s.catchTrail ? (
-                        <CatchChips
-                          steps={s.catchTrail}
-                          ariaLabel="What the supervision log records"
-                        />
-                      ) : null}
-                    </div>
-                  ))}
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </section>
+        <ServiceExplorer />
 
         <section className={styles.e2e} data-screen-label="End to End">
           <Image

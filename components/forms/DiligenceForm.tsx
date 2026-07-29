@@ -115,12 +115,13 @@ export function DiligenceForm() {
       </button>
       {status === "idle" && (
         <p className={styles.hint}>
-          The pack goes out from a real person within one business day.
+          The pack goes out from a member of our team within one business day.
         </p>
       )}
       {status === "success" && (
         <p className={`${styles.status} ${styles.statusOk}`} role="status">
-          Got it. The pack goes out from a real person within one business day.
+          Got it. The pack goes out from a member of our team within one
+          business day.
         </p>
       )}
       {status === "error" && (

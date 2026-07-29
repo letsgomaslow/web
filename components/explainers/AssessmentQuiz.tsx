@@ -189,7 +189,8 @@ export function AssessmentQuiz() {
                 </p>
                 {emailStatus === "success" ? (
                   <p className={styles.emailOk}>
-                    Got it. A real person replies within one business day.
+                    Got it. A member of our team replies within one business
+                    day.
                   </p>
                 ) : (
                   <form className={styles.emailForm} onSubmit={onEmailReport}>

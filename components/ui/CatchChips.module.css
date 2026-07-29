@@ -55,9 +55,12 @@
 
 :global(body.mz-anim) .step {
   transition:
-    opacity 0.45s var(--ease),
-    transform 0.45s var(--ease);
-  transition-delay: calc(0.15s + var(--i) * 0.12s);
+    opacity var(--motion-reveal-duration) var(--motion-reveal-ease),
+    transform var(--motion-reveal-duration) var(--motion-reveal-ease);
+  transition-delay: min(
+    calc(var(--i) * var(--motion-sequence-step)),
+    var(--motion-sequence-max)
+  );
 }
 
 @media (prefers-reduced-motion: reduce) {

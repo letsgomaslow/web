@@ -2,6 +2,7 @@
 
 import { track } from "@vercel/analytics";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 type ArchitectureTrackedLinkProps = {
   href: string;
@@ -27,4 +28,24 @@ export function ArchitectureTrackedLink({
       {children}
     </Link>
   );
+}
+
+type ArchitectureTrackedViewProps = {
+  eventName: string;
+  eventData: Record<string, string>;
+};
+
+export function ArchitectureTrackedView({
+  eventName,
+  eventData,
+}: ArchitectureTrackedViewProps) {
+  const sent = useRef(false);
+
+  useEffect(() => {
+    if (sent.current) return;
+    sent.current = true;
+    track(eventName, eventData);
+  }, [eventData, eventName]);
+
+  return null;
 }

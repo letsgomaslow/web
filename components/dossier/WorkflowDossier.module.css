@@ -1,0 +1,174 @@
+.dossier {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-structural);
+  background: var(--color-white);
+  color: var(--color-navy);
+  padding: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--color-purple);
+  font: 500 10px/14px var(--font-mono);
+  letter-spacing: 2px;
+}
+
+.title {
+  margin: 0;
+  font: 500 24px/30px var(--font-sans);
+  letter-spacing: -0.35px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 24px 0 0;
+  border-top: 1px solid var(--color-line);
+  border-left: 1px solid var(--color-line);
+}
+
+.field {
+  min-width: 0;
+  padding: 16px;
+  border-right: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.field:last-child {
+  grid-column: 1 / -1;
+}
+
+.field dt {
+  margin: 0 0 6px;
+  color: var(--color-muted);
+  font: 500 9px/13px var(--font-mono);
+  letter-spacing: 1.35px;
+  text-transform: uppercase;
+}
+
+.field dd {
+  margin: 0;
+  color: var(--color-text);
+  font: 500 14px/21px var(--font-sans);
+}
+
+.tray {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-structural);
+  background: var(--color-off-white);
+}
+
+.traySummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  color: var(--color-navy);
+  cursor: pointer;
+  font: 600 12px/18px var(--font-sans);
+  letter-spacing: 0.8px;
+  list-style: none;
+}
+
+.traySummary::-webkit-details-marker {
+  display: none;
+}
+
+.traySummary:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: -3px;
+  box-shadow: 0 0 0 2px var(--color-off-white);
+}
+
+.traySummary::after {
+  content: "+";
+  color: var(--color-purple);
+  font: 400 22px/18px var(--font-mono);
+}
+
+.tray[open] .traySummary::after {
+  content: "−";
+}
+
+.trayBody {
+  padding: 0 20px 20px;
+}
+
+.trayBody .dossier {
+  padding: 20px;
+}
+
+.receipt {
+  border-left: 3px solid var(--color-action-signal);
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: 24px;
+}
+
+.receiptEyebrow {
+  margin: 0 0 8px;
+  color: var(--color-ice-on-dark);
+  font: 500 10px/14px var(--font-mono);
+  letter-spacing: 1.8px;
+}
+
+.receiptTitle {
+  margin: 0;
+  font: 500 22px/29px var(--font-sans);
+  letter-spacing: -0.25px;
+}
+
+.receiptText {
+  margin: 10px 0 0;
+  color: var(--color-mist);
+  font: 400 14px/22px var(--font-sans);
+}
+
+.receiptList {
+  display: grid;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.receiptList li {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.7fr) minmax(0, 1.3fr);
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-navy-line);
+  color: var(--color-white);
+  font: 400 13px/20px var(--font-sans);
+}
+
+.receiptList strong {
+  color: var(--color-mist);
+  font: 500 9px/14px var(--font-mono);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .dossier,
+  .receipt {
+    padding: 20px;
+  }
+
+  .fields {
+    grid-template-columns: 1fr;
+  }
+
+  .traySummary,
+  .trayBody {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .receiptList li {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}

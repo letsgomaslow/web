@@ -141,7 +141,7 @@ export const faqItems = [
 export const manufacturingBottlenecks = [
   {
     num: "01",
-    title: "Every quote waits on the one person who knows the real numbers.",
+    title: "Every quote waits on the one person who knows the numbers.",
     desc: "Your senior estimator may spend two hours assembling every quote before applying the judgment only they can provide. Automating the assembly gives them more time to review the work that affects margin and risk.",
   },
   {

@@ -1,7 +1,14 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { track } from "@vercel/analytics";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { contactEmail, ctaContactSubmitLabel } from "@/lib/brand";
+import {
+  WORKFLOW_BRIEF_STORAGE_KEY,
+  WORKFLOW_MAPPER_STATE_STORAGE_KEY,
+  formatWorkflowBrief,
+  parseWorkflowBrief,
+} from "@/lib/workflow-brief";
 import styles from "./forms.module.css";
 
 const sendError = `That didn't send. Try again, or just email ${contactEmail}. We're not precious about channels.`;
@@ -10,7 +17,7 @@ const INTERESTS = [
   "AI readiness assessment",
   "AI employee pilot",
   "Knowledge foundation / Hybrid RAG",
-  "Custom agentic harness",
+  "Custom workflow system",
   "Local AI / on-prem",
   "90-Day AI Foundation",
   "Something else",
@@ -21,6 +28,38 @@ type Status = "idle" | "loading" | "success" | "error";
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const [hasWorkflowBrief, setHasWorkflowBrief] = useState(false);
+  const started = useRef(false);
+
+  useEffect(() => {
+    try {
+      const stored = window.sessionStorage.getItem(WORKFLOW_BRIEF_STORAGE_KEY);
+      if (!stored) return;
+      const parsed: unknown = JSON.parse(stored);
+      const brief = parseWorkflowBrief(parsed);
+      if (!brief) {
+        window.sessionStorage.removeItem(WORKFLOW_BRIEF_STORAGE_KEY);
+        return;
+      }
+      setMessage(formatWorkflowBrief(brief));
+      setHasWorkflowBrief(true);
+    } catch {
+      try {
+        window.sessionStorage.removeItem(WORKFLOW_BRIEF_STORAGE_KEY);
+      } catch {
+        // The form remains usable when session storage is unavailable.
+      }
+    }
+  }, []);
+
+  const trackStart = () => {
+    if (started.current) return;
+    started.current = true;
+    track("Working session form started", {
+      source: hasWorkflowBrief ? "workflow-mapper" : "contact",
+    });
+  };
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -50,6 +89,19 @@ export function ContactForm() {
         );
       }
       setStatus("success");
+      track("Working session submitted", {
+        source: hasWorkflowBrief ? "workflow-mapper" : "contact",
+      });
+      if (hasWorkflowBrief) {
+        try {
+          window.sessionStorage.removeItem(WORKFLOW_BRIEF_STORAGE_KEY);
+          window.sessionStorage.removeItem(WORKFLOW_MAPPER_STATE_STORAGE_KEY);
+        } catch {
+          // A successful submission does not depend on browser storage access.
+        }
+      }
+      setHasWorkflowBrief(false);
+      setMessage("");
       form.reset();
     } catch (err) {
       setStatus("error");
@@ -65,8 +117,15 @@ export function ContactForm() {
     <form
       className={styles.stack}
       onSubmit={onSubmit}
+      onFocusCapture={trackStart}
       aria-busy={status === "loading"}
     >
+      {hasWorkflowBrief ? (
+        <div className={styles.workflowContext} role="status">
+          <strong>WORKFLOW MAPPER BRIEF ADDED</strong>
+          <span>Review or edit it in the message field before sending.</span>
+        </div>
+      ) : null}
       <div className={styles.row}>
         <label className={styles.field}>
           <span className={styles.fieldLabel}>Full name</span>
@@ -130,6 +189,8 @@ export function ContactForm() {
           name="message"
           placeholder="Tell us about the workflow (optional)"
           disabled={status === "loading"}
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
         />
       </label>
       <button
@@ -147,7 +208,7 @@ export function ContactForm() {
       )}
       {status === "success" && (
         <p className={`${styles.status} ${styles.statusOk}`} role="status">
-          Got it. A real person replies within one business day.
+          Got it. A member of our team replies within one business day.
         </p>
       )}
       {status === "error" && (

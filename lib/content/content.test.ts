@@ -29,10 +29,14 @@ import { foundationWeeks, twoDoors } from "@/lib/content/engagement";
 import { conceptFailures } from "@/lib/content/explainers";
 import {
   architectureCapabilities,
+  architectureFitBoundaries,
   architectureMapEdges,
   architectureMapNodes,
   architectureScenarioOverlays,
   architectureViews,
+  buyerArchitectureStages,
+  workflowMapperPatterns,
+  workflowMapperQuestions,
 } from "@/lib/content/architecture";
 import { copilotSection, costOfWaiting } from "@/lib/content/home";
 import {
@@ -152,6 +156,35 @@ describe("content modules", () => {
       expect(
         architectureMapNodes.find(({ id }) => id === nodeId)?.claimStatus,
       ).toMatch(/not a production claim/i);
+    });
+  });
+
+  it("keeps the buyer path short, categorical, and evidence-labeled", () => {
+    expect(buyerArchitectureStages).toHaveLength(4);
+    expect(architectureFitBoundaries).toHaveLength(3);
+    expect(workflowMapperQuestions.map(({ id }) => id)).toEqual([
+      "deliverable",
+      "owner",
+      "source",
+      "boundary",
+    ]);
+    workflowMapperQuestions.forEach((question) => {
+      expect(question.options).toHaveLength(4);
+    });
+
+    const deliverableIds = workflowMapperQuestions
+      .find(({ id }) => id === "deliverable")
+      ?.options.map(({ id }) => id);
+    expect(workflowMapperPatterns.map(({ deliverableId }) => deliverableId)).toEqual(
+      deliverableIds,
+    );
+    workflowMapperPatterns.forEach((pattern) => {
+      expect(["PRODUCTION ENGAGEMENT", "ILLUSTRATIVE PATTERN"]).toContain(
+        pattern.evidenceStatus,
+      );
+      expect(pattern.evidenceDescription.length).toBeGreaterThan(40);
+      expect(pattern.evidenceLabel.length).toBeGreaterThan(10);
+      expect(publicRouteExists(pattern.evidenceHref)).toBe(true);
     });
   });
 
@@ -302,12 +335,12 @@ describe("content modules", () => {
     expect(scenarios.length).toBeGreaterThan(0);
     scenarios.forEach((study) => {
       expect(study.metric).toBe("SCENARIO");
-      expect(study.metricLabel).toMatch(/not a client result/i);
+      expect(study.metricLabel).toMatch(/representative workflow pattern/i);
       expect(study.href).toBeTruthy();
     });
     expect(scenarios.map(({ href }) => href)).toEqual([
-      "/concepts/ai-employee-architecture#workflow-compliance",
-      "/concepts/ai-employee-architecture#workflow-intake",
+      "/concepts/ai-employee-architecture/technical#workflow-compliance",
+      "/concepts/ai-employee-architecture/technical#workflow-intake",
       "/concepts/local-ai",
     ]);
   });

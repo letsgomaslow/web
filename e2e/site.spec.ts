@@ -21,6 +21,7 @@ const routes = [
   "/faq",
   "/diligence",
   "/concepts/ai-employee-architecture",
+  "/concepts/ai-employee-architecture/technical",
   "/concepts/context-engineering",
   "/concepts/agentic-harness",
   "/concepts/hybrid-rag",
@@ -104,29 +105,22 @@ test.describe("navigation", () => {
 });
 
 test.describe("card interactions and layout", () => {
-  test("concept CTAs keep a readable mobile grid position", async ({ page }) => {
+  test("homepage concepts offer one buyer path and one technical path", async ({
+    page,
+  }) => {
     await page.setViewportSize({ width: 320, height: 800 });
     await page.goto("/");
 
-    const row = page
-      .locator('[data-screen-label="Concepts"]')
-      .locator('a[href="/concepts/context-engineering"]');
-    const cta = row.locator(".text-link");
-    const [rowBox, ctaBox, ctaStyle] = await Promise.all([
-      row.boundingBox(),
-      cta.boundingBox(),
-      cta.evaluate((element) => ({
-        whiteSpace: getComputedStyle(element).whiteSpace,
-        text: element.textContent?.replace(/\s+/g, " ").trim(),
-      })),
-    ]);
-
-    expect(rowBox).not.toBeNull();
-    expect(ctaBox).not.toBeNull();
-    expect(ctaStyle.text).toBe("EXPLORE >");
-    expect(ctaStyle.whiteSpace).toBe("nowrap");
-    expect(ctaBox!.x).toBeGreaterThan(rowBox!.x + 48);
-    expect(ctaBox!.height).toBeLessThanOrEqual(20);
+    const concepts = page.locator('[data-screen-label="Concepts"]');
+    await expect(concepts.getByRole("link")).toHaveCount(2);
+    await expect(
+      concepts.locator('a[href="/concepts/ai-employee-architecture"]'),
+    ).toContainText("SEE THE BUYER VIEW");
+    await expect(
+      concepts.locator(
+        'a[href="/concepts/ai-employee-architecture/technical"]',
+      ),
+    ).toContainText("BROWSE THE TECHNICAL LIBRARY");
   });
 
   test("the full production card is the case-study link", async ({ page }) => {
@@ -174,7 +168,7 @@ test.describe("card interactions and layout", () => {
     expect(statusBox!.y + statusBox!.height).toBeLessThanOrEqual(sectorBox!.y);
 
     await link.click({ position: { x: 24, y: 24 } });
-    await expect(page).toHaveURL(/#workflow-compliance$/);
+    await expect(page).toHaveURL(/\/technical#workflow-compliance$/);
     await expect(
       page.getByRole("tab", { name: /Compliance answer/i }),
     ).toHaveAttribute("aria-selected", "true");
@@ -185,7 +179,9 @@ test.describe("interactive islands", () => {
   test("architecture map supports view and workflow hashes with keyboard navigation", async ({
     page,
   }) => {
-    await page.goto("/concepts/ai-employee-architecture#workflow-intake");
+    await page.goto(
+      "/concepts/ai-employee-architecture/technical#workflow-intake",
+    );
 
     const viewTabs = page.getByRole("tablist", {
       name: "Choose an architecture view",
@@ -253,10 +249,16 @@ test.describe("interactive islands", () => {
 
   test("architecture workflows remain available without JavaScript", async ({
     browser,
-  }) => {
-    const context = await browser.newContext({ javaScriptEnabled: false });
+  }, testInfo) => {
+    const baseURL = String(
+      testInfo.project.use.baseURL ?? "http://localhost:3000",
+    );
+    const context = await browser.newContext({
+      baseURL,
+      javaScriptEnabled: false,
+    });
     const page = await context.newPage();
-    await page.goto("/concepts/ai-employee-architecture");
+    await page.goto("/concepts/ai-employee-architecture/technical");
 
     await expect(page.locator("[data-workflow-panel]")).toHaveCount(3);
     await expect(
@@ -294,7 +296,7 @@ test.describe("interactive islands", () => {
   test("architecture map opens each guided view for every workflow", async ({
     page,
   }) => {
-    await page.goto("/concepts/ai-employee-architecture");
+    await page.goto("/concepts/ai-employee-architecture/technical");
     const viewTabs = page.getByRole("tablist", {
       name: "Choose an architecture view",
     });
@@ -320,7 +322,7 @@ test.describe("interactive islands", () => {
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto("/concepts/ai-employee-architecture");
+    await page.goto("/concepts/ai-employee-architecture/technical");
 
     const mapBox = await page.locator("#architecture-map").boundingBox();
     expect(mapBox).not.toBeNull();
@@ -328,6 +330,105 @@ test.describe("interactive islands", () => {
     await expect(
       page.getByRole("tablist", { name: "Choose an architecture view" }),
     ).toBeVisible();
+  });
+
+  test("buyer route keeps the contextual CTA early on mobile", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    await page.goto("/concepts/ai-employee-architecture");
+
+    const hero = page.locator('[data-screen-label="Hero"]');
+    const cta = hero.getByRole("link", { name: "BOOK A WORKING SESSION" });
+    const [ctaBox, pageHeight, wordsBeforePrimaryConversion] = await Promise.all([
+      cta.boundingBox(),
+      page.evaluate(() => document.documentElement.scrollHeight),
+      page.evaluate(() => {
+        const main = document.querySelector("main");
+        const conversion = document.querySelector(
+          'main [data-screen-label="CTA"]',
+        );
+        if (!main || !conversion) return Number.POSITIVE_INFINITY;
+        const range = document.createRange();
+        range.setStart(main, 0);
+        range.setEndBefore(conversion);
+        return range
+          .toString()
+          .trim()
+          .split(/\s+/)
+          .filter(Boolean).length;
+      }),
+    ]);
+
+    expect(ctaBox).not.toBeNull();
+    expect(wordsBeforePrimaryConversion).toBeLessThan(500);
+    expect(ctaBox!.y).toBeGreaterThanOrEqual(0);
+    expect(ctaBox!.y + ctaBox!.height).toBeLessThanOrEqual(800);
+    expect(ctaBox!.y / pageHeight).toBeLessThan(0.4);
+  });
+
+  test("workflow mapper builds and clears an editable contact brief", async ({
+    page,
+  }) => {
+    await page.route("**/api/contact", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ ok: true }),
+      });
+    });
+    await page.goto("/concepts/ai-employee-architecture");
+
+    const mapper = page.locator('[data-screen-label="Workflow Mapper"]');
+    const choose = async (name: string, final = false) => {
+      const radio = mapper.getByRole("radio", { name });
+      await radio.check();
+      await mapper
+        .getByRole("button", {
+          name: final ? "SHOW MY OWNERSHIP PATH" : "CONTINUE",
+        })
+        .click();
+    };
+
+    await choose("Estimate or quote");
+    await choose("Operations or estimating lead");
+    await choose("SharePoint, Drive, or file repository");
+    await choose("Price or business commitment", true);
+
+    const resultHeading = mapper.getByRole("heading", {
+      name: "Request to estimator-reviewed draft",
+    });
+    await expect(resultHeading).toBeVisible();
+    await expect(resultHeading).toBeFocused();
+    await expect(mapper.getByText("PRODUCTION ENGAGEMENT")).toBeVisible();
+    await mapper
+      .getByRole("link", { name: "BOOK A WORKING SESSION" })
+      .click();
+
+    await expect(page).toHaveURL(/\/contact$/);
+    const message = page.getByLabel("Message");
+    await expect(message).toHaveValue(/Delayed deliverable: Estimate or quote/);
+    await message.fill(`${await message.inputValue()}\nEdited by buyer`);
+    await page.getByLabel("Full name").fill("Test User");
+    await page.getByLabel("Work email").fill("test@example.com");
+    await page.getByLabel("Company").fill("Example Company");
+    await page
+      .getByLabel("What are you exploring?")
+      .selectOption("AI employee pilot");
+    await page
+      .getByRole("button", { name: /BOOK MY WORKING SESSION/i })
+      .click();
+
+    await expect(
+      page.getByText(/A member of our team replies/i),
+    ).toBeVisible();
+    await expect
+      .poll(() =>
+        page.evaluate(() =>
+          window.sessionStorage.getItem("maslow.workflow-brief.v1"),
+        ),
+      )
+      .toBeNull();
   });
 
   test("assessment quiz answers update progress", async ({ page }) => {
@@ -379,7 +480,15 @@ test.describe("accessibility", () => {
           }
         `,
       });
-      await page.waitForTimeout(100);
+      await page.waitForLoadState("load");
+      await page.evaluate(async () => {
+        await document.fonts.ready;
+        await new Promise<void>((resolve) => {
+          window.requestAnimationFrame(() => {
+            window.requestAnimationFrame(() => resolve());
+          });
+        });
+      });
 
       const results = await new AxeBuilder({ page })
         .withTags([
@@ -464,6 +573,38 @@ test.describe("accessibility", () => {
           }),
       );
       if (animated.length) failures.push(`${route}: ${animated.join(", ")}`);
+
+      const revealMotion = await page.locator(".mz-reveal").evaluateAll(
+        (elements) => {
+          const seconds = (value: string) =>
+            Math.max(
+              ...value.split(",").map((part) => {
+                const duration = Number.parseFloat(part);
+                return part.trim().endsWith("ms") ? duration / 1_000 : duration;
+              }),
+            );
+
+          return elements.flatMap((element) => {
+            const style = getComputedStyle(element);
+            const issues = [
+              style.opacity !== "1" ? `opacity ${style.opacity}` : null,
+              style.transform !== "none" ? `transform ${style.transform}` : null,
+              seconds(style.transitionDuration) > 0.001
+                ? `transition ${style.transitionDuration}`
+                : null,
+              seconds(style.transitionDelay) > 0.001
+                ? `delay ${style.transitionDelay}`
+                : null,
+            ].filter(Boolean);
+            return issues.length
+              ? [`${element.tagName.toLowerCase()}.${element.className}: ${issues.join(", ")}`]
+              : [];
+          });
+        },
+      );
+      if (revealMotion.length) {
+        failures.push(`${route} reveal: ${revealMotion.join(", ")}`);
+      }
     }
 
     expect(failures, failures.join("\n")).toEqual([]);

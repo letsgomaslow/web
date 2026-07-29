@@ -41,10 +41,12 @@ export default function HybridRagPage() {
             style={{ animationDelay: "0.3s", maxWidth: 620 }}
           >
             Most of your company&apos;s knowledge lives in unstructured files.
-            Hybrid RAG converts them into two complementary structures: a{" "}
+            Hybrid RAG can represent them in two complementary structures: a{" "}
             <strong>vector database</strong> for meaning and a{" "}
-            <strong>knowledge graph</strong> for facts. Scroll to watch it
-            happen.
+            <strong>knowledge graph</strong> for facts. On larger screens,
+            scroll through the three stages. On smaller screens, use the step
+            controls. With reduced motion or without WebGL, the same
+            explanation stays visible as a static view.
           </p>
         </div>
       </section>
@@ -60,7 +62,7 @@ export default function HybridRagPage() {
             </h2>
             <p className="lede" style={{ maxWidth: 560 }}>
               Each structure answers a different kind of question. Hybrid RAG
-              routes every query to the right one, or both.
+              can route a query to the appropriate structure, or both.
             </p>
           </Reveal>
           <div className={styles.points3}>

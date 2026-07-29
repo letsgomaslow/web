@@ -1,3 +1,5 @@
+import type { WorkflowDossier } from "@/lib/workflow-dossier";
+
 export const metrics: {
   value: string;
   label: string;
@@ -98,38 +100,38 @@ export const stages = [
   {
     num: "1",
     name: "Assess",
-    desc: "Find where AI actually pays.",
+    desc: "Identify the workflow worth funding.",
     href: "/services#assess",
   },
   {
     num: "2",
     name: "Structure",
-    desc: "Files become a vector DB + knowledge graph.",
+    desc: "Turn source files into usable operating knowledge.",
     href: "/services#structure",
   },
   {
     num: "3",
     name: "Build",
-    desc: "Engineer the agentic harness.",
+    desc: "Build the workflow, controls, and human decisions.",
     href: "/services#build",
   },
   {
     num: "4",
     name: "Deploy",
-    desc: "AI employees in your channels.",
+    desc: "Put supervised AI employees in your work channels.",
     href: "/services#deploy",
   },
   {
     num: "5",
     name: "Own",
-    desc: "Local models, flat cost curve.",
+    desc: "Keep the system and move suitable workloads in-house.",
     href: "/services#own",
   },
 ];
 
 export const homeCases = [
   {
-    sector: "MANUFACTURING · REAL ENGAGEMENT",
+    sector: "MANUFACTURING · PRODUCTION ENGAGEMENT",
     art: "linear-gradient(140deg,#86E8CE,#E686B5)",
     title: "Infinite AI OS: an AI operating system in 90 days",
     desc: "Four named AI employees working in Microsoft Teams on a six-layer system: company memory, knowledge map, file intake, employee profiles, tool connectors, and observability.",
@@ -139,10 +141,10 @@ export const homeCases = [
     openSlot: false,
   },
   {
-    sector: "HEALTHCARE ENTERPRISE · REAL ENGAGEMENT",
+    sector: "HEALTHCARE ENTERPRISE · PRODUCTION ENGAGEMENT",
     art: "linear-gradient(140deg,#4C4C4C,#F37779)",
     title: "AgentHub: contracts you can question",
-    desc: "A shared prompt library paired with a contract-review agent that uses hybrid retrieval and cites each answer.",
+    desc: "A shared prompt library paired with a contract-review agent that uses hybrid retrieval with field-level citations.",
     result: "Field-level citations · 50-document grounded corpus",
     href: "/case-studies/agenthub",
     cta: "VIEW CASE STUDY",
@@ -160,13 +162,46 @@ export const homeCases = [
   },
 ];
 
+const copilotIntro =
+  "Copilot is strong at personal productivity, and most clients should keep it.";
+const copilotDetail =
+  "It does not know your estimating logic, carry a quote from request to approval across systems, or answer from a knowledge base you govern. We build that workflow layer. Copilot assists individuals; AI employees carry the workflow.";
+
 export const copilotSection = {
   eyebrow: "IF YOU ALREADY PAY FOR COPILOT",
   h2: "Keep Copilot. Add the layer it's missing.",
-  body: "Copilot is strong at personal productivity, and most clients should keep it. It does not know your estimating logic, carry a quote from request to approval across systems, or answer from a knowledge base you govern. We build that workflow layer. Copilot assists individuals; AI employees carry the workflow.",
+  intro: copilotIntro,
+  detail: copilotDetail,
+  body: `${copilotIntro} ${copilotDetail}`,
   ctaLabel: "SEE WHAT THE LAYER CONTAINS",
   ctaHref: "/concepts/ai-employee-architecture",
 } as const;
+
+export const homeWorkflowContext = {
+  eyebrow: "WHAT YOU LEAVE WITH",
+  h2: "Turn one waiting workflow into a decision-ready brief.",
+  body: "The mapper names the work, the responsible owner, the source of truth, and the point where a person must decide. Bring the receipt into a working session so the first conversation starts with the workflow itself.",
+  status: "ILLUSTRATIVE PATTERN",
+  receiptTitle: "A working-session starting point",
+  receiptDescription:
+    "Illustrative output from the workflow mapper for planning only. Client-result evidence is labeled separately.",
+  trayLabel: "INSPECT THE FULL ILLUSTRATIVE DOSSIER",
+  dossierTitle: "Illustrative workflow context",
+  ctaLabel: "MAP ONE WAITING WORKFLOW",
+  ctaHref: "/concepts/ai-employee-architecture#workflow-mapper",
+} as const;
+
+export const homeWorkflowDossier = {
+  version: 1,
+  waitingDeliverable: "Client or compliance response",
+  currentOwner: "Client or service owner",
+  sourceOfTruth: "SharePoint, Drive, or file repository",
+  recurringTrigger: "To define in a working session",
+  humanDecision: "External message or submission",
+  evidenceRequired:
+    "Source references, assumptions, the reviewer decision, and the next owner.",
+  recommendedNextStep: "Shared request to owner-reviewed response",
+} satisfies WorkflowDossier;
 
 export const costOfWaiting = {
   eyebrow: "THE OTHER OPTION",

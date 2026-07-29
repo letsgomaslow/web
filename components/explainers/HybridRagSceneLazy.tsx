@@ -1,29 +1,38 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { hybridRagStages } from "@/lib/content/explainers";
+import styles from "./HybridRagScene.module.css";
+
+function HybridRagPlaceholder() {
+  return (
+    <section
+      className={styles.lazyFallback}
+      aria-label="Hybrid RAG transformation"
+    >
+      <div className={styles.lazySteps}>
+        {hybridRagStages.map((stage) => (
+          <article key={stage.tag} className={styles.lazyStep}>
+            <span>{stage.tag}</span>
+            <strong>{stage.title}</strong>
+            <p>{stage.desc}</p>
+          </article>
+        ))}
+      </div>
+      <p role="status">
+        This static explanation is available now. Supported browsers can add an
+        optional 3D view.
+      </p>
+    </section>
+  );
+}
 
 const HybridRagScene = dynamic(
   () =>
     import("@/components/explainers/HybridRagScene").then(
-      (m) => m.HybridRagScene,
+      (module) => module.HybridRagScene,
     ),
-  {
-    ssr: false,
-    loading: () => (
-      <div
-        style={{
-          height: "60vh",
-          background: "#121D35",
-          color: "#B8C4D9",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        Loading retrieval scene…
-      </div>
-    ),
-  },
+  { ssr: false, loading: HybridRagPlaceholder },
 );
 
 export function HybridRagSceneLazy() {

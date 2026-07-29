@@ -2,16 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
+import { DepthDisclosure } from "@/components/ui/DepthDisclosure";
 import { Reveal } from "@/components/ui/Reveal";
+import { DecisionReceipt } from "@/components/dossier/DecisionReceipt";
+import { WorkflowDossierTray } from "@/components/dossier/WorkflowDossierTray";
 import { ctaPrimaryLabel, founderHeadshot } from "@/lib/brand";
 import { LayerDiagram } from "@/components/home/LayerDiagram";
 import { QueueMotif } from "@/components/home/QueueMotif";
+import { ArchitectureTrackedLink } from "@/components/explainers/ArchitectureTrackedLink";
 import {
-  concepts,
   copilotSection,
   costOfWaiting,
   founderStrip,
   homeCases,
+  homeWorkflowContext,
+  homeWorkflowDossier,
   metrics,
   stages,
   whoWeWorkWith,
@@ -49,29 +54,25 @@ export default function HomePage() {
               OWNED INFRASTRUCTURE · KNOWLEDGE SYSTEMS · AI EMPLOYEES
             </div>
             <h1
-              className="h1 mz-rise"
+              className={`h1 mz-rise ${styles.heroHeading}`}
               style={{
                 animationDelay: "0.15s",
-                maxWidth: 880,
-                marginBottom: 28,
               }}
             >
               AI employees for the work that waits on your{" "}
               <span className="highlight">busiest people</span>.
             </h1>
             <p
-              className="lede mz-rise"
+              className={`lede mz-rise ${styles.heroLede}`}
               style={{
                 animationDelay: "0.3s",
-                maxWidth: 620,
-                marginBottom: 40,
               }}
             >
               Your files become knowledge your AI can cite. Your procedures
-              become skills it can reuse. AI employees take on real workflows in
-              Teams, Slack, and email under accounts you control. A person
-              approves every consequential action, and everything we build runs
-              on foundations you own.
+              become skills it can reuse. AI employees take on supervised
+              workflows in Teams, Slack, and email under accounts you control.
+              A person approves every consequential action, and everything we
+              build runs on foundations you own.
             </p>
             <div
               className={`${styles.ctaRow} mz-rise`}
@@ -132,7 +133,7 @@ export default function HomePage() {
                     >
                       {item.num}
                     </span>
-                    <div className={styles.icpTitle}>{item.title}</div>
+                    <h3 className={styles.icpTitle}>{item.title}</h3>
                     <div className={styles.icpDesc}>{item.desc}</div>
                   </div>
                 </Reveal>
@@ -155,23 +156,65 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className={styles.copilot} data-screen-label="Keep Copilot">
+        <section
+          className={styles.workflowContext}
+          data-screen-label="Workflow Context"
+        >
           <div className="wrap">
-            <div className={styles.copilotGrid}>
-              <Reveal>
-                <div className="eyebrow">{copilotSection.eyebrow}</div>
-                <h2 className="h2" style={{ marginBottom: 18 }}>
-                  {copilotSection.h2}
-                </h2>
-                <p className={styles.copilotBody}>{copilotSection.body}</p>
-                <Link href={copilotSection.ctaHref} className="text-link">
-                  {copilotSection.ctaLabel}&nbsp;&nbsp;&gt;
-                </Link>
+            <div className={styles.workflowContextGrid}>
+              <Reveal className={styles.workflowContextIntro}>
+                <div className="eyebrow">{homeWorkflowContext.eyebrow}</div>
+                <h2 className="h2">{homeWorkflowContext.h2}</h2>
+                <p>{homeWorkflowContext.body}</p>
+                <CtaButton href={homeWorkflowContext.ctaHref}>
+                  {homeWorkflowContext.ctaLabel}
+                </CtaButton>
               </Reveal>
-              <Reveal className={styles.copilotViz}>
-                <LayerDiagram />
+              <Reveal className={styles.workflowContextPreview}>
+                <p className={styles.workflowStatus}>
+                  {homeWorkflowContext.status}
+                </p>
+                <DecisionReceipt
+                  dossier={homeWorkflowDossier}
+                  title={homeWorkflowContext.receiptTitle}
+                  description={homeWorkflowContext.receiptDescription}
+                  headingLevel="h3"
+                />
+                <WorkflowDossierTray
+                  dossier={homeWorkflowDossier}
+                  title={homeWorkflowContext.trayLabel}
+                  dossierTitle={homeWorkflowContext.dossierTitle}
+                  headingLevel="h3"
+                />
               </Reveal>
             </div>
+          </div>
+        </section>
+
+        <section className={styles.copilot} data-screen-label="Keep Copilot">
+          <div className="wrap">
+            <Reveal className={styles.copilotIntro}>
+              <div className="eyebrow">{copilotSection.eyebrow}</div>
+              <h2 className="h2">{copilotSection.h2}</h2>
+              <p>{copilotSection.intro}</p>
+              <Link href={copilotSection.ctaHref} className="text-link">
+                {copilotSection.ctaLabel}&nbsp;&nbsp;&gt;
+              </Link>
+            </Reveal>
+            <Reveal>
+              <DepthDisclosure
+                className={styles.copilotDisclosure}
+                collapsedLabel="SEE WHY COPILOT NEEDS A WORKFLOW LAYER"
+                expandedLabel="HIDE THE COPILOT EXPLANATION"
+              >
+                <div className={styles.copilotGrid}>
+                  <p className={styles.copilotBody}>{copilotSection.detail}</p>
+                  <div className={styles.copilotViz}>
+                    <LayerDiagram />
+                  </div>
+                </div>
+              </DepthDisclosure>
+            </Reveal>
           </div>
         </section>
 
@@ -180,45 +223,35 @@ export default function HomePage() {
             <Reveal className={styles.sectionHead}>
               <div>
                 <div className="eyebrow">THE CONCEPTS</div>
-                <h2 className="h2">See how each system works</h2>
+                <h2 className="h2">See how one waiting workflow moves</h2>
               </div>
               <span className={styles.aside}>
-                Each opens an interactive explainer
+                Buyer view first, technical depth optional
               </span>
             </Reveal>
             <Reveal>
-              <Link
+              <ArchitectureTrackedLink
                 href={architectureOverview.href}
                 className={styles.conceptOverview}
+                eventName="Architecture buyer view opened"
+                eventData={{ location: "homepage-concepts" }}
               >
                 <span>{architectureOverview.eyebrow}</span>
                 <strong>{architectureOverview.title}</strong>
                 <p>{architectureOverview.desc}</p>
                 <em>{architectureOverview.cta}&nbsp;&nbsp;&gt;</em>
-              </Link>
+              </ArchitectureTrackedLink>
             </Reveal>
-            <div className={styles.conceptList}>
-              {concepts.map((c) => (
-                <Reveal key={c.num}>
-                  <Link href={c.href} className={styles.conceptRow}>
-                    <span
-                      style={{
-                        color: c.tick,
-                        font: "700 12px var(--font-display)",
-                        letterSpacing: 1,
-                      }}
-                    >
-                      {c.num}
-                    </span>
-                    <span className={styles.conceptName}>{c.name}</span>
-                    <span className={styles.conceptDesc}>{c.desc}</span>
-                    <span className={`${styles.conceptCta} text-link`}>
-                      EXPLORE&nbsp;&nbsp;&gt;
-                    </span>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
+            <Reveal>
+              <ArchitectureTrackedLink
+                href={architectureOverview.technicalHref}
+                className={`${styles.technicalLibraryLink} text-link`}
+                eventName="Technical architecture opened"
+                eventData={{ location: "homepage-concepts" }}
+              >
+                {architectureOverview.technicalCta}&nbsp;&nbsp;&gt;
+              </ArchitectureTrackedLink>
+            </Reveal>
           </div>
         </section>
 
@@ -315,7 +348,7 @@ export default function HomePage() {
                       <span>{cs.sector}</span>
                     </div>
                     <div className={styles.caseBody}>
-                      <div className={styles.caseTitle}>{cs.title}</div>
+                      <h3 className={styles.caseTitle}>{cs.title}</h3>
                       <div className={styles.caseDesc}>{cs.desc}</div>
                       {cs.result ? (
                         <div className={styles.caseResult}>{cs.result}</div>

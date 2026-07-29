@@ -41,11 +41,13 @@ export default function AgenticHarnessPage() {
             className={`${styles.heroLede} mz-rise`}
             style={{ animationDelay: "0.3s" }}
           >
-            A raw model is potential, not performance. The{" "}
+            A raw model supplies capability. The{" "}
             <strong>agentic harness</strong> is the engineered structure around
             it (context, skills, tools, memory, guardrails and gateways) that
-            turns intelligence into dependable work. Drag the model below; tap
-            any component.
+            helps turn model output into controlled workflow behavior. With a
+            mouse, drag the optional 3D view and choose any component. On touch,
+            use the component buttons. Reduced-motion or WebGL-limited devices
+            keep the same component map and details in a static view.
           </p>
         </div>
       </section>
@@ -62,8 +64,8 @@ export default function AgenticHarnessPage() {
               Why the harness beats the model
             </h2>
             <p className="lede" style={{ maxWidth: 600 }}>
-              Models improve every quarter, and your harness carries those gains
-              forward. It&apos;s the part you own.
+              As models improve, your harness can carry those gains forward.
+              It&apos;s the part you own.
             </p>
           </Reveal>
           <div className={styles.points3}>

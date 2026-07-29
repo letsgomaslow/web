@@ -61,7 +61,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       { type: "h2", text: "1. How does the work enter?" },
       {
         type: "p",
-        text: "Work intake connects the AI employee to a real queue. A request might arrive through email, Teams, Slack, a form, a system event, or a schedule. The intake layer captures the request, the attachments, the due date, and the person who owns the outcome.",
+        text: "Work intake connects the AI employee to an operational queue. A request might arrive through email, Teams, Slack, a form, a system event, or a schedule. The intake layer captures the request, the attachments, the due date, and the person who owns the outcome.",
       },
       {
         type: "callout",
@@ -283,7 +283,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       { type: "h2", text: "Three audits to run this quarter" },
       {
         type: "p",
-        text: "**1. The retrieval audit.** Pick ten real questions your team asked last month. Trace what your system retrieved for each. Was the answer in there at all?",
+        text: "**1. The retrieval audit.** Pick ten questions your team asked last month. Trace what your system retrieved for each. Was the answer in there at all?",
       },
       {
         type: "p",
