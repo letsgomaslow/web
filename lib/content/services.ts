@@ -1,6 +1,6 @@
 import { FIXED_FEE_MONTHLY_TAG, FIXED_FEE_TAG } from "./pricing";
 
-type ServiceEntry = {
+export type ServiceEntry = {
   name: string;
   desc: string;
   fit: string;
@@ -11,8 +11,8 @@ type ServiceEntry = {
   }[];
 };
 
-type ServiceGroup = {
-  id: string;
+export type ServiceGroup = {
+  id: ServiceStageId;
   num: string;
   accent: string;
   name: string;
@@ -20,17 +20,107 @@ type ServiceGroup = {
   services: ServiceEntry[];
 };
 
-export const serviceStages = [
-  { num: "01", name: "Assess", q: "Where does AI pay?", anchor: "#assess" },
+export type ServiceStageId =
+  | "assess"
+  | "structure"
+  | "build"
+  | "deploy"
+  | "own";
+
+export type ServiceStage = {
+  id: ServiceStageId;
+  num: string;
+  name: string;
+  q: string;
+  anchor: `#${ServiceStageId}`;
+  deliverable: string;
+  owners: string;
+  decision: string;
+  evidence: string;
+  timing: string;
+  fixedFee: string;
+};
+
+export const serviceStages: readonly ServiceStage[] = [
   {
+    id: "assess",
+    num: "01",
+    name: "Assess",
+    q: "Where does AI pay?",
+    anchor: "#assess",
+    deliverable:
+      "A readiness or opportunity brief with the next decision made explicit.",
+    owners: "Executive sponsor and workflow owner.",
+    decision: "Choose whether a workflow advances to design.",
+    evidence:
+      "Interview notes, source inventory, assumptions, and the recommendation.",
+    timing: "Scoped in the proposal.",
+    fixedFee: "Quoted before work begins.",
+  },
+  {
+    id: "structure",
     num: "02",
     name: "Structure",
     q: "Make your data usable",
     anchor: "#structure",
+    deliverable:
+      "A usable, cited knowledge foundation for the selected workflow.",
+    owners: "Workflow owner and information or systems owner.",
+    decision: "Confirm source coverage and retrieval quality before build.",
+    evidence:
+      "Source register, ingestion record, retrieval checks, and unresolved gaps.",
+    timing: "Scoped in the proposal.",
+    fixedFee: "Quoted before work begins.",
   },
-  { num: "03", name: "Build", q: "Engineer the harness", anchor: "#build" },
-  { num: "04", name: "Deploy", q: "Put agents to work", anchor: "#deploy" },
-  { num: "05", name: "Own", q: "Bring it in-house", anchor: "#own" },
+  {
+    id: "build",
+    num: "03",
+    name: "Build",
+    q: "Build workflow controls",
+    anchor: "#build",
+    deliverable:
+      "A testable workflow system with approvals, escalation, and an audit trail.",
+    owners: "Workflow owner and technical owner.",
+    decision:
+      "Approve the workflow boundary and acceptance criteria before deployment.",
+    evidence:
+      "Versioned skills, integration checks, approval paths, and audit events.",
+    timing: "Scoped in the proposal.",
+    fixedFee: "Quoted before work begins.",
+  },
+  {
+    id: "deploy",
+    num: "04",
+    name: "Deploy",
+    q: "Put AI employees to work",
+    anchor: "#deploy",
+    deliverable:
+      "A supervised AI employee carrying one bounded workflow.",
+    owners: "Workflow owner, named human approver, and deployment owner.",
+    decision:
+      "Approve expansion after the supervised workflow evidence is reviewed.",
+    evidence:
+      "Citations, approval decisions, exception log, and outcome review.",
+    timing:
+      "The catalog includes a six-week supervised pilot. Other timing is scoped in the proposal.",
+    fixedFee: "Quoted before work begins.",
+  },
+  {
+    id: "own",
+    num: "05",
+    name: "Own",
+    q: "Bring it in-house",
+    anchor: "#own",
+    deliverable: "An operating model your team can run or take over.",
+    owners: "Executive sponsor, technical owner, and operating team.",
+    decision:
+      "Choose managed operations, handover, or a hybrid operating model.",
+    evidence:
+      "Runbooks, monitoring records, change log, and handover acceptance.",
+    timing: "Scoped in the proposal.",
+    fixedFee:
+      "Quoted before work begins. Managed operations is quoted as a monthly service.",
+  },
 ];
 
 export const serviceCatalog: ServiceGroup[] = [
@@ -39,7 +129,7 @@ export const serviceCatalog: ServiceGroup[] = [
     num: "01",
     accent: "var(--color-plum-text)",
     name: "Assess & plan",
-    desc: "Before anything is built: find where AI actually pays in your business, and what it will really cost.",
+    desc: "Before anything is built: find where AI can pay in your business and define the cost case.",
     services: [
       {
         name: "AI readiness assessment",
@@ -55,7 +145,7 @@ export const serviceCatalog: ServiceGroup[] = [
       },
       {
         name: "Cost & architecture sketch",
-        desc: "For a chosen workflow: the harness design, data pipeline, and cloud-vs-local cost curve on one page.",
+        desc: "For a chosen workflow: the operating design, data pipeline, and cloud-vs-local cost curve on one page.",
         fit: "you need a business case the board will read",
         deliverable: "1-PAGE ARCHITECTURE + COST CURVE",
       },
@@ -76,13 +166,13 @@ export const serviceCatalog: ServiceGroup[] = [
       },
       {
         name: "Freshness pipelines",
-        desc: "Continuous sync so your AI never lives in last quarter: connectors, change detection, staleness monitoring.",
+        desc: "Continuous sync to reduce stale knowledge: connectors, change detection, and staleness monitoring.",
         fit: "you built RAG once and it quietly rotted",
         deliverable: "LIVE SYNC + STALENESS ALERTS",
       },
       {
         name: "Context audit",
-        desc: "We trace ten real questions through your existing AI setup and show exactly where retrieval fails, and why.",
+        desc: "We trace ten representative questions through your existing AI setup and show exactly where retrieval fails, and why.",
         fit: "you have AI but the answers disappoint",
         deliverable: "RETRIEVAL GAP REPORT",
       },
@@ -92,23 +182,23 @@ export const serviceCatalog: ServiceGroup[] = [
     id: "build",
     num: "03",
     accent: "var(--color-gold-text)",
-    name: "Build the harness",
+    name: "Build the workflow system",
     desc: "Skills, tools, memory, approvals, and audit trails that let a model carry a workflow reliably.",
     services: [
       {
-        name: "Custom agentic harness",
-        desc: "A harness engineered for your workflow: model-agnostic, with approvals, audit trail, and escalation built in.",
-        fit: "off-the-shelf agents don't fit how you work",
-        deliverable: "PRODUCTION HARNESS",
+        name: "Custom workflow system",
+        desc: "A system engineered for your workflow, with model choices, approvals, an audit trail, and escalation built in.",
+        fit: "generic AI employee products do not fit how you work",
+        deliverable: "PRODUCTION WORKFLOW SYSTEM",
       },
       {
         name: "Skills authoring",
-        desc: "Your procedures, written with your domain experts as versioned, testable skills, reusable across every agent.",
+        desc: "Your procedures, written with your domain experts as versioned, testable skills, reusable across every AI employee.",
         fit: "your know-how lives in a few people's heads",
         deliverable: "SKILL LIBRARY (VERSIONED)",
       },
       {
-        name: "Gateway integrations",
+        name: "Channel and system connections",
         desc: "Secure connectors into Microsoft Teams, Slack, and email, plus your CRM, ERP, and document systems as scoped tools.",
         fit: "AI should show up where work already happens",
         deliverable: "CHANNEL + TOOL CONNECTORS",
@@ -120,11 +210,11 @@ export const serviceCatalog: ServiceGroup[] = [
     num: "04",
     accent: "var(--color-navy)",
     name: "Deploy AI employees",
-    desc: "Agents go to work inside your channels: supervised, cited, and measured against the workflow they own.",
+    desc: "AI employees go to work inside your channels: supervised, cited, and measured against the workflow they own.",
     services: [
       {
         name: "AI employee pilot",
-        desc: "A supervised agent carries one workflow in one channel. Every consequential action requires human approval, and the log records what the agent flagged and the approver caught.",
+        desc: "A supervised AI employee carries one workflow in one channel. Every consequential action requires human approval, and the log records what the AI employee flagged and the approver caught.",
         fit: "you want proof before commitment",
         deliverable: "6-WEEK SUPERVISED PILOT",
         catchTrail: [
@@ -135,9 +225,9 @@ export const serviceCatalog: ServiceGroup[] = [
       },
       {
         name: "Workforce rollout",
-        desc: "Scale from one agent to a roster: shared skills, shared memory, per-team guardrails, and usage analytics.",
+        desc: "Scale from one AI employee to a roster: shared skills, shared memory, per-team guardrails, and usage analytics.",
         fit: "the pilot worked and teams are asking for more",
-        deliverable: "MULTI-AGENT DEPLOYMENT",
+        deliverable: "AI EMPLOYEE ROSTER DEPLOYMENT",
       },
       {
         name: "Team enablement",

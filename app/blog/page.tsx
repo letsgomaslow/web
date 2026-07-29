@@ -3,11 +3,11 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
-import { catColors, featuredPost } from "@/lib/content/blog";
+import { catColors, featuredPost, secondaryPosts } from "@/lib/content/blog";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Blog | Maslow AI",
+  title: "Blog",
   description:
     "Plain-language writing on production AI systems: what works, what it costs, and how to own it.",
 };
@@ -103,6 +103,42 @@ export default function BlogPage() {
                 </span>
               </div>
             </Link>
+          </div>
+        </section>
+
+        <section className={styles.articles} data-screen-label="Articles">
+          <div className="wrap">
+            <div className={styles.articlesHead}>
+              <div className="eyebrow">ALL ARTICLES</div>
+              <h2 className="h2">Practical guides for building owned AI</h2>
+            </div>
+            <div className={styles.articleList}>
+              {secondaryPosts.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/blog/${article.slug}`}
+                  className={styles.articleCard}
+                >
+                  <div className={styles.articleMeta}>
+                    <span
+                      style={{
+                        color:
+                          catColors[article.cat] || "var(--color-ice-text)",
+                      }}
+                    >
+                      {article.cat}
+                    </span>
+                    <span>{article.read}</span>
+                    <span>{article.date}</span>
+                  </div>
+                  <h3>{article.title}</h3>
+                  <p>{article.desc}</p>
+                  <span className="text-link">
+                    READ THE ARTICLE&nbsp;&nbsp;&gt;
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 

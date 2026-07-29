@@ -1,15 +1,28 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
+import { EvidenceReceipt } from "@/components/evidence/EvidenceReceipt";
 import { CtaButton } from "@/components/ui/CtaButton";
+import { DepthDisclosure } from "@/components/ui/DepthDisclosure";
 import { Reveal } from "@/components/ui/Reveal";
 import { infiniteAiOs as cs } from "@/lib/content/case-studies";
+import { architectureCapabilities } from "@/lib/content/architecture";
+import { CaseStudyChapterNav } from "../CaseStudyChapterNav";
 import styles from "../case-study.module.css";
 
 export const metadata: Metadata = {
   title: "Infinite AI OS Case Study | Maslow AI",
   description: cs.lede,
 };
+
+const chapters = [
+  { id: "challenge", label: "Challenge" },
+  { id: "approach", label: "Approach" },
+  { id: "system", label: "What changed" },
+  { id: "pilot-patterns", label: "Pilot patterns" },
+  { id: "current-state", label: "Current state" },
+  { id: "value-model", label: "Value model" },
+] as const;
 
 function renderInline(text: string) {
   const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
@@ -81,17 +94,65 @@ export default function InfiniteAiOsPage() {
                     {m.value}
                   </div>
                   <div className={styles.metricLabel}>{m.label}</div>
+                  <div className={styles.metricEvidence}>{m.evidenceLabel}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
+        <section
+          className={styles.summary}
+          data-case-summary
+          data-screen-label="Executive Summary"
+        >
+          <div className={styles.summaryInner}>
+            <div className={styles.summaryIntro}>
+              <div className="eyebrow">EXECUTIVE SUMMARY</div>
+              <h2 className={styles.sectionH2}>The case in four decisions</h2>
+            </div>
+            <dl className={styles.summaryGrid}>
+              <div>
+                <dt>Waiting work</dt>
+                <dd>{cs.executiveSummary.waitingWork}</dd>
+              </div>
+              <div>
+                <dt>What changed</dt>
+                <dd>{cs.executiveSummary.whatChanged}</dd>
+              </div>
+              <div>
+                <dt>Human decision</dt>
+                <dd>{cs.executiveSummary.humanDecision}</dd>
+              </div>
+              <div>
+                <dt>Evidence state</dt>
+                <dd>{cs.executiveSummary.evidenceState}</dd>
+              </div>
+            </dl>
+            <EvidenceReceipt
+              evidence={cs.evidence.foundation}
+              title="Foundation evidence"
+              headingLevel="h3"
+            />
+          </div>
+        </section>
+
+        <div className={styles.chapterNavBand}>
+          <CaseStudyChapterNav chapters={chapters} />
+        </div>
+
         <section className={styles.challenge} data-screen-label="Challenge">
           <div className={styles.split}>
             <div>
               <div className="eyebrow">THE CHALLENGE</div>
-              <h2 className={styles.sectionH2}>{cs.challengeTitle}</h2>
+              <h2
+                className={`${styles.sectionH2} ${styles.chapterHeading}`}
+                id="challenge"
+                tabIndex={-1}
+                data-chapter-heading
+              >
+                {cs.challengeTitle}
+              </h2>
             </div>
             <div className={styles.prose}>
               {cs.challengeBody.map((p, i) => (
@@ -104,12 +165,17 @@ export default function InfiniteAiOsPage() {
         <section className={styles.navy} data-screen-label="Approach">
           <div className="wrap">
             <div className="eyebrow eyebrow-ice">THE APPROACH</div>
-            <h2 className={styles.navyH2}>
+            <h2
+              className={`${styles.navyH2} ${styles.chapterHeading}`}
+              id="approach"
+              tabIndex={-1}
+              data-chapter-heading
+            >
               Learn the work. Prove the value. Then build.
             </h2>
             <p className={styles.navyLede}>
               Infrastructure was only built for patterns that proved useful
-              first. No speculative technology spend.
+              first. The team deferred speculative technology spend.
             </p>
             <div className={styles.phaseGrid}>
               {cs.phases.map((ph) => (
@@ -127,63 +193,75 @@ export default function InfiniteAiOsPage() {
         <section className={styles.built} data-screen-label="What We Built">
           <div className="wrap">
             <div className="eyebrow">WHAT WE BUILT</div>
-            <h2 className="h2" style={{ marginBottom: 12 }}>
+            <h2
+              className={`h2 ${styles.chapterHeading}`}
+              id="system"
+              tabIndex={-1}
+              data-chapter-heading
+              style={{ marginBottom: 12 }}
+            >
               An operating system for four AI employees
             </h2>
             <p className={styles.builtLede}>
-              Above the line: four AI employees people actually talk to. Below
-              it: the six-layer system that supplies context, tools, and review
+              Above the line: four AI employees available in Teams. Below it:
+              the six-layer system that supplies context, tools, and review
               controls.
             </p>
-            <div className={styles.osCard}>
-              <div className={styles.osLabel}>
-                THE SURFACE · WHAT PEOPLE SEE
-              </div>
-              <div className={styles.teamGrid}>
-                {cs.team.map((t) => (
-                  <div
-                    key={t.name}
-                    className={styles.teammate}
-                    style={{
-                      background: t.bg,
-                      color: t.fg,
-                      borderColor: t.border,
-                    }}
-                  >
+            <DepthDisclosure
+              collapsedLabel="EXPLORE THE FOUR EMPLOYEES AND SIX-LAYER SYSTEM"
+              expandedLabel="HIDE THE EMPLOYEE AND SYSTEM DETAIL"
+              className={styles.chapterDisclosure}
+            >
+              <div className={styles.osCard}>
+                <div className={styles.osLabel}>
+                  THE SURFACE · WHAT PEOPLE SEE
+                </div>
+                <div className={styles.teamGrid}>
+                  {cs.team.map((t) => (
                     <div
-                      className={styles.avatar}
-                      style={{ background: t.avatarBg, color: t.avatarFg }}
+                      key={t.name}
+                      className={styles.teammate}
+                      style={{
+                        background: t.bg,
+                        color: t.fg,
+                        borderColor: t.border,
+                      }}
                     >
-                      {t.initial}
+                      <div
+                        className={styles.avatar}
+                        style={{ background: t.avatarBg, color: t.avatarFg }}
+                      >
+                        {t.initial}
+                      </div>
+                      <div className={styles.teammateName}>{t.name}</div>
+                      <div
+                        className={styles.teammateRole}
+                        style={{ color: t.roleColor }}
+                      >
+                        {t.role}
+                      </div>
+                      <div className={styles.teammateDesc}>{t.desc}</div>
                     </div>
-                    <div className={styles.teammateName}>{t.name}</div>
-                    <div
-                      className={styles.teammateRole}
-                      style={{ color: t.roleColor }}
-                    >
-                      {t.role}
+                  ))}
+                </div>
+                <div className={styles.divider}>
+                  <span />
+                  <em>THE ROOT SYSTEM · WHAT MAKES THEM WORK</em>
+                  <span />
+                </div>
+                <div className={styles.roots}>
+                  {cs.roots.map((r) => (
+                    <div key={r.num} className={styles.root}>
+                      <span className={styles.rootNum}>{r.num}</span>
+                      <div>
+                        <div className={styles.rootName}>{r.name}</div>
+                        <div className={styles.rootDesc}>{r.desc}</div>
+                      </div>
                     </div>
-                    <div className={styles.teammateDesc}>{t.desc}</div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-              <div className={styles.divider}>
-                <span />
-                <em>THE ROOT SYSTEM · WHAT MAKES THEM WORK</em>
-                <span />
-              </div>
-              <div className={styles.roots}>
-                {cs.roots.map((r) => (
-                  <div key={r.num} className={styles.root}>
-                    <span className={styles.rootNum}>{r.num}</span>
-                    <div>
-                      <div className={styles.rootName}>{r.name}</div>
-                      <div className={styles.rootDesc}>{r.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            </DepthDisclosure>
             <p className={styles.note}>
               Human oversight throughout: specialists execute and escalate
               uncertainty; final decisions stay with people. Anything sensitive
@@ -194,9 +272,15 @@ export default function InfiniteAiOsPage() {
 
         <section className={styles.proof} data-screen-label="Proof">
           <div className="wrap">
-            <div className="eyebrow">PROOF IT WORKS</div>
-            <h2 className="h2" style={{ marginBottom: 40 }}>
-              Working in production channels
+            <div className="eyebrow">PILOT PATTERNS · ILLUSTRATIVE</div>
+            <h2
+              className={`h2 ${styles.chapterHeading}`}
+              id="pilot-patterns"
+              tabIndex={-1}
+              data-chapter-heading
+              style={{ marginBottom: 40 }}
+            >
+              Stylized recreations from the May pilot
             </h2>
             <div className={styles.proofGrid}>
               <div className={styles.proofCard}>
@@ -209,8 +293,8 @@ export default function InfiniteAiOsPage() {
                   is waiting on the RFQ drawings. I&apos;ve flagged both owners.
                 </div>
                 <div className={styles.proofNote}>
-                  AI employees answer where people already work. No new app to
-                  learn.
+                  Represents an AI employee responding through a Teams-style
+                  work channel.
                 </div>
               </div>
               <div className={styles.proofCard}>
@@ -231,8 +315,8 @@ export default function InfiniteAiOsPage() {
                   3 OF 4 ESTIMATING INPUTS READY
                 </div>
                 <div className={styles.proofNote}>
-                  RFQ review, assumptions and missing-input checklists drafted
-                  in minutes.
+                  Represents an RFQ input check and a drafted clarification for
+                  human review.
                 </div>
               </div>
               <div className={styles.proofCard}>
@@ -242,7 +326,7 @@ export default function InfiniteAiOsPage() {
                     <span>Operations update · Week 12</span>
                     <span className={styles.sent}>
                       <i />
-                      SENT
+                      DRAFT
                     </span>
                   </div>
                   <div className={styles.bar} style={{ width: "90%" }} />
@@ -253,8 +337,8 @@ export default function InfiniteAiOsPage() {
                   </div>
                 </div>
                 <div className={styles.proofNote}>
-                  Company files become polished, client-ready reports and
-                  updates.
+                  Represents a report draft assembled from company files for
+                  human review.
                 </div>
               </div>
             </div>
@@ -262,6 +346,13 @@ export default function InfiniteAiOsPage() {
               Stylized recreations of proof-of-concept sessions from the May
               pilot phase.
             </p>
+            <div className={styles.evidenceReceiptWrap}>
+              <EvidenceReceipt
+                evidence={cs.evidence.pilotRecreations}
+                title="Pilot-pattern evidence"
+                headingLevel="h3"
+              />
+            </div>
           </div>
         </section>
 
@@ -269,7 +360,14 @@ export default function InfiniteAiOsPage() {
           <div className={styles.split}>
             <div>
               <div className="eyebrow">CURRENT STATE</div>
-              <h2 className={styles.sectionH2}>Current production status</h2>
+              <h2
+                className={`${styles.sectionH2} ${styles.chapterHeading}`}
+                id="current-state"
+                tabIndex={-1}
+                data-chapter-heading
+              >
+                Current delivery status
+              </h2>
               <p className={styles.statusLede}>
                 Three systems verified live in production; two in structured
                 review. The table separates working components from items still
@@ -296,11 +394,61 @@ export default function InfiniteAiOsPage() {
           </div>
         </section>
 
+        <section
+          className={styles.architecture}
+          data-screen-label="How It Was Built"
+        >
+          <div className="wrap">
+            <div className="eyebrow">
+              HOW IT WAS BUILT · MIXED DELIVERY MATURITY
+            </div>
+            <h2 className={styles.sectionH2}>
+              The working components in shared language
+            </h2>
+            <p className={styles.architectureLede}>
+              Each mapping points to an architecture responsibility delivered in
+              this engagement. The current-state section distinguishes live,
+              hardening, and pilot components.
+            </p>
+            <DepthDisclosure
+              collapsedLabel="VIEW THE DELIVERED ARCHITECTURE MAPPING"
+              expandedLabel="HIDE THE DELIVERED ARCHITECTURE MAPPING"
+              className={styles.chapterDisclosure}
+            >
+              <div className={styles.architectureGrid}>
+                {cs.architectureMap.map((item) => {
+                  const capability = architectureCapabilities.find(
+                    ({ id }) => id === item.capabilityId,
+                  );
+                  if (!capability) return null;
+                  return (
+                    <article key={item.capabilityId}>
+                      <span>{capability.businessLabel}</span>
+                      <h3>{capability.technicalLabel}</h3>
+                      <p>{item.evidence}</p>
+                    </article>
+                  );
+                })}
+              </div>
+            </DepthDisclosure>
+            <Link href={cs.architectureHref} className="text-link">
+              {cs.architectureLabel}&nbsp;&nbsp;&gt;
+            </Link>
+          </div>
+        </section>
+
         <section className={styles.value} data-screen-label="Value">
           <div className="wrap">
-            <div className="eyebrow eyebrow-ice">WHAT IT IS WORTH</div>
-            <h2 className={styles.navyH2}>
-              A scenario model for future operating value
+            <div className="eyebrow eyebrow-ice">
+              PLANNING MODEL · ILLUSTRATIVE
+            </div>
+            <h2
+              className={`${styles.navyH2} ${styles.chapterHeading}`}
+              id="value-model"
+              tabIndex={-1}
+              data-chapter-heading
+            >
+              Explore the operating-value assumptions
             </h2>
             <p className={styles.navyLede}>
               This model tests two possible drivers: EBITDA improvement from
@@ -329,6 +477,13 @@ export default function InfiniteAiOsPage() {
               The day-180 target is to replace assumptions with measured hours
               saved, quote-cycle changes, and rework avoided.
             </p>
+            <div className={styles.evidenceReceiptWrap}>
+              <EvidenceReceipt
+                evidence={cs.evidence.valueModel}
+                title="Scenario-model evidence"
+                headingLevel="h3"
+              />
+            </div>
           </div>
         </section>
 
@@ -352,8 +507,10 @@ export default function InfiniteAiOsPage() {
               </div>
             </div>
             <div className={styles.quoteBox}>
-              <span className={styles.quoteMark}>“</span>
               <div>
+                <div className={styles.deliverySummaryLabel}>
+                  MASLOW DELIVERY SUMMARY
+                </div>
                 <div className={styles.quoteText}>{cs.quote}</div>
                 <div className={styles.quoteAttr}>{cs.quoteAttr}</div>
               </div>

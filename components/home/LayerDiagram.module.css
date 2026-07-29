@@ -55,8 +55,8 @@
 
 :global(body.mz-anim) .addBand {
   transition:
-    background 0.7s var(--ease),
-    box-shadow 0.7s var(--ease);
+    background var(--motion-reveal-duration) var(--motion-reveal-ease),
+    box-shadow var(--motion-reveal-duration) var(--motion-reveal-ease);
 }
 
 @media (prefers-reduced-motion: reduce) {

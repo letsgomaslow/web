@@ -4,50 +4,105 @@ import { useEffect, useRef } from "react";
 import { foundationWeeks } from "@/lib/content/engagement";
 import styles from "./page.module.css";
 
-/**
- * The 90-day anatomy as a rail that fills checkpoint by checkpoint: each row
- * activates as it enters view, so the line pauses at every gate. The
- * stop-unless-it-clears mechanics, felt in the scroll. Reduced motion and
- * missing JS both land on the fully-lit state.
- */
+/** The rail is complete in server HTML. Observation only adds reading context. */
 export function WeekRail() {
   const listRef = useRef<HTMLOListElement>(null);
 
   useEffect(() => {
     const list = listRef.current;
     if (!list) return;
-    const rows = Array.from(list.children);
+    const rows = Array.from(
+      list.querySelectorAll<HTMLElement>("[data-engagement-phase]"),
+    );
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      rows.forEach((r) => r.setAttribute("data-active", "1"));
+    const showAll = () => {
+      list.dataset.readingPhase = "all";
+      rows.forEach((row) => row.setAttribute("data-active", "1"));
+    };
+
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    ) {
+      showAll();
       return;
     }
+
+    const visibleRows = new Map<HTMLElement, number>();
+    list.setAttribute("data-rail-enhanced", "1");
 
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const row = entry.target as HTMLElement;
           if (entry.isIntersecting) {
-            entry.target.setAttribute("data-active", "1");
-            io.unobserve(entry.target);
+            row.setAttribute("data-active", "1");
+            visibleRows.set(row, entry.intersectionRatio);
+          } else {
+            visibleRows.delete(row);
           }
         });
+
+        const readingRow = [...visibleRows.entries()].sort(
+          (a, b) => b[1] - a[1],
+        )[0]?.[0];
+
+        if (readingRow) {
+          list.dataset.readingPhase =
+            readingRow.dataset.engagementPhase ?? "none";
+          rows.forEach((row) =>
+            row.toggleAttribute("data-reading", row === readingRow),
+          );
+        }
       },
-      { threshold: 0.35, rootMargin: "0px 0px -18% 0px" },
+      {
+        threshold: [0.25, 0.55, 0.8],
+        rootMargin: "-12% 0px -28% 0px",
+      },
     );
-    rows.forEach((r) => io.observe(r));
-    return () => io.disconnect();
+    rows.forEach((row) => io.observe(row));
+
+    return () => {
+      io.disconnect();
+      visibleRows.clear();
+    };
   }, []);
 
   return (
-    <ol ref={listRef} className={styles.weekList}>
+    <ol
+      ref={listRef}
+      className={styles.weekList}
+      aria-label="90-day Foundation phases"
+      data-engagement-rail
+      data-reading-phase="none"
+    >
       {foundationWeeks.map((w, i) => (
-        <li key={w.label} className={styles.weekRow}>
-          <span className={styles.weekNum}>0{i + 1}</span>
-          <div>
-            <div className={styles.weekLabel}>{w.label}</div>
-            <div className={styles.weekDesc}>{w.desc}</div>
-            <div className={styles.weekTag}>{w.tag}</div>
-            {w.gate ? <div className={styles.weekGate}>{w.gate}</div> : null}
+        <li
+          key={w.label}
+          className={styles.weekRow}
+          data-engagement-phase={w.phase}
+        >
+          <span className={styles.weekNum} aria-hidden="true">
+            0{i + 1}
+          </span>
+          <div className={styles.weekContent}>
+            <div className={styles.weekPhase}>{w.phase}</div>
+            <h3 className={styles.weekLabel}>{w.label}</h3>
+            <p className={styles.weekDesc}>{w.desc}</p>
+            <div className={styles.weekDeliverable}>
+              <span>PLANNED DELIVERABLE</span>
+              <strong>{w.tag}</strong>
+            </div>
+            <dl className={styles.weekDetails}>
+              <div className={styles.weekDetail}>
+                <dt>{w.gate ?? "OPERATING DECISION"}</dt>
+                <dd>{w.decisionGate}</dd>
+              </div>
+              <div className={styles.weekDetail}>
+                <dt>WHAT YOU RETAIN</dt>
+                <dd>{w.retainedEvidence}</dd>
+              </div>
+            </dl>
           </div>
         </li>
       ))}

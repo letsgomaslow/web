@@ -18,11 +18,17 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
     <>
       <div className={styles.art} style={{ background: cs.art }}>
         <div className={styles.artMeta}>
-          {cs.illustrative ? (
-            <span className={styles.illustrativePill} data-scenario-status>
-              ILLUSTRATIVE SCENARIO · NOT A CLIENT
-            </span>
-          ) : null}
+          <span
+            className={
+              cs.illustrative ? styles.illustrativePill : styles.productionPill
+            }
+            data-scenario-status={cs.illustrative ? true : undefined}
+            data-card-evidence-status={
+              cs.illustrative ? "illustrative" : "production"
+            }
+          >
+            {cs.illustrative ? "ILLUSTRATIVE SCENARIO" : cs.evidenceLabel}
+          </span>
           <span className={styles.sector} data-card-sector>
             {cs.sector}
           </span>
@@ -36,7 +42,7 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
         </div>
       </div>
       <div className={styles.body}>
-        <div className={styles.title}>{cs.title}</div>
+        <h2 className={styles.title}>{cs.title}</h2>
         <div className={styles.cols}>
           <div>
             <div className={styles.colLabel} data-tone="plum">
@@ -68,7 +74,8 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
           </div>
           {cs.href ? (
             <span className={`${styles.caseStudyCta} text-link`} aria-hidden>
-              VIEW CASE STUDY&nbsp;&nbsp;&gt;
+              {cs.illustrative ? "EXPLORE THE PATTERN" : "VIEW CASE STUDY"}
+              &nbsp;&nbsp;&gt;
             </span>
           ) : null}
         </div>
@@ -79,7 +86,7 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
   const card = (
     <article
       className={`${styles.card} ${cs.href ? styles.linkedCard : ""}`}
-      data-card-kind={cs.href ? "case-study" : "scenario"}
+      data-card-kind={cs.illustrative ? "scenario" : "case-study"}
       data-card-slug={cs.slug}
     >
       {inner}
@@ -92,7 +99,7 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
     <Link
       href={cs.href}
       className={styles.cardLink}
-      aria-label={`View case study: ${cs.title}`}
+      aria-label={`${cs.illustrative ? "Explore scenario" : "View case study"}: ${cs.title}`}
     >
       {card}
     </Link>
@@ -100,7 +107,7 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
 }
 
 export default function CaseStudiesPage() {
-  const real = caseStudiesIndex.filter((c) => !c.illustrative);
+  const production = caseStudiesIndex.filter((c) => !c.illustrative);
   const illustrative = caseStudiesIndex.filter((c) => c.illustrative);
 
   return (
@@ -132,7 +139,7 @@ export default function CaseStudiesPage() {
 
         <section className={styles.list} data-screen-label="Case Blocks">
           <div className={styles.listInner}>
-            {real.map((cs) => (
+            {production.map((cs) => (
               <Reveal key={cs.slug}>
                 <CaseCard cs={cs} />
               </Reveal>
@@ -144,10 +151,10 @@ export default function CaseStudiesPage() {
                   What a typical engagement looks like.
                 </h2>
                 <p className={styles.illustrativeBody}>
-                  The scenarios below are composites, not client results. They
-                  show representative architectures without attaching invented
-                  performance numbers to them. The two engagements above are
-                  production work and are referenceable.
+                  The scenarios below are labeled composites. They show
+                  representative architectures. Performance figures are reserved
+                  for verified evidence. The two engagements above are
+                  production work with their current evidence status shown.
                 </p>
               </div>
             </Reveal>

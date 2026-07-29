@@ -141,7 +141,7 @@ export function BookForm({
       )}
       {status === "success" && (
         <p className={`${styles.status} ${styles.statusOk}`} role="status">
-          Got it. A real person replies within one business day.
+          Got it. A member of our team replies within one business day.
         </p>
       )}
       {status === "error" && (

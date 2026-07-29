@@ -82,6 +82,10 @@ export const navLinks = [
 ] as const;
 
 export const conceptLinks = [
+  {
+    href: "/concepts/ai-employee-architecture",
+    label: "AI employee architecture",
+  },
   { href: "/concepts/context-engineering", label: "Context engineering" },
   { href: "/concepts/agentic-harness", label: "Harness engineering" },
   { href: "/concepts/hybrid-rag", label: "Hybrid RAG" },

@@ -25,6 +25,12 @@
 - Run `npm test` after copy changes. The content suite rejects em dashes and known placeholder markers.
 - Check page metadata, shared content modules, and inline JSX together; public copy lives in all three places.
 
+## Buyer and evaluator paths
+
+- Buyer-facing concept routes must lead with the waiting workflow, responsible owner, human decision, evidence status, and next action. Keep comprehensive technical maps on a secondary evaluator route.
+- Put a page-specific working-session action before deep reference content. Technical exploration must never be required before booking.
+- Label production evidence and illustrative patterns beside the exact claim they support.
+
 ## Card interaction and layout
 
 - When a card has a destination, use one semantic link for the full card and keep nested CTA text non-interactive. Cards without a destination must stay non-interactive and use `null`, never `"#"`, for missing routes.

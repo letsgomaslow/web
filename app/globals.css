@@ -50,6 +50,11 @@
   --font-display: var(--font-dm-sans), var(--font-manrope), sans-serif;
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --motion-reveal-distance: 8px;
+  --motion-reveal-duration: 280ms;
+  --motion-reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-sequence-step: 40ms;
+  --motion-sequence-max: 120ms;
   --shadow-headshot: 0 4px 6px rgba(0, 0, 0, 0.124);
   --max: 1200px;
   --gutter: 48px;
@@ -159,11 +164,9 @@ select {
 
 @keyframes mzRise {
   from {
-    opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(var(--motion-reveal-distance));
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -174,13 +177,6 @@ select {
   }
   to {
     transform: scaleX(1);
-  }
-}
-
-@keyframes mzAutoIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -195,26 +191,64 @@ select {
 }
 
 .mz-rise {
-  animation: mzRise 0.8s var(--ease) both;
+  --mz-rise-delay: 0ms;
+  opacity: 1;
+  animation: mzRise var(--motion-reveal-duration) var(--motion-reveal-ease)
+    both;
+  animation-delay: var(--mz-rise-delay) !important;
+}
+
+/*
+ * Compatibility adapter for the existing inline delay API. Unknown explicit
+ * delays take the 120ms cap; known buckets preserve their authored order.
+ */
+.mz-rise[style*="animation-delay"] {
+  --mz-rise-delay: var(--motion-sequence-max);
+}
+
+.mz-rise[style*="animation-delay:0.05s"] {
+  --mz-rise-delay: 0ms;
+}
+
+.mz-rise[style*="animation-delay:0.1s"],
+.mz-rise[style*="animation-delay:0.15s"] {
+  --mz-rise-delay: var(--motion-sequence-step);
+}
+
+.mz-rise[style*="animation-delay:0.25s"],
+.mz-rise[style*="animation-delay:0.3s"] {
+  --mz-rise-delay: calc(var(--motion-sequence-step) * 2);
+}
+
+.mz-rise[style*="animation-delay:0.35s"],
+.mz-rise[style*="animation-delay:0.4s"],
+.mz-rise[style*="animation-delay:0.45s"] {
+  --mz-rise-delay: var(--motion-sequence-max);
 }
 
 .mz-reveal {
-  transition: transform 0.7s var(--ease);
+  opacity: 1;
+  transform: none;
+  transition: transform var(--motion-reveal-duration)
+    var(--motion-reveal-ease);
 }
 
 body.mz-anim .mz-reveal:not([data-mz-in]):not(.mz-in) {
   opacity: 0;
-  transform: translateY(24px);
-  animation: mzAutoIn 0.7s var(--ease) 5s forwards;
+  transform: translateY(var(--motion-reveal-distance));
 }
 
 body.mz-anim .mz-reveal[data-mz-in],
 body.mz-anim .mz-reveal.mz-in {
   opacity: 1;
   transform: none;
-  animation: none;
   /* Snap opacity so mid-transition contrast isn't measured as near-white */
-  transition: transform 0.7s var(--ease);
+  transition: transform var(--motion-reveal-duration)
+    var(--motion-reveal-ease);
+}
+
+body.mz-anim .mz-reveal[data-mz-focus-revealed] {
+  transition: none;
 }
 
 @media print {
@@ -239,13 +273,19 @@ body.mz-anim .mz-reveal.mz-in {
     animation: none;
   }
 
+  .mz-rise {
+    animation-delay: 0ms !important;
+  }
+
   *,
   *::before,
   *::after {
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
   }
 }
 

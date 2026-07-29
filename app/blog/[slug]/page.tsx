@@ -16,9 +16,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = getBlogArticle(slug);
-  if (!article) return { title: "Article | Maslow AI" };
+  if (!article) return { title: "Article" };
   return {
-    title: `${article.title} | Maslow AI`,
+    title: article.title,
     description: article.lede,
   };
 }

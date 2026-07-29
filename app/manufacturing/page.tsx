@@ -89,7 +89,9 @@ export default function ManufacturingPage() {
         <section className={styles.proof} data-screen-label="Proof">
           <div className="wrap">
             <Reveal>
-              <div className="eyebrow">REAL ENGAGEMENT · MANUFACTURING</div>
+              <div className="eyebrow">
+                PRODUCTION ENGAGEMENT · MANUFACTURING
+              </div>
               <h2 className="h2" style={{ marginBottom: 18, maxWidth: 720 }}>
                 Infinite AI OS: an AI operating system in 90 days.
               </h2>
@@ -146,7 +148,7 @@ export default function ManufacturingPage() {
           <div className="wrap">
             <Reveal>
               <h2 className="h2" style={{ color: "#fff", marginBottom: 14 }}>
-                Process data that never leaves the building.
+                Process data inside the building.
               </h2>
               <p className={styles.localBody}>
                 For manufacturers with sensitive process knowledge, we run

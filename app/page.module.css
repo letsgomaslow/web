@@ -37,6 +37,16 @@
   flex-wrap: wrap;
 }
 
+.heroHeading {
+  max-width: 880px;
+  margin-bottom: 28px;
+}
+
+.heroLede {
+  max-width: 620px;
+  margin-bottom: 40px;
+}
+
 .icpGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -60,6 +70,7 @@
   letter-spacing: -0.4px;
   color: #1a1a1a;
   margin-bottom: 10px;
+  margin-top: 0;
 }
 
 .icpDesc {
@@ -135,6 +146,61 @@
   margin-top: 6px;
 }
 
+.workflowContext {
+  padding: 96px var(--gutter);
+  background: var(--color-white);
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.workflowContextGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(40px, 7vw, 88px);
+  align-items: start;
+}
+
+.workflowContextIntro {
+  min-width: 0;
+}
+
+.workflowContextIntro h2 {
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+
+.workflowContextIntro p {
+  max-width: 520px;
+  margin: 0 0 28px;
+  color: var(--color-muted);
+  font: 400 16px/27px var(--font-sans);
+}
+
+.workflowContextPreview {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.workflowStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--color-purple);
+  font: 600 9px/14px var(--font-mono);
+  letter-spacing: 1.6px;
+}
+
+.workflowStatus::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-action-signal);
+}
+
 .sectionHead {
   display: flex;
   justify-content: space-between;
@@ -154,6 +220,56 @@
   flex-direction: column;
   margin-top: 32px;
   border-top: 1px solid var(--color-navy);
+}
+
+.conceptOverview {
+  display: grid;
+  grid-template-columns: 190px 310px 1fr 210px;
+  gap: 24px;
+  align-items: center;
+  margin-top: 32px;
+  padding: 28px 24px;
+  border: 1px solid var(--color-navy);
+  background: var(--color-navy);
+  color: var(--color-white);
+  transition: background 0.25s var(--ease);
+}
+
+.conceptOverview:hover {
+  background: var(--color-navy-mid);
+  color: var(--color-white);
+}
+
+.conceptOverview > span,
+.conceptOverview > em {
+  color: var(--color-ice-on-dark);
+  font: 700 10px/16px var(--font-mono);
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.conceptOverview > strong {
+  font: 700 23px/29px var(--font-sans);
+  letter-spacing: -0.45px;
+}
+
+.conceptOverview > p {
+  margin: 0;
+  color: var(--color-mist);
+  font: 400 14px/23px var(--font-sans);
+}
+
+.conceptOverview > em {
+  justify-self: end;
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.technicalLibraryLink {
+  display: inline-flex;
+  margin-top: 20px;
 }
 
 .conceptRow {
@@ -368,6 +484,7 @@
   font: 700 24px/28px var(--font-sans);
   letter-spacing: -0.57px;
   color: #1a1a1a;
+  margin: 0;
 }
 
 .caseDesc {
@@ -408,6 +525,19 @@
 }
 
 @media (max-width: 980px) {
+  .conceptOverview {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .conceptOverview > p,
+  .conceptOverview > em {
+    grid-column: 2;
+  }
+
+  .conceptOverview > em {
+    justify-self: start;
+  }
+
   .conceptRow {
     grid-template-columns: 48px 1fr;
     gap: 12px 16px;
@@ -451,7 +581,41 @@
   }
 }
 
+@media (max-width: 760px) {
+  .workflowContextGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 600px) {
+  .hero {
+    padding-top: 56px;
+    padding-bottom: 64px;
+  }
+
+  .heroHeading {
+    margin-bottom: 18px;
+  }
+
+  .heroLede {
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .ctaRow {
+    gap: 12px;
+  }
+
+  .conceptOverview {
+    grid-template-columns: 1fr;
+  }
+
+  .conceptOverview > p,
+  .conceptOverview > em {
+    grid-column: 1;
+  }
+
   .assessLong {
     display: none;
   }
@@ -460,13 +624,39 @@
     display: inline;
   }
 
-  .metricsGrid {
-    grid-template-columns: 1fr;
+  .metric {
+    min-width: 0;
+    padding: 22px 14px 24px;
   }
 
-  .metric {
-    border-right: none;
+  .metric:nth-child(odd) {
+    border-right: 1px solid var(--color-line);
+  }
+
+  .metric:nth-child(-n + 2) {
     border-bottom: 1px solid var(--color-line);
+  }
+
+  .metricValue {
+    font-size: clamp(20px, 6.5vw, 26px);
+    line-height: 1.12;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .metricLabel {
+    font-size: 11px;
+    line-height: 17px;
+  }
+
+  .workflowContext,
+  .copilot {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .workflowContextGrid {
+    gap: 36px;
   }
 
   .stages {
@@ -489,6 +679,24 @@
   background: var(--color-off-white);
 }
 
+.copilotIntro {
+  max-width: 720px;
+}
+
+.copilotIntro h2 {
+  margin-bottom: 14px;
+}
+
+.copilotIntro p {
+  margin: 0 0 18px;
+  color: var(--color-muted);
+  font: 400 16px/27px var(--font-sans);
+}
+
+.copilotDisclosure {
+  margin-top: 32px;
+}
+
 .copilotGrid {
   max-width: var(--max);
   margin: 0 auto;
@@ -496,10 +704,11 @@
   grid-template-columns: 1.1fr 0.9fr;
   gap: 64px;
   align-items: center;
+  padding-top: 24px;
 }
 
 .copilotBody {
-  margin: 0 0 24px;
+  margin: 0;
   font: 400 16px/27px var(--font-sans);
   color: var(--color-muted);
   max-width: 560px;
@@ -539,6 +748,18 @@
   }
 }
 
+@media (max-width: 600px) {
+  .copilot {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .copilotGrid {
+    gap: 28px;
+    padding-top: 16px;
+  }
+}
+
 /* Gate ticks under the 90-days metric: three audited checkpoints made visible */
 .gateRail {
   position: relative;
@@ -574,9 +795,12 @@
 
 :global(body.mz-anim) .metricsGrid .gateTick {
   transition:
-    opacity 0.5s var(--ease),
-    transform 0.5s var(--ease);
-  transition-delay: calc(0.3s + var(--i) * 0.12s);
+    opacity var(--motion-reveal-duration) var(--motion-reveal-ease),
+    transform var(--motion-reveal-duration) var(--motion-reveal-ease);
+  transition-delay: min(
+    calc(var(--i) * var(--motion-sequence-step)),
+    var(--motion-sequence-max)
+  );
 }
 
 /* Gate diamonds on the journey rail: checkpoints between the stages */

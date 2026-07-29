@@ -74,7 +74,7 @@ export const contextDiscipline: {
     num: "03",
     accent: "var(--color-gold-text)",
     name: "Freshness",
-    desc: "Sync pipelines so your AI never lives in last quarter. Stale data is worse than none.",
+    desc: "Sync pipelines to reduce stale knowledge through change detection and staleness monitoring.",
   },
   {
     num: "04",
@@ -121,7 +121,7 @@ export const localRunsLocally = [
 export const localKeepFrontier = [
   "Novel multi-step reasoning on unfamiliar problems",
   "Long-horizon agentic work with many tools",
-  "Low-volume tasks that never reach breakeven",
+  "Low-volume tasks unlikely to reach breakeven",
   "The harness routes each task to the right model automatically",
 ];
 
@@ -415,8 +415,8 @@ export const harnessNodes: HarnessNode[] = [
     desc: "Everything the model sees before it acts: retrieved documents, live data, the state of the task. Engineered through hybrid RAG so the right facts arrive at the right moment.",
     bullets: [
       "Hybrid RAG over your vector DB + knowledge graph",
-      "Freshness pipelines so your AI never lives in last quarter",
-      "Citations back to source files on every answer",
+      "Freshness pipelines that reduce dependence on out-of-date files",
+      "Citations on answers grounded in source files",
     ],
   },
   {
@@ -532,8 +532,8 @@ export const hybridRagComparison = [
   {
     kind: "HYBRID RAG",
     accent: "#FFF860",
-    title: "Both, routed automatically",
-    desc: "Meaning when you need recall, facts when you need precision, and citations back to the source file either way.",
+    title: "Both, routed by the task",
+    desc: "Meaning for recall, facts for precision, with source references when the retrieval path supplies them.",
     example: '"Summarise our exposure if Vendor X terminates early."',
     dark: true,
   },

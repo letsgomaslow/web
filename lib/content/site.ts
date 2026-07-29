@@ -88,7 +88,7 @@ export const assessmentRecMap = [
     href: "/services#own",
   },
   {
-    name: "Custom agentic harness",
+    name: "Custom workflow system",
     why: "Guardrails, approvals and audit built in",
     href: "/services#build",
   },
@@ -108,12 +108,12 @@ export const assessmentStages = [
   {
     tag: "STAGE 2 / 4",
     name: "Building foundations",
-    desc: "The pieces are forming. Structure your knowledge and get a harness around the model, and pilots stop being demos.",
+    desc: "The pieces are forming. Structure your knowledge and add workflow controls around the model, and pilots stop being demos.",
   },
   {
     tag: "STAGE 3 / 4",
     name: "Operational",
-    desc: "AI is doing real work. Now scale the roster, harden governance, and start moving high-volume workloads onto infrastructure you own.",
+    desc: "AI is doing production work. Now scale the roster, harden governance, and start moving high-volume workloads onto infrastructure you own.",
   },
   {
     tag: "STAGE 4 / 4",
@@ -141,7 +141,7 @@ export const assessmentLegend = [
   {
     tag: "STAGE 3",
     name: "Operational",
-    desc: "Agents own real workflows with human oversight.",
+    desc: "AI employees own production workflows with human oversight.",
   },
   {
     tag: "STAGE 4",
