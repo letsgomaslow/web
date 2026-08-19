@@ -1,0 +1,21 @@
+{
+  "packageName": "@maslow-ai/brand-os",
+  "version": "1.0.0",
+  "contractVersion": "1.0.0",
+  "sourceHashes": {
+    "src/tokens.json": "35cffa72309d43fe611d47d222702acb139aa4b0d83780724a028146b7bf7cc2",
+    "src/policies.json": "cb389c4a973f201389c121f3e43605eedd6fe8fadf6498db661cecb83936b67a",
+    "src/brand-contract.md": "7b518376e4d2e1c861702d916224086550ed910b5af3d8d2a1a931bf93243be4"
+  },
+  "assetHashes": {
+    "fonts/DMSans-Variable.ttf": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
+    "fonts/IBMPlexMono-Medium.ttf": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
+    "fonts/IBMPlexMono-Regular.ttf": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+    "fonts/Manrope-Variable.ttf": "d0639be45d0af36e798172419d7bd173c4bd4f29e2b76cbb69db1d11bf8b0a40",
+    "maslow-mark-cream.svg": "424b4ecf16db9cbf333a66a68a7a16d0f51304c783329834d58e8c6458a5ad07",
+    "maslow-mark-gradient.svg": "637fb0fac1d620dbc4005a7262528403f04a05a168944352dc351e8d7d180d64",
+    "maslow-mark-ice.svg": "0cc82eeaec13e81039666206793bf7cfbfab993159e60b8d49470a03f7d00af8",
+    "maslow-mark-ink.svg": "73cacfca13e98e9af1370bb5451a565a47771bd147008fff9ba7a00a3763c3e4",
+    "maslow-mark-white.svg": "ddcf0dfe93c6e7b23fac881af91228ea718a5734e0cc88d90274362ad109f74b"
+  }
+}

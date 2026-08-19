@@ -375,10 +375,10 @@ describe("brand design system", () => {
     });
 
     const globals = readFileSync(join("app", "globals.css"), "utf8");
-    expect(globals).toMatch(/--color-action-primary:\s*#192332;/i);
-    expect(globals).toMatch(/--color-action-inverse:\s*#ffffff;/i);
-    expect(globals).toMatch(/--color-action-signal:\s*#ee7bb3;/i);
-    expect(globals).toMatch(/--radius-structural:\s*0px;/i);
+    expect(globals).toMatch(/--color-action-primary:\s*var\(--maslow-action-primary\);/i);
+    expect(globals).toMatch(/--color-action-inverse:\s*var\(--maslow-action-inverse\);/i);
+    expect(globals).toMatch(/--color-action-signal:\s*var\(--maslow-action-signal\);/i);
+    expect(globals).toMatch(/--radius-structural:\s*var\(--maslow-radius-structural\);/i);
   });
 
   it("reserves pink backgrounds for pseudo-element interaction signals", () => {
