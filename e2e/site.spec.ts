@@ -716,6 +716,58 @@ test.describe("responsive layout", () => {
   });
 });
 
+test.describe("taxonomy capsule semantics", () => {
+  for (const route of [
+    "/blog",
+    "/blog/what-makes-an-ai-employee-work",
+    "/case-studies",
+    "/case-studies/infinite-ai-os",
+  ]) {
+    test(`${route} distinguishes labels from actions`, async ({ page }) => {
+      await page.goto(route);
+
+      const labels = page.locator("[data-taxonomy-label]");
+      expect(await labels.count()).toBeGreaterThanOrEqual(2);
+      const semantics = await labels.evaluateAll((elements) =>
+        elements.map((element) => {
+          const html = element as HTMLElement;
+          const style = getComputedStyle(html);
+          return {
+            tag: html.tagName,
+            role: html.getAttribute("role"),
+            href: html.getAttribute("href"),
+            tabIndex: html.tabIndex,
+            radius: style.borderRadius,
+            cursor: style.cursor,
+          };
+        }),
+      );
+
+      for (const label of semantics) {
+        expect(label).toEqual({
+          tag: "SPAN",
+          role: null,
+          href: null,
+          tabIndex: -1,
+          radius: "9999px",
+          cursor: "auto",
+        });
+      }
+
+      const action = page.locator('a[href="/contact"]:visible').first();
+      await expect(action).toBeVisible();
+      await expect
+        .poll(() =>
+          action.evaluate((element) => ({
+            tabIndex: (element as HTMLElement).tabIndex,
+            radius: getComputedStyle(element).borderRadius,
+          })),
+        )
+        .toEqual({ tabIndex: 0, radius: "0px" });
+    });
+  }
+});
+
 test.describe("founder and company identity", () => {
   test("publishes the founder photo and current contact destinations", async ({
     page,

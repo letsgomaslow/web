@@ -3,7 +3,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
-import { catColors, featuredPost, secondaryPosts } from "@/lib/content/blog";
+import { TaxonomyCapsule } from "@/components/ui/TaxonomyCapsule";
+import { featuredPost, secondaryPosts } from "@/lib/content/blog";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -51,7 +52,12 @@ export default function BlogPage() {
               className={styles.featuredCard}
             >
               <div className={styles.featuredArt}>
-                <span className={styles.featuredBadge}>FEATURED</span>
+                <TaxonomyCapsule
+                  tone="gold"
+                  className={styles.featuredCapsule}
+                >
+                  Featured
+                </TaxonomyCapsule>
                 <Image
                   className={styles.featuredMark}
                   src="/assets/logos/maslow-symbol-white.png"
@@ -81,16 +87,9 @@ export default function BlogPage() {
               </div>
               <div className={styles.featuredBody}>
                 <div className={styles.meta}>
-                  <span
-                    style={{
-                      color:
-                        catColors[featuredPost.cat] ||
-                        "var(--color-ice-text)",
-                      fontWeight: 700,
-                    }}
-                  >
+                  <TaxonomyCapsule tone="teal" size="compact">
                     {featuredPost.cat}
-                  </span>
+                  </TaxonomyCapsule>
                   <span>·</span>
                   <span>{featuredPost.read}</span>
                   <span>·</span>
@@ -120,14 +119,9 @@ export default function BlogPage() {
                   className={styles.articleCard}
                 >
                   <div className={styles.articleMeta}>
-                    <span
-                      style={{
-                        color:
-                          catColors[article.cat] || "var(--color-ice-text)",
-                      }}
-                    >
+                    <TaxonomyCapsule tone="teal" size="compact">
                       {article.cat}
-                    </span>
+                    </TaxonomyCapsule>
                     <span>{article.read}</span>
                     <span>{article.date}</span>
                   </div>

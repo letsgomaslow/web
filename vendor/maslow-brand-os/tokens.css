@@ -45,6 +45,7 @@
   --maslow-font-display: DM Sans;
   --maslow-font-mono: IBM Plex Mono;
   --maslow-radius-structural: 0px;
+  --maslow-radius-capsule: 9999px;
   --maslow-radius-circle: 9999px;
   --maslow-layout-canvas-max: 1400px;
   --maslow-layout-content-max: 1200px;

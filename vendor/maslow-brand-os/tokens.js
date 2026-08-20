@@ -1,7 +1,7 @@
-export const brandVersion = "1.0.1";
+export const brandVersion = "1.1.0";
 export const evidenceStatuses = ["production","modeled","illustrative","in_preparation"];
 export const tokens = {
-  "version": "1.0.1",
+  "version": "1.1.0",
   "color": {
     "navy": "#192332",
     "navyDeep": "#121D35",
@@ -54,6 +54,7 @@ export const tokens = {
   },
   "radius": {
     "structural": "0px",
+    "capsule": "9999px",
     "circle": "9999px"
   },
   "layout": {

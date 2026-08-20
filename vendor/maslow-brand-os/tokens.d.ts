@@ -11,7 +11,7 @@ export interface MaslowColorTokens {
   darkSurfaceRaised: string; darkLine: string; darkText: string; statusOpen: string; statusClosed: string; success: string; error: string;
 }
 export interface MaslowActionTokens { primary: string; primaryInk: string; primaryHover: string; inverse: string; inverseInk: string; signal: string; link: string; linkHover: string; focus: string; }
-export interface MaslowTokens { version: string; color: Readonly<MaslowColorTokens>; action: Readonly<MaslowActionTokens>; font: Readonly<{ sans: string; display: string; mono: string }>; radius: Readonly<{ structural: string; circle: string }>; layout: Readonly<{ canvasMax: string; contentMax: string; sectionGap: string; cardGap: string }>; }
+export interface MaslowTokens { version: string; color: Readonly<MaslowColorTokens>; action: Readonly<MaslowActionTokens>; font: Readonly<{ sans: string; display: string; mono: string }>; radius: Readonly<{ structural: string; capsule: string; circle: string }>; layout: Readonly<{ canvasMax: string; contentMax: string; sectionGap: string; cardGap: string }>; }
 export declare const brandVersion: string;
 export declare const evidenceStatuses: readonly EvidenceStatus[];
 export declare const tokens: Readonly<MaslowTokens>;

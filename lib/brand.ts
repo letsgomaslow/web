@@ -55,6 +55,11 @@ export const actionTheme = {
   structuralRadius: Number.parseInt(brandTokens.radius.structural, 10),
 } as const;
 
+export const shapeTheme = {
+  structuralRadius: Number.parseInt(brandTokens.radius.structural, 10),
+  taxonomyCapsuleRadius: Number.parseInt(brandTokens.radius.capsule, 10),
+} as const;
+
 export const ticks = [
   colors.iceText,
   colors.plumText,

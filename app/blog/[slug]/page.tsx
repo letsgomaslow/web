@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
+import { TaxonomyCapsule } from "@/components/ui/TaxonomyCapsule";
 import { getAllBlogSlugs, getBlogArticle } from "@/lib/content/blog";
 import styles from "./page.module.css";
 
@@ -50,8 +51,8 @@ export default async function BlogArticlePage({ params }: Props) {
               className={`${styles.badges} mz-rise`}
               style={{ animationDelay: "0.05s" }}
             >
-              <span className={styles.badgeArticle}>ARTICLE</span>
-              <span className={styles.badgeCat}>{article.cat}</span>
+              <TaxonomyCapsule tone="gold">Article</TaxonomyCapsule>
+              <TaxonomyCapsule tone="teal">{article.cat}</TaxonomyCapsule>
             </div>
             <h1
               className={`${styles.title} mz-rise`}
@@ -126,9 +127,9 @@ export default async function BlogArticlePage({ params }: Props) {
           <div className={styles.footerInner}>
             <div className={styles.tags}>
               {article.tags.map((t) => (
-                <span key={t} className={styles.tag}>
+                <TaxonomyCapsule key={t} tone="outline">
                   {t}
-                </span>
+                </TaxonomyCapsule>
               ))}
             </div>
             <Link href={article.explainerHref} className="text-link">

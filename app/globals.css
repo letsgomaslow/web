@@ -18,6 +18,7 @@
   --color-action-inverse-ink: var(--maslow-action-inverse-ink);
   --color-action-signal: var(--maslow-action-signal);
   --radius-structural: var(--maslow-radius-structural);
+  --radius-capsule: var(--maslow-radius-capsule);
   --radius-action: var(--radius-structural);
   /* Retained for pink text cues and exceptional emphasis, not default fills. */
   --color-cta: var(--maslow-action-signal);

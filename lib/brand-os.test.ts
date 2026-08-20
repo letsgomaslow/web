@@ -19,7 +19,7 @@ function sha256(path: string) {
 
 describe("Brand OS consumer contract", () => {
   it("pins one version and source hash set", () => {
-    expect(brandVersion).toBe("1.0.1");
+    expect(brandVersion).toBe("1.1.0");
     expect(tokens.version).toBe(brandVersion);
     expect(manifest.version).toBe(brandVersion);
     expect(lock.version).toBe(brandVersion);
@@ -37,10 +37,12 @@ describe("Brand OS consumer contract", () => {
       focus: "#401877",
     });
     expect(tokens.radius.structural).toBe("0px");
+    expect(tokens.radius.capsule).toBe("9999px");
     const globals = readFileSync(join("app", "globals.css"), "utf8");
     expect(globals).toContain('@import "@maslow-ai/brand-os/tokens.css";');
     expect(globals).toMatch(/--color-action-primary:\s*var\(--maslow-action-primary\)/);
     expect(globals).toMatch(/--radius-structural:\s*var\(--maslow-radius-structural\)/);
+    expect(globals).toMatch(/--radius-capsule:\s*var\(--maslow-radius-capsule\)/);
   });
 
   it("keeps every public Maslow logo byte-identical to its immutable designer master", () => {

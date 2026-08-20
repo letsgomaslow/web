@@ -1,8 +1,8 @@
 {
   "package": "@maslow-ai/brand-os",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "activeDependency": "file:vendor/maslow-brand-os",
-  "releaseDependency": "github:letsgomaslow/mai-design-system#v1.0.1",
+  "releaseDependency": "github:letsgomaslow/mai-design-system#v1.1.0",
   "logoPolicy": "immutable-designer-master",
   "logoAssets": [
     {
@@ -77,10 +77,10 @@
     }
   ],
   "sourceHashes": {
-    "src/tokens.json": "5a4745738d6d83b11d2f7a063502fb7d58e435278108ade924fc11cb2c2553f7",
-    "src/policies.json": "fdcfb5950f4bdb2333e786240e0377961e3903c113c212840937d02673aa89ae",
+    "src/tokens.json": "8884900088b715ec0e33cbcd89d7a61922566605f7f3232915094e41cd0e090f",
+    "src/policies.json": "92322ebb0ba185aff57ca1085deb61545f0fc5124838ace277373c944e002d28",
     "src/logo-assets.json": "85bc3915a63e8b2095f1077537228895b8e538abe5937f3b5758bf6a84d1110e",
-    "src/brand-contract.md": "c73bdf5f79805ff5cf1c92034516e701617549285fd7580927a2ec809f01867c"
+    "src/brand-contract.md": "d602bddb845a47a6b38f95e21351388c62e8995d0faba4f00114c8fc8322a3f1"
   },
   "assetHashes": {
     "fonts/DMSans-Variable.ttf": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",

@@ -16,24 +16,6 @@
   margin-bottom: 26px;
 }
 
-.badgeArticle {
-  height: 34px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 18px;
-  border-radius: var(--radius-structural);
-  background: var(--color-gold-solid);
-  color: var(--color-navy);
-  font: 600 12px var(--font-sans);
-  letter-spacing: 2px;
-}
-
-.badgeCat {
-  font: 700 12px var(--font-display);
-  letter-spacing: 2px;
-  color: var(--color-ice-text);
-}
-
 .title {
   margin: 0 0 22px;
   font: 600 48px/54px var(--font-sans);
@@ -160,17 +142,6 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-}
-
-.tag {
-  font: 600 12px var(--font-sans);
-  height: 34px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 16px;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-structural);
-  color: var(--color-muted);
 }
 
 .cta {

@@ -5,6 +5,7 @@ import { EvidenceReceipt } from "@/components/evidence/EvidenceReceipt";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { DepthDisclosure } from "@/components/ui/DepthDisclosure";
 import { Reveal } from "@/components/ui/Reveal";
+import { TaxonomyCapsule } from "@/components/ui/TaxonomyCapsule";
 import { infiniteAiOs as cs } from "@/lib/content/case-studies";
 import { architectureCapabilities } from "@/lib/content/architecture";
 import { CaseStudyChapterNav } from "../CaseStudyChapterNav";
@@ -56,13 +57,12 @@ export default function InfiniteAiOsPage() {
               style={{ animationDelay: "0.1s" }}
             >
               {cs.tags.map((t) => (
-                <span
+                <TaxonomyCapsule
                   key={t.label}
-                  className={styles.tag}
-                  data-variant={t.variant}
+                  tone={t.variant === "solid" ? "plum" : t.variant}
                 >
                   {t.label}
-                </span>
+                </TaxonomyCapsule>
               ))}
             </div>
             <h1

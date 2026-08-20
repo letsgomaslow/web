@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Reveal } from "@/components/ui/Reveal";
+import { TaxonomyCapsule } from "@/components/ui/TaxonomyCapsule";
 import { ctaPrimaryLabel } from "@/lib/brand";
 import { caseStudiesIndex } from "@/lib/content/case-studies";
 import styles from "./page.module.css";
@@ -18,20 +19,26 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
     <>
       <div className={styles.art} style={{ background: cs.art }}>
         <div className={styles.artMeta}>
-          <span
-            className={
-              cs.illustrative ? styles.illustrativePill : styles.productionPill
-            }
-            data-scenario-status={cs.illustrative ? true : undefined}
-            data-card-evidence-status={
-              cs.illustrative ? "illustrative" : "production"
-            }
+          <TaxonomyCapsule
+            tone={cs.illustrative ? "illustrative" : "inverse"}
+            size="compact"
+            data={{
+              "data-scenario-status": cs.illustrative ? "true" : undefined,
+              "data-card-evidence-status": cs.illustrative
+                ? "illustrative"
+                : "production",
+            }}
           >
             {cs.illustrative ? "ILLUSTRATIVE SCENARIO" : cs.evidenceLabel}
-          </span>
-          <span className={styles.sector} data-card-sector>
+          </TaxonomyCapsule>
+          <TaxonomyCapsule
+            tone="inverse"
+            size="compact"
+            className={styles.sectorCapsule}
+            data={{ "data-card-sector": "true" }}
+          >
             {cs.sector}
-          </span>
+          </TaxonomyCapsule>
         </div>
         <div className={styles.metricBlock}>
           <div className={styles.metric}>{cs.metric}</div>
@@ -59,17 +66,17 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
         </div>
         <div className={styles.results}>
           {cs.results.map((r) => (
-            <span key={r} className={styles.result}>
+            <TaxonomyCapsule key={r} tone="soft">
               {r}
-            </span>
+            </TaxonomyCapsule>
           ))}
         </div>
         <div className={styles.foot}>
           <div className={styles.stack}>
             {cs.stack.map((t) => (
-              <span key={t} className={styles.stackTag}>
+              <TaxonomyCapsule key={t} tone="outline" size="compact">
                 {t}
-              </span>
+              </TaxonomyCapsule>
             ))}
           </div>
           {cs.href ? (
