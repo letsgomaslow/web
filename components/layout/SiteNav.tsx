@@ -93,15 +93,12 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
       <header className={styles.nav} data-screen-label="Nav">
         <Link href="/" className={styles.brand}>
           <Image
-            src="/assets/maslow-mark-gradient.svg"
+            src="/assets/logos/maslow-complete-full-color.png"
             alt="Maslow AI"
-            width={36}
-            height={23}
+            width={170}
+            height={27}
             priority
           />
-          <span className={styles.brandName}>MASLOW</span>
-          <span className={styles.brandSep}>|</span>
-          <span className={styles.brandAi}>AI</span>
         </Link>
 
         {!minimal && (
@@ -185,14 +182,11 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
               </button>
               <Link href="/" className={styles.menuBrand} onClick={close}>
                 <Image
-                  src="/assets/maslow-mark-white.svg"
+                  src="/assets/logos/maslow-complete-white.png"
                   alt="Maslow AI"
-                  width={36}
-                  height={23}
+                  width={170}
+                  height={27}
                 />
-                <span>MASLOW</span>
-                <span className={styles.brandSepMenu}>|</span>
-                <span className={styles.brandAiMenu}>AI</span>
               </Link>
 
               <div className={styles.menuEyebrow}>NAVIGATE</div>
@@ -255,7 +249,7 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
             </div>
             <Image
               className={styles.menuWm}
-              src="/assets/maslow-mark-white.svg"
+              src="/assets/logos/maslow-symbol-white.png"
               alt=""
               width={300}
               height={200}

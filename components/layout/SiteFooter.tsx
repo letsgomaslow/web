@@ -43,12 +43,11 @@ export function SiteFooter({
               <div>
                 <div className={styles.brandRow}>
                   <Image
-                    src="/assets/maslow-mark-white.svg"
-                    alt=""
-                    width={28}
-                    height={19}
+                    src="/assets/logos/maslow-complete-white.png"
+                    alt="Maslow AI"
+                    width={170}
+                    height={27}
                   />
-                  <span>MASLOW</span>
                 </div>
                 <p className={styles.blurb}>
                   AI employees built on knowledge systems and infrastructure
@@ -124,12 +123,11 @@ export function SiteFooter({
           <div className={styles.compactInner}>
             <div className={styles.brandRow}>
               <Image
-                src="/assets/maslow-mark-white.svg"
-                alt=""
-                width={28}
-                height={19}
+                src="/assets/logos/maslow-complete-white.png"
+                alt="Maslow AI"
+                width={170}
+                height={27}
               />
-              <span>MASLOW</span>
             </div>
             <div className={styles.compactLinks}>
               <Link href="/">Home</Link>

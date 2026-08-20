@@ -22,7 +22,7 @@ export default function ServicesPage() {
         <section className={styles.hero} data-screen-label="Hero">
           <Image
             className={styles.float}
-            src="/assets/maslow-mark-gradient.svg"
+            src="/assets/logos/maslow-symbol-full-color.png"
             alt=""
             width={230}
             height={148}
@@ -114,7 +114,7 @@ export default function ServicesPage() {
         <section className={styles.e2e} data-screen-label="End to End">
           <Image
             className={styles.e2eMark}
-            src="/assets/maslow-mark-white.svg"
+            src="/assets/logos/maslow-symbol-white.png"
             alt=""
             width={320}
             height={206}

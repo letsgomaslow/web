@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "brand:sync": "node scripts/sync-brand-os.mjs",
+    "brand:check": "vitest run lib/brand-os.test.ts",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
@@ -14,6 +16,7 @@
     "test:all": "npm run lint && npm run test && npm run build && npm run test:e2e"
   },
   "dependencies": {
+    "@maslow-ai/brand-os": "file:vendor/maslow-brand-os",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "next": "15.5.21",

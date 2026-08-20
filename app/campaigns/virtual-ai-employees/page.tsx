@@ -57,7 +57,7 @@ export default function VirtualAiEmployeesCampaignPage() {
         <section className={styles.hero} data-screen-label="Hero">
           <Image
             className={styles.float}
-            src="/assets/maslow-mark-white.svg"
+            src="/assets/logos/maslow-symbol-white.png"
             alt=""
             width={300}
             height={193}

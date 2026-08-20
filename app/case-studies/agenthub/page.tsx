@@ -4,6 +4,7 @@ import { EvidenceReceipt } from "@/components/evidence/EvidenceReceipt";
 import { PageShell } from "@/components/layout/PageShell";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { DepthDisclosure } from "@/components/ui/DepthDisclosure";
+import { TaxonomyCapsule } from "@/components/ui/TaxonomyCapsule";
 import { agentHub as cs } from "@/lib/content/case-studies";
 import { architectureCapabilities } from "@/lib/content/architecture";
 import { CaseStudyChapterNav } from "../CaseStudyChapterNav";
@@ -54,13 +55,12 @@ export default function AgentHubPage() {
               style={{ animationDelay: "0.1s" }}
             >
               {cs.tags.map((t) => (
-                <span
+                <TaxonomyCapsule
                   key={t.label}
-                  className={styles.tag}
-                  data-variant={t.variant}
+                  tone={t.variant === "solid" ? "plum" : t.variant}
                 >
                   {t.label}
-                </span>
+                </TaxonomyCapsule>
               ))}
             </div>
             <h1

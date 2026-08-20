@@ -25,31 +25,6 @@
   flex-wrap: wrap;
 }
 
-.tag {
-  height: 34px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 18px;
-  border-radius: var(--radius-structural);
-  font: 600 12px var(--font-sans);
-  letter-spacing: 2px;
-}
-
-.tag[data-variant="solid"] {
-  background: var(--color-plum-text);
-  color: var(--color-white);
-}
-
-.tag[data-variant="outline"] {
-  border: 1px solid var(--color-line);
-  color: var(--color-muted);
-}
-
-.tag[data-variant="navy"] {
-  background: var(--color-navy-deep);
-  color: var(--color-ice);
-}
-
 .title {
   margin: 0 0 24px;
   font: 600 60px/62px var(--font-sans);
