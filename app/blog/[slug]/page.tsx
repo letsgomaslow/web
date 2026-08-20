@@ -71,7 +71,7 @@ export default async function BlogArticlePage({ params }: Props) {
             >
               <div className={styles.avatar}>
                 <Image
-                  src="/assets/maslow-mark-white.svg"
+                  src="/assets/logos/maslow-symbol-white.png"
                   alt=""
                   width={20}
                   height={13}

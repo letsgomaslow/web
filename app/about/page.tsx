@@ -37,7 +37,7 @@ export default function AboutPage() {
         <section className={styles.hero} data-screen-label="Hero">
           <Image
             className={styles.float}
-            src="/assets/maslow-mark-gradient.svg"
+            src="/assets/logos/maslow-symbol-full-color.png"
             alt=""
             width={280}
             height={180}

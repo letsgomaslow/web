@@ -15,7 +15,6 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 11px;
   color: inherit;
 }
 
@@ -23,21 +22,9 @@
   color: inherit;
 }
 
-.brandName {
-  font: 600 14px var(--font-sans);
-  letter-spacing: 2px;
-  color: var(--color-ink);
-}
-
-.brandSep {
-  color: var(--color-line);
-  font: 400 14px var(--font-sans);
-}
-
-.brandAi {
-  font: 500 10px var(--font-mono);
-  letter-spacing: 3px;
-  color: var(--color-ink);
+.brand img {
+  width: clamp(116px, 34vw, 170px);
+  height: auto;
 }
 
 .links {
@@ -243,26 +230,17 @@
 .menuBrand {
   display: flex;
   align-items: center;
-  gap: 11px;
   height: 56px;
   color: #fff;
-  font: 600 14px var(--font-sans);
-  letter-spacing: 2px;
 }
 
 .menuBrand:hover {
   color: #fff;
 }
 
-.brandSepMenu {
-  color: var(--color-navy-line);
-  font: 400 14px var(--font-sans);
-}
-
-.brandAiMenu {
-  font: 500 10px var(--font-mono);
-  letter-spacing: 3px;
-  color: #fff;
+.menuBrand img {
+  width: 170px;
+  height: auto;
 }
 
 .menuEyebrow {
@@ -440,11 +418,6 @@
 }
 
 @media (max-width: 404px) {
-  .brandSep,
-  .brandAi {
-    display: none;
-  }
-
   .bookLong {
     display: none;
   }

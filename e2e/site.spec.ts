@@ -38,7 +38,9 @@ test.describe("route smoke", () => {
       expect(res?.ok() || res?.status() === 304).toBeTruthy();
       await expect(page.locator("body")).toBeVisible();
       // Brand must be present
-      await expect(page.getByText("MASLOW").first()).toBeVisible();
+      await expect(
+        page.getByRole("img", { name: "Maslow AI" }).first(),
+      ).toBeVisible();
     });
   }
 });

@@ -7,7 +7,7 @@ export interface MaslowColorTokens {
   navy: string; navyDeep: string; ink: string; text: string; muted: string; bodyMuted: string; meta: string; nearBlack: string;
   line: string; lineSoft: string; lineCard: string; offWhite: string; white: string; teal: string; tealText: string;
   purple: string; plum: string; gold: string; goldText: string; yellow: string; pink: string; coral: string;
-  gradientPink: string; gradientTeal: string; duotonePink: string; duotoneTeal: string; darkSurface: string;
+  duotonePink: string; duotoneTeal: string; darkSurface: string;
   darkSurfaceRaised: string; darkLine: string; darkText: string; statusOpen: string; statusClosed: string; success: string; error: string;
 }
 export interface MaslowActionTokens { primary: string; primaryInk: string; primaryHover: string; inverse: string; inverseInk: string; signal: string; link: string; linkHover: string; focus: string; }

@@ -54,7 +54,7 @@ export default function BlogPage() {
                 <span className={styles.featuredBadge}>FEATURED</span>
                 <Image
                   className={styles.featuredMark}
-                  src="/assets/maslow-mark-white.svg"
+                  src="/assets/logos/maslow-symbol-white.png"
                   alt=""
                   width={280}
                   height={180}

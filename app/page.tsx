@@ -34,14 +34,14 @@ export default function HomePage() {
         <section className={styles.hero} data-screen-label="Hero">
           <Image
             className={styles.floatLg}
-            src="/assets/maslow-mark-gradient.svg"
+            src="/assets/logos/maslow-symbol-full-color.png"
             alt=""
             width={280}
             height={180}
           />
           <Image
             className={styles.floatSm}
-            src="/assets/maslow-mark-gradient.svg"
+            src="/assets/logos/maslow-symbol-full-color.png"
             alt=""
             width={130}
             height={84}

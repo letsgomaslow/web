@@ -34,6 +34,17 @@ writeFileSync(join(destination, "manifest.d.ts"), `declare const manifest: {
   packageName: string;
   version: string;
   contractVersion: string;
+  logoPolicy: "immutable-designer-master";
+  logoAssets: Array<{
+    id: string;
+    path: string;
+    sourceFilename: string;
+    role: "complete-lockup" | "symbol" | "square-symbol";
+    use: string;
+    width: number;
+    height: number;
+    sha256: string;
+  }>;
   sourceHashes: Record<string, string>;
   assetHashes: Record<string, string>;
 };
@@ -41,11 +52,28 @@ export default manifest;
 `);
 
 const manifest = JSON.parse(readFileSync(join(destination, "manifest.json"), "utf8"));
+const publicLogoDirectory = join(root, "public", "assets", "logos");
+rmSync(publicLogoDirectory, { recursive: true, force: true });
+mkdirSync(publicLogoDirectory, { recursive: true });
+for (const logo of manifest.logoAssets) {
+  cpSync(join(destination, logo.path), join(root, "public", logo.path));
+}
+for (const legacy of [
+  "maslow-mark-cream.svg",
+  "maslow-mark-gradient.svg",
+  "maslow-mark-ice.svg",
+  "maslow-mark-ink.svg",
+  "maslow-mark-white.svg",
+]) {
+  rmSync(join(root, "public", "assets", legacy), { force: true });
+}
 const lock = {
   package: sourcePackage.name,
   version: sourcePackage.version,
   activeDependency: "file:vendor/maslow-brand-os",
   releaseDependency: `github:letsgomaslow/mai-design-system#v${sourcePackage.version}`,
+  logoPolicy: manifest.logoPolicy,
+  logoAssets: manifest.logoAssets,
   sourceHashes: manifest.sourceHashes,
   assetHashes: manifest.assetHashes,
 };

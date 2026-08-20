@@ -9,6 +9,8 @@ const lock = JSON.parse(readFileSync("brand-os.lock.json", "utf8")) as {
   version: string;
   sourceHashes: Record<string, string>;
   assetHashes: Record<string, string>;
+  logoPolicy: string;
+  logoAssets: Array<{ path: string; sha256: string }>;
 };
 
 function sha256(path: string) {
@@ -17,7 +19,7 @@ function sha256(path: string) {
 
 describe("Brand OS consumer contract", () => {
   it("pins one version and source hash set", () => {
-    expect(brandVersion).toBe("1.0.0");
+    expect(brandVersion).toBe("1.0.1");
     expect(tokens.version).toBe(brandVersion);
     expect(manifest.version).toBe(brandVersion);
     expect(lock.version).toBe(brandVersion);
@@ -41,11 +43,14 @@ describe("Brand OS consumer contract", () => {
     expect(globals).toMatch(/--radius-structural:\s*var\(--maslow-radius-structural\)/);
   });
 
-  it("keeps every public Maslow logo byte-identical to the approved asset", () => {
-    for (const [name, expected] of Object.entries(manifest.assetHashes)) {
-      if (!name.endsWith(".svg")) continue;
-      expect(lock.assetHashes[name]).toBe(expected);
-      expect(sha256(join("public", "assets", name))).toBe(expected);
+  it("keeps every public Maslow logo byte-identical to its immutable designer master", () => {
+    expect(manifest.logoPolicy).toBe("immutable-designer-master");
+    expect(lock.logoPolicy).toBe(manifest.logoPolicy);
+    expect(lock.logoAssets).toEqual(manifest.logoAssets);
+    expect(manifest.logoAssets).toHaveLength(7);
+    for (const logo of manifest.logoAssets) {
+      expect(lock.assetHashes[logo.path.replace(/^assets\//, "")]).toBe(logo.sha256);
+      expect(sha256(join("public", logo.path))).toBe(logo.sha256);
     }
   });
 });
