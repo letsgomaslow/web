@@ -13,6 +13,8 @@ const routes = [
   "/blog/what-makes-an-ai-employee-work",
   "/blog/context-memory-and-skills",
   "/blog/permissions-approvals-audit-trails",
+  "/press",
+  "/press/openai-select-partner",
   "/case-studies",
   "/case-studies/infinite-ai-os",
   "/case-studies/agenthub",
@@ -103,6 +105,62 @@ test.describe("navigation", () => {
         .getByRole("navigation", { name: "Primary" })
         .getByRole("link", { name: "SERVICES" }),
     ).toHaveAttribute("aria-current", "page");
+  });
+});
+
+test.describe("press releases", () => {
+  test("press index links the full card to the approved release", async ({
+    page,
+  }) => {
+    await page.goto("/press");
+    const link = page.getByRole("link", {
+      name: "Read press release: Maslow AI Named an OpenAI Select Partner",
+    });
+    const article = link.locator(
+      '[data-press-release="openai-select-partner"]',
+    );
+    expect(await link.boundingBox()).toEqual(await article.boundingBox());
+    await link.click({ position: { x: 24, y: 24 } });
+    await expect(page).toHaveURL(/\/press\/openai-select-partner$/);
+  });
+
+  test("approved release shows exact status, evidence, and external resource", async ({
+    page,
+  }) => {
+    await page.goto("/press/openai-select-partner");
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: "Maslow AI Named an OpenAI Select Partner",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByText("August 25, 2026", { exact: true }),
+    ).toBeVisible();
+    await expect(page.getByText(/DRAFT FOR OPENAI REVIEW/)).toHaveCount(0);
+    await expect(page.getByText(/NOT FOR PUBLICATION/)).toHaveCount(0);
+    await expect(
+      page.getByRole("link", {
+        name: "Infinite AI OS: an AI operating system in 90 days",
+      }),
+    ).toHaveAttribute("href", "/case-studies/infinite-ai-os");
+    await expect(
+      page.getByRole("link", {
+        name: "AgentHub: contracts you can question",
+      }),
+    ).toHaveAttribute("href", "/case-studies/agenthub");
+    await expect(
+      page.getByRole("link", {
+        name: "https://openai.com/business/partners/",
+      }),
+    ).toHaveAttribute("target", "_blank");
+  });
+
+  test("footer exposes the press section", async ({ page }) => {
+    await page.goto("/");
+    await expect(
+      page.locator("footer").getByRole("link", { name: "Press Releases" }),
+    ).toHaveAttribute("href", "/press");
   });
 });
 
