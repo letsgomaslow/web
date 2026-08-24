@@ -114,6 +114,7 @@ export const companyLinks = [
   { href: "/how-we-engage", label: "How We Engage" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/blog", label: "Blog" },
+  { href: "/press", label: "Press Releases" },
   { href: "/about", label: "About" },
   { href: "/diligence", label: "Diligence Pack" },
   { href: "/contact", label: "Contact" },

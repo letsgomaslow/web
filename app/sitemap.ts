@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/what-makes-an-ai-employee-work",
     "/blog/context-memory-and-skills",
     "/blog/permissions-approvals-audit-trails",
+    "/press",
+    "/press/openai-select-partner",
     "/case-studies",
     "/case-studies/infinite-ai-os",
     "/case-studies/agenthub",

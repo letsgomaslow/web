@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -39,6 +40,12 @@ import {
   workflowMapperQuestions,
 } from "@/lib/content/architecture";
 import { copilotSection, costOfWaiting } from "@/lib/content/home";
+import {
+  formatPressDate,
+  getAllPressSlugs,
+  getPressRelease,
+  publishedPressReleases,
+} from "@/lib/content/press";
 import {
   actionTheme,
   colors,
@@ -426,5 +433,58 @@ describe("assessment scoring logic", () => {
     expect(stageFromAnswers([1, 1, 1, 1, 1, 1])).toBe(1);
     expect(stageFromAnswers([2, 2, 2, 2, 2, 2])).toBe(3);
     expect(stageFromAnswers([3, 3, 3, 3, 3, 3])).toBe(4);
+  });
+});
+
+describe("press releases", () => {
+  it("publishes the approved OpenAI release at the requested date", () => {
+    const release = getPressRelease("openai-select-partner");
+
+    expect(release?.title).toBe("Maslow AI Named an OpenAI Select Partner");
+    expect(release?.publishedAt).toBe("2026-08-25");
+    expect(formatPressDate(release!.publishedAt)).toBe("August 25, 2026");
+    expect(release?.location).toBe("Woodbridge, NJ");
+    expect(getAllPressSlugs()).toEqual(["openai-select-partner"]);
+  });
+
+  it("keeps the approved public copy free of draft labels", () => {
+    const serialized = JSON.stringify(getPressRelease("openai-select-partner"));
+
+    expect(serialized).not.toContain("DRAFT FOR OPENAI REVIEW");
+    expect(serialized).not.toContain("NOT FOR PUBLICATION");
+    expect(serialized).not.toContain("September 9, 2026");
+    expect(serialized).toContain("Woodbridge, NJ, August 25, 2026:");
+    expect(serialized).toContain(
+      "Being named an OpenAI Select Partner gives Maslow a stronger path",
+    );
+  });
+
+  it("uses descriptive internal production-evidence links", () => {
+    const release = getPressRelease("openai-select-partner");
+    const serialized = JSON.stringify(release?.sections);
+
+    expect(serialized).toContain(
+      "Infinite AI OS: an AI operating system in 90 days",
+    );
+    expect(serialized).toContain("/case-studies/infinite-ai-os");
+    expect(serialized).toContain("AgentHub: contracts you can question");
+    expect(serialized).toContain("/case-studies/agenthub");
+  });
+
+  it("orders published releases newest first", () => {
+    expect(publishedPressReleases).toEqual(
+      [...publishedPressReleases].sort((a, b) =>
+        b.publishedAt.localeCompare(a.publishedAt),
+      ),
+    );
+  });
+
+  it("keeps the supplied partner badge byte-identical", () => {
+    const bytes = readFileSync(
+      join("public", "assets", "partners", "openai-select-partner.svg"),
+    );
+    expect(createHash("sha256").update(bytes).digest("hex")).toBe(
+      "312a3c4767dcf6a51eab6b73f49143a54dee60a88899f4b0b2ca448547efac86",
+    );
   });
 });
