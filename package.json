@@ -16,6 +16,7 @@
     "test:all": "npm run lint && npm run test && npm run build && npm run test:e2e"
   },
   "dependencies": {
+    "@calcom/embed-react": "1.5.3",
     "@maslow-ai/brand-os": "file:vendor/maslow-brand-os",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",

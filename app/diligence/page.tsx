@@ -67,7 +67,7 @@ export default function DiligencePage() {
           <div className="wrap">
             <div className={styles.requestGrid}>
               <Reveal>
-                <div className="eyebrow eyebrow-ice">GET THE PACK</div>
+                <div className="eyebrow eyebrow-ice">REVIEW MATERIALS</div>
                 <h2 className="h2" style={{ color: "#fff", marginBottom: 16 }}>
                   Request the documents your review needs.
                 </h2>
@@ -78,7 +78,7 @@ export default function DiligencePage() {
                 <p className={styles.closing}>{diligenceClosing}</p>
               </Reveal>
               <Reveal className={styles.formCard}>
-                <div className={styles.formTitle}>Request the pack</div>
+                <div className={styles.formTitle}>Request available materials</div>
                 <DiligenceForm />
               </Reveal>
             </div>

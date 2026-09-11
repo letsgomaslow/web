@@ -1,6 +1,11 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { publicRoutes } from "@/lib/routes";
+import { mockCalEmbed, waitForCalCall } from "./helpers/cal";
+
+test.beforeEach(async ({ page }) => {
+  await mockCalEmbed(page);
+});
 
 test("AI-OS evaluation paths explain the existing-infrastructure option", async ({ page }) => {
   await page.goto("/ai-os");
@@ -10,33 +15,64 @@ test("AI-OS evaluation paths explain the existing-infrastructure option", async 
   await expect(choice).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByRole("heading", { name: "Start with the systems you have." })).toBeVisible();
   await expect(page.getByText("Installing Maslow AI-OS across the business is not required.", { exact: false })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /Talk through this starting point/ }),
+  ).toHaveAttribute("href", "/contact?topic=existing-infrastructure");
   await page.getByRole("button", { name: /Explore the Linux preview/ }).click();
   await expect(page.getByRole("heading", { name: "Start with a technical champion." })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /Talk through this starting point/ }),
+  ).toHaveAttribute("href", "/contact?topic=ai-os-preview");
 });
 
-for (const succeeds of [true, false]) {
-  test(`campaign request ${succeeds ? "receipt" : "failure"} is accurate and never reaches delivery`, async ({ page }) => {
-    const submissions: unknown[] = [];
-    await page.route("**/api/contact", async route => {
-      submissions.push(route.request().postDataJSON());
-      await route.fulfill({ status: succeeds ? 200 : 503, contentType: "application/json", body: JSON.stringify(succeeds ? { ok: true } : { ok: false, error: "Delivery temporarily unavailable. Please try again." }) });
-    });
-    await page.goto("/campaigns/virtual-ai-employees#book");
-    await page.getByLabel("Full name").fill("Website QA");
-    await page.getByLabel("Work email").fill("qa@example.com");
-    await page.getByLabel("Company", { exact: true }).fill("Preview test");
-    await page.getByLabel("Which workflow would you like to improve?").selectOption({ label: "Document review" });
-    await page.getByRole("button", { name: "REQUEST A WORKING SESSION" }).click();
-    expect(submissions).toHaveLength(1);
-    if (succeeds) {
-      await expect(page.getByRole("status")).toContainText("a session has not been booked yet");
-    } else {
-      await expect(page.locator("form").getByRole("alert")).toContainText("Delivery temporarily unavailable");
-      await expect(page.getByLabel("Work email")).toHaveValue("qa@example.com");
-      await expect(page.getByRole("button", { name: "REQUEST A WORKING SESSION" })).toBeEnabled();
-    }
+test("campaign action reaches the shared Cal booking experience", async ({
+  page,
+}) => {
+  const contactRequests: string[] = [];
+  await page.route("**/api/contact", async route => {
+    contactRequests.push(route.request().method());
+    await route.abort();
   });
-}
+  await page.goto("/campaigns/virtual-ai-employees");
+  const campaignAction = page
+    .locator("main")
+    .getByRole("link", { name: "Talk through a workflow" })
+    .first();
+  await expect(campaignAction).toHaveAttribute("href", "#book");
+  await campaignAction.click();
+  await expect(page).toHaveURL(/#book$/);
+  const booking = page.getByTestId("booking-experience");
+  await expect(booking).toHaveAttribute("data-booking-source", "campaign");
+  await expect(booking.getByTestId("booking-state")).toHaveAttribute(
+    "data-state",
+    "ready",
+  );
+  expect((await waitForCalCall(page, "inline"))?.payload?.calLink).toBe(
+    "maslow/30min",
+  );
+  expect(contactRequests).toEqual([]);
+});
+
+test("diligence remains a materials request with accurate follow-up copy", async ({
+  page,
+}) => {
+  await page.route("**/api/contact", async route => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+  await page.goto("/diligence");
+  await expect(page.getByText(/confirm which materials are available/i)).toBeVisible();
+  await page.getByLabel("Full name").fill("Website QA");
+  await page.getByLabel("Work email").fill("qa@example.com");
+  await page.getByRole("button", { name: "REQUEST AVAILABLE MATERIALS" }).click();
+  await expect(page.locator("form").getByRole("status")).toContainText(
+    "follow up about the available materials and any gaps",
+  );
+  await expect(page.getByText(/within one business day/i)).toHaveCount(0);
+});
 
 test("sitemap contains the public buyer journey and omits redirect-only routes", async ({ request }) => {
   const response = await request.get("/sitemap.xml");

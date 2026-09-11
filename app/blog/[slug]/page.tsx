@@ -147,7 +147,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>{article.ctaTitle}</h2>
             <CtaButton href="/contact" variant="inverse">
-              BOOK A WORKING SESSION
+              TALK THROUGH A WORKFLOW
             </CtaButton>
           </div>
         </section>

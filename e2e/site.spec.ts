@@ -1,8 +1,13 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { legacyDestinations, publicRoutes } from "@/lib/routes";
+import { mockCalEmbed } from "./helpers/cal";
 
 const routes = [...publicRoutes];
+
+test.beforeEach(async ({ page }) => {
+  await mockCalEmbed(page);
+});
 
 test.describe("route smoke", () => {
   for (const route of routes) {
@@ -295,16 +300,9 @@ test.describe("interactive islands", () => {
     ).toHaveCount(0);
   });
 
-  test("workflow mapper builds and clears an editable contact brief", async ({
+  test("workflow mapper carries an editable brief into booking", async ({
     page,
   }) => {
-    await page.route("**/api/contact", async (route) => {
-      await route.fulfill({
-        status: 200,
-        contentType: "application/json",
-        body: JSON.stringify({ ok: true }),
-      });
-    });
     await page.goto("/plan-workflow");
 
     const mapper = page.locator("#workflow-mapper");
@@ -332,40 +330,17 @@ test.describe("interactive islands", () => {
     await mapper.getByRole("link", { name: "TALK THROUGH A WORKFLOW" }).click();
 
     await expect(page).toHaveURL(/\/contact$/);
-    const message = page.getByLabel("Message");
-    await expect(message).toHaveValue(/Delayed deliverable: Estimate or quote/);
-    await message.fill(`${await message.inputValue()}\nEdited by buyer`);
-    await page.getByLabel("Full name").fill("Test User");
-    await page.getByLabel("Work email").fill("test@example.com");
-    await page.getByLabel("Company").fill("Example Company");
-    await page
-      .getByLabel("What are you exploring?")
-      .selectOption("Workflow implementation");
-    await page
-      .getByRole("button", { name: /REQUEST A WORKING SESSION/i })
-      .click();
-
-    await expect(
-      page.getByText(/Your request is with Maslow/i),
-    ).toBeVisible();
-    await expect
-      .poll(() =>
-        page.evaluate(() =>
-          window.sessionStorage.getItem("maslow.workflow-brief.v1"),
-        ),
-      )
-      .toBeNull();
-  });
-
-  test("contact form validates email", async ({ page }) => {
-    await page.goto("/contact");
-    await page.getByPlaceholder("Full name").fill("Test User");
-    await page.getByPlaceholder("Work email").fill("not-an-email");
-    await page
-      .getByRole("button", { name: /REQUEST A WORKING SESSION/i })
-      .click();
-    // HTML5 validation should prevent submit - still on contact
-    await expect(page).toHaveURL(/\/contact/);
+    const booking = page.getByTestId("booking-experience");
+    const editor = booking.getByTestId("booking-brief-editor");
+    await expect(editor).toHaveValue(/Delayed deliverable: Estimate or quote/);
+    await editor.fill(`${await editor.inputValue()}\nEdited by buyer`);
+    await expect(booking.getByTestId("booking-brief-use")).toHaveText(
+      "Use this brief for booking",
+    );
+    await expect(booking.getByTestId("booking-state")).toHaveAttribute(
+      "data-state",
+      "ready",
+    );
   });
 });
 
@@ -435,22 +410,22 @@ test.describe("accessibility", () => {
     await expect(page.locator("main#main-content")).toBeFocused();
   });
 
-  test("form labels and keyboard focus remain visible", async ({ page }) => {
-    for (const route of ["/contact", "/diligence"]) {
-      await page.goto(route);
-      await expect(page.getByText("Full name", { exact: true })).toBeVisible();
-      const input = page.getByLabel("Full name");
-      await input.focus();
-      const focusStyle = await input.evaluate((element) => {
-        const style = getComputedStyle(element);
-        return {
-          outlineStyle: style.outlineStyle,
-          outlineWidth: Number.parseFloat(style.outlineWidth),
-        };
-      });
-      expect(focusStyle.outlineStyle).not.toBe("none");
-      expect(focusStyle.outlineWidth).toBeGreaterThanOrEqual(2);
-    }
+  test("diligence form labels and keyboard focus remain visible", async ({
+    page,
+  }) => {
+    await page.goto("/diligence");
+    await expect(page.getByText("Full name", { exact: true })).toBeVisible();
+    const input = page.getByLabel("Full name");
+    await input.focus();
+    const focusStyle = await input.evaluate((element) => {
+      const style = getComputedStyle(element);
+      return {
+        outlineStyle: style.outlineStyle,
+        outlineWidth: Number.parseFloat(style.outlineWidth),
+      };
+    });
+    expect(focusStyle.outlineStyle).not.toBe("none");
+    expect(focusStyle.outlineWidth).toBeGreaterThanOrEqual(2);
   });
 
   test("reduced motion disables persistent animation", async ({ page }) => {
