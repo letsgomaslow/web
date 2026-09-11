@@ -1,124 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { HybridRagSceneLazy } from "@/components/explainers/HybridRagSceneLazy";
 import { PageShell } from "@/components/layout/PageShell";
-import { Reveal } from "@/components/ui/Reveal";
-import { SectionAnchor } from "@/components/ui/SectionAnchor";
-import {
-  conceptFailures,
-  explainerPages,
-  hybridRagComparison,
-} from "@/lib/content/explainers";
-import styles from "../concept.module.css";
+import { StoryJourney } from "@/components/stories/StoryJourney";
+import { CtaButton } from "@/components/ui/CtaButton";
+import { conceptStoryJourneys, explainerPages, hybridRagComparison } from "@/lib/content/explainers";
+import styles from "../story-page.module.css";
 
 const meta = explainerPages["hybrid-rag"];
-
+const story = conceptStoryJourneys.hybrid;
 export const metadata: Metadata = {
-  title: "Hybrid RAG | Maslow AI",
-  description: meta.lede,
-};
+  alternates: { canonical: "/concepts/hybrid-rag" }, title: { absolute: "Hybrid RAG | Maslow AI" }, description: meta.lede };
 
 export default function HybridRagPage() {
-  return (
-    <PageShell highlightConcepts showCtaBand>
-      <section className={styles.hero}>
-        <div className="wrap">
-          <div className={`${styles.crumb} mz-rise`}>
-            <Link href="/#concepts">Concepts</Link> /{" "}
-            <span className={styles.crumbCurrent}>{meta.crumb}</span>{" "}
-            <span className={styles.badge} style={{ color: meta.badgeColor }}>
-              {meta.badge}
-            </span>
-          </div>
-          <h1
-            className={`${styles.heroTitle} mz-rise`}
-            style={{ animationDelay: "0.15s", maxWidth: 860 }}
-          >
-            {meta.title}
-          </h1>
-          <p
-            className={`${styles.heroLede} mz-rise`}
-            style={{ animationDelay: "0.3s", maxWidth: 620 }}
-          >
-            Most of your company&apos;s knowledge lives in unstructured files.
-            Hybrid RAG can represent them in two complementary structures: a{" "}
-            <strong>vector database</strong> for meaning and a{" "}
-            <strong>knowledge graph</strong> for facts. On larger screens,
-            scroll through the three stages. On smaller screens, use the step
-            controls. With reduced motion or without WebGL, the same
-            explanation stays visible as a static view.
-          </p>
-        </div>
-      </section>
-
-      <HybridRagSceneLazy />
-
-      <section className={styles.sectionAlt}>
-        <div className="wrap">
-          <Reveal>
-            <div className="eyebrow">THE INSIGHT</div>
-            <h2 className="h2" style={{ marginBottom: 12 }}>
-              Why both?
-            </h2>
-            <p className="lede" style={{ maxWidth: 560 }}>
-              Each structure answers a different kind of question. Hybrid RAG
-              can route a query to the appropriate structure, or both.
-            </p>
-          </Reveal>
-          <div className={styles.points3}>
-            {hybridRagComparison.map((c) => (
-              <Reveal key={c.kind}>
-                <article
-                  className={styles.point}
-                  style={{
-                    padding: 32,
-                    background: c.dark ? "#121D35" : "#fff",
-                    color: c.dark ? "#fff" : undefined,
-                    border: c.dark ? "none" : undefined,
-                  }}
-                >
-                  <span style={{ color: c.accent, letterSpacing: 2 }}>
-                    {c.kind}
-                  </span>
-                  <h3 style={{ color: c.dark ? "#fff" : "#1A1A1A" }}>
-                    {c.title}
-                  </h3>
-                  <p style={{ color: c.dark ? "#B8C4D9" : undefined }}>
-                    {c.desc}
-                  </p>
-                  <div
-                    style={{
-                      marginTop: 18,
-                      font: "600 13px/19px var(--font-sans)",
-                      color: c.dark ? "#fff" : "#333",
-                      background: c.dark ? "#1A2847" : "#F6F7F9",
-                      borderLeft: `2px solid ${c.accent}`,
-                      borderRadius: 0,
-                      padding: "12px 14px",
-                    }}
-                  >
-                    {c.example}
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className={styles.failure}>
-            <div className="eyebrow">WHAT BREAKS WITHOUT IT</div>
-            <h2 className={styles.failureHead} id="what-breaks">
-              {conceptFailures["hybrid-rag"].headline}
-              <SectionAnchor id="what-breaks" label="What breaks without it" />
-            </h2>
-            <p className={styles.failureBody}>
-              {conceptFailures["hybrid-rag"].body}
-            </p>
-          </Reveal>
-          <div className={styles.related}>
-            {meta.prev && <Link href={meta.prev.href}>{meta.prev.label}</Link>}
-            {meta.next && <Link href={meta.next.href}>{meta.next.label}</Link>}
-          </div>
-        </div>
-      </section>
-    </PageShell>
-  );
+  return <PageShell highlightConcepts><section className={styles.hero}><div className={styles.heroInner}><div className={styles.crumb}><Link href="/resources">Resources</Link> / <span>{meta.crumb}</span></div><div className={styles.heroGrid}><div><p className={styles.badge}>{meta.badge}</p><h1>{meta.title}</h1></div><div className={styles.heroAside}><p>{meta.lede}</p><div className={styles.actions}><CtaButton href="/contact">TALK THROUGH A WORKFLOW</CtaButton><a href="#hybrid-story">COMPARE THE PATHS</a></div></div></div></div></section>
+  <StoryJourney id="hybrid-story" {...story} afterHref="/concepts/agentic-harness" afterLabel="Place retrieval inside a controlled workflow" />
+  <section className={styles.reference}><div className={styles.referenceInner}><details><summary>Compare vector, graph, and hybrid retrieval in one view</summary><div className={styles.referenceBody}>{hybridRagComparison.map((item)=><article key={item.kind}><h3>{item.kind}</h3><p>{item.desc} {item.example}</p></article>)}</div></details><div className={styles.referenceFoot}><p>The strongest retrieval design follows the questions people need to answer and the evidence those answers require.</p><Link href="/contact">Bring us a difficult knowledge question →</Link></div></div></section></PageShell>;
 }

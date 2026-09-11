@@ -1,105 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
-import { Reveal } from "@/components/ui/Reveal";
-import {
-  GatewayDiagram,
-  SkillLibrary,
-} from "@/components/explainers/SkillLibrary";
-import { SectionAnchor } from "@/components/ui/SectionAnchor";
-import {
-  conceptFailures,
-  explainerPages,
-  gatewayBenefits,
-} from "@/lib/content/explainers";
-import styles from "../concept.module.css";
+import { StoryJourney } from "@/components/stories/StoryJourney";
+import { CtaButton } from "@/components/ui/CtaButton";
+import { conceptStoryJourneys, explainerPages, gatewayBenefits } from "@/lib/content/explainers";
+import styles from "../story-page.module.css";
 
 const meta = explainerPages["skills-and-gateways"];
-
+const story = conceptStoryJourneys.skills;
 export const metadata: Metadata = {
-  title: "Skills & gateways | Maslow AI",
-  description: meta.lede,
-};
+  alternates: { canonical: "/concepts/skills-and-gateways" }, title: { absolute: "Skills and gateways | Maslow AI" }, description: meta.lede };
 
 export default function SkillsAndGatewaysPage() {
-  return (
-    <PageShell highlightConcepts showCtaBand>
-      <section className={styles.hero}>
-        <div className="wrap">
-          <div className={`${styles.crumb} mz-rise`}>
-            <Link href="/#concepts">Concepts</Link> /{" "}
-            <span className={styles.crumbCurrent}>{meta.crumb}</span>{" "}
-            <span className={styles.badge} style={{ color: meta.badgeColor }}>
-              {meta.badge}
-            </span>
-          </div>
-          <h1
-            className={`${styles.heroTitle} mz-rise`}
-            style={{ animationDelay: "0.15s", maxWidth: 920 }}
-          >
-            {meta.title}
-          </h1>
-          <p
-            className={`${styles.heroLede} mz-rise`}
-            style={{ animationDelay: "0.3s" }}
-          >
-            A <strong>skill</strong> is your firm&apos;s way of doing something,
-            written down so an agent can follow it, versioned and testable like
-            code, not buried in a prompt. <strong>Gateways</strong> carry those
-            skills into Teams, Slack and email. Browse the library below.
-          </p>
-        </div>
-      </section>
-
-      <section className={styles.interactive}>
-        <div className="wrap">
-          <SkillLibrary />
-        </div>
-      </section>
-
-      <section className={styles.sectionAlt}>
-        <div className="wrap">
-          <Reveal>
-            <div className="eyebrow">THE PLUMBING</div>
-            <h2 className="h2" style={{ marginBottom: 12 }}>
-              Gateways: how one agent lives everywhere
-            </h2>
-            <p className="lede" style={{ marginBottom: 44, maxWidth: 640 }}>
-              A gateway is a secure two-way connector between a channel and the
-              agent&apos;s harness. Messages, files and approvals flow both
-              directions, so the agent behaves like a native member of each
-              tool, while skills, memory and guardrails stay central.
-            </p>
-          </Reveal>
-          <Reveal>
-            <GatewayDiagram />
-          </Reveal>
-          <div className={styles.points3}>
-            {gatewayBenefits.map((b) => (
-              <Reveal key={b.name}>
-                <article className={styles.point}>
-                  <h3>{b.name}</h3>
-                  <p>{b.desc}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className={styles.failure}>
-            <div className="eyebrow">WHAT BREAKS WITHOUT IT</div>
-            <h2 className={styles.failureHead} id="what-breaks">
-              {conceptFailures["skills-and-gateways"].headline}
-              <SectionAnchor id="what-breaks" label="What breaks without it" />
-            </h2>
-            <p className={styles.failureBody}>
-              {conceptFailures["skills-and-gateways"].body}
-            </p>
-          </Reveal>
-          <div className={styles.related}>
-            {meta.prev && <Link href={meta.prev.href}>{meta.prev.label}</Link>}
-            {meta.next && <Link href={meta.next.href}>{meta.next.label}</Link>}
-          </div>
-        </div>
-      </section>
-    </PageShell>
-  );
+  return <PageShell highlightConcepts><section className={styles.hero}><div className={styles.heroInner}><div className={styles.crumb}><Link href="/resources">Resources</Link> / <span>{meta.crumb}</span></div><div className={styles.heroGrid}><div><p className={styles.badge}>{meta.badge}</p><h1>{meta.title}</h1></div><div className={styles.heroAside}><p>{meta.lede}</p><div className={styles.actions}><CtaButton href="/contact">TALK THROUGH A WORKFLOW</CtaButton><a href="#skills-story">FOLLOW THE DELIVERY PATH</a></div></div></div></div></section>
+  <StoryJourney id="skills-story" {...story} afterHref="/concepts/shared-ai-infrastructure" afterLabel="See the shared organizational foundation" />
+  <section className={styles.reference}><div className={styles.referenceInner}><details><summary>Open the deeper skills and connections reference</summary><div className={styles.referenceBody}>{gatewayBenefits.map((item)=><article key={item.name}><h3>{item.name}</h3><p>{item.desc}</p></article>)}</div></details><div className={styles.referenceFoot}><p>Connections are configured per system and workflow. Availability, permissions, and provider terms are verified during implementation.</p><Link href="/contact">Bring us a recurring procedure →</Link></div></div></section></PageShell>;
 }

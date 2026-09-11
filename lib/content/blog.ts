@@ -21,6 +21,7 @@ export type BlogArticle = {
   desc: string;
   cat: string;
   date: string;
+  modifiedAt: string;
   read: string;
   tags: string[];
   explainerHref: string;
@@ -35,15 +36,16 @@ export type BlogArticle = {
 export const blogArticles: Record<string, BlogArticle> = {
   "what-makes-an-ai-employee-work": {
     slug: "what-makes-an-ai-employee-work",
-    title: "What makes an AI employee work",
+    title: "What turns AI tools into a working company workflow",
     lede:
-      "A practical look at the operating loop around the model, from receiving a request to leaving a reviewable work record.",
-    desc: "Follow the six responsibilities that turn a model into a system that can carry a company workflow.",
+      "A practical look at the shared operating layer around AI tools, from receiving a request to leaving a reviewable work record.",
+    desc: "Follow the six responsibilities that let several AI tools support one owned company workflow.",
     cat: "ARCHITECTURE",
     date: "JULY 2026",
+    modifiedAt: "2026-09-11",
     read: "8 MIN READ",
-    tags: ["AI employees", "Architecture", "Workflow design"],
-    explainerHref: "/concepts/ai-employee-architecture",
+    tags: ["Shared infrastructure", "Architecture", "Workflow design"],
+    explainerHref: "/concepts/shared-ai-infrastructure",
     ctaTitle: "Which waiting workflow should we map first?",
     order: 1,
     featured: true,
@@ -52,11 +54,11 @@ export const blogArticles: Record<string, BlogArticle> = {
     body: [
       {
         type: "p",
-        text: "A useful AI employee is more than a model with a job title. The model supplies language and reasoning ability. The surrounding system gives that ability a place to receive work, the information to understand it, a procedure to follow, and clear limits on what happens next.",
+        text: "Maslow AI-OS gives people a practical environment for trying multiple AI tools. A company workflow needs another layer around those tools: one place to receive work, shared knowledge to brief it, a procedure to follow, and clear limits on what happens next.",
       },
       {
         type: "p",
-        text: "For an operator, the architecture is easiest to understand as six responsibilities. Each one answers a question your team can inspect during design, approval, and day-to-day use.",
+        text: "For business and IT owners, that shared infrastructure is easiest to understand as six responsibilities. Each one answers a question the team can inspect during design, approval, and day-to-day use, even when the model or agent changes.",
       },
       { type: "h2", text: "1. How does the work enter?" },
       {
@@ -73,10 +75,10 @@ export const blogArticles: Record<string, BlogArticle> = {
         type: "p",
         text: "Company briefing assembles the current facts for this task. That can include source documents, account history, prior decisions, live system state, and the conversation so far. Sources and dates should travel with the briefing so a reviewer can see what informed the work.",
       },
-      { type: "h2", text: "3. Which procedure does it follow?" },
+      { type: "h2", text: "3. Which shared skill does it follow?" },
       {
         type: "p",
-        text: "Company procedure turns repeated know-how into a versioned sequence. It defines the checks, specialist roles, handoffs, and exception paths for the workflow. When the procedure changes, the team can update it once and know which version governed a completed task.",
+        text: "A shared skill turns repeated know-how into a versioned procedure. It defines the checks, specialist roles, handoffs, and exception paths for the workflow. When the procedure changes, the team can update it once and know which version governed a completed task.",
       },
       { type: "h2", text: "4. Which systems may it use?" },
       {
@@ -106,12 +108,13 @@ export const blogArticles: Record<string, BlogArticle> = {
   },
   "context-memory-and-skills": {
     slug: "context-memory-and-skills",
-    title: "Context, memory, and skills do different jobs",
+    title: "Context, memory, and skills do different jobs across AI tools",
     lede:
-      "Three continuity mechanisms shape an AI employee. Each stores a different kind of knowledge and enters the workflow at a different moment.",
-    desc: "See what belongs in a task briefing, durable memory, and a reusable procedure, plus the failure mode of mixing them together.",
+      "Three continuity mechanisms help work survive a change of session, model, or agent. Each carries a different kind of knowledge and enters the workflow at a different moment.",
+    desc: "See what belongs in a task briefing, shared memory, and a reusable skill, plus the failure mode of mixing them together.",
     cat: "ARCHITECTURE",
     date: "JULY 2026",
+    modifiedAt: "2026-09-11",
     read: "7 MIN READ",
     tags: ["Context engineering", "Memory", "Skills"],
     explainerHref: "/concepts/context-engineering",
@@ -123,7 +126,7 @@ export const blogArticles: Record<string, BlogArticle> = {
     body: [
       {
         type: "p",
-        text: "Context, memory, and skills all help an AI employee continue work over time. They are often grouped together because each influences the next response. Operationally, they carry different kinds of knowledge and need different review rules.",
+        text: "Context, memory, and skills all help work continue across sessions and AI tools. They are often grouped together because each influences the next response. Operationally, they carry different kinds of knowledge and need different owners, retention rules, and review paths.",
       },
       { type: "h2", text: "Context is the briefing for this task" },
       {
@@ -139,10 +142,10 @@ export const blogArticles: Record<string, BlogArticle> = {
         label: "INSPECT CONTEXT",
         text: "Review which sources entered the briefing, which were excluded, how current they are, and whether the decisive fact was present.",
       },
-      { type: "h2", text: "Memory carries durable continuity" },
+      { type: "h2", text: "Shared memory carries durable continuity" },
       {
         type: "p",
-        text: "Memory preserves information that should remain available across sessions or handoffs. Useful examples include a confirmed preference, an unresolved task, a prior approval, or a summary of an ongoing relationship. Each memory item needs a source, scope, and reason to persist.",
+        text: "Memory preserves information that should remain available across sessions, handoffs, or approved agents. Useful examples include a confirmed preference, an unresolved task, a prior approval, or a summary of an ongoing relationship. Each memory item needs a source, scope, and reason to persist.",
       },
       {
         type: "p",
@@ -151,7 +154,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       { type: "h2", text: "Skills hold the procedure" },
       {
         type: "p",
-        text: "A skill is a reusable instruction set for carrying out a class of work. It defines the sequence, required checks, available tools, expected output, and escalation points. Skills turn operating knowledge into a procedure that can be versioned and tested.",
+        text: "A skill is a reusable instruction set for carrying out a class of work. It defines the sequence, required checks, available tools, expected output, and escalation points. Shared skills turn operating knowledge into procedures that can be versioned, tested, and made available to more than one approved agent.",
       },
       {
         type: "p",
@@ -175,15 +178,16 @@ export const blogArticles: Record<string, BlogArticle> = {
   },
   "permissions-approvals-audit-trails": {
     slug: "permissions-approvals-audit-trails",
-    title: "Permissions, approvals, and audit trails",
+    title: "Controls for AI tools that share company work",
     lede:
-      "How scoped tools, human decision points, isolation, escalation, and review records shape controlled AI employee work.",
-    desc: "A plain-language guide to the boundaries that determine what an AI employee can access, decide, and leave behind for review.",
+      "How scoped connections, human decision points, isolation, escalation, and shared work records shape controlled AI work.",
+    desc: "A plain-language guide to the boundaries that determine what each AI tool can access, prepare, and leave behind for review.",
     cat: "CONTROLS",
     date: "JULY 2026",
+    modifiedAt: "2026-09-11",
     read: "8 MIN READ",
     tags: ["Permissions", "Approvals", "Audit trails"],
-    explainerHref: "/concepts/ai-employee-architecture",
+    explainerHref: "/concepts/shared-ai-infrastructure",
     ctaTitle: "Which actions should your workflow prepare, approve, or prevent?",
     order: 3,
     featured: false,
@@ -192,7 +196,7 @@ export const blogArticles: Record<string, BlogArticle> = {
     body: [
       {
         type: "p",
-        text: "An AI employee becomes operational when it can use company systems. That access creates a design responsibility: define which identity it uses, which records it can reach, which actions it can request, and which decisions still belong to a person.",
+        text: "An AI employee becomes operational when it can use company systems. When several tools or agents share the workflow, access must remain specific: define which identity each uses, which records it can reach, which actions it can request, and which decisions still belong to a person.",
       },
       { type: "h2", text: "Start with scoped tools" },
       {
@@ -227,10 +231,10 @@ export const blogArticles: Record<string, BlogArticle> = {
         type: "p",
         text: "Isolation separates environments, clients, datasets, credentials, and tool sessions where the work requires it. The specific boundary depends on the workflow and its data. The design goal is to keep one task's access and state from leaking into another task's operating space.",
       },
-      { type: "h2", text: "Keep a reviewable trail" },
+      { type: "h2", text: "Keep one reviewable work record" },
       {
         type: "p",
-        text: "The work record should connect the request, sources, procedure version, tool activity, exceptions, approvals, output, and final status. Reviewers can then reconstruct the work and identify which layer needs correction when the result is challenged.",
+        text: "The shared work record should connect the request, sources, procedure version, agent and tool activity, exceptions, approvals, output, and final status. Reviewers can then reconstruct the work and identify which layer needs correction when the result is challenged.",
       },
       {
         type: "quote",
@@ -245,12 +249,13 @@ export const blogArticles: Record<string, BlogArticle> = {
   },
   "context-engineering": {
     slug: "context-engineering",
-    title: "Context engineering, explained for operators",
+    title: "Context engineering for shared AI work",
     lede:
-      "Why the quality of what your AI sees matters more than which model you pick.",
-    desc: "Why the quality of what your AI sees matters more than which model you pick, and how to audit the context your systems are actually working with.",
+      "Why the quality of the company briefing matters across models, agents, and workflow steps.",
+    desc: "How to inspect the sources, retrieval, freshness, and ownership behind the context your AI tools actually use.",
     cat: "CONCEPTS",
     date: "JULY 2026",
+    modifiedAt: "2026-09-11",
     read: "6 MIN READ",
     tags: ["Context engineering", "Hybrid RAG"],
     explainerHref: "/concepts/context-engineering",
@@ -261,11 +266,11 @@ export const blogArticles: Record<string, BlogArticle> = {
     body: [
       {
         type: "p",
-        text: "Model choice matters, but it cannot compensate for missing or outdated source material. Before comparing models, ask: **what does the model get to see?**",
+        text: "Model choice matters, but it cannot compensate for missing or outdated source material. Before comparing agents or models, ask: **what company briefing do they share?**",
       },
       {
         type: "p",
-        text: "Context engineering determines which information is available when your AI acts. The source material should be current, relevant, structured, and complete enough for the task.",
+        text: "Context engineering determines which information is available when an AI tool acts. Shared infrastructure should make the source material current, relevant, structured, and complete enough for the task without copying the entire knowledge base into every prompt.",
       },
       { type: "h2", text: "The context window is a budget" },
       {
@@ -301,7 +306,7 @@ export const blogArticles: Record<string, BlogArticle> = {
       { type: "h2", text: "Where this goes next" },
       {
         type: "p",
-        text: "The agentic harness, reusable skills, and AI employees all depend on this retrieval layer. Fixing it first reduces rework in every later stage.",
+        text: "Agent harnesses, reusable skills, memory, and AI employees all depend on this knowledge layer. Fixing it first reduces repeated setup and conflicting answers across tools.",
       },
     ],
   },

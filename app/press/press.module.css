@@ -138,6 +138,60 @@
   padding-block: 56px 96px;
 }
 
+.position {
+  padding: 40px var(--gutter);
+  background: var(--color-off-white);
+  border-bottom: 1px solid var(--color-line-soft);
+}
+
+.positionInner {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 28px 30px;
+  border: 1px solid var(--color-line);
+  border-radius: 0;
+  background: var(--color-white);
+}
+
+.positionLabel {
+  color: var(--color-plum-text);
+  font: 700 10px/15px var(--font-mono);
+  letter-spacing: 1.2px;
+}
+
+.position h2 {
+  margin: 12px 0 10px;
+  color: var(--color-navy);
+  font: 700 24px/30px var(--font-sans);
+}
+
+.position p {
+  margin: 0;
+  color: var(--color-muted);
+  font: 400 15px/24px var(--font-sans);
+}
+
+.positionLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 22px;
+}
+
+.positionLinks a {
+  color: var(--color-cta-link);
+  font: 700 11px/16px var(--font-display);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.positionLinks a:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
 .prose {
   overflow-wrap: anywhere;
   font: 400 17px/29px var(--font-sans);
@@ -209,6 +263,7 @@
   }
 
   .indexSection,
+  .position,
   .detailBody {
     padding-block: 42px 72px;
   }
@@ -226,6 +281,10 @@
   .detailTitle {
     font-size: 36px;
     line-height: 42px;
+  }
+
+  .positionInner {
+    padding: 24px 20px;
   }
 
   .prose {

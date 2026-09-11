@@ -10,7 +10,8 @@ import {
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Contact | Maslow AI · Book a working session" },
+  alternates: { canonical: "/contact" },
+  title: { absolute: "Contact | Maslow AI · Request a working session" },
   description:
     "Bring one workflow to a 30-minute working session. Leave with a map of where AI could pay and what the first build would require.",
 };
@@ -20,19 +21,19 @@ const steps = [
     num: "01",
     color: "var(--color-ice-text)",
     title: "We listen first",
-    desc: "Your workflow, your constraints, your data reality.",
+    desc: "Your team, the work, and the systems you already use.",
   },
   {
     num: "02",
     color: "var(--color-plum-text)",
-    title: "You get a sketch, free",
-    desc: "A one-page architecture and cost estimate within two business days.",
+    title: "We agree on a starting point",
+    desc: "A first conversation to explore fit. Any implementation scope and fee are agreed separately.",
   },
   {
     num: "03",
     color: "var(--color-gold-text)",
     title: "You keep the work",
-    desc: "Code, pipelines, documentation, and configured infrastructure remain yours.",
+    desc: "For paid work, ownership, documentation, and handover are defined in the proposal.",
   },
 ];
 
@@ -52,16 +53,16 @@ export default function ContactPage() {
               className={`${styles.title} mz-rise`}
               style={{ animationDelay: "0.15s" }}
             >
-              Bring one workflow. Leave with a plan.
+              Let’s find your next useful step.
             </h1>
             <p
               className={`${styles.lede} mz-rise`}
               style={{ animationDelay: "0.3s" }}
             >
-              Bring quoting, intake, reporting, or another task that keeps
-              queuing behind a busy person. In 30 minutes, we will map the
-              workflow, identify where AI could help, and outline the first
-              build. You keep the map even if we recommend no further work.
+              Bring a workflow, a pile of hard-to-find information, or questions
+              about the AI-OS preview. We will explore what is useful, what your
+              team already has, and where to begin. You can work with Maslow on
+              your existing systems without installing a new operating system.
             </p>
             <div
               className={`${styles.steps} mz-rise`}
@@ -106,7 +107,7 @@ export default function ContactPage() {
             className={`${styles.card} mz-rise`}
             style={{ animationDelay: "0.3s" }}
           >
-            <div className={styles.cardTitle}>Book a working session</div>
+            <div className={styles.cardTitle}>Request a working session</div>
             <div className={styles.host}>
               <Image
                 className={styles.hostPhoto}

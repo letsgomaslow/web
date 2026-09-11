@@ -27,8 +27,8 @@ export function SiteFooter({
         <section className="cta-band" aria-labelledby="site-cta-heading">
           <h2 id="site-cta-heading">Ready to find where AI pays?</h2>
           <p>
-            A 30-minute working session. Bring one painful workflow; we&apos;ll
-            sketch the harness, the data pipeline and the cost curve.
+            Bring a task, a source of information, or an idea that needs a starting point.
+            We will work through the useful next step together.
           </p>
           <Link href="/contact" className="cta cta-inverse">
             {ctaPrimaryLabel}
@@ -50,8 +50,8 @@ export function SiteFooter({
                   />
                 </div>
                 <p className={styles.blurb}>
-                  AI employees built on knowledge systems and infrastructure
-                  your company owns.
+                  A shared foundation for your AI tools. The experience to connect
+                  it to your organization&apos;s knowledge and work.
                 </p>
                 <span className={styles.badge}>
                   <span className={styles.dot} />

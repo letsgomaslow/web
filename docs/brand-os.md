@@ -2,7 +2,7 @@
 
 The website consumes `@maslow-ai/brand-os` as its token and approved-asset authority. Existing `--color-*` variables remain as a compatibility layer and map to generated `--maslow-*` variables in `app/globals.css`.
 
-The repository currently commits a generated package snapshot at `vendor/maslow-brand-os` so local and deployment builds remain reproducible before the Brand OS release tag exists. `brand-os.lock.json` records the source hashes, immutable designer-logo hashes, asset hashes, and the intended `github:letsgomaslow/mai-design-system#v1.0.1` release dependency.
+The repository currently commits a generated package snapshot at `vendor/maslow-brand-os` so local and deployment builds remain reproducible before the Brand OS release tag exists. `brand-os.lock.json` records the source hashes, immutable designer-logo hashes, asset hashes, and the intended `github:letsgomaslow/mai-design-system#v1.1.0` release dependency.
 
 After the Design System release is committed and tagged:
 

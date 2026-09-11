@@ -2,16 +2,26 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
-import { NewsletterForm } from "@/components/forms/NewsletterForm";
+import { CtaButton } from "@/components/ui/CtaButton";
 import { TaxonomyCapsule } from "@/components/ui/TaxonomyCapsule";
 import { featuredPost, secondaryPosts } from "@/lib/content/blog";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog",
   description:
-    "Plain-language writing on production AI systems: what works, what it costs, and how to own it.",
+    "Plain-language guides to shared company knowledge, memory, skills, context, workflow controls, and AI implementation.",
 };
+
+function updatedLabel(isoDate: string) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${isoDate}T00:00:00Z`));
+}
 
 export default function BlogPage() {
   return (
@@ -23,13 +33,13 @@ export default function BlogPage() {
               className="eyebrow mz-rise"
               style={{ animationDelay: "0.05s" }}
             >
-              BLOG · INSIGHTS &amp; EXPLAINERS
+              FIELD GUIDES · SHARED AI INFRASTRUCTURE
             </div>
             <h1
               className="h1 mz-rise"
               style={{ animationDelay: "0.15s", marginBottom: 20 }}
             >
-              Latest thinking
+              Make company knowledge usable across AI tools
             </h1>
             <p
               className="lede mz-rise"
@@ -39,8 +49,9 @@ export default function BlogPage() {
                 marginBottom: 36,
               }}
             >
-              Plain-language writing on production AI systems: what works, what
-              it costs, and how to own it.
+              Practical guidance for business and IT leaders deciding what
+              belongs in context, memory, skills, connections, controls, and the
+              work record.
             </p>
           </div>
         </section>
@@ -94,6 +105,8 @@ export default function BlogPage() {
                   <span>{featuredPost.read}</span>
                   <span>·</span>
                   <span>{featuredPost.date}</span>
+                  <span>·</span>
+                  <span>UPDATED {updatedLabel(featuredPost.modifiedAt)}</span>
                 </div>
                 <div className={styles.featuredTitle}>{featuredPost.title}</div>
                 <div className={styles.featuredDesc}>{featuredPost.desc}</div>
@@ -109,7 +122,7 @@ export default function BlogPage() {
           <div className="wrap">
             <div className={styles.articlesHead}>
               <div className="eyebrow">ALL ARTICLES</div>
-              <h2 className="h2">Practical guides for building owned AI</h2>
+              <h2 className="h2">Four layers to align before implementation</h2>
             </div>
             <div className={styles.articleList}>
               {secondaryPosts.map((article) => (
@@ -124,6 +137,7 @@ export default function BlogPage() {
                     </TaxonomyCapsule>
                     <span>{article.read}</span>
                     <span>{article.date}</span>
+                    <span>UPDATED {updatedLabel(article.modifiedAt)}</span>
                   </div>
                   <h3>{article.title}</h3>
                   <p>{article.desc}</p>
@@ -136,18 +150,20 @@ export default function BlogPage() {
           </div>
         </section>
 
-        <section className={styles.newsletter} data-screen-label="Newsletter">
+        <section className={styles.newsletter} data-screen-label="Resources">
           <div className={styles.newsletterInner}>
             <div>
               <h2 className={styles.newsletterTitle}>
-                One useful email a month
+                Start with the question in front of your team
               </h2>
               <p className={styles.newsletterLede}>
-                What we built, what it cost, what broke. No announcements about
-                our announcements.
+                Use the resource hub to try Maslow AI-OS, understand the shared
+                infrastructure, review client evidence, or map a workflow.
               </p>
             </div>
-            <NewsletterForm />
+            <CtaButton href="/resources" variant="inverse">
+              EXPLORE RESOURCES
+            </CtaButton>
           </div>
         </section>
       </>

@@ -1,434 +1,282 @@
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
-import { CtaButton } from "@/components/ui/CtaButton";
-import { DepthDisclosure } from "@/components/ui/DepthDisclosure";
-import { Reveal } from "@/components/ui/Reveal";
-import { DecisionReceipt } from "@/components/dossier/DecisionReceipt";
-import { WorkflowDossierTray } from "@/components/dossier/WorkflowDossierTray";
-import { ctaPrimaryLabel, founderHeadshot } from "@/lib/brand";
-import { LayerDiagram } from "@/components/home/LayerDiagram";
-import { QueueMotif } from "@/components/home/QueueMotif";
-import { ArchitectureTrackedLink } from "@/components/explainers/ArchitectureTrackedLink";
-import {
-  copilotSection,
-  costOfWaiting,
-  founderStrip,
-  homeCases,
-  homeWorkflowContext,
-  homeWorkflowDossier,
-  metrics,
-  stages,
-  whoWeWorkWith,
-} from "@/lib/content/home";
-import { architectureOverview } from "@/lib/content/architecture";
+import { HeroContinuity } from "@/components/ai-os/HeroContinuity";
+import { FoundationJourney } from "@/components/ai-os/FoundationJourney";
+import { WorkspaceExplorer } from "@/components/ai-os/WorkspaceExplorer";
+import { RecipeExplorer } from "@/components/ai-os/RecipeExplorer";
 import styles from "./page.module.css";
 
-/** Gate positions along the 90-day (≈13-week) rail, as percentages. */
-const GATE_POSITIONS = [15.5, 31, 77.5];
+export const metadata: Metadata = {
+  title: { absolute: "Maslow AI-OS | Your agents. One shared foundation" },
+  description:
+    "Explore the Maslow AI-OS vision: a free, customizable Linux environment in development, informed by Maslow's client AI workflow and infrastructure work.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Maslow AI",
+    title: { absolute: "Maslow AI-OS | Your agents. One shared foundation" },
+    description:
+      "Explore a free, customizable Linux environment in development and the shared AI foundation behind it.",
+    images: [
+      {
+        url: "/assets/ai-os/workspace-focus-ai.png",
+        width: 1672,
+        height: 941,
+        alt: "Maslow AI-OS workspace concept",
+      },
+    ],
+  },
+};
 
 export default function HomePage() {
   return (
     <PageShell footer="full">
-      <>
-        <section className={styles.hero} data-screen-label="Hero">
-          <Image
-            className={styles.floatLg}
-            src="/assets/logos/maslow-symbol-full-color.png"
-            alt=""
-            width={280}
-            height={180}
-          />
-          <Image
-            className={styles.floatSm}
-            src="/assets/logos/maslow-symbol-full-color.png"
-            alt=""
-            width={130}
-            height={84}
-          />
-          <div className="wrap" style={{ position: "relative" }}>
-            <div
-              className="eyebrow mz-rise"
-              style={{ animationDelay: "0.05s" }}
-            >
-              OWNED INFRASTRUCTURE · KNOWLEDGE SYSTEMS · AI EMPLOYEES
-            </div>
-            <h1
-              className={`h1 mz-rise ${styles.heroHeading}`}
-              style={{
-                animationDelay: "0.15s",
-              }}
-            >
-              AI employees for the work that waits on your{" "}
-              <span className="highlight">busiest people</span>.
-            </h1>
-            <p
-              className={`lede mz-rise ${styles.heroLede}`}
-              style={{
-                animationDelay: "0.3s",
-              }}
-            >
-              Your files become knowledge your AI can cite. Your procedures
-              become skills it can reuse. AI employees take on supervised
-              workflows in Teams, Slack, and email under accounts you control.
-              A person approves every consequential action, and everything we
-              build runs on foundations you own.
+      <div className={styles.home}>
+        <section className={styles.hero} aria-labelledby="home-title">
+          <div className={styles.heroCopy}>
+            <p className={styles.eyebrow}>
+              <span aria-hidden="true" />
+              MASLOW AI-OS <small>/ FREE LINUX OS · IN DEVELOPMENT</small>
             </p>
-            <div
-              className={`${styles.ctaRow} mz-rise`}
-              style={{ animationDelay: "0.45s" }}
-            >
-              <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
-              <CtaButton href="/assessment" variant="secondary">
-                TAKE THE 2-MINUTE ASSESSMENT
-              </CtaButton>
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.metrics} data-screen-label="Metrics">
-          <Reveal className={styles.metricsGrid}>
-            {metrics.map((m) => (
-              <div key={m.value} className={styles.metric}>
-                <span className={styles.tick} style={{ background: m.tick }} />
-                <div className={styles.metricValue}>{m.value}</div>
-                <div className={styles.metricLabel}>{m.label}</div>
-                {m.gates ? (
-                  <div className={styles.gateRail} aria-hidden="true">
-                    {m.gates.map((g, gi) => (
-                      <span
-                        key={g}
-                        className={styles.gateTick}
-                        style={{
-                          left: `${GATE_POSITIONS[gi]}%`,
-                          ["--i" as string]: gi,
-                        }}
-                      >
-                        <i />
-                        {g}
-                      </span>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            ))}
-          </Reveal>
-        </section>
-
-        <section className="section" data-screen-label="Who We Work With">
-          <div className="wrap">
-            <Reveal>
-              <div className="eyebrow">WHO WE WORK WITH</div>
-              <h2 className="h2" style={{ marginBottom: 32 }}>
-                Built for the mid-market.
-              </h2>
-            </Reveal>
-            <div className={styles.icpGrid}>
-              {whoWeWorkWith.map((item) => (
-                <Reveal key={item.num}>
-                  <div className={styles.icpCard}>
-                    <span
-                      className={styles.icpNum}
-                      style={{ color: item.tick }}
-                    >
-                      {item.num}
-                    </span>
-                    <h3 className={styles.icpTitle}>{item.title}</h3>
-                    <div className={styles.icpDesc}>{item.desc}</div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-            <Reveal className={styles.icpFoot}>
-              <p className={styles.icpMicro}>
-                Typically $20M to $500M in revenue. If you need a global SI with
-                a thousand consultants, we are unlikely to fit. If your board
-                runs a full vendor review,{" "}
-                <Link href="/diligence" className={styles.icpLink}>
-                  our diligence pack
-                </Link>{" "}
-                is ready for it.
-              </p>
-              <Link href="/assessment" className="text-link">
-                NOT SURE IF THAT&apos;S YOU? TAKE THE ASSESSMENT&nbsp;&nbsp;&gt;
+            <h1 id="home-title">
+              Your agents.
+              <br />
+              One shared
+              <br />
+              <em>foundation.</em>
+            </h1>
+            <p className={styles.heroDescription}>
+              A free Linux environment being developed to keep your team’s
+              knowledge and tools within reach of the supported agents your team
+              chooses.
+            </p>
+            <div className={styles.heroActions}>
+              <a className={styles.primaryAction} href="#foundation">
+                See how it comes together <span aria-hidden="true">↓</span>
+              </a>
+              <Link className={styles.textAction} href="/ai-os">
+                Explore the AI-OS preview <span aria-hidden="true">↗</span>
               </Link>
-            </Reveal>
+            </div>
+            <p className={styles.heroFor}>
+              Maslow also builds paid AI workflows around your existing systems.
+            </p>
           </div>
+          <HeroContinuity />
+          <div className={styles.heroFoot}>
+            <span>TRY THE HANDOFF ABOVE</span>
+            <p>Then scroll to see what makes it possible.</p>
+            <a href="#foundation" aria-label="Scroll to the foundation">
+              ↓
+            </a>
+          </div>
+        </section>
+
+        <FoundationJourney />
+        <WorkspaceExplorer />
+
+        <section
+          className={styles.ecosystem}
+          id="ecosystem"
+          aria-labelledby="ecosystem-title"
+        >
+          <div className={styles.sectionTop}>
+            <p>03 / MAKE IT USEFUL</p>
+            <span>Start with one job worth doing.</span>
+          </div>
+          <div className={styles.sectionIntro}>
+            <h2 id="ecosystem-title">
+              Choose what helps.
+              <br />
+              <em>Know how it fits.</em>
+            </h2>
+            <p>
+              Open-source projects give you the pieces. Maslow helps choose,
+              connect, and shape them around a job your team needs done.
+            </p>
+          </div>
+          <RecipeExplorer />
+          <div className={styles.recipeNext}>
+            <p>
+              The free OS is a place to start. We can build the workflow with
+              you, including on your existing infrastructure.
+            </p>
+            <Link href="/contact">
+              Shape a workflow with us <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+          <p className={styles.boundary}>
+            These are example combinations, configured for each organization.
+            Some tools run locally; others use connected services. Catalog setup
+            through <strong>Maslow Hub</strong> and connections through{" "}
+            <strong>Maslow Connect</strong> are evolving.{" "}
+            <Link href="/ai-os">See what’s in the current preview ↗</Link>
+          </p>
         </section>
 
         <section
-          className={styles.workflowContext}
-          data-screen-label="Workflow Context"
+          className={styles.clientBridge}
+          aria-labelledby="client-bridge-title"
         >
-          <div className="wrap">
-            <div className={styles.workflowContextGrid}>
-              <Reveal className={styles.workflowContextIntro}>
-                <div className="eyebrow">{homeWorkflowContext.eyebrow}</div>
-                <h2 className="h2">{homeWorkflowContext.h2}</h2>
-                <p>{homeWorkflowContext.body}</p>
-                <CtaButton href={homeWorkflowContext.ctaHref}>
-                  {homeWorkflowContext.ctaLabel}
-                </CtaButton>
-              </Reveal>
-              <Reveal className={styles.workflowContextPreview}>
-                <p className={styles.workflowStatus}>
-                  {homeWorkflowContext.status}
-                </p>
-                <DecisionReceipt
-                  dossier={homeWorkflowDossier}
-                  title={homeWorkflowContext.receiptTitle}
-                  description={homeWorkflowContext.receiptDescription}
-                  headingLevel="h3"
-                />
-                <WorkflowDossierTray
-                  dossier={homeWorkflowDossier}
-                  title={homeWorkflowContext.trayLabel}
-                  dossierTitle={homeWorkflowContext.dossierTitle}
-                  headingLevel="h3"
-                />
-              </Reveal>
-            </div>
+          <div>
+            <p className={styles.eyebrow}>BUILT FROM THE WORK WE DO</p>
+            <h2 id="client-bridge-title">
+              This is how we help
+              <br />
+              <em>AI find its place.</em>
+            </h2>
           </div>
-        </section>
-
-        <section className={styles.copilot} data-screen-label="Keep Copilot">
-          <div className="wrap">
-            <Reveal className={styles.copilotIntro}>
-              <div className="eyebrow">{copilotSection.eyebrow}</div>
-              <h2 className="h2">{copilotSection.h2}</h2>
-              <p>{copilotSection.intro}</p>
-              <Link href={copilotSection.ctaHref} className="text-link">
-                {copilotSection.ctaLabel}&nbsp;&nbsp;&gt;
-              </Link>
-            </Reveal>
-            <Reveal>
-              <DepthDisclosure
-                className={styles.copilotDisclosure}
-                collapsedLabel="SEE WHY COPILOT NEEDS A WORKFLOW LAYER"
-                expandedLabel="HIDE THE COPILOT EXPLANATION"
-              >
-                <div className={styles.copilotGrid}>
-                  <p className={styles.copilotBody}>{copilotSection.detail}</p>
-                  <div className={styles.copilotViz}>
-                    <LayerDiagram />
-                  </div>
-                </div>
-              </DepthDisclosure>
-            </Reveal>
-          </div>
-        </section>
-
-        <section className="section" id="concepts" data-screen-label="Concepts">
-          <div className="wrap">
-            <Reveal className={styles.sectionHead}>
-              <div>
-                <div className="eyebrow">THE CONCEPTS</div>
-                <h2 className="h2">See how one waiting workflow moves</h2>
-              </div>
-              <span className={styles.aside}>
-                Buyer view first, technical depth optional
-              </span>
-            </Reveal>
-            <Reveal>
-              <ArchitectureTrackedLink
-                href={architectureOverview.href}
-                className={styles.conceptOverview}
-                eventName="Architecture buyer view opened"
-                eventData={{ location: "homepage-concepts" }}
-              >
-                <span>{architectureOverview.eyebrow}</span>
-                <strong>{architectureOverview.title}</strong>
-                <p>{architectureOverview.desc}</p>
-                <em>{architectureOverview.cta}&nbsp;&nbsp;&gt;</em>
-              </ArchitectureTrackedLink>
-            </Reveal>
-            <Reveal>
-              <ArchitectureTrackedLink
-                href={architectureOverview.technicalHref}
-                className={`${styles.technicalLibraryLink} text-link`}
-                eventName="Technical architecture opened"
-                eventData={{ location: "homepage-concepts" }}
-              >
-                {architectureOverview.technicalCta}&nbsp;&nbsp;&gt;
-              </ArchitectureTrackedLink>
-            </Reveal>
-          </div>
-        </section>
-
-        <section className={styles.journey} data-screen-label="Journey">
-          <div className="wrap">
-            <Reveal className={styles.sectionHead}>
-              <div>
-                <div className="eyebrow eyebrow-ice">FIVE STAGES</div>
-                <h2 className="h2" style={{ color: "#fff", maxWidth: 520 }}>
-                  Start at the stage your operation needs.
-                </h2>
-              </div>
-              <Link href="/services" className="text-link text-link-on-dark">
-                BROWSE ALL SERVICES&nbsp;&nbsp;&gt;
-              </Link>
-            </Reveal>
-            <Reveal className={styles.stages}>
-              <svg
-                className={styles.stageLine}
-                viewBox="0 0 100 2"
-                preserveAspectRatio="none"
-                aria-hidden
-              >
-                <line
-                  x1="0"
-                  y1="1"
-                  x2="100"
-                  y2="1"
-                  stroke="rgba(115,193,174,.4)"
-                  strokeWidth="1"
-                  strokeDasharray="3 4"
-                  style={{ animation: "mzDash 3s linear infinite" }}
-                  vectorEffect="non-scaling-stroke"
-                />
-              </svg>
-              <div className={styles.gateMarks} aria-hidden="true">
-                {[20, 40, 80].map((x) => (
-                  <span key={x} style={{ left: `${x}%` }} />
-                ))}
-              </div>
-              {stages.map((st) => (
-                <Link key={st.num} href={st.href} className={styles.stage}>
-                  <div className={styles.stageNum}>{st.num}</div>
-                  <div className={styles.stageName}>{st.name}</div>
-                  <div className={styles.stageDesc}>{st.desc}</div>
-                </Link>
-              ))}
-            </Reveal>
-            <Reveal>
-              <p className={styles.gateLine}>
-                GO/NO-GO GATES AT WEEKS 2, 4, AND 10 · STOP AT A GATE, KEEP
-                EVERYTHING PRODUCED
-              </p>
-            </Reveal>
-            <Reveal className={styles.centerCta}>
-              <CtaButton
-                href="/assessment"
-                variant="inverse"
-                className={styles.assessPill}
-              >
-                <span className={styles.assessLong}>
-                  NOT SURE WHERE YOU ARE? TAKE THE ASSESSMENT
-                </span>
-                <span className={styles.assessShort}>
-                  TAKE THE 2-MINUTE ASSESSMENT
-                </span>
-              </CtaButton>
-            </Reveal>
-          </div>
-        </section>
-
-        <section className={styles.cases} data-screen-label="Case Studies">
-          <div className="wrap">
-            <Reveal className={styles.sectionHead} style={{ marginBottom: 40 }}>
-              <div>
-                <div className="eyebrow">PROOF</div>
-                <h2 className="h2">Production work, status, and numbers</h2>
-              </div>
-              <Link href="/case-studies" className="text-link">
-                ALL CASE STUDIES&nbsp;&nbsp;&gt;
-              </Link>
-            </Reveal>
-            <div className={styles.caseGrid}>
-              {homeCases.map((cs) => (
-                <Reveal key={cs.title}>
-                  <Link
-                    href={cs.href}
-                    className={`${styles.caseCard} ${cs.openSlot ? styles.caseOpen : ""}`}
-                  >
-                    <div
-                      className={styles.caseArt}
-                      style={{ background: cs.art }}
-                    >
-                      <span>{cs.sector}</span>
-                    </div>
-                    <div className={styles.caseBody}>
-                      <h3 className={styles.caseTitle}>{cs.title}</h3>
-                      <div className={styles.caseDesc}>{cs.desc}</div>
-                      {cs.result ? (
-                        <div className={styles.caseResult}>{cs.result}</div>
-                      ) : null}
-                      <span className="text-link">
-                        {cs.cta}&nbsp;&nbsp;&gt;
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.founder} data-screen-label="Founder">
-          <div className="wrap">
-            <Reveal className={styles.founderInner}>
-              <Image
-                className={styles.founderPhoto}
-                src={founderHeadshot.src}
-                alt={founderHeadshot.alt}
-                width={founderHeadshot.width}
-                height={founderHeadshot.height}
-                sizes="120px"
-              />
-              <div>
-                <div className="eyebrow">WHO YOU&apos;LL WORK WITH</div>
-                <p className={styles.founderBody}>{founderStrip.body}</p>
-                <Link href={founderStrip.href} className="text-link">
-                  {founderStrip.cta}&nbsp;&nbsp;&gt;
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        <section className={styles.waiting} data-screen-label="Cost of Waiting">
-          <div className="wrap">
-            <div className={styles.waitingGrid}>
-              <Reveal>
-                <div className="eyebrow">{costOfWaiting.eyebrow}</div>
-                <h2 className="h2" style={{ marginBottom: 18 }}>
-                  {costOfWaiting.h2}
-                </h2>
-                <p className={styles.waitingBody}>{costOfWaiting.body}</p>
-                <div className={styles.waitingCta}>
-                  <CtaButton href={costOfWaiting.ctaHref} variant="secondary">
-                    {costOfWaiting.ctaLabel}
-                  </CtaButton>
-                </div>
-              </Reveal>
-              <Reveal className={styles.waitingViz}>
-                <QueueMotif />
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        <section className="section" data-screen-label="Mission">
-          <Reveal className={styles.mission}>
-            <div className={styles.quoteMark}>“</div>
-            <div className={styles.missionQuote}>
-              Useful AI should fit a{" "}
-              <span
-                className="highlight"
-                style={{ ["--hl-h" as string]: "10px" }}
-              >
-                mid-market budget
-              </span>
-              .
-            </div>
-            <p className={styles.missionBody}>
-              We reduce adoption costs with open models, right-sized hardware,
-              and engineering that outlasts any single model.
+          <div>
+            <p>
+              We build knowledge systems and AI workflows with clients on their
+              existing infrastructure, including Ubuntu servers. Maslow AI-OS
+              brings that experience into a free Linux environment that is
+              easier to get started with.
             </p>
-            <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
-          </Reveal>
+            <a href="#work">
+              See the client work <span aria-hidden="true">↗</span>
+            </a>
+            <small>
+              The workflow above is illustrative. OS packaging and integrations
+              are evolving.
+            </small>
+          </div>
         </section>
-      </>
+
+        <section className={styles.work} id="work" aria-labelledby="work-title">
+          <div className={styles.sectionTop}>
+            <p>04 / FROM INFRASTRUCTURE TO IMPACT</p>
+            <Link href="/services">
+              Explore our services <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+          <div className={styles.sectionIntro}>
+            <h2 id="work-title">
+              A foundation is the start.
+              <br />
+              <em>The work is what matters.</em>
+            </h2>
+            <p>
+              We help organizations find a worthwhile use case, connect the
+              right systems, and build a workflow people can actually use.
+            </p>
+          </div>
+          <div className={styles.caseStudies}>
+            <Link
+              className={styles.caseStudy}
+              href="/case-studies/infinite-ai-os"
+            >
+              <div
+                className={`${styles.caseArt} ${styles.caseManufacturing}`}
+                aria-hidden="true"
+              >
+                <span>
+                  FROM COMPANY KNOWLEDGE
+                  <br />
+                  TO DAILY WORK
+                </span>
+                <div>
+                  {Array.from({ length: 6 }, (_, index) => (
+                    <i key={index} />
+                  ))}
+                </div>
+                <b>M / 01</b>
+              </div>
+              <div className={styles.caseMeta}>
+                <span>MANUFACTURING</span>
+                <span>CASE STUDY ↗</span>
+              </div>
+              <h3>
+                Company knowledge.
+                <br />
+                Put to work.
+              </h3>
+              <p>
+                AI employees and connected knowledge systems for a manufacturing
+                operation.
+              </p>
+            </Link>
+            <Link className={styles.caseStudy} href="/case-studies/agenthub">
+              <div
+                className={`${styles.caseArt} ${styles.caseHealthcare}`}
+                aria-hidden="true"
+              >
+                <span>
+                  FROM COMPLEX DOCUMENTS
+                  <br />
+                  TO CLEARER ANSWERS
+                </span>
+                <div className={styles.citationShape}>
+                  <i />
+                  <i />
+                  <i />
+                  <b>↗</b>
+                </div>
+                <strong>M / 02</strong>
+              </div>
+              <div className={styles.caseMeta}>
+                <span>HEALTHCARE ENTERPRISE</span>
+                <span>CASE STUDY ↗</span>
+              </div>
+              <h3>
+                Complex contracts.
+                <br />
+                Clearer answers.
+              </h3>
+              <p>
+                A shared prompt library and contract review with source
+                citations.
+              </p>
+            </Link>
+          </div>
+          <p className={styles.evidenceNote}>
+            These are Maslow client engagements, not deployments of the Linux
+            AI-OS.
+          </p>
+        </section>
+
+        <section className={styles.start} aria-labelledby="start-title">
+          <div>
+            <p className={styles.eyebrow}>YOUR NEXT MOVE</p>
+            <h2 id="start-title">
+              Bring your curiosity.
+              <br />
+              <em>Let’s build something useful.</em>
+            </h2>
+            <div className={styles.startPaths}>
+              <article>
+                <span>EXPLORE THE PRODUCT</span>
+                <h3>Your environment. Your possibilities.</h3>
+                <p>
+                  See the free Linux environment being developed and review what
+                  the current preview includes.
+                </p>
+                <Link className={styles.primaryAction} href="/ai-os">
+                  Explore AI-OS preview <span aria-hidden="true">↗</span>
+                </Link>
+              </article>
+              <article>
+                <span>PUT AI TO WORK</span>
+                <h3>Have a workflow in mind?</h3>
+                <p>
+                  We’ll map the opportunity and scope a practical paid
+                  implementation on the systems you already use.
+                </p>
+                <Link className={styles.outlineAction} href="/contact">
+                  Build a workflow with us <span aria-hidden="true">↗</span>
+                </Link>
+              </article>
+            </div>
+            <p className={styles.freeNote}>
+              Maslow AI-OS is intended to be free. There is no public download
+              from this page. Model usage, hardware, third-party licenses, and
+              Maslow implementation services are separate.
+            </p>
+          </div>
+        </section>
+      </div>
     </PageShell>
   );
 }

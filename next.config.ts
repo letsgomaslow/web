@@ -28,7 +28,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/Assessment.dc.html",
-        destination: "/assessment",
+        destination: "/plan-workflow",
         permanent: true,
       },
       {

@@ -1,112 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { HarnessSceneLazy } from "@/components/explainers/HarnessSceneLazy";
 import { PageShell } from "@/components/layout/PageShell";
-import { FailureToggle } from "@/components/explainers/FailureToggle";
-import { Reveal } from "@/components/ui/Reveal";
-import { SectionAnchor } from "@/components/ui/SectionAnchor";
-import {
-  conceptFailures,
-  explainerPages,
-  harnessPayoffs,
-} from "@/lib/content/explainers";
-import styles from "../concept.module.css";
+import { StoryJourney } from "@/components/stories/StoryJourney";
+import { CtaButton } from "@/components/ui/CtaButton";
+import { conceptStoryJourneys, explainerPages, harnessPayoffs } from "@/lib/content/explainers";
+import styles from "../story-page.module.css";
 
 const meta = explainerPages["agentic-harness"];
-
+const story = conceptStoryJourneys.harness;
 export const metadata: Metadata = {
-  title: "Agentic harness | Maslow AI",
-  description: meta.lede,
-};
+  alternates: { canonical: "/concepts/agentic-harness" }, title: { absolute: "Agentic harness | Maslow AI" }, description: meta.lede };
 
 export default function AgenticHarnessPage() {
-  return (
-    <PageShell highlightConcepts showCtaBand>
-      <section className={styles.hero}>
-        <div className="wrap">
-          <div className={`${styles.crumb} mz-rise`}>
-            <Link href="/#concepts">Concepts</Link> /{" "}
-            <span className={styles.crumbCurrent}>{meta.crumb}</span>{" "}
-            <span className={styles.badge} style={{ color: meta.badgeColor }}>
-              {meta.badge}
-            </span>
-          </div>
-          <h1
-            className={`${styles.heroTitle} mz-rise`}
-            style={{ animationDelay: "0.15s" }}
-          >
-            {meta.title}
-          </h1>
-          <p
-            className={`${styles.heroLede} mz-rise`}
-            style={{ animationDelay: "0.3s" }}
-          >
-            A raw model supplies capability. The{" "}
-            <strong>agentic harness</strong> is the engineered structure around
-            it (context, skills, tools, memory, guardrails and gateways) that
-            helps turn model output into controlled workflow behavior. With a
-            mouse, drag the optional 3D view and choose any component. On touch,
-            use the component buttons. Reduced-motion or WebGL-limited devices
-            keep the same component map and details in a static view.
-          </p>
-        </div>
-      </section>
-
-      <section className={styles.navyBandFlush}>
-        <HarnessSceneLazy />
-      </section>
-
-      <section className={styles.sectionAlt}>
-        <div className="wrap">
-          <Reveal>
-            <div className="eyebrow">THE PAYOFF</div>
-            <h2 className="h2" style={{ marginBottom: 12 }}>
-              Why the harness beats the model
-            </h2>
-            <p className="lede" style={{ maxWidth: 600 }}>
-              As models improve, your harness can carry those gains forward.
-              It&apos;s the part you own.
-            </p>
-          </Reveal>
-          <div className={styles.points3}>
-            {harnessPayoffs.map((p) => (
-              <Reveal key={p.title}>
-                <article
-                  className={styles.point}
-                  style={{ borderTop: `2px solid ${p.accent}`, padding: 32 }}
-                >
-                  <h3 style={{ fontSize: 22 }}>{p.title}</h3>
-                  <p>{p.desc}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className={styles.failure}>
-            <div className="eyebrow">WHAT BREAKS WITHOUT IT</div>
-            <h2 className={styles.failureHead} id="what-breaks">
-              {conceptFailures["agentic-harness"].headline}
-              <SectionAnchor id="what-breaks" label="What breaks without it" />
-            </h2>
-            <p className={styles.failureBody}>
-              {conceptFailures["agentic-harness"].body}
-            </p>
-            {conceptFailures["agentic-harness"].demo &&
-            conceptFailures["agentic-harness"].production ? (
-              <FailureToggle
-                demo={conceptFailures["agentic-harness"].demo}
-                production={conceptFailures["agentic-harness"].production}
-              />
-            ) : null}
-          </Reveal>
-          <div className={styles.related}>
-            <Link href="/concepts/ai-employee-architecture">
-              See the whole system
-            </Link>
-            {meta.prev && <Link href={meta.prev.href}>{meta.prev.label}</Link>}
-            {meta.next && <Link href={meta.next.href}>{meta.next.label}</Link>}
-          </div>
-        </div>
-      </section>
-    </PageShell>
-  );
+  return <PageShell highlightConcepts><section className={styles.hero}><div className={styles.heroInner}><div className={styles.crumb}><Link href="/resources">Resources</Link> / <span>{meta.crumb}</span></div><div className={styles.heroGrid}><div><p className={styles.badge}>{meta.badge}</p><h1>{meta.title}</h1></div><div className={styles.heroAside}><p>{meta.lede}</p><div className={styles.actions}><CtaButton href="/contact">TALK THROUGH A WORKFLOW</CtaButton><a href="#harness-story">FOLLOW ONE RUN</a></div></div></div></div></section>
+  <StoryJourney id="harness-story" {...story} afterHref="/concepts/skills-and-gateways" afterLabel="See how procedures and connections are reused" />
+  <section className={styles.reference}><div className={styles.referenceInner}><details><summary>Open the deeper harness reference</summary><div className={styles.referenceBody}>{harnessPayoffs.map((item)=><article key={item.title}><h3>{item.title}</h3><p>{item.desc}</p></article>)}</div></details><div className={styles.referenceFoot}><p>A harness earns trust through scoped permissions, human decision points, and evidence from actual runs.</p><Link href="/contact">Review a workflow boundary →</Link></div></div></section></PageShell>;
 }

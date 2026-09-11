@@ -2,7 +2,7 @@
 
 ## Public copy
 
-- Protect the homepage position: "AI employees for the work that waits on your busiest people."
+- Lead with Maslow AI-OS, our free Linux workspace in development, and connect it to Maslow AI's paid knowledge, infrastructure, and workflow implementation services.
 - Lead with a buyer's workflow, constraint, deliverable, or measured result.
 - Do not use em dashes in public copy. Rewrite the sentence instead of swapping punctuation mechanically.
 - Do not publish placeholder articles, metrics, testimonials, or client results.
@@ -10,8 +10,14 @@
 - Avoid self-certifying words such as "honest," "real," "plainly," and "by design." Show the evidence or current status instead.
 - Use no more than one contrast construction such as "X, not Y" on a page.
 - Keep technical metaphors such as harnesses and gateways inside technical explainers. Sales pages should describe the workflow and ownership model directly.
-- Use US English and "AI employee" consistently in visible copy.
+- Use US English. Use Maslow AI for the company, Maslow AI-OS for the product, and agent for the tools it supports. Historical client and press terminology may remain with context.
+- Address a business leader and their IT counterpart. Distinguish current preview capabilities, optional client integrations, illustrative workflows, and future direction. An OS installation is not required to engage Maslow on existing infrastructure.
+- Preserve immersive, purposeful storytelling across dense concepts, with native scrolling, direct controls, and readable reduced-motion and no-WebGL alternatives.
 - Keep diligence artifact statuses at "IN PREPARATION" until the artifact exists and has been reviewed.
+
+## Creative direction
+
+- For this buyer-journey redesign, the user authorizes departures from layout, shape, and motion conventions when they strengthen the visual story. Preserve approved company identity, recognizable brand colors and typography, accessible controls, and accurate claims. The pinned Brand OS package and approved assets remain unchanged.
 
 ## Action hierarchy
 

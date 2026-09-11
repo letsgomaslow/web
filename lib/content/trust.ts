@@ -1,28 +1,28 @@
 export const securityPrinciples = [
   {
     num: "01",
-    title: "Your data stays in your house.",
-    desc: "Wherever possible, systems run inside your Microsoft 365 or cloud tenant, or on hardware you own. We build in your environment, not ours.",
+    title: "Make the data path visible.",
+    desc: "We design around your existing tenant or infrastructure and document what runs locally, what connects to another service, and who has access.",
   },
   {
     num: "02",
     title: "Least-privilege, scoped, revocable.",
-    desc: "Connectors get read access to exactly the systems a workflow needs, nothing else. You can see the scope list and revoke it at any time.",
+    desc: "Connector scopes and credentials are documented for the agreed workflow. Read access, action permissions, and revocation are separate configuration decisions.",
   },
   {
     num: "03",
-    title: "Your data trains nothing.",
-    desc: "Client data is never used to train models, ours or anyone's. Model providers we route to are configured for zero retention where the provider supports it.",
+    title: "Review the model configuration.",
+    desc: "Maslow does not use client data to train its own models. External-provider training and retention terms are reviewed for the selected service, account, and configuration.",
   },
   {
     num: "04",
     title: "Humans approve, systems record.",
-    desc: "Every consequential action an AI employee takes requires human approval and lands in an audit trail you own.",
+    desc: "For each workflow, we agree which actions require approval and what record must be retained. These controls must be implemented and tested for the connected tools.",
   },
   {
     num: "05",
     title: "Keep the system portable.",
-    desc: "Vector stores, knowledge graphs, skills, and code live in your repositories in open formats from day one. Ending our access requires a permissions change, without a separate migration project.",
+    desc: "Ownership, access, export formats, documentation, and the handover path are agreed in the engagement. Third-party licenses and service dependencies remain visible.",
   },
 ] as const;
 
@@ -33,11 +33,11 @@ export const dataLocations = [
   },
   {
     title: "IN TRANSIT, ENCRYPTED",
-    desc: "Calls to model APIs when a task routes to a frontier model, under the retention terms above. TLS everywhere.",
+    desc: "Information sent to external models or services follows the configured routing and provider terms. The data path is reviewed as part of implementation.",
   },
   {
     title: "ON YOUR HARDWARE",
-    desc: "For local deployments: models, weights, and inference logs never leave the building.",
+    desc: "Local models and services can run on your hardware. External tools, updates, telemetry, and API calls must be considered separately.",
   },
 ] as const;
 
@@ -67,75 +67,80 @@ export const plainAnswers: readonly {
 
 export const faqItems = [
   {
-    num: "01",
-    q: "We already pay for Microsoft Copilot. Why isn't that enough?",
-    a: "Copilot is strong at personal productivity, and most clients should keep it. It does not know your estimating logic, carry a quote from request to approval, or answer from a knowledge system you govern. We build that workflow layer. Copilot assists individuals; AI employees carry the workflow.",
+    "num": "01",
+    "q": "What is Maslow AI-OS?",
+    "a": "A free Linux workspace in development, built on Omarchy and shaped for working with multiple AI agents. It brings a customizable desktop and agent setup work into one environment. The wider vision includes shared knowledge, skills, connections, and visibility; the preview page distinguishes current work from optional client implementations."
   },
   {
-    num: "02",
-    q: "Do we need to hire ML engineers?",
-    a: "No. We build systems your existing IT team can run and train them during the engagement. If the team is not ready at handover, managed operations covers the gap until it is.",
+    "num": "02",
+    "q": "What is free, and what do we pay for?",
+    "a": "The OS is intended to be free. Maslow charges for discovery, setup, organizational knowledge systems, integrations, workflow implementation, training, and ongoing support. Hardware, model usage, and third-party licenses are separate costs."
   },
   {
-    num: "03",
-    q: "How is this priced?",
-    a: "Fixed fees, quoted before we start. Workflow Discovery, the 90-Day Foundation (scoped to one measurable workflow result), and managed operations. Go/no-go gates mean you can stop at weeks 2, 4, or 10 and keep everything produced.",
+    "num": "03",
+    "q": "Can we download it today?",
+    "a": "A public download is not offered through this website. We can discuss the current development candidate, your hardware, and a suitable evaluation scope. Broad hardware acceptance and a stable signed public release remain open milestones."
   },
   {
-    num: "04",
-    q: "How fast until something is actually live?",
-    a: "A supervised AI employee in one channel typically inside six weeks. A full foundation (knowledge systems, harness, first agent in production) in ninety days. We publish the week-by-week anatomy on the How We Engage page.",
+    "num": "04",
+    "q": "Do we have to replace Windows or move everyone to Linux?",
+    "a": "No. A technical champion can evaluate the workspace on a dedicated machine. We also deliver knowledge systems and workflows on existing infrastructure, including Ubuntu. Your team can continue using its existing business tools."
   },
   {
-    num: "05",
-    q: "Models keep changing. Won't this be obsolete in a year?",
-    a: "The model is the most replaceable part of the system. Your knowledge graph, skills library, and harness can outlive a model release. When a better model becomes available, we test it against the same workflow before changing the production route.",
+    "num": "05",
+    "q": "Can we keep the AI tools we already use?",
+    "a": "Yes. The goal is a useful shared foundation around supported tools, with Codex, Claude Code, and Hermes as the primary setup paths being developed. Each tool has its own sign-in, permissions, integrations, and compatibility requirements."
   },
   {
-    num: "06",
-    q: "Is our data used to train models?",
-    a: "No. Never ours, never a provider's, under the configurations we deploy. The full detail, including where data lives and what we access, is on the Security page.",
+    "num": "06",
+    "q": "What do you mean by a second brain?",
+    "a": "A place to retain useful notes, decisions, and approved lessons so the next task can build on them. Sharing that knowledge across agents requires a configured knowledge store and access rules. It does not automatically combine private conversations or memories."
   },
   {
-    num: "07",
-    q: "What if it doesn't work for us?",
-    a: "We document the result at a gate and recommend stopping. You keep the workflow map, architecture sketch, and everything built to that point.",
+    "num": "07",
+    "q": "Can we connect local drives, SharePoint, or older systems?",
+    "a": "We scope connections around the sources and actions a workflow needs. That can include folders, network drives, SharePoint libraries, and business applications through APIs, MCP, or computer use. Access, document quality, and integration reliability are evaluated before rollout."
   },
   {
-    num: "08",
-    q: "Will you push us to cloud or local?",
-    a: "The workload decides. High-volume or sensitive work often favors local hardware, while infrequent tasks that need the strongest available model may favor frontier APIs. Many deployments use both with documented routing rules.",
+    "num": "08",
+    "q": "Is every feature on the homepage included in the OS?",
+    "a": "No. The homepage explains the foundation we are working toward and the systems we deliver for clients. Current preview capabilities, optional integrations, and illustrative workflows are labeled. Client implementations demonstrate delivery experience rather than the contents of a standard OS installation."
   },
   {
-    num: "09",
-    q: "Who actually does the work?",
-    a: "Rakesh leads the work with specialist engineers from a small trusted bench. Maslow accepts no more than two Foundation engagements at a time, which keeps him directly involved after kickoff. If both slots are full, we give you the next available start date and can complete Workflow Discovery beforehand.",
+    "num": "09",
+    "q": "How do we start a paid engagement?",
+    "a": "Bring a use case or a point of friction. We can begin with discovery, a setup project, a knowledge system, or one workflow. A 90-Day Foundation is available for larger scopes. Fees, deliverables, decision points, and ownership are agreed before work starts."
   },
   {
-    num: "10",
-    q: "What do you need from our side?",
-    a: "A workflow owner for about two hours a week, a decision-maker at three milestone gates, and scoped read access to the systems the workflow touches. No war rooms, no steering committees.",
+    "num": "10",
+    "q": "How quickly will we have something useful?",
+    "a": "That depends on the sources, integrations, and scope. We agree a first test and acceptance criteria early, then use the result to decide whether to continue. The 90-day example on How We Engage describes a larger foundation project, not a universal delivery promise."
   },
   {
-    num: "11",
-    q: "Can our IT team maintain it after you leave?",
-    a: "Yes. We use open formats, document the skills, provide playbooks, and train your team in weeks 11 and 12. Handover is part of the engagement plan.",
+    "num": "11",
+    "q": "Where does our information go?",
+    "a": "The selected deployment and model configuration determine the data path. Local services can run on your hardware; an external model or connected application may receive scoped information. We document those paths with your IT counterpart. A Linux installation alone does not keep every agent action local."
   },
   {
-    num: "12",
-    q: 'What does "no lock-in" mean, concretely?',
-    a: "Everything lives in your repositories and your tenant from day one: code, pipelines, prompts, skills, vector stores, graphs. Open models where they clear the quality bar. Firing us is a permissions change. We put it in the contract.",
+    "num": "12",
+    "q": "Is our data used to train models?",
+    "a": "Maslow does not use client data to train its own models. External provider use, retention, and training terms depend on the selected service, account, and configuration. These are reviewed for the scoped deployment rather than assumed from the tool name."
   },
   {
-    num: "13",
-    q: "What happens if Rakesh is unavailable mid-engagement?",
-    a: "Code, pipelines, skills, documentation, and weekly status history live in your repositories from day one. Specialist engineers on the engagement work under the same commitments and can continue against that record. A substitute cannot replace Rakesh's judgment overnight, but the work remains accessible and documented while availability is resolved.",
+    "num": "13",
+    "q": "Who runs the system after implementation?",
+    "a": "We agree whether your team operates it, Maslow provides scoped ongoing support, or responsibility is shared. Training, runbooks, monitoring, maintenance, and an exit path are part of that discussion."
   },
   {
-    num: "14",
-    q: "Our procurement team has a security questionnaire. Will you fill it in?",
-    a: "Yes. Send it early. The diligence pack maps our controls to standard questionnaire fields, lists subprocessors and retention terms, and documents exit paths. We return written answers for anything the current pack does not cover.",
+    "num": "14",
+    "q": "Can procurement review your security documents?",
+    "a": "Yes. The diligence page shows which documents are available and which are in preparation. Send your requirements early so we can identify gaps. Maslow does not currently hold SOC 2 certification."
   },
+  {
+    "num": "15",
+    "q": "Who will we work with?",
+    "a": "Rakesh David leads the work with specialist engineers as the engagement needs them. You get a named accountable lead, documented scope, and progress you can inspect with your team."
+  }
 ] as const;
 
 export const manufacturingBottlenecks = [

@@ -2,13 +2,7 @@ import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import {
-  assessmentQuestions,
-  assessmentRecMap,
-  assessmentStages,
-} from "@/lib/content/site";
-import { serviceCatalog, serviceStages } from "@/lib/content/services";
-import { concepts, metrics } from "@/lib/content/home";
+import { concepts } from "@/lib/content/home";
 import {
   blogArticles,
   featuredPost,
@@ -26,6 +20,9 @@ import {
   manufacturingBottlenecks,
   manufacturingMonday,
 } from "@/lib/content/trust";
+import { startingPoints } from "./starting-points";
+import { heroAgents, journeyChapters, workflowRecipes } from "./ai-os-home";
+import { legacyDestinations, publicRoutes } from "@/lib/routes";
 import { foundationWeeks, twoDoors } from "@/lib/content/engagement";
 import { conceptFailures } from "@/lib/content/explainers";
 import {
@@ -39,7 +36,6 @@ import {
   workflowMapperPatterns,
   workflowMapperQuestions,
 } from "@/lib/content/architecture";
-import { copilotSection, costOfWaiting } from "@/lib/content/home";
 import {
   formatPressDate,
   getAllPressSlugs,
@@ -81,32 +77,29 @@ function publicRouteExists(href: string): boolean {
 }
 
 describe("content modules", () => {
-  it("has six assessment questions with four options each", () => {
-    expect(assessmentQuestions).toHaveLength(6);
-    assessmentQuestions.forEach((q) => {
-      expect(q.options).toHaveLength(4);
-      expect(q.title.length).toBeGreaterThan(5);
+
+
+
+
+  it("offers independently scoped starting points with useful destinations", () => {
+    expect(startingPoints.map(point => point.id)).toEqual(["discover", "setup", "knowledge", "workflows"]);
+    startingPoints.forEach(point => {
+      expect(publicRouteExists(point.href)).toBe(true);
+      expect(point.result.length).toBeGreaterThan(40);
+      expect(point.status).toMatch(/PAID|SCOPED|CLIENT/);
     });
   });
 
-  it("assessment stages and rec map are complete", () => {
-    expect(assessmentStages).toHaveLength(5);
-    expect(assessmentRecMap).toHaveLength(6);
-  });
-
-  it("services catalog covers five stages", () => {
-    expect(serviceStages).toHaveLength(5);
-    expect(serviceCatalog).toHaveLength(5);
-    serviceCatalog.forEach((g) => {
-      expect(g.services).toHaveLength(3);
-      expect(g.id).toBeTruthy();
-    });
-  });
-
-  it("home concepts and metrics are populated", () => {
-    expect(concepts).toHaveLength(6);
-    expect(metrics).toHaveLength(4);
-    concepts.forEach((c) => expect(c.href.startsWith("/concepts/")).toBe(true));
+  it("keeps the seven teaching moments and multi-agent promise", () => {
+    expect(journeyChapters).toHaveLength(7);
+    expect(new Set(journeyChapters.map(chapter => chapter.key)).size).toBe(7);
+    expect(heroAgents.map(agent => agent.key)).toEqual(["openai", "claude", "hermes"]);
+    expect(Object.keys(workflowRecipes)).toHaveLength(3);
+    const copy = JSON.stringify(journeyChapters);
+    expect(copy).toMatch(/SharePoint/);
+    expect(copy).toMatch(/Qdrant/);
+    expect(copy).toMatch(/Semantica/i);
+    expect(copy).toMatch(/approv/i);
   });
 
   it("architecture views and scenarios cover the shared operating system", () => {
@@ -186,7 +179,7 @@ describe("content modules", () => {
       deliverableIds,
     );
     workflowMapperPatterns.forEach((pattern) => {
-      expect(["PRODUCTION ENGAGEMENT", "ILLUSTRATIVE PATTERN"]).toContain(
+      expect(["PRODUCTION ENGAGEMENT", "CLIENT IMPLEMENTATION", "ILLUSTRATIVE PATTERN"]).toContain(
         pattern.evidenceStatus,
       );
       expect(pattern.evidenceDescription.length).toBeGreaterThan(40);
@@ -254,8 +247,12 @@ describe("content modules", () => {
     );
   });
 
-  it("trust content carries the copy-v3 invariants", () => {
-    expect(faqItems).toHaveLength(14);
+  it("trust copy answers product, cost, compatibility, and data questions", () => {
+    const questions = faqItems.map(item => item.q).join(" ");
+    expect(questions).toMatch(/free/);
+    expect(questions).toMatch(/replace Windows/);
+    expect(questions).toMatch(/second brain/);
+    expect(questions).toMatch(/download/);
     faqItems.forEach((f, i) => {
       expect(f.num).toBe(String(i + 1).padStart(2, "0"));
       expect(f.a.length).toBeGreaterThan(40);
@@ -280,19 +277,18 @@ describe("content modules", () => {
     });
   });
 
-  it("homepage copilot and cost-of-waiting sections are populated", () => {
-    expect(copilotSection.h2).toMatch(/Keep Copilot/);
-    expect(copilotSection.body).toMatch(/personal productivity/);
-    expect(costOfWaiting.body).toMatch(/quotes still queue/);
-    expect(costOfWaiting.ctaHref).toBe("/assessment");
+  it("retired entry points lead to the new public journey", () => {
+    Object.values(legacyDestinations).forEach(destination => {
+      expect(publicRoutes).toContain(destination.split("#")[0]);
+      expect(publicRouteExists(destination)).toBe(true);
+    });
+    expect(publicRoutes).not.toContain("/assessment");
   });
 
   it("engagement gates are surfaced, conservatively", () => {
     expect(twoDoors).toHaveLength(2);
     expect(foundationWeeks).toHaveLength(4);
-    // Gates named on the first metric and the Foundation scope; the billing
-    // sentence stays out until the mechanics are verified.
-    expect(metrics[0].label).toMatch(/gates at weeks 2, 4, and 10/);
+    // The optional larger scope keeps explicit decision gates.
     expect(twoDoors[1].desc).toMatch(/weeks 2, 4, and 10/);
     expect(twoDoors[1].desc).not.toMatch(/billed/i);
     expect(foundationWeeks.filter((w) => w.gate)).toHaveLength(3);
@@ -323,7 +319,6 @@ describe("content modules", () => {
       "neigh" + "bours",
       "data cen" + "tre",
       "colour-" + "coded",
-      "Her" + "mes",
     ];
 
     roots.flatMap(sourceFiles).forEach((file) => {
@@ -337,19 +332,13 @@ describe("content modules", () => {
     });
   });
 
-  it("labels scenario cards without fabricated performance numbers", () => {
-    const scenarios = caseStudiesIndex.filter((study) => study.illustrative);
-    expect(scenarios.length).toBeGreaterThan(0);
-    scenarios.forEach((study) => {
-      expect(study.metric).toBe("SCENARIO");
-      expect(study.metricLabel).toMatch(/representative workflow pattern/i);
-      expect(study.href).toBeTruthy();
-    });
-    expect(scenarios.map(({ href }) => href)).toEqual([
-      "/concepts/ai-employee-architecture/technical#workflow-compliance",
-      "/concepts/ai-employee-architecture/technical#workflow-intake",
-      "/concepts/local-ai",
-    ]);
+  it("keeps illustrative examples out of client proof", () => {
+    expect(caseStudiesIndex.map(study => study.slug)).toEqual(["infinite-ai-os", "agenthub"]);
+    expect(caseStudiesIndex.every(study => !study.illustrative)).toBe(true);
+    const agent = caseStudiesIndex.find(study => study.slug === "agenthub");
+    expect(agent?.metricGloss).toMatch(/26 of 28/);
+    expect(agent?.metricLabel).toMatch(/first-tool routing/);
+    expect(infiniteAiOs.lede).toMatch(/distinct from Maslow AI-OS/);
   });
 
   it("maps only named production evidence to architecture capabilities", () => {
@@ -411,28 +400,6 @@ describe("brand design system", () => {
       offenders,
       "Pink is reserved for small pseudo-element signals, not element fills.",
     ).toEqual([]);
-  });
-});
-
-describe("assessment scoring logic", () => {
-  function stageFromAnswers(answers: number[]) {
-    const total = answers.reduce((s, x) => s + x, 0);
-    if (total <= 3) return 0;
-    if (total <= 7) return 1;
-    if (total <= 11) return 2;
-    if (total <= 15) return 3;
-    return 4;
-  }
-
-  it("maps low totals to exploring", () => {
-    expect(stageFromAnswers([0, 0, 0, 0, 0, 0])).toBe(0);
-    expect(stageFromAnswers([0, 0, 1, 0, 1, 0])).toBe(0);
-  });
-
-  it("maps mid/high totals to later stages", () => {
-    expect(stageFromAnswers([1, 1, 1, 1, 1, 1])).toBe(1);
-    expect(stageFromAnswers([2, 2, 2, 2, 2, 2])).toBe(3);
-    expect(stageFromAnswers([3, 3, 3, 3, 3, 3])).toBe(4);
   });
 });
 

@@ -11,6 +11,7 @@ import {
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/diligence" },
   title: {
     absolute: "Diligence Pack | Maslow AI · Built for your vendor review",
   },
@@ -72,9 +73,7 @@ export default function DiligencePage() {
                 </h2>
                 <p className={styles.requestBody}>
                   Tell us what your review needs first. We will attach available
-                  documents and identify what is still in preparation. Send your
-                  questionnaire with the request and we will return written
-                  answers.
+                  documents and identify what is still in preparation. Email your questionnaire after the request so we can address the specific requirements.
                 </p>
                 <p className={styles.closing}>{diligenceClosing}</p>
               </Reveal>

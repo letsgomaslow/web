@@ -180,16 +180,16 @@ export const principles = [
 export const founder = {
   name: "Rakesh David",
   role: "Founder & CEO",
-  bio: "Rakesh spent more than twenty years in enterprise technology, including CIO and CTO roles at Expedia and Aurobindo Pharma. He owned the budgets, legacy systems, and board questions that come with large technology programs. He founded Maslow after repeatedly seeing critical know-how locked in a few irreplaceable people and projects priced beyond the reach of mid-market companies. Today he builds knowledge graphs, agentic harnesses, and the AI employees they support.",
+  bio: "Rakesh spent more than twenty years in enterprise technology, including CIO and CTO roles at Expedia and Aurobindo Pharma. He owned the budgets, legacy systems, and board questions that come with large technology programs. He founded Maslow after repeatedly seeing critical know-how locked in a few irreplaceable people and projects priced beyond the reach of mid-market companies. Today he leads Maslow AI, building shared AI foundations and practical workflow systems with client teams.",
   pull: "You work directly with someone who has sat in your chair, on your side of the table.",
   bench:
-    "For each engagement, Rakesh brings in specialist engineers from a small, trusted bench while retaining accountability for the work. Code, pipelines, skills, documentation, and status history live in your repositories from day one. That makes the engagement less dependent on any one person's availability, including his.",
+    "For each engagement, Rakesh brings in specialist engineers from a small, trusted bench while retaining accountability for the work. Code, pipelines, skills, documentation, and status history are part of the engagement handover and agreed ownership terms. That makes the engagement less dependent on any one person's availability, including his.",
   elsewhere:
     "Rakesh serves as Chief AI Officer at Rivalista, where the same operating model runs in a second industry, and writes about AI cognition.",
 };
 
 export const standingLine =
-  "We run Maslow on the same system we build for you: our procedures are versioned skills, our engagements ship weekly written status, and our work product lives in your repos, not ours. The first proof of the product is the company.";
+  "The lessons from client delivery shape Maslow AI-OS: make setup repeatable, keep useful knowledge accessible, and document how the work runs. A free workspace gives technical champions a place to start; an organization’s workflows still deserve their own design and validation.";
 
 /** @deprecated Use founder. Kept temporarily for any residual imports. */
 export const team = [{ role: founder.role, name: founder.name }];

@@ -9,9 +9,10 @@ import { caseStudiesIndex } from "@/lib/content/case-studies";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Case Studies | Maslow AI · Production work and status" },
+  alternates: { canonical: "/case-studies" },
+  title: { absolute: "Client Work | Maslow AI" },
   description:
-    "Production engagements with current status and measured results, followed by clearly labeled architecture scenarios.",
+    "Deployed client implementations with the problem, delivery path, current evidence, limitations, and next measurement kept visible.",
 };
 
 function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
@@ -20,16 +21,13 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
       <div className={styles.art} style={{ background: cs.art }}>
         <div className={styles.artMeta}>
           <TaxonomyCapsule
-            tone={cs.illustrative ? "illustrative" : "inverse"}
+            tone="inverse"
             size="compact"
             data={{
-              "data-scenario-status": cs.illustrative ? "true" : undefined,
-              "data-card-evidence-status": cs.illustrative
-                ? "illustrative"
-                : "production",
+              "data-card-evidence-status": "production",
             }}
           >
-            {cs.illustrative ? "ILLUSTRATIVE SCENARIO" : cs.evidenceLabel}
+            {cs.evidenceLabel}
           </TaxonomyCapsule>
           <TaxonomyCapsule
             tone="inverse"
@@ -81,7 +79,7 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
           </div>
           {cs.href ? (
             <span className={`${styles.caseStudyCta} text-link`} aria-hidden>
-              {cs.illustrative ? "EXPLORE THE PATTERN" : "VIEW CASE STUDY"}
+              VIEW CASE STUDY
               &nbsp;&nbsp;&gt;
             </span>
           ) : null}
@@ -93,7 +91,7 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
   const card = (
     <article
       className={`${styles.card} ${cs.href ? styles.linkedCard : ""}`}
-      data-card-kind={cs.illustrative ? "scenario" : "case-study"}
+      data-card-kind="case-study"
       data-card-slug={cs.slug}
     >
       {inner}
@@ -106,7 +104,7 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
     <Link
       href={cs.href}
       className={styles.cardLink}
-      aria-label={`${cs.illustrative ? "Explore scenario" : "View case study"}: ${cs.title}`}
+      aria-label={`View case study: ${cs.title}`}
     >
       {card}
     </Link>
@@ -114,9 +112,6 @@ function CaseCard({ cs }: { cs: (typeof caseStudiesIndex)[number] }) {
 }
 
 export default function CaseStudiesPage() {
-  const production = caseStudiesIndex.filter((c) => !c.illustrative);
-  const illustrative = caseStudiesIndex.filter((c) => c.illustrative);
-
   return (
     <PageShell footer="compact" showCtaBand={false}>
       <>
@@ -126,51 +121,49 @@ export default function CaseStudiesPage() {
               className="eyebrow mz-rise"
               style={{ animationDelay: "0.05s" }}
             >
-              CASE STUDIES
+              DEPLOYED CLIENT IMPLEMENTATIONS
             </div>
             <h1
               className="h1 mz-rise"
               style={{ animationDelay: "0.15s", marginBottom: 20 }}
             >
-              Production work and current status
+              What changed, what shipped, and what remains
             </h1>
             <p
               className="lede mz-rise"
               style={{ animationDelay: "0.3s", maxWidth: 680 }}
             >
-              Two production engagements, followed by clearly labeled scenarios
-              showing where the same architecture can be applied next.
+              Two client systems with the problem, delivery path, evidence
+              boundary, and next measurement kept visible.
             </p>
           </div>
         </section>
 
         <section className={styles.list} data-screen-label="Case Blocks">
           <div className={styles.listInner}>
-            {production.map((cs) => (
+            {caseStudiesIndex.map((cs) => (
               <Reveal key={cs.slug}>
                 <CaseCard cs={cs} />
               </Reveal>
             ))}
+          </div>
+        </section>
 
-            <Reveal>
-              <div className={styles.illustrativeIntro}>
-                <h2 className={styles.illustrativeTitle}>
-                  What a typical engagement looks like.
-                </h2>
-                <p className={styles.illustrativeBody}>
-                  The scenarios below are labeled composites. They show
-                  representative architectures. Performance figures are reserved
-                  for verified evidence. The two engagements above are
-                  production work with their current evidence status shown.
-                </p>
-              </div>
-            </Reveal>
-
-            {illustrative.map((cs) => (
-              <Reveal key={cs.slug}>
-                <CaseCard cs={cs} />
-              </Reveal>
-            ))}
+        <section className={styles.examples} data-screen-label="Illustrative Examples">
+          <div className={styles.examplesInner}>
+            <div>
+              <div className="eyebrow eyebrow-ice">ILLUSTRATIVE EXAMPLES</div>
+              <h2 className={styles.examplesTitle}>
+                Exploring what this could look like in your organization?
+              </h2>
+              <p className={styles.examplesLede}>
+                Resources keeps representative workflow patterns separate from
+                client evidence, with every example labeled by status.
+              </p>
+            </div>
+            <CtaButton href="/resources" variant="inverse">
+              EXPLORE RESOURCES
+            </CtaButton>
           </div>
         </section>
 
@@ -178,11 +171,11 @@ export default function CaseStudiesPage() {
           <div className={styles.ctaInner}>
             <div>
               <h2 className={styles.ctaTitle}>
-                Your operation could be the next one here.
+                Which waiting workflow should move first?
               </h2>
               <p className={styles.ctaLede}>
-                Start with a 30-minute working session. We will map where AI may
-                pay in your workflows and identify where it is unlikely to help.
+                Start with a working session. We will map the owner, source
+                knowledge, procedure, controls, and evidence needed to move it.
               </p>
             </div>
             <CtaButton href="/contact" variant="inverse">

@@ -115,14 +115,14 @@ export const localRunsLocally = [
   "Document Q&A over your knowledge graph",
   "Email & ticket triage, classification, routing",
   "Drafting from templates and precedent",
-  "Anything touching regulated or client data",
+  "Approved sensitive-data work that passes local quality checks",
 ];
 
 export const localKeepFrontier = [
   "Novel multi-step reasoning on unfamiliar problems",
   "Long-horizon agentic work with many tools",
-  "Low-volume tasks unlikely to reach breakeven",
-  "The harness routes each task to the right model automatically",
+  "Low-volume tasks unlikely to justify dedicated local infrastructure",
+  "Approved routing can send a defined task to a selected model",
 ];
 
 export const localCostDefaults = {
@@ -395,7 +395,7 @@ export const gatewayBenefits = [
   },
   {
     name: "Skills compound",
-    desc: "A skill written for the email agent works in Teams the same day. Your library becomes an asset that grows.",
+    desc: "A reviewed procedure can be adapted for more than one approved channel. Your library becomes an asset that grows.",
   },
 ];
 
@@ -556,8 +556,8 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     crumb: "Context engineering",
     badge: "TECHNOLOGY",
     badgeColor: "var(--color-ice-text)",
-    title: "Your AI needs the right briefing.",
-    lede: "Before a model acts, it receives a set of documents, instructions, and current data. Context engineering controls what is included. Build a briefing below and see how the answer changes.",
+    title: "Turn scattered files into a briefing you can inspect.",
+    lede: "Context engineering decides which source material reaches a model, how current it is, and which citation comes back with the answer.",
     next: { href: "/concepts/hybrid-rag", label: "Hybrid RAG →" },
   },
   "local-ai": {
@@ -565,8 +565,8 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     crumb: "Local AI",
     badge: "TECHNOLOGY",
     badgeColor: "var(--color-ice-text)",
-    title: "Own the hardware. Flatten the bill.",
-    lede: "Cloud AI bills grow with every query. Local AI is an investment: buy the hardware once, run open models on it, and watch cost per query fall toward electricity. Use the calculator to find your breakeven.",
+    title: "Choose where each workload and its data should run.",
+    lede: "Local AI can keep selected data and model work inside infrastructure you control. Cloud services can remain available for approved tasks. The useful design is a visible boundary between them.",
     prev: { href: "/concepts/agentic-harness", label: "← Agentic Harness" },
   },
   "virtual-ai-employees": {
@@ -587,8 +587,8 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     crumb: "Skills & gateways",
     badge: "STRATEGY",
     badgeColor: "var(--color-plum-text)",
-    title: "Write a procedure once, then reuse it across agents.",
-    lede: "A skill records your firm's procedure in a versioned, testable format an agent can follow. Gateways make those skills available in Teams, Slack, and email. Browse the library below.",
+    title: "Turn a working procedure into a reusable capability.",
+    lede: "A skill records a repeatable workflow. Gateways connect that procedure to approved systems, with permissions and human decisions kept visible.",
     prev: { href: "/concepts/agentic-harness", label: "← Agentic Harness" },
     next: {
       href: "/concepts/virtual-ai-employees",
@@ -600,8 +600,8 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     crumb: "Harness engineering",
     badge: "STRATEGY + TECHNOLOGY",
     badgeColor: "var(--color-plum-text)",
-    title: "A model needs a system around it.",
-    lede: "An agentic harness connects the model to current context, approved tools, memory, guardrails, and working channels. Those components let it carry a workflow and leave an audit trail. Drag the model below and select a component.",
+    title: "Give the model a controlled path through real work.",
+    lede: "An agentic harness scopes the context and tools, pauses for consequential decisions, and records what happened so the workflow can be reviewed.",
     prev: { href: "/concepts/hybrid-rag", label: "← Hybrid RAG" },
     next: { href: "/concepts/local-ai", label: "Local AI →" },
   },
@@ -610,8 +610,8 @@ export const explainerPages: Record<string, ExplainerMeta> = {
     crumb: "Hybrid RAG",
     badge: "TECHNOLOGY",
     badgeColor: "var(--color-ice-text)",
-    title: "Your files, turned into something an AI can reason over.",
-    lede: "Most of your company's knowledge lives in unstructured files. Hybrid RAG converts them into two complementary structures: a vector database for meaning and a knowledge graph for facts. Scroll to watch it happen.",
+    title: "Ask one question across meaning and facts.",
+    lede: "Hybrid RAG can search passages by meaning, follow exact relationships in a knowledge graph, and return the source material used for an answer.",
     prev: {
       href: "/concepts/context-engineering",
       label: "← Context engineering",
@@ -645,8 +645,8 @@ export const conceptFailures: Record<
     body: 'Keyword search can find documents that mention the right terms, but it cannot reliably answer "Which contracts changed after the reorganization?" That question depends on relationships among people, projects, dates, and agreements. A vector database finds related language; a knowledge graph resolves the relationships and gives the answer traceable reasons.',
   },
   "local-ai": {
-    headline: "The bill spikes the month adoption succeeds.",
-    body: "A lightly used pilot can hide the cost of metered APIs. When adoption increases, teams may begin rationing queries to control the bill. For stable, high-volume workloads, local inference can replace per-token charges with hardware depreciation, electricity, and support costs while keeping data on site.",
+    headline: "The deployment boundary disappears when the demo scales.",
+    body: "A lightly used pilot can hide where data travels, how provider terms apply, and what happens when workload volume increases. A production design classifies workloads, records allowed destinations, and measures quality, capacity, failures, and operating cost on the selected infrastructure.",
   },
   "skills-and-gateways": {
     headline: "Your best prompt lives in one person's notes.",
@@ -657,3 +657,84 @@ export const conceptFailures: Record<
     body: "A chatbot can answer a question while leaving the underlying task untouched. The quote still waits for someone to open the ERP, copy the numbers, and route the approval. An AI employee carries the request through those steps under human supervision and reports the workflow status until the work is complete.",
   },
 };
+
+export const conceptStoryJourneys = {
+  context: {
+    eyebrow: "FROM SOURCE TO BRIEFING",
+    title: "What happens before the answer appears?",
+    description: "Follow a contract question through the preparation work that makes a grounded answer possible.",
+    variant: "knowledge" as const,
+    steps: [
+      { id: "question", label: "Question", title: "Start with the decision someone needs to make.", body: "An operations lead asks whether invoice 4482 follows the current payment terms. The question defines the task before any source is retrieved.", items: [{ label: "Question", detail: "Does invoice 4482 match the active Vendor X agreement?" }, { label: "Owner", detail: "Operations lead" }], result: "A bounded question with a named owner.", status: "ILLUSTRATIVE WORKFLOW" },
+      { id: "sources", label: "Sources", title: "Gather the files that could govern the answer.", body: "The invoice, master agreement, amendment, and current vendor record enter the candidate set with dates and source identity intact.", items: [{ label: "Invoice PDF" }, { label: "2024 MSA amendment" }, { label: "Current vendor record" }], result: "A traceable source set before relevance is decided." },
+      { id: "extract", label: "Extraction", title: "Turn pages into usable passages and facts.", body: "Text, tables, headings, dates, parties, and clause references are extracted. Each chunk keeps a path back to its file and page.", items: [{ label: "Passages", detail: "Terms and surrounding clauses" }, { label: "Entities", detail: "Vendor, invoice, agreement, dates" }], result: "Structured material with source locations." },
+      { id: "briefing", label: "Briefing", title: "Select current evidence and expose conflicts.", body: "Retrieval ranks relevant passages, resolves the governing agreement, and surfaces the amendment that replaces an older term.", items: [{ label: "Included", detail: "Current amendment section 7.2" }, { label: "Flagged", detail: "Older net-30 reference" }], result: "A compact briefing that shows why each fact was included." },
+      { id: "answer", label: "Cited answer", title: "Return an answer that a person can check.", body: "The response states the mismatch and points back to the governing clause. The operations lead keeps the decision to approve the correction.", items: [{ label: "Finding", detail: "Invoice says net-30; current agreement says net-45" }, { label: "Citation", detail: "MSA amendment, section 7.2" }], result: "A reviewable answer and a clear human next step." },
+    ],
+  },
+  hybrid: {
+    eyebrow: "VECTOR + GRAPH",
+    title: "Why does one question need two kinds of retrieval?",
+    description: "Select each stage to see where meaning, relationships, and citations contribute.",
+    variant: "knowledge" as const,
+    steps: [
+      { id: "file", label: "File", title: "Preserve the structure of the source.", body: "A contract PDF becomes headings, clauses, tables, and page references instead of one undifferentiated block of text.", items: [{ label: "Preserved", detail: "Section names, page numbers, parties" }], result: "Source-aware chunks ready for indexing.", status: "ILLUSTRATIVE TECHNICAL PATTERN" },
+      { id: "vector", label: "Vector", title: "Use meaning to find likely passages.", body: "Vector search handles fuzzy language. A question about ending an agreement can find clauses titled termination, cancellation, or notice.", items: [{ label: "Best for", detail: "Similarity, themes, broad recall" }, { label: "Limit", detail: "A nearby passage is not automatically a verified fact" }], result: "A ranked set of semantically relevant passages." },
+      { id: "graph", label: "Graph", title: "Use relationships to test exact facts.", body: "The graph connects Vendor X to its active agreement, amendment, dates, obligations, and governing clauses.", items: [{ label: "Best for", detail: "Entities, relationships, exact filters" }, { label: "Limit", detail: "Accuracy depends on extraction and upkeep" }], result: "A fact path that can confirm which document governs." },
+      { id: "combine", label: "Hybrid", title: "Combine recall with a precise relationship path.", body: "Vector candidates and graph relationships are used together, then only the evidence relevant to this question enters the briefing.", items: [{ label: "Vector", detail: "Candidate clauses" }, { label: "Graph", detail: "Active agreement and amendment" }], result: "A smaller evidence set with fewer unresolved conflicts." },
+      { id: "cite", label: "Cite", title: "Make the retrieval path inspectable.", body: "The answer links its claim to the source clause and identifies uncertainty when the available records do not resolve the question.", items: [{ label: "Answer" }, { label: "Source file and section" }, { label: "Uncertainty flag when needed" }], result: "A response a reviewer can verify at the source." },
+    ],
+  },
+  harness: {
+    eyebrow: "CONTROLLED EXECUTION",
+    title: "Where does human judgment sit in an agent workflow?",
+    description: "Follow one request through scoped context, approved tools, a human decision, and a retained trace.",
+    variant: "workflow" as const,
+    steps: [
+      { id: "scope", label: "Scope", title: "Define the task and its stopping point.", body: "The harness receives a request to reconcile one invoice. It knows the permitted sources, expected output, and action it cannot take alone.", items: [{ label: "May", detail: "Read invoice and contract" }, { label: "May not", detail: "Send or approve payment" }], result: "A bounded run with explicit permissions.", status: "ILLUSTRATIVE CONTROL PATTERN" },
+      { id: "context", label: "Context", title: "Load only the evidence needed for this run.", body: "Current contract terms and invoice details enter the working context with source references. Irrelevant client files stay outside it.", items: [{ label: "Current contract clause" }, { label: "Invoice line items" }], result: "A task-specific briefing with visible provenance." },
+      { id: "tools", label: "Tools", title: "Use narrow capabilities for specific work.", body: "The agent can read approved records and draft a correction. A separate permission boundary blocks sending or changing the accounting record.", items: [{ label: "Read", detail: "Contract and invoice" }, { label: "Draft", detail: "Correction note" }, { label: "Blocked", detail: "Send and payment approval" }], result: "Prepared work without an unauthorized side effect." },
+      { id: "decision", label: "Decision", title: "Pause where responsibility changes hands.", body: "The operations lead sees the discrepancy, source clause, and drafted correction before choosing whether to proceed.", items: [{ label: "Decision owner", detail: "Operations lead" }, { label: "Evidence", detail: "Invoice, clause, proposed response" }], result: "A consequential action remains with its accountable person." },
+      { id: "trace", label: "Trace", title: "Return a record of the run.", body: "The trace records what was read, which skill version ran, what was proposed, who decided, and what happened next.", items: [{ label: "Inputs" }, { label: "Tool calls" }, { label: "Decision and outcome" }], result: "A run that can be reviewed and improved." },
+    ],
+  },
+  local: {
+    eyebrow: "DEPLOYMENT BOUNDARIES",
+    title: "Which data stays local, and what may reach the cloud?",
+    description: "Inspect the routing decision. The answer depends on the workload, policy, hardware, and approved services.",
+    variant: "deployment" as const,
+    steps: [
+      { id: "classify", label: "Classify", title: "Start with data and decision risk.", body: "Identify sensitive records, latency needs, model capability, expected volume, and the action the output may influence.", items: [{ label: "Data", detail: "Client-confidential documents" }, { label: "Workload", detail: "Repeat document classification" }], result: "A routing requirement grounded in the work.", status: "ILLUSTRATIVE DEPLOYMENT PATTERN" },
+      { id: "local", label: "Local", title: "Keep selected work inside your boundary.", body: "A local model can handle repeatable work when measured quality meets the requirement. Documents and prompts remain within the approved local environment.", items: [{ label: "Candidate", detail: "High-volume repeat classification" }, { label: "Verify", detail: "Quality, capacity, recovery" }], result: "A local path with a testable service boundary." },
+      { id: "cloud", label: "Cloud", title: "Use an approved service for selected tasks.", body: "A cloud model may fit when a task needs capability or elasticity unavailable locally. Data policy and provider terms still set the boundary.", items: [{ label: "Candidate", detail: "Approved low-volume complex reasoning" }, { label: "Verify", detail: "Data handling, retention, cost" }], result: "A deliberate exception with recorded conditions." },
+      { id: "route", label: "Route", title: "Apply policy before selecting a model.", body: "The router checks the workload class and allowed destinations. Ambiguous requests stop for review instead of silently crossing a boundary.", items: [{ label: "Allowed", detail: "Local document classification" }, { label: "Escalate", detail: "Unclassified data or new cloud destination" }], result: "A visible decision at the local and cloud boundary." },
+      { id: "observe", label: "Observe", title: "Measure the boundary in operation.", body: "Teams inspect quality, latency, capacity, failures, and route decisions to check whether deployment still matches policy.", items: [{ label: "Quality and latency" }, { label: "Route and failure logs" }, { label: "Human overrides" }], result: "Evidence for tuning without relying on a savings promise." },
+    ],
+  },
+  skills: {
+    eyebrow: "SKILL TO SYSTEM",
+    title: "How does one approved procedure travel across tools?",
+    description: "The reusable asset is the procedure, its permissions, and its review history. Each connection remains separately scoped.",
+    variant: "delivery" as const,
+    steps: [
+      { id: "capture", label: "Capture", title: "Write down the procedure people trust.", body: "A subject-matter owner defines the inputs, sequence, exceptions, output, and decisions for invoice reconciliation.", items: [{ label: "Owner", detail: "Accounts payable lead" }, { label: "Procedure", detail: "Invoice reconciliation" }], result: "A procedure that can be reviewed before automation.", status: "ILLUSTRATIVE DELIVERY PATTERN" },
+      { id: "test", label: "Test", title: "Exercise representative and edge cases.", body: "Known matches, discrepancies, missing records, and ambiguous terms reveal where instructions or a human stop need work.", items: [{ label: "Expected cases" }, { label: "Edge cases" }, { label: "Escalation cases" }], result: "A versioned skill with known behavior and limits." },
+      { id: "connect", label: "Connect", title: "Give each system only the access the job needs.", body: "CRM can expose vendor identity. The document store can provide the contract. Email can accept a draft without granting send access.", items: [{ label: "CRM", detail: "Read vendor" }, { label: "Documents", detail: "Read agreement" }, { label: "Email", detail: "Create draft" }], result: "Separate least-privilege connections around one skill." },
+      { id: "decide", label: "Decide", title: "Keep the consequential step with a person.", body: "The accounts payable lead reviews the mismatch and source before approving a correction or payment change.", items: [{ label: "Human owner" }, { label: "Source evidence" }, { label: "Proposed action" }], result: "The workflow moves after an accountable decision." },
+      { id: "reuse", label: "Reuse", title: "Offer the reviewed skill to another approved agent.", body: "The procedure can support an inbox or operations agent when each new channel and permission set is reviewed.", items: [{ label: "Shared", detail: "Procedure and tests" }, { label: "Reviewed again", detail: "Channel, permissions, owner" }], result: "Reusable operating knowledge with scoped access." },
+    ],
+  },
+  infrastructure: {
+    eyebrow: "SHARED AI INFRASTRUCTURE",
+    title: "Give approved agents the same organizational foundation.",
+    description: "Knowledge, memory, skills, connections, and visibility can be managed as shared infrastructure instead of rebuilt inside each agent.",
+    variant: "memory" as const,
+    steps: [
+      { id: "knowledge", label: "Knowledge", title: "Connect the sources the organization governs.", body: "PDFs, images, documents, drives, SharePoint, and business systems can feed a controlled knowledge layer when connectors and indexing are configured.", items: [{ label: "Sources", detail: "Documents, drives, approved systems" }, { label: "Structures", detail: "Search, vectors, knowledge graph" }], result: "A source layer with paths back to origin.", status: "PROPOSED ORGANIZATIONAL SETUP" },
+      { id: "memory", label: "Memory", title: "Approve memory before it becomes shared context.", body: "An agent proposes a durable fact or preference. A policy or human reviewer approves it, stores it with scope and provenance, and makes it available to approved agents.", items: [{ label: "Proposed", detail: "Client prefers weekly PDF status" }, { label: "Approved", detail: "Project owner or policy" }, { label: "Scope", detail: "Client project agents" }], result: "Approved memory that keeps its origin visible." },
+      { id: "skills", label: "Skills", title: "Store procedures as versioned assets.", body: "A reviewed skill captures how the team performs a recurring job, including exceptions, tests, and the moment a person must decide.", items: [{ label: "Procedure" }, { label: "Tests and version" }, { label: "Decision point" }], result: "One governed procedure for approved agents." },
+      { id: "connections", label: "Connections", title: "Connect legacy and modern systems with scoped interfaces.", body: "MCP servers, application APIs, and controlled computer use can expose specific actions from CRM, ERP, email, files, and older tools.", items: [{ label: "Preferred", detail: "Structured API or MCP tool" }, { label: "Fallback", detail: "Controlled computer use where needed" }], result: "A narrow capability map instead of broad access." },
+      { id: "visibility", label: "Visibility", title: "See what every run used, proposed, and changed.", body: "Shared traces connect runs to knowledge sources, skill versions, tool calls, approvals, failures, and outcomes.", items: [{ label: "Observe", detail: "Runs, latency, failures" }, { label: "Review", detail: "Sources, actions, decisions" }, { label: "Improve", detail: "Skill and route revisions" }], result: "One review surface for operating the system." },
+    ],
+  },
+} as const;

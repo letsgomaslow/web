@@ -12,11 +12,12 @@ import { founder, principles, standingLine } from "@/lib/content/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: { absolute: "About | Maslow AI · Founder-led AI systems" },
   description:
     "Led by a former CIO/CTO with twenty years of enterprise technology behind him. Four commitments in writing, and a mission to reduce the cost of AI adoption.",
   openGraph: {
-    title: "About | Maslow AI · Founder-led AI systems",
+    title: { absolute: "About | Maslow AI · Founder-led AI systems" },
     description:
       "Led by a former CIO/CTO with twenty years of enterprise technology behind him. Four commitments in writing, and a mission to reduce the cost of AI adoption.",
     images: [
@@ -57,16 +58,16 @@ export default function AboutPage() {
                 marginBottom: 26,
               }}
             >
-              Build AI around the systems your company already trusts.
+              Make useful AI easier to put to work.
             </h1>
             <p
               className="lede mz-rise"
               style={{ animationDelay: "0.3s", maxWidth: 640 }}
             >
-              The hierarchy of needs behind our name shapes how we work. We
-              begin with your data, workflows, risk limits, and infrastructure.
-              Once that base is sound, an AI employee has something dependable
-              to work from.
+              Client work keeps bringing us back to the same foundations: usable
+              knowledge, connected tools, reusable skills, and a way to see what
+              happened. Maslow AI-OS is our free starting point for that work,
+              alongside the implementation help that makes it fit an organization.
             </p>
           </div>
         </section>
@@ -80,11 +81,12 @@ export default function AboutPage() {
               </h2>
             </div>
             <p className={styles.missionBody}>
-              Enterprise AI projects often bundle strategy, software, and
-              infrastructure into one opaque price. We separate those decisions.
-              Open models can reduce licensing costs, local hardware can lower
-              high-volume inference costs, and a well-built harness can outlast
-              any single model. Your proposal shows the scope and price of each.
+              We want more of an implementation budget to go toward the work
+              that is specific to your business. Maslow AI-OS brings a
+              customizable Linux workspace into that effort. Our client work
+              connects the information, systems, and review steps around a
+              useful task. The OS is in development; client projects can start
+              on the infrastructure you already have.
             </p>
           </div>
         </section>
@@ -93,7 +95,7 @@ export default function AboutPage() {
           <div className="wrap">
             <div className="eyebrow">HOW WE WORK</div>
             <h2 className="h2" style={{ marginBottom: 44 }}>
-              Four commitments, in writing
+              The decisions we build around
             </h2>
             <div className={styles.principleGrid}>
               {principles.map((p) => (
@@ -160,7 +162,7 @@ export default function AboutPage() {
         <section className={styles.ctaBand} data-screen-label="CTA">
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>
-              Work with a team that builds AI you can own.
+              Bring your work. We’ll bring the experience.
             </h2>
             <CtaButton href="/contact" variant="inverse">
               {ctaPrimaryLabel}

@@ -20,6 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) return { title: "Article" };
   return {
     title: article.title,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: { type: "article", title: article.title, description: article.lede, url: `/blog/${slug}`, modifiedTime: article.modifiedAt },
     description: article.lede,
   };
 }
@@ -81,7 +83,10 @@ export default async function BlogArticlePage({ params }: Props) {
               <div>
                 <div className={styles.author}>Maslow AI Team</div>
                 <div className={styles.date}>
-                  {article.date} · {article.read}
+                  <span>{article.date} · {article.read}</span>
+                  <time dateTime={article.modifiedAt}>
+                    Updated September 11, 2026
+                  </time>
                 </div>
               </div>
             </div>

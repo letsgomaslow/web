@@ -39,13 +39,13 @@ function selectedOption(
 function evidenceForPattern(
   pattern: (typeof workflowMapperPatterns)[number],
 ): EvidenceReceiptData {
-  const production = pattern.evidenceStatus === "PRODUCTION ENGAGEMENT";
+  const delivered = pattern.evidenceStatus !== "ILLUSTRATIVE PATTERN";
   return {
     claim: pattern.evidenceDescription,
     scope: `Suggested ownership path: ${pattern.title}.`,
-    status: production ? "production" : "illustrative",
+    status: pattern.evidenceStatus === "CLIENT IMPLEMENTATION" ? "implementation" : delivered ? "production" : "illustrative",
     owner: "Maslow AI",
-    limitations: production
+    limitations: delivered
       ? "This engagement evidence does not establish measured results for the workflow you mapped."
       : "The sources, controls, owner, and review boundary require validation before production use.",
     href: pattern.evidenceHref,
@@ -281,7 +281,7 @@ export function WorkflowMapper() {
   const select = (option: WorkflowMapperOption) => {
     if (!started.current) {
       started.current = true;
-      track("Workflow mapper started", { source: "architecture" });
+      track("Workflow mapper started", { source: "planner" });
     }
     const nextAnswers = { ...answers, [question.id]: option.id };
     setAnswers(nextAnswers);
@@ -409,7 +409,7 @@ export function WorkflowMapper() {
 
         <div className={styles.resultActions}>
           <Link href="/contact" className="cta" onClick={persistBrief}>
-            BOOK A WORKING SESSION
+            TALK THROUGH A WORKFLOW
           </Link>
           <button type="button" className={styles.copy} onClick={copyBrief}>
             {copyStatus === "copied"
@@ -434,7 +434,7 @@ export function WorkflowMapper() {
         aria-valuenow={step + 1}
         aria-valuetext={`Question ${step + 1} of ${workflowMapperQuestions.length}: ${question.title}`}
       >
-        <span>90-SECOND WORKFLOW MAPPER</span>
+        <span>YOUR WORKFLOW BRIEF</span>
         <span>
           {step + 1} / {workflowMapperQuestions.length}
         </span>

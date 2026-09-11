@@ -1,37 +1,8 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { legacyDestinations, publicRoutes } from "@/lib/routes";
 
-const routes = [
-  "/",
-  "/services",
-  "/how-we-engage",
-  "/assessment",
-  "/about",
-  "/contact",
-  "/blog",
-  "/blog/context-engineering",
-  "/blog/what-makes-an-ai-employee-work",
-  "/blog/context-memory-and-skills",
-  "/blog/permissions-approvals-audit-trails",
-  "/press",
-  "/press/openai-select-partner",
-  "/case-studies",
-  "/case-studies/infinite-ai-os",
-  "/case-studies/agenthub",
-  "/manufacturing",
-  "/security",
-  "/faq",
-  "/diligence",
-  "/concepts/ai-employee-architecture",
-  "/concepts/ai-employee-architecture/technical",
-  "/concepts/context-engineering",
-  "/concepts/agentic-harness",
-  "/concepts/hybrid-rag",
-  "/concepts/local-ai",
-  "/concepts/virtual-ai-employees",
-  "/concepts/skills-and-gateways",
-  "/campaigns/virtual-ai-employees",
-];
+const routes = [...publicRoutes];
 
 test.describe("route smoke", () => {
   for (const route of routes) {
@@ -39,10 +10,31 @@ test.describe("route smoke", () => {
       const res = await page.goto(route, { waitUntil: "domcontentloaded" });
       expect(res?.ok() || res?.status() === 304).toBeTruthy();
       await expect(page.locator("body")).toBeVisible();
+      await expect(page.locator("h1")).toHaveCount(1);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://maslow.ai${route === "/" ? "" : route}`);
+      await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /\S.{35,}/);
+      const links = await page.locator('main a[href^="/"]').evaluateAll(nodes => nodes.map(node => node.getAttribute("href")!.split("#")[0].split("?")[0]));
+      expect(links.filter(href => Object.keys(legacyDestinations).includes(href))).toEqual([]);
       // Brand must be present
       await expect(
         page.getByRole("img", { name: "Maslow AI" }).first(),
       ).toBeVisible();
+    });
+  }
+
+  for (const [legacyRoute, destination] of Object.entries(
+    legacyDestinations,
+  )) {
+    test(`redirects ${legacyRoute} to ${destination}`, async ({ page }) => {
+      const destinationPath = destination.split("#")[0];
+      const destinationHash = destination.includes("#")
+        ? `#${destination.split("#")[1]}`
+        : "";
+
+      await page.goto(legacyRoute, { waitUntil: "domcontentloaded" });
+      await expect(page).toHaveURL(
+        new RegExp(`${destinationPath.replaceAll("/", "\\/")}${destinationHash}$`),
+      );
     });
   }
 });
@@ -53,7 +45,7 @@ test.describe("navigation", () => {
     await page.goto("/");
     await page
       .getByRole("navigation", { name: "Primary" })
-      .getByRole("link", { name: "SERVICES" })
+      .getByRole("link", { name: "HOW WE HELP" })
       .click();
     await expect(page).toHaveURL(/\/services/);
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
@@ -103,7 +95,7 @@ test.describe("navigation", () => {
     await expect(
       page
         .getByRole("navigation", { name: "Primary" })
-        .getByRole("link", { name: "SERVICES" }),
+        .getByRole("link", { name: "HOW WE HELP" }),
     ).toHaveAttribute("aria-current", "page");
   });
 });
@@ -139,18 +131,29 @@ test.describe("press releases", () => {
     ).toBeVisible();
     await expect(page.getByText(/DRAFT FOR OPENAI REVIEW/)).toHaveCount(0);
     await expect(page.getByText(/NOT FOR PUBLICATION/)).toHaveCount(0);
+    const historicalBody = page.getByRole("region", {
+      name: "Press release content",
+    });
     await expect(
-      page.getByRole("link", {
+      page.getByRole("heading", {
+        name: /The free AI-OS is the entry point/i,
+      }),
+    ).toBeVisible();
+    await expect(
+      historicalBody.getByText(/This note adds current product context/i),
+    ).toHaveCount(0);
+    await expect(
+      historicalBody.getByRole("link", {
         name: "Infinite AI OS: an AI operating system in 90 days",
       }),
     ).toHaveAttribute("href", "/case-studies/infinite-ai-os");
     await expect(
-      page.getByRole("link", {
+      historicalBody.getByRole("link", {
         name: "AgentHub: contracts you can question",
       }),
     ).toHaveAttribute("href", "/case-studies/agenthub");
     await expect(
-      page.getByRole("link", {
+      historicalBody.getByRole("link", {
         name: "https://openai.com/business/partners/",
       }),
     ).toHaveAttribute("target", "_blank");
@@ -165,22 +168,24 @@ test.describe("press releases", () => {
 });
 
 test.describe("card interactions and layout", () => {
-  test("homepage concepts offer one buyer path and one technical path", async ({
+  test("homepage gives separate product and implementation paths", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 320, height: 800 });
     await page.goto("/");
 
-    const concepts = page.locator('[data-screen-label="Concepts"]');
-    await expect(concepts.getByRole("link")).toHaveCount(2);
+    const nextMove = page.locator("section").filter({
+      has: page.getByRole("heading", { name: /Bring your curiosity/i }),
+    });
     await expect(
-      concepts.locator('a[href="/concepts/ai-employee-architecture"]'),
-    ).toContainText("SEE THE BUYER VIEW");
+      nextMove.getByRole("link", { name: /Explore AI-OS preview/i }),
+    ).toHaveAttribute("href", "/ai-os");
     await expect(
-      concepts.locator(
-        'a[href="/concepts/ai-employee-architecture/technical"]',
-      ),
-    ).toContainText("BROWSE THE TECHNICAL LIBRARY");
+      nextMove.getByRole("link", { name: /Build a workflow with us/i }),
+    ).toHaveAttribute("href", "/contact");
+    await expect(
+      page.getByText(/There is no public download from this page/i),
+    ).toBeVisible();
   });
 
   test("the full production card is the case-study link", async ({ page }) => {
@@ -200,231 +205,94 @@ test.describe("card interactions and layout", () => {
     await expect(page).toHaveURL(/\/case-studies\/infinite-ai-os/);
   });
 
-  test("scenario cards use one full-card link and retain status metadata", async ({
+  test("case-study index contains client implementations and sends examples to resources", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto("/case-studies");
 
-    const link = page.getByRole("link", {
-      name: /Explore scenario: 120,000 documents, one knowledge graph/i,
-    });
-    const card = link.locator(
-      'article[data-card-slug="financial-knowledge-graph"]',
-    );
-    const status = card.locator("[data-scenario-status]");
-    const sector = card.locator("[data-card-sector]");
-    const [linkBox, cardBox, statusBox, sectorBox] = await Promise.all([
-      link.boundingBox(),
-      card.boundingBox(),
-      status.boundingBox(),
-      sector.boundingBox(),
-    ]);
-
-    expect(linkBox).toEqual(cardBox);
-    expect(await card.getByRole("link").count()).toBe(0);
-    expect(statusBox).not.toBeNull();
-    expect(sectorBox).not.toBeNull();
-    expect(statusBox!.y + statusBox!.height).toBeLessThanOrEqual(sectorBox!.y);
-
-    await link.click({ position: { x: 24, y: 24 } });
-    await expect(page).toHaveURL(/\/technical#workflow-compliance$/);
+    await expect(page.locator("[data-card-slug]")).toHaveCount(2);
     await expect(
-      page.getByRole("tab", { name: /Compliance answer/i }),
-    ).toHaveAttribute("aria-selected", "true");
+      page.getByText("DEPLOYED CLIENT IMPLEMENTATIONS", { exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /Explore resources/i }),
+    ).toHaveAttribute("href", "/resources");
+    await expect(page.getByText(/120,000 documents/i)).toHaveCount(0);
+  });
+
+  test("resources organizes the buyer journey around six questions", async ({
+    page,
+  }) => {
+    await page.goto("/resources");
+
+    const pathways = page.locator("section").filter({
+      has: page.getByRole("heading", {
+        name: "Six questions, one practical starting point",
+      }),
+    });
+    await expect(pathways.getByRole("link")).toHaveCount(6);
+    await expect(pathways.locator('a[href="/ai-os"]')).toHaveCount(1);
+    await expect(pathways.locator('a[href="/plan-workflow"]')).toHaveCount(1);
+    await expect(
+      pathways.locator('a[href="/concepts/shared-ai-infrastructure"]'),
+    ).toHaveCount(1);
+    await expect(
+      page.getByText(/illustrative patterns, with no client result/i),
+    ).toBeVisible();
   });
 });
 
 test.describe("interactive islands", () => {
-  test("architecture map supports view and workflow hashes with keyboard navigation", async ({
-    page,
-  }) => {
-    await page.goto(
-      "/concepts/ai-employee-architecture/technical#workflow-intake",
-    );
+  test("services presents all four approved starting needs", async ({ page }) => {
+    await page.goto("/services");
 
-    const viewTabs = page.getByRole("tablist", {
-      name: "Choose an architecture view",
-    });
-    const scenarioTabs = page.getByRole("tablist", {
-      name: "Choose an illustrative workflow",
-    });
-    await expect(viewTabs.getByRole("tab")).toHaveCount(3);
-    await expect(scenarioTabs.getByRole("tab")).toHaveCount(3);
-    await expect(
-      viewTabs.getByRole("tab", { name: /Run the work/i }),
-    ).toHaveAttribute("aria-selected", "true");
-
-    const intakeTab = scenarioTabs.getByRole("tab", {
-      name: /Shared inbox intake/i,
-    });
-    await expect(intakeTab).toHaveAttribute("aria-selected", "true");
-    await expect(
-      page.getByRole("heading", {
-        name: "Client inquiry to partner-reviewed response",
-      }),
-    ).toBeVisible();
-
-    await intakeTab.focus();
-    await page.keyboard.press("ArrowRight");
-    await expect(
-      scenarioTabs.getByRole("tab", { name: /Compliance answer/i }),
-    ).toHaveAttribute("aria-selected", "true");
-    await expect(page).toHaveURL(/#workflow-compliance$/);
-
-    await page.keyboard.press("Home");
-    await expect(
-      scenarioTabs.getByRole("tab", { name: /RFQ \+ estimating/i }),
-    ).toHaveAttribute("aria-selected", "true");
-    await expect(page).toHaveURL(/#workflow-rfq$/);
-
-    const runTab = viewTabs.getByRole("tab", { name: /Run the work/i });
-    await runTab.focus();
-    await page.keyboard.press("ArrowRight");
-    await expect(
-      viewTabs.getByRole("tab", { name: /Control the work/i }),
-    ).toHaveAttribute("aria-selected", "true");
-    await expect(page).toHaveURL(/#view-control$/);
-
-    await page.keyboard.press("End");
-    await expect(
-      viewTabs.getByRole("tab", { name: /Improve the system/i }),
-    ).toHaveAttribute("aria-selected", "true");
-    await expect(page).toHaveURL(/#view-improve$/);
-    await expect(
-      page.getByText("ILLUSTRATIVE CAPABILITY · NOT A PRODUCTION CLAIM", {
-        exact: true,
-      }),
-    ).toBeVisible();
-
-    const proposal = page.getByRole("button", {
-      name: /Propose an update/i,
-    });
-    await proposal.click();
-    await expect(proposal).toHaveAttribute("aria-expanded", "true");
-    await expect(
-      page.locator('[data-node-detail="proposal"]'),
-    ).toBeVisible();
-  });
-
-  test("architecture workflows remain available without JavaScript", async ({
-    browser,
-  }, testInfo) => {
-    const baseURL = String(
-      testInfo.project.use.baseURL ?? "http://localhost:3000",
-    );
-    const context = await browser.newContext({
-      baseURL,
-      javaScriptEnabled: false,
-    });
-    const page = await context.newPage();
-    await page.goto("/concepts/ai-employee-architecture/technical");
-
-    await expect(page.locator("[data-workflow-panel]")).toHaveCount(3);
-    await expect(
-      page.getByRole("heading", {
-        name: "RFQ received to approved estimate draft",
-      }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole("heading", {
-        name: "Client inquiry to partner-reviewed response",
-      }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole("heading", { name: "Policy question to cited answer" }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole("heading", {
-        name: "Follow one responsibility from request to result.",
-      }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole("heading", {
-        name: "See the boundaries around every action.",
-      }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole("heading", {
-        name: "See how review signals could become a safer procedure.",
-      }),
-    ).toBeVisible();
-
-    await context.close();
-  });
-
-  test("architecture map opens each guided view for every workflow", async ({
-    page,
-  }) => {
-    await page.goto("/concepts/ai-employee-architecture/technical");
-    const viewTabs = page.getByRole("tablist", {
-      name: "Choose an architecture view",
-    });
-    const scenarioTabs = page.getByRole("tablist", {
-      name: "Choose an illustrative workflow",
-    });
-
-    for (const scenario of [
-      "RFQ + estimating",
-      "Shared inbox intake",
-      "Compliance answer",
+    const scopes = page.locator("#scopes");
+    for (const startingPoint of [
+      { id: "discover", href: "/plan-workflow", status: "PAID DISCOVERY" },
+      { id: "setup", href: "/ai-os", status: "SCOPED SETUP" },
+      {
+        id: "knowledge",
+        href: "/case-studies/agenthub",
+        status: "CLIENT IMPLEMENTATION",
+      },
+      {
+        id: "workflows",
+        href: "/case-studies/infinite-ai-os",
+        status: "CLIENT IMPLEMENTATION",
+      },
     ]) {
-      await scenarioTabs.getByRole("tab", { name: scenario }).click();
-      for (const view of ["Run the work", "Control the work", "Improve the system"]) {
-        await viewTabs.getByRole("tab", { name: view }).click();
-        await expect(page.locator("[data-architecture-view]:visible")).toHaveCount(1);
-        await expect(page.locator("[data-node-detail]:visible")).toHaveCount(1);
-      }
+      const card = scopes.locator(`#${startingPoint.id}`);
+      await expect(card).toBeVisible();
+      await expect(card).toContainText(startingPoint.status);
+      await expect(card.getByRole("link")).toHaveAttribute(
+        "href",
+        startingPoint.href,
+      );
     }
-  });
-
-  test("architecture controls enter the first desktop viewport", async ({
-    page,
-  }) => {
-    await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto("/concepts/ai-employee-architecture/technical");
-
-    const mapBox = await page.locator("#architecture-map").boundingBox();
-    expect(mapBox).not.toBeNull();
-    expect(mapBox!.y).toBeLessThan(900);
     await expect(
-      page.getByRole("tablist", { name: "Choose an architecture view" }),
+      scopes.getByText(/Maslow AI-OS is intended to be free/i),
     ).toBeVisible();
   });
 
-  test("buyer route keeps the contextual CTA early on mobile", async ({
+  test("AI-OS preview keeps release and operating boundaries explicit", async ({
     page,
   }) => {
-    await page.setViewportSize({ width: 320, height: 800 });
-    await page.goto("/concepts/ai-employee-architecture");
+    await page.goto("/ai-os");
 
-    const hero = page.locator('[data-screen-label="Hero"]');
-    const cta = hero.getByRole("link", { name: "BOOK A WORKING SESSION" });
-    const [ctaBox, pageHeight, wordsBeforePrimaryConversion] = await Promise.all([
-      cta.boundingBox(),
-      page.evaluate(() => document.documentElement.scrollHeight),
-      page.evaluate(() => {
-        const main = document.querySelector("main");
-        const conversion = document.querySelector(
-          'main [data-screen-label="CTA"]',
-        );
-        if (!main || !conversion) return Number.POSITIVE_INFINITY;
-        const range = document.createRange();
-        range.setStart(main, 0);
-        range.setEndBefore(conversion);
-        return range
-          .toString()
-          .trim()
-          .split(/\s+/)
-          .filter(Boolean).length;
-      }),
-    ]);
-
-    expect(ctaBox).not.toBeNull();
-    expect(wordsBeforePrimaryConversion).toBeLessThan(500);
-    expect(ctaBox!.y).toBeGreaterThanOrEqual(0);
-    expect(ctaBox!.y + ctaBox!.height).toBeLessThanOrEqual(800);
-    expect(ctaBox!.y / pageHeight).toBeLessThan(0.4);
+    await expect(page.getByText("In development.", { exact: true })).toBeVisible();
+    await expect(
+      page.getByText(/A public download is not available through this website/i),
+    ).toBeVisible();
+    await expect(
+      page.getByText(/stable signed public release and broad hardware acceptance remain open milestones/i),
+    ).toBeVisible();
+    await expect(
+      page.getByText(/Hardware, model subscriptions or API usage, third-party licenses, and Maslow implementation services are separate/i),
+    ).toBeVisible();
+    await expect(
+      page.getByText(/This engagement evidence does not establish/i),
+    ).toHaveCount(0);
   });
 
   test("workflow mapper builds and clears an editable contact brief", async ({
@@ -437,9 +305,9 @@ test.describe("interactive islands", () => {
         body: JSON.stringify({ ok: true }),
       });
     });
-    await page.goto("/concepts/ai-employee-architecture");
+    await page.goto("/plan-workflow");
 
-    const mapper = page.locator('[data-screen-label="Workflow Mapper"]');
+    const mapper = page.locator("#workflow-mapper");
     const choose = async (name: string, final = false) => {
       const radio = mapper.getByRole("radio", { name });
       await radio.check();
@@ -461,9 +329,7 @@ test.describe("interactive islands", () => {
     await expect(resultHeading).toBeVisible();
     await expect(resultHeading).toBeFocused();
     await expect(mapper.getByText("PRODUCTION ENGAGEMENT")).toBeVisible();
-    await mapper
-      .getByRole("link", { name: "BOOK A WORKING SESSION" })
-      .click();
+    await mapper.getByRole("link", { name: "TALK THROUGH A WORKFLOW" }).click();
 
     await expect(page).toHaveURL(/\/contact$/);
     const message = page.getByLabel("Message");
@@ -474,13 +340,13 @@ test.describe("interactive islands", () => {
     await page.getByLabel("Company").fill("Example Company");
     await page
       .getByLabel("What are you exploring?")
-      .selectOption("AI employee pilot");
+      .selectOption("Workflow implementation");
     await page
-      .getByRole("button", { name: /BOOK MY WORKING SESSION/i })
+      .getByRole("button", { name: /REQUEST A WORKING SESSION/i })
       .click();
 
     await expect(
-      page.getByText(/A member of our team replies/i),
+      page.getByText(/Your request is with Maslow/i),
     ).toBeVisible();
     await expect
       .poll(() =>
@@ -491,32 +357,12 @@ test.describe("interactive islands", () => {
       .toBeNull();
   });
 
-  test("assessment quiz answers update progress", async ({ page }) => {
-    await page.goto("/assessment");
-    await expect(page.getByText("0 / 6 answered")).toBeVisible();
-    // Click first option of first question
-    await page
-      .getByRole("button")
-      .filter({ hasText: /haven't started|Nowhere/i })
-      .first()
-      .click();
-    await expect(page.getByText("1 / 6 answered")).toBeVisible();
-  });
-
-  test("local AI calculator responds to slider", async ({ page }) => {
-    await page.goto("/concepts/local-ai");
-    const slider = page.locator('input[type="range"]');
-    await expect(slider).toBeVisible();
-    await slider.fill("1500");
-    await expect(page.getByText(/tokens/i).first()).toBeVisible();
-  });
-
   test("contact form validates email", async ({ page }) => {
     await page.goto("/contact");
     await page.getByPlaceholder("Full name").fill("Test User");
     await page.getByPlaceholder("Work email").fill("not-an-email");
     await page
-      .getByRole("button", { name: /BOOK MY WORKING SESSION/i })
+      .getByRole("button", { name: /REQUEST A WORKING SESSION/i })
       .click();
     // HTML5 validation should prevent submit - still on contact
     await expect(page).toHaveURL(/\/contact/);
@@ -830,14 +676,13 @@ test.describe("founder and company identity", () => {
   test("publishes the founder photo and current contact destinations", async ({
     page,
   }) => {
-    await page.goto("/");
+    await page.goto("/about");
     await expect(
       page
         .locator('[data-screen-label="Founder"]')
         .getByRole("img", { name: /Rakesh David, Founder and CEO/i }),
     ).toBeVisible();
 
-    await page.goto("/about");
     await expect(
       page.getByRole("link", { name: /Rakesh on LinkedIn/i }),
     ).toHaveAttribute("href", "https://www.linkedin.com/in/rakeshdavid/");

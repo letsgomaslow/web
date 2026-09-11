@@ -118,7 +118,7 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
             })}
             <Link href="/contact" className={styles.book}>
               <span className={styles.bookLong}>{ctaPrimaryLabel}</span>
-              <span className={styles.bookShort}>BOOK</span>
+              <span className={styles.bookShort}>LET’S TALK</span>
             </Link>
           </nav>
         )}
@@ -130,15 +130,15 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
             aria-label={ctaPrimaryLabel}
           >
             <span className={styles.bookLong}>{ctaPrimaryLabel}</span>
-            <span className={styles.bookShort}>BOOK</span>
+            <span className={styles.bookShort}>LET’S TALK</span>
           </Link>
         )}
 
         {!minimal && (
           <div className={styles.cluster}>
             <Link href="/contact" className={styles.bookMobile}>
-              <span className={styles.bookLong}>BOOK SESSION</span>
-              <span className={styles.bookShort}>BOOK</span>
+              <span className={styles.bookLong}>LET’S TALK</span>
+              <span className={styles.bookShort}>LET’S TALK</span>
             </Link>
             <button
               ref={triggerRef}
@@ -229,11 +229,11 @@ export function SiteNav({ minimal = false }: SiteNavProps) {
                   {ctaPrimaryLabel}
                 </Link>
                 <Link
-                  href="/assessment"
+                  href="/plan-workflow"
                   className={styles.menuSecondary}
                   onClick={close}
                 >
-                  TAKE THE 2-MINUTE ASSESSMENT
+                  MAP A WORKFLOW
                 </Link>
               </div>
 

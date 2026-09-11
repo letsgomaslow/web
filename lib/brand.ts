@@ -69,9 +69,9 @@ export const ticks = [
   colors.navy,
 ] as const;
 
-export const ctaPrimaryLabel = "BOOK A WORKING SESSION";
-export const ctaContactSubmitLabel = "BOOK MY WORKING SESSION";
-export const engagementBadge = "TAKING TWO NEW ENGAGEMENTS FOR Q4 2026";
+export const ctaPrimaryLabel = "TALK THROUGH A WORKFLOW";
+export const ctaContactSubmitLabel = "REQUEST A WORKING SESSION";
+export const engagementBadge = "FREE FOUNDATION · PRACTICAL IMPLEMENTATION";
 
 export const contactEmail = "rakesh@maslow.ai";
 
@@ -89,30 +89,30 @@ export const founderHeadshot = {
 } as const;
 
 export const navLinks = [
-  { href: "/services", label: "SERVICES" },
-  { href: "/how-we-engage", label: "HOW WE ENGAGE" },
-  { href: "/case-studies", label: "CASE STUDIES" },
-  { href: "/blog", label: "BLOG" },
+  { href: "/ai-os", label: "AI-OS" },
+  { href: "/services", label: "HOW WE HELP" },
+  { href: "/case-studies", label: "CLIENT WORK" },
+  { href: "/resources", label: "RESOURCES" },
   { href: "/about", label: "ABOUT" },
 ] as const;
 
 export const conceptLinks = [
   {
-    href: "/concepts/ai-employee-architecture",
-    label: "AI employee architecture",
+    href: "/concepts/shared-ai-infrastructure",
+    label: "Shared AI infrastructure",
   },
   { href: "/concepts/context-engineering", label: "Context engineering" },
   { href: "/concepts/agentic-harness", label: "Harness engineering" },
   { href: "/concepts/hybrid-rag", label: "Hybrid RAG" },
-  { href: "/concepts/virtual-ai-employees", label: "AI employees" },
-  { href: "/concepts/skills-and-gateways", label: "Skills & gateways" },
+  { href: "/concepts/skills-and-gateways", label: "Shared skills & connections" },
   { href: "/concepts/local-ai", label: "Local AI & hardware" },
 ] as const;
 
 export const companyLinks = [
-  { href: "/services", label: "Services" },
+  { href: "/services", label: "How We Help" },
   { href: "/how-we-engage", label: "How We Engage" },
-  { href: "/case-studies", label: "Case Studies" },
+  { href: "/case-studies", label: "Client Work" },
+  { href: "/resources", label: "Resources" },
   { href: "/blog", label: "Blog" },
   { href: "/press", label: "Press Releases" },
   { href: "/about", label: "About" },
@@ -127,6 +127,7 @@ export const trustLinks = [
 ] as const;
 
 export const startLinks = [
-  { href: "/assessment", label: "Assessment" },
-  { href: "/contact", label: "Book a working session" },
+  { href: "/ai-os", label: "Explore the preview" },
+  { href: "/plan-workflow", label: "Map a workflow" },
+  { href: "/contact", label: "Talk through a workflow" },
 ] as const;
