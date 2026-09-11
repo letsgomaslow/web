@@ -20,7 +20,7 @@
   display: grid;
   grid-template-columns: 380px 1fr;
   border: 1px solid #f1f1f1;
-  border-radius: var(--radius-structural);
+  border-radius: 0;
   overflow: hidden;
   background: var(--color-white);
   color: var(--color-text);
@@ -93,25 +93,6 @@
   max-width: 280px;
 }
 
-.illustrativeIntro {
-  padding: 12px 4px 8px;
-  border-top: 1px solid var(--color-navy);
-}
-
-.illustrativeTitle {
-  margin: 0 0 10px;
-  font: 700 22px/28px var(--font-sans);
-  letter-spacing: -0.4px;
-  color: #1a1a1a;
-}
-
-.illustrativeBody {
-  margin: 0;
-  font: 400 15px/24px var(--font-sans);
-  color: var(--color-muted);
-  max-width: 760px;
-}
-
 .body {
   padding: 36px 40px;
   display: flex;
@@ -176,6 +157,48 @@
   flex-wrap: wrap;
 }
 
+.examples {
+  padding: 72px var(--gutter);
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+
+.examplesInner {
+  width: min(100%, var(--max));
+  min-width: 0;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.examplesInner > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.examplesInner :global(.eyebrow) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.examplesTitle {
+  max-width: 720px;
+  margin: 16px 0 12px;
+  color: var(--color-white);
+  font: 600 38px/42px var(--font-sans);
+  letter-spacing: -0.8px;
+  overflow-wrap: anywhere;
+}
+
+.examplesLede {
+  max-width: 680px;
+  margin: 0;
+  color: var(--color-white);
+  font: 400 15px/24px var(--font-sans);
+}
+
 .cta {
   background: var(--color-navy-deep);
   color: var(--color-white);
@@ -217,9 +240,19 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .examplesInner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 600px) {
+  .examplesTitle {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
   .art {
     min-height: 280px;
     padding: 24px 20px;

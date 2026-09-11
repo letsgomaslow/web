@@ -61,6 +61,7 @@
   --shadow-headshot: 0 4px 6px rgba(0, 0, 0, 0.124);
   --max: var(--maslow-layout-content-max);
   --gutter: 48px;
+  --site-header-height: 83px;
 }
 
 *,
@@ -528,3 +529,5 @@ body.mz-anim .mz-reveal[data-mz-focus-revealed] {
     white-space: normal;
   }
 }
+
+[id] { scroll-margin-top: calc(var(--site-header-height) + 22px); }

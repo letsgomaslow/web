@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { EvidenceReceipt } from "@/components/evidence/EvidenceReceipt";
+import { StoryJourney } from "@/components/stories/StoryJourney";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { DepthDisclosure } from "@/components/ui/DepthDisclosure";
 import { Reveal } from "@/components/ui/Reveal";
@@ -12,7 +13,8 @@ import { CaseStudyChapterNav } from "../CaseStudyChapterNav";
 import styles from "../case-study.module.css";
 
 export const metadata: Metadata = {
-  title: "Infinite AI OS Case Study | Maslow AI",
+  alternates: { canonical: "/case-studies/infinite-ai-os" },
+  title: { absolute: "Infinite AI OS Case Study | Maslow AI" },
   description: cs.lede,
 };
 
@@ -136,6 +138,8 @@ export default function InfiniteAiOsPage() {
             />
           </div>
         </section>
+
+        <StoryJourney {...cs.journey} />
 
         <div className={styles.chapterNavBand}>
           <CaseStudyChapterNav chapters={chapters} />

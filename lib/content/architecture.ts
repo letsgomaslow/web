@@ -106,9 +106,9 @@ export const architectureOverview = {
   eyebrow: "START WITH ONE WAITING WORKFLOW",
   title: "See what the AI prepares, where a person decides, and what remains.",
   desc: "Follow a delayed deliverable from intake to a supervised, reviewable result, then map the same ownership path around your work.",
-  href: "/concepts/ai-employee-architecture",
+  href: "/plan-workflow",
   cta: "SEE THE BUYER VIEW",
-  technicalHref: "/concepts/ai-employee-architecture/technical",
+  technicalHref: "/concepts/shared-ai-infrastructure",
   technicalCta: "BROWSE THE TECHNICAL LIBRARY",
 } as const;
 
@@ -180,7 +180,7 @@ const architectureProductionEvidenceByHref: Record<
     claim:
       "The AgentHub engagement includes contract retrieval, field-level citations, controlled tool routing, and a visible activity record.",
     scope: "Published case study for one healthcare enterprise engagement.",
-    status: "production",
+    status: "implementation",
     owner: "Maslow AI delivery team",
     limitations:
       "The case documents a 50-document grounded corpus. It does not predict accuracy or results for a different corpus.",
@@ -265,6 +265,7 @@ export const workflowMapperQuestions: WorkflowMapperQuestion[] = [
 
 export type WorkflowEvidenceStatus =
   | "PRODUCTION ENGAGEMENT"
+  | "CLIENT IMPLEMENTATION"
   | "ILLUSTRATIVE PATTERN";
 
 export type WorkflowMapperPattern = {
@@ -285,7 +286,7 @@ export const workflowMapperPatterns: WorkflowMapperPattern[] = [
     deliverableId: "estimate",
     title: "Request to estimator-reviewed draft",
     prepare:
-      "The AI employee assembles the request, similar work, rate information, and missing-input questions into an estimate draft.",
+      "The agent workflow assembles the request, similar work, rate information, and missing-input questions into an estimate draft.",
     record:
       "The draft returns with its assumptions, sources, estimator decision, and next owner.",
     evidenceStatus: "PRODUCTION ENGAGEMENT",
@@ -299,28 +300,28 @@ export const workflowMapperPatterns: WorkflowMapperPattern[] = [
     deliverableId: "knowledge-answer",
     title: "Question to cited, reviewable answer",
     prepare:
-      "The AI employee retrieves the governing documents, assembles the relevant facts, and drafts an answer with source-level citations.",
+      "The agent workflow retrieves the governing documents, assembles the relevant facts, and drafts an answer with source-level citations.",
     record:
       "The answer keeps its citations, reviewer changes, and the source versions used at the time.",
-    evidenceStatus: "PRODUCTION ENGAGEMENT",
+    evidenceStatus: "CLIENT IMPLEMENTATION",
     evidenceDescription:
       "The AgentHub engagement demonstrates contract retrieval, field-level citations, controlled tool routing, and a visible activity record.",
     evidenceHref: "/case-studies/agenthub",
-    evidenceLabel: "VIEW PRODUCTION EVIDENCE",
+    evidenceLabel: "VIEW THE CLIENT IMPLEMENTATION",
   },
   {
     id: "reviewed-response",
     deliverableId: "client-response",
     title: "Shared request to owner-reviewed response",
     prepare:
-      "The AI employee collects the required facts, checks approved precedent, identifies missing details, and prepares a response for review.",
+      "The agent workflow collects the required facts, checks approved precedent, identifies missing details, and prepares a response for review.",
     record:
       "The approved draft, decision basis, and next handoff return to the shared queue before anything is sent.",
     evidenceStatus: "ILLUSTRATIVE PATTERN",
     evidenceDescription:
       "This ownership path is an illustrative workflow. It is not presented as a client deployment or measured result.",
     evidenceHref:
-      "/concepts/ai-employee-architecture/technical#workflow-intake",
+      "/campaigns/virtual-ai-employees#workflow-example",
     evidenceLabel: "OPEN THE ILLUSTRATIVE WALKTHROUGH",
   },
   {
@@ -328,14 +329,14 @@ export const workflowMapperPatterns: WorkflowMapperPattern[] = [
     deliverableId: "internal-report",
     title: "Source records to owner-approved report",
     prepare:
-      "The AI employee assembles current records, applies the reporting procedure, and marks unsupported or conflicting inputs.",
+      "The agent workflow assembles current records, applies the reporting procedure, and marks unsupported or conflicting inputs.",
     record:
       "The report remains attached to the source set, owner decision, unresolved exceptions, and next reporting date.",
     evidenceStatus: "ILLUSTRATIVE PATTERN",
     evidenceDescription:
       "This ownership path is an illustrative workflow. The exact sources, controls, and evidence would need to be validated for the operation.",
     evidenceHref:
-      "/concepts/ai-employee-architecture/technical#view-control",
+      "/security#data-path",
     evidenceLabel: "OPEN THE CONTROL REFERENCE",
   },
 ];
@@ -365,7 +366,7 @@ export const architectureCapabilities: ArchitectureCapability[] = [
     businessLabel: "Work arrives",
     technicalLabel: "Channels + triggers + schedules",
     summary:
-      "The AI employee receives a message, file, system event, or scheduled responsibility through a channel your team already uses.",
+      "The agent workflow receives a message, file, system event, or scheduled responsibility through a channel your team already uses.",
     mechanism:
       "Gateways and event adapters turn each request into a tracked responsibility with an owner and due state.",
     inspection: "Authorized sender, trigger, channel, and task owner",
@@ -434,7 +435,7 @@ export const architectureCapabilities: ArchitectureCapability[] = [
     mechanism:
       "Persistent state and checkpoints retain the result, supporting evidence, current status, and next owner.",
     inspection: "Status, evidence, actions, approvals, and next owner",
-    relatedHref: "/concepts/virtual-ai-employees",
+    relatedHref: "/services#workflows",
     accent: "var(--color-gold-text)",
   },
 ];
@@ -485,7 +486,7 @@ export const architectureMapNodes: ArchitectureMapNode[] = [
     outcome:
       "Each responsibility operates with a defined identity and the minimum access required for its work.",
     mechanism:
-      "Credential stores and role policies scope which systems and operations are available to the AI employee.",
+      "Credential stores and role policies scope which systems and operations are available to the agent workflow.",
     inspection: "Identity used, permission granted, expiration, and requested operation",
     viewIds: ["control"],
     claimStatus: operatingStatus,
@@ -700,7 +701,7 @@ export const architectureScenarioOverlays: ArchitectureScenarioOverlay[] = [
     sector: "MANUFACTURING",
     title: "RFQ received to approved estimate draft",
     lede:
-      "A request arrives with drawings and a due date. The AI employee assembles the job history, follows the estimating procedure, checks approved systems, and pauses when an assumption needs an estimator.",
+      "A request arrives with drawings and a due date. The agent workflow assembles the job history, follows the estimating procedure, checks approved systems, and pauses when an assumption needs an estimator.",
     statusLabel: "ILLUSTRATIVE WALKTHROUGH · NOT A CLIENT RESULT",
     relatedHref: "/concepts/agentic-harness",
     relatedLabel: "EXPLORE HARNESS ENGINEERING",
@@ -722,7 +723,7 @@ export const architectureScenarioOverlays: ArchitectureScenarioOverlay[] = [
       {
         capabilityId: "procedure",
         title: "The estimating procedure runs",
-        body: "The AI employee follows the approved checklist, identifies missing inputs, and prepares the work for specialist review.",
+        body: "The agent workflow follows the approved checklist, identifies missing inputs, and prepares the work for specialist review.",
         record: "Skill version, checks, exceptions",
       },
       {
@@ -783,7 +784,7 @@ export const architectureScenarioOverlays: ArchitectureScenarioOverlay[] = [
     sector: "PROFESSIONAL SERVICES",
     title: "Client inquiry to partner-reviewed response",
     lede:
-      "A new inquiry reaches the shared inbox. The AI employee collects the required facts, applies the intake procedure, drafts from approved precedent, and escalates the relationship decision.",
+      "A new inquiry reaches the shared inbox. The agent workflow collects the required facts, applies the intake procedure, drafts from approved precedent, and escalates the relationship decision.",
     statusLabel: "ILLUSTRATIVE WALKTHROUGH · NOT A CLIENT RESULT",
     relatedHref: "/concepts/skills-and-gateways",
     relatedLabel: "EXPLORE SKILLS AND GATEWAYS",
@@ -797,7 +798,7 @@ export const architectureScenarioOverlays: ArchitectureScenarioOverlay[] = [
       {
         capabilityId: "briefing",
         title: "The client briefing is assembled",
-        body: "The AI employee retrieves service criteria, relevant precedent, and any permitted relationship history.",
+        body: "The agent workflow retrieves service criteria, relevant precedent, and any permitted relationship history.",
         record: "Criteria, precedent, source dates",
       },
       {
@@ -815,7 +816,7 @@ export const architectureScenarioOverlays: ArchitectureScenarioOverlay[] = [
       {
         capabilityId: "decision",
         title: "The practice owner decides",
-        body: "The AI employee presents the facts, open risks, and a draft response. The owner approves, edits, or declines.",
+        body: "The agent workflow presents the facts, open risks, and a draft response. The owner approves, edits, or declines.",
         record: "Decision, edits, approver",
       },
       {
@@ -864,7 +865,7 @@ export const architectureScenarioOverlays: ArchitectureScenarioOverlay[] = [
     sector: "REGULATED KNOWLEDGE WORK",
     title: "Policy question to cited answer",
     lede:
-      "A team member asks how a current obligation applies. The AI employee retrieves the governing sources, resolves the relevant relationships, drafts a cited answer, and routes it for review.",
+      "A team member asks how a current obligation applies. The agent workflow retrieves the governing sources, resolves the relevant relationships, drafts a cited answer, and routes it for review.",
     statusLabel: "ILLUSTRATIVE WALKTHROUGH · NOT A CLIENT RESULT",
     relatedHref: "/concepts/context-engineering",
     relatedLabel: "EXPLORE CONTEXT ENGINEERING",
@@ -886,7 +887,7 @@ export const architectureScenarioOverlays: ArchitectureScenarioOverlay[] = [
       {
         capabilityId: "procedure",
         title: "The review procedure runs",
-        body: "The AI employee applies the approved issue checklist and separates supported findings from unresolved questions.",
+        body: "The agent workflow applies the approved issue checklist and separates supported findings from unresolved questions.",
         record: "Checklist version, findings, gaps",
       },
       {

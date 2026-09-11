@@ -22,7 +22,7 @@ type BookFormProps = {
 };
 
 export function BookForm({
-  ctaLabel = "BOOK A WORKING SESSION",
+  ctaLabel = "REQUEST A WORKING SESSION",
 }: BookFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
@@ -108,7 +108,7 @@ export function BookForm({
       </label>
       <label className={styles.field}>
         <span className={styles.fieldLabel}>
-          Where would an AI teammate help most?
+          Which workflow would you like to improve?
         </span>
         <select
           className={styles.select}
@@ -118,7 +118,7 @@ export function BookForm({
           disabled={status === "loading"}
         >
           <option value="" disabled>
-            Where would an AI teammate help most?
+            Which workflow would you like to improve?
           </option>
           {FOCUS.map((opt) => (
             <option key={opt} value={opt}>
@@ -136,12 +136,12 @@ export function BookForm({
       </button>
       {status === "idle" && (
         <p className={styles.hint}>
-          No commitment. We reply within one business day.
+          Tell us where to begin. We will reply to arrange a conversation.
         </p>
       )}
       {status === "success" && (
         <p className={`${styles.status} ${styles.statusOk}`} role="status">
-          Got it. A member of our team replies within one business day.
+          Your request is with Maslow. We will reply to arrange a time; a session has not been booked yet.
         </p>
       )}
       {status === "error" && (

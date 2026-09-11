@@ -14,12 +14,11 @@ import styles from "./forms.module.css";
 const sendError = `That didn't send. Try again, or just email ${contactEmail}. We're not precious about channels.`;
 
 const INTERESTS = [
-  "AI readiness assessment",
-  "AI employee pilot",
-  "Knowledge foundation / Hybrid RAG",
-  "Custom workflow system",
-  "Local AI / on-prem",
-  "90-Day AI Foundation",
+  "AI-OS preview evaluation",
+  "Setup and configuration",
+  "Organizational knowledge",
+  "Workflow implementation",
+  "Discovery and planning",
   "Something else",
 ];
 
@@ -208,7 +207,7 @@ export function ContactForm() {
       )}
       {status === "success" && (
         <p className={`${styles.status} ${styles.statusOk}`} role="status">
-          Got it. A member of our team replies within one business day.
+          Your request is with Maslow. We will reply to arrange a time; a session has not been booked yet.
         </p>
       )}
       {status === "error" && (

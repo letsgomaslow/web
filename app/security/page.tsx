@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { StoryJourney } from "@/components/stories/StoryJourney";
+import { dataPathStory } from "@/lib/content/operating-stories";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionAnchor } from "@/components/ui/SectionAnchor";
@@ -12,9 +14,10 @@ import {
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/security" },
   title: { absolute: "Security & Data Handling | Maslow AI" },
   description:
-    "Your data stays in your tenant or on infrastructure you control. Access is scoped and revocable, client data is not used for training, and consequential actions are logged.",
+    "Understand where information runs, who can access it, and which provider and workflow controls are configured for your deployment.",
 };
 
 export default function SecurityPage() {
@@ -50,6 +53,7 @@ export default function SecurityPage() {
           </div>
         </section>
 
+        <StoryJourney id="data-path" eyebrow="FOLLOW THE INFORMATION" title="Where it goes should be a visible decision." description="An illustrative deployment path. Your selected tools and configurations determine the controls that need to be verified." variant="deployment" steps={dataPathStory} afterHref="#plain-answers" afterLabel="Read the practical answers" />
         <section className={styles.principles} data-screen-label="Principles">
           <div className="wrap">
             <div className={styles.principleList}>

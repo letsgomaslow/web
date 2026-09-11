@@ -1,106 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
-import { Reveal } from "@/components/ui/Reveal";
-import { BriefingBuilder } from "@/components/explainers/BriefingBuilder";
-import { SectionAnchor } from "@/components/ui/SectionAnchor";
-import {
-  conceptFailures,
-  contextDiscipline,
-  explainerPages,
-} from "@/lib/content/explainers";
-import styles from "../concept.module.css";
+import { StoryJourney } from "@/components/stories/StoryJourney";
+import { CtaButton } from "@/components/ui/CtaButton";
+import { conceptStoryJourneys, contextDiscipline, explainerPages } from "@/lib/content/explainers";
+import styles from "../story-page.module.css";
 
 const meta = explainerPages["context-engineering"];
-
+const story = conceptStoryJourneys.context;
 export const metadata: Metadata = {
-  title: "Context engineering | Maslow AI",
-  description: meta.lede,
-};
+  alternates: { canonical: "/concepts/context-engineering" }, title: { absolute: "Context engineering | Maslow AI" }, description: meta.lede };
 
 export default function ContextEngineeringPage() {
-  return (
-    <PageShell highlightConcepts showCtaBand>
-      <section className={styles.hero}>
-        <div className="wrap">
-          <div className={`${styles.crumb} mz-rise`}>
-            <Link href="/#concepts">Concepts</Link> /{" "}
-            <span className={styles.crumbCurrent}>{meta.crumb}</span>{" "}
-            <span className={styles.badge} style={{ color: meta.badgeColor }}>
-              {meta.badge}
-            </span>
-          </div>
-          <h1
-            className={`${styles.heroTitle} mz-rise`}
-            style={{ animationDelay: "0.15s" }}
-          >
-            {meta.title}
-          </h1>
-          <p
-            className={`${styles.heroLede} mz-rise`}
-            style={{ animationDelay: "0.3s" }}
-          >
-            Before a model acts, it reads a briefing: the{" "}
-            <strong>context</strong>. Context engineering decides what earns a
-            place in it. Try it yourself: build the briefing below and watch the
-            answer change.
-          </p>
-        </div>
-      </section>
-
-      <section className={styles.interactive}>
-        <div className="wrap">
-          <BriefingBuilder />
-        </div>
-      </section>
-
-      <section className={styles.sectionAlt}>
-        <div className="wrap">
-          <Reveal>
-            <div className="eyebrow">THE DISCIPLINE</div>
-            <h2 className="h2" style={{ marginBottom: 12 }}>
-              What context engineering actually involves
-            </h2>
-            <p className="lede" style={{ maxWidth: 600 }}>
-              It is an operating pipeline with four stages that we build and run.
-            </p>
-          </Reveal>
-          <div className={styles.points}>
-            {contextDiscipline.map((c) => (
-              <Reveal key={c.num}>
-                <article className={styles.point}>
-                  <span style={{ color: c.accent }}>{c.num}</span>
-                  <h3>{c.name}</h3>
-                  <p>
-                    {c.desc}
-                    {c.link ? (
-                      <>
-                        {" "}
-                        <Link href={c.link.href}>{c.link.label}</Link>.
-                      </>
-                    ) : null}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className={styles.failure}>
-            <div className="eyebrow">WHAT BREAKS WITHOUT IT</div>
-            <h2 className={styles.failureHead} id="what-breaks">
-              {conceptFailures["context-engineering"].headline}
-              <SectionAnchor id="what-breaks" label="What breaks without it" />
-            </h2>
-            <p className={styles.failureBody}>
-              {conceptFailures["context-engineering"].body}
-            </p>
-          </Reveal>
-          {meta.next && (
-            <div className={styles.related}>
-              <Link href={meta.next.href}>{meta.next.label}</Link>
-            </div>
-          )}
-        </div>
-      </section>
-    </PageShell>
-  );
+  return <PageShell highlightConcepts><section className={styles.hero}><div className={styles.heroInner}>
+    <div className={styles.crumb}><Link href="/resources">Resources</Link> / <span>{meta.crumb}</span></div>
+    <div className={styles.heroGrid}><div><p className={styles.badge}>{meta.badge}</p><h1>{meta.title}</h1></div><div className={styles.heroAside}><p>{meta.lede}</p><div className={styles.actions}><CtaButton href="/contact">TALK THROUGH A WORKFLOW</CtaButton><a href="#context-story">SEE THE PATH</a></div></div></div>
+  </div></section><StoryJourney id="context-story" {...story} afterHref="/concepts/hybrid-rag" afterLabel="Compare vector and graph retrieval" />
+  <section className={styles.reference}><div className={styles.referenceInner}><details><summary>Open the deeper context engineering reference</summary><div className={styles.referenceBody}>{contextDiscipline.map((item)=><article key={item.num}><h3>{item.num} · {item.name}</h3><p>{item.desc}</p></article>)}</div></details><div className={styles.referenceFoot}><p>Context quality depends on current sources, clear ownership, and retrieval that leaves a path back to evidence.</p><Link href="/contact">Discuss your source landscape →</Link></div></div></section></PageShell>;
 }

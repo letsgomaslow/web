@@ -33,7 +33,7 @@ export const diligenceArtifacts: readonly {
   {
     num: "02",
     name: "Subprocessor table",
-    desc: "Every model provider we route to, with the zero-retention configuration and contractual terms per provider.",
+    desc: "Providers used in the scoped deployment, with their configuration and contractual retention terms.",
     status: "IN PREPARATION",
   },
   {
@@ -45,7 +45,7 @@ export const diligenceArtifacts: readonly {
   {
     num: "04",
     name: "Decommissioning runbook",
-    desc: 'The tested procedure behind "firing us is a permissions change."',
+    desc: 'The procedure for handover, export, access removal, and ending an engagement.',
     status: "IN PREPARATION",
   },
   {

@@ -1,5 +1,6 @@
 export const evidenceStatuses = [
   "production",
+  "implementation",
   "illustrative",
   "in-preparation",
 ] as const;
@@ -18,6 +19,7 @@ export type EvidenceReceiptData = {
 
 export const evidenceStatusLabel: Record<EvidenceStatus, string> = {
   production: "PRODUCTION EVIDENCE",
+  implementation: "DEPLOYED CLIENT IMPLEMENTATION",
   illustrative: "ILLUSTRATIVE PATTERN",
   "in-preparation": "IN PREPARATION",
 };

@@ -1,150 +1,17 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
-import { CtaButton } from "@/components/ui/CtaButton";
-import { Reveal } from "@/components/ui/Reveal";
-import { ctaPrimaryLabel } from "@/lib/brand";
-import { twoDoors } from "@/lib/content/engagement";
-import { ServiceExplorer } from "./ServiceExplorer";
-import styles from "./page.module.css";
-
-export const metadata: Metadata = {
-  title: { absolute: "Services | Maslow AI · Five stages, fifteen services" },
-  description:
-    "Enter at any stage: Assess, Structure, Build, Deploy, or Own. Fixed fees, named deliverables, and a 90-day path from idea to working AI foundation.",
-};
-
+import { MarketingIntro, NextStep } from "@/components/marketing/Marketing";
+import { StoryJourney } from "@/components/stories/StoryJourney";
+import { startingPoints } from "@/lib/content/starting-points";
+import styles from "@/components/marketing/Marketing.module.css";
+export const metadata: Metadata = { title: { absolute: "How We Help | Maslow AI" }, description: "Start with discovery, AI setup, organizational knowledge, or one useful workflow. Maslow works with your existing systems and the AI-OS preview where it fits.", alternates: { canonical: "/services" } };
 export default function ServicesPage() {
-  return (
-    <PageShell footer="full">
-      <>
-        <section className={styles.hero} data-screen-label="Hero">
-          <Image
-            className={styles.float}
-            src="/assets/logos/maslow-symbol-full-color.png"
-            alt=""
-            width={230}
-            height={148}
-          />
-          <div className="wrap" style={{ position: "relative" }}>
-            <div
-              className="eyebrow mz-rise"
-              style={{ animationDelay: "0.05s" }}
-            >
-              SERVICES · ENTER AT ANY STAGE
-            </div>
-            <h1
-              className="h1 mz-rise"
-              style={{
-                animationDelay: "0.15s",
-                maxWidth: 820,
-                marginBottom: 24,
-              }}
-            >
-              Choose the stage you need. Each service has its own price.
-            </h1>
-            <p
-              className="lede mz-rise"
-              style={{
-                animationDelay: "0.3s",
-                maxWidth: 640,
-                marginBottom: 36,
-              }}
-            >
-              Each service has a named deliverable and a fixed fee quoted before
-              work begins. Start with one service or combine the stages into a
-              90-day Foundation.
-            </p>
-            <div
-              className={`${styles.heroCta} mz-rise`}
-              style={{ animationDelay: "0.45s" }}
-            >
-              <CtaButton
-                href="/assessment"
-                variant="secondary"
-                className={styles.assessPill}
-              >
-                <span className={styles.assessLong}>
-                  NOT SURE WHERE YOU ARE? TAKE THE ASSESSMENT
-                </span>
-                <span className={styles.assessShort}>
-                  TAKE THE 2-MINUTE ASSESSMENT
-                </span>
-              </CtaButton>
-              <span className={styles.heroHint}>
-                2 minutes · get a stage + recommended services
-              </span>
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.doors} data-screen-label="Two Doors">
-          <div className="wrap">
-            <Reveal>
-              <h2 className="h2" style={{ marginBottom: 28 }}>
-                Most clients start with one of two scopes.
-              </h2>
-            </Reveal>
-            <div className={styles.doorGrid}>
-              {twoDoors.map((door) => (
-                <Reveal key={door.name}>
-                  <div className={styles.doorCard}>
-                    <h3 className={styles.doorName}>{door.name}</h3>
-                    <div className={styles.doorDesc}>{door.desc}</div>
-                    <div className={styles.doorFit}>
-                      <b>For you if:</b> {door.fit}
-                    </div>
-                    <div className={styles.doorTag}>{door.tag}</div>
-                    <Link
-                      href={door.ctaHref}
-                      className={`text-link ${styles.doorAction}`}
-                    >
-                      {door.ctaLabel}&nbsp;&nbsp;&gt;
-                    </Link>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <ServiceExplorer />
-
-        <section className={styles.e2e} data-screen-label="End to End">
-          <Image
-            className={styles.e2eMark}
-            src="/assets/logos/maslow-symbol-white.png"
-            alt=""
-            width={320}
-            height={206}
-          />
-          <div className={styles.e2eInner}>
-            <div>
-              <div className="eyebrow eyebrow-ice">
-                START FROM ZERO
-              </div>
-              <h2 className="h2" style={{ color: "#fff", marginBottom: 14 }}>
-                One 90-day engagement across all five stages
-              </h2>
-              <p className={styles.e2eBody}>
-                We run assessment through deployment with one accountable team
-                and milestones you can hold us to. We take a maximum of two
-                Foundation engagements at a time, so the founder remains directly
-                involved in every one.
-              </p>
-            </div>
-            <div className={styles.e2eActions}>
-              <CtaButton href="/contact" variant="inverse">
-                {ctaPrimaryLabel}
-              </CtaButton>
-              <Link href="/assessment" className={styles.e2eSecondary}>
-                START WITH THE ASSESSMENT
-              </Link>
-            </div>
-          </div>
-        </section>
-      </>
-    </PageShell>
-  );
+  return <PageShell footer="full"><MarketingIntro eyebrow="HOW WE HELP / START WHERE YOU ARE" title="Your tools are a start. Let’s make them useful together." body="A shared foundation becomes valuable when it fits your organization. We help you choose a use case, connect the information behind it, and put a working setup in your team’s hands." secondaryHref="/plan-workflow" secondaryLabel="Map a workflow first" />
+    <StoryJourney id="starting-points" eyebrow="FOUR WAYS TO BEGIN" title="Choose the part you need." description="These are independent starting scopes. You can begin with one, combine them, or bring us an existing setup that needs help." variant="scope" steps={startingPoints} afterHref="#scopes" afterLabel="See deliverables and client work" />
+    <section className={styles.section} id="scopes"><p className="eyebrow">A CLEAR PIECE OF WORK</p><h2>Something useful to leave with.</h2><div className={styles.grid}>{startingPoints.map((point, index) => <article key={point.id} className={styles.row} id={point.id}><span className={styles.tag}>0{index + 1} / {point.status}</span><h3>{point.label}</h3><p>{point.result}</p><Link href={point.href}>{point.proof} <span aria-hidden="true">↗</span></Link></article>)}</div>
+    <p className={styles.note}>Maslow AI-OS is intended to be free. Discovery, setup, integrations, workflow implementation, training, and ongoing support are paid services. Model usage, hardware, and third-party licenses are separate.</p>
+    <div className={styles.row} id="own"><h3>Keep it working as your team grows.</h3><p>We can scope training, knowledge-source maintenance, workflow reviews, and ongoing operations. Ownership and support responsibilities are agreed in your proposal.</p><Link href="/how-we-engage">How we work together ↗</Link></div>
+    <div id="assess" /><div id="structure" /><div id="build" /><div id="deploy" />
+    </section><NextStep title="Start with the work in front of you." /></PageShell>;
 }

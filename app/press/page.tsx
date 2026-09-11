@@ -8,8 +8,10 @@ import {
 import styles from "./press.module.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/press" },
   title: "Press Releases",
-  description: "Official announcements from Maslow AI.",
+  description:
+    "Official announcements from Maslow AI, preserved with their publication dates and current product context where useful.",
 };
 
 export default function PressPage() {
@@ -21,7 +23,8 @@ export default function PressPage() {
             <div className="eyebrow">PRESS RELEASES</div>
             <h1 className={`h1 ${styles.heroTitle}`}>Press Releases</h1>
             <p className={`lede ${styles.heroLede}`}>
-              Official announcements from Maslow AI.
+              Official announcements preserved as published, with current
+              product context kept outside the historical release.
             </p>
           </div>
         </section>

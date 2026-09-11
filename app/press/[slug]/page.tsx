@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/layout/PageShell";
@@ -24,6 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: release.title,
+    alternates: { canonical: `/press/${slug}` },
+    openGraph: { type: "article", title: release.title, description: release.description, url: `/press/${slug}`, publishedTime: release.publishedAt },
     description: release.description,
   };
 }
@@ -68,6 +71,29 @@ export default async function PressReleasePage({ params }: Props) {
             ) : null}
           </div>
         </header>
+
+        {release.slug === "openai-select-partner" ? (
+          <aside className={styles.position} aria-labelledby="current-position">
+            <div className={styles.positionInner}>
+              <div className={styles.positionLabel}>CURRENT POSITION · SEPTEMBER 2026</div>
+              <h2 id="current-position">
+                The free AI-OS is the entry point to organizational implementation.
+              </h2>
+              <p>
+                Maslow AI-OS is a developing Linux product for working with AI
+                tools. Client engagements focus on turning company knowledge
+                and procedures into shared context, memory, skills, controlled
+                connections, and reviewable workflows in client-owned systems.
+                This note adds current product context. The announcement below
+                remains unchanged from August 25, 2026.
+              </p>
+              <div className={styles.positionLinks}>
+                <Link href="/ai-os">Explore Maslow AI-OS</Link>
+                <Link href="/resources">Browse resources</Link>
+              </div>
+            </div>
+          </aside>
+        ) : null}
 
         <section
           className={styles.detailBody}

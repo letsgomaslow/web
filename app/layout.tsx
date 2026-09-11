@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, IBM_Plex_Mono, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
@@ -25,36 +25,19 @@ const organizationJsonLd = {
   },
 };
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-manrope",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["500", "700"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-ibm-plex-mono",
-  display: "swap",
-});
+const manrope = localFont({ src: "../vendor/maslow-brand-os/assets/fonts/Manrope-Variable.ttf", variable: "--font-manrope", display: "swap" });
+const dmSans = localFont({ src: "../vendor/maslow-brand-os/assets/fonts/DMSans-Variable.ttf", variable: "--font-dm-sans", display: "swap" });
+const ibmPlexMono = localFont({ src: [{ path: "../vendor/maslow-brand-os/assets/fonts/IBMPlexMono-Regular.ttf", weight: "400" }, { path: "../vendor/maslow-brand-os/assets/fonts/IBMPlexMono-Medium.ttf", weight: "500" }], variable: "--font-ibm-plex-mono", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://maslow.ai"),
   title: {
     default:
-      "Maslow AI | AI employees for the work that waits on your busiest people",
+      "Maslow AI | A shared foundation for AI work",
     template: "%s · Maslow AI",
   },
   description:
-    "AI employees in Teams, Slack, and email, built on knowledge systems and infrastructure you own. Fixed fees, 90-day foundations, and no lock-in.",
+    "Explore Maslow AI-OS and connect your organization’s knowledge, tools, and workflows with help from Maslow AI.",
   icons: {
     icon: {
       url: "/assets/logos/maslow-symbol-webflow-full-color.png",
@@ -65,9 +48,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Maslow AI",
     title:
-      "Maslow AI | AI employees for the work that waits on your busiest people",
+      "Maslow AI | A shared foundation for AI work",
     description:
-      "AI employees in Teams, Slack, and email, built on knowledge systems and infrastructure you own. Fixed fees, 90-day foundations, and no lock-in.",
+      "Explore Maslow AI-OS and connect your organization’s knowledge, tools, and workflows with help from Maslow AI.",
     images: [{ url: "/assets/logos/maslow-complete-full-color.png" }],
   },
 };

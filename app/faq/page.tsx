@@ -8,9 +8,10 @@ import { FaqList } from "./FaqList";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/faq" },
   title: { absolute: "FAQ | Maslow AI · Straight answers" },
   description:
-    'Copilot vs. custom, pricing, timelines, model churn, data handling, and what "no lock-in" actually means. Plain answers to the questions buyers actually ask.',
+    'Free versus paid, preview availability, existing-system compatibility, agents, second brain, implementation, and data handling.',
 };
 
 export default function FaqPage() {
@@ -61,7 +62,7 @@ export default function FaqPage() {
             <Reveal className={styles.closeInner}>
               <p>
                 A question we didn&apos;t answer? Ask it in a working session;
-                the first one is on us.
+                the first conversation is free.
               </p>
               <CtaButton href="/contact">{ctaPrimaryLabel}</CtaButton>
             </Reveal>

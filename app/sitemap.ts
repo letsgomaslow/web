@@ -1,43 +1,5 @@
 import type { MetadataRoute } from "next";
-
+import { publicRoutes } from "@/lib/routes";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://maslow.ai";
-  const routes = [
-    "",
-    "/services",
-    "/how-we-engage",
-    "/assessment",
-    "/about",
-    "/diligence",
-    "/contact",
-    "/blog",
-    "/blog/context-engineering",
-    "/blog/what-makes-an-ai-employee-work",
-    "/blog/context-memory-and-skills",
-    "/blog/permissions-approvals-audit-trails",
-    "/press",
-    "/press/openai-select-partner",
-    "/case-studies",
-    "/case-studies/infinite-ai-os",
-    "/case-studies/agenthub",
-    "/manufacturing",
-    "/security",
-    "/faq",
-    "/concepts/ai-employee-architecture",
-    "/concepts/ai-employee-architecture/technical",
-    "/concepts/agentic-harness",
-    "/concepts/hybrid-rag",
-    "/concepts/context-engineering",
-    "/concepts/local-ai",
-    "/concepts/virtual-ai-employees",
-    "/concepts/skills-and-gateways",
-    "/campaigns/virtual-ai-employees",
-  ];
-
-  return routes.map((path) => ({
-    url: `${base}${path}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: path === "" ? 1 : 0.7,
-  }));
+  return publicRoutes.map((path) => ({ url: `https://maslow.ai${path === "/" ? "" : path}`, lastModified: "2026-09-11", changeFrequency: "monthly" as const, priority: path === "/" ? 1 : 0.7 }));
 }
