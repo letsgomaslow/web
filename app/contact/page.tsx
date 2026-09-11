@@ -1,137 +1,52 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
-import { ContactForm } from "@/components/forms/ContactForm";
-import {
-  contactEmail,
-  founderHeadshot,
-  socialLinks,
-} from "@/lib/brand";
+import { BookingExperience } from "@/components/booking/BookingExperience";
+import { contactEmail, founderHeadshot, socialLinks } from "@/lib/brand";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
-  title: { absolute: "Contact | Maslow AI · Request a working session" },
-  description:
-    "Bring one workflow to a 30-minute working session. Leave with a map of where AI could pay and what the first build would require.",
+  title: { absolute: "Book a workflow conversation | Maslow AI" },
+  description: "Choose a time for a 30-minute conversation with Rakesh David. Explore an AI workflow, organizational knowledge, or the Maslow AI-OS preview using your existing systems.",
 };
-
-const steps = [
-  {
-    num: "01",
-    color: "var(--color-ice-text)",
-    title: "We listen first",
-    desc: "Your team, the work, and the systems you already use.",
-  },
-  {
-    num: "02",
-    color: "var(--color-plum-text)",
-    title: "We agree on a starting point",
-    desc: "A first conversation to explore fit. Any implementation scope and fee are agreed separately.",
-  },
-  {
-    num: "03",
-    color: "var(--color-gold-text)",
-    title: "You keep the work",
-    desc: "For paid work, ownership, documentation, and handover are defined in the proposal.",
-  },
-];
 
 export default function ContactPage() {
   return (
     <PageShell footer="compact">
       <section className={styles.section} data-screen-label="Contact">
-        <div className={styles.grid}>
+        <div className={styles.intro}>
           <div>
-            <div
-              className="eyebrow mz-rise"
-              style={{ animationDelay: "0.05s" }}
-            >
-              CONTACT · 30-MINUTE WORKING SESSION
-            </div>
-            <h1
-              className={`${styles.title} mz-rise`}
-              style={{ animationDelay: "0.15s" }}
-            >
-              Let’s find your next useful step.
-            </h1>
-            <p
-              className={`${styles.lede} mz-rise`}
-              style={{ animationDelay: "0.3s" }}
-            >
-              Bring a workflow, a pile of hard-to-find information, or questions
-              about the AI-OS preview. We will explore what is useful, what your
-              team already has, and where to begin. You can work with Maslow on
-              your existing systems without installing a new operating system.
-            </p>
-            <div
-              className={`${styles.steps} mz-rise`}
-              style={{ animationDelay: "0.45s" }}
-            >
-              {steps.map((s) => (
-                <div key={s.num} className={styles.step}>
-                  <span className={styles.stepNum} style={{ color: s.color }}>
-                    {s.num}
-                  </span>
-                  <div>
-                    <div className={styles.stepTitle}>{s.title}</div>
-                    <div className={styles.stepDesc}>{s.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className={styles.links}>
-              <a href={`mailto:${contactEmail}`} className={styles.email}>
-                {contactEmail}
-              </a>
-              <a
-                href={socialLinks.companyLinkedIn}
-                className={styles.social}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Maslow AI on LinkedIn ↗
-              </a>
-              <a
-                href={socialLinks.github}
-                className={styles.social}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub ↗
-              </a>
-            </div>
+            <p className="eyebrow">LET’S TALK THROUGH A WORKFLOW / 30 MINUTES</p>
+            <h1 className={styles.title}>Bring the work.<br /><span>We’ll find a starting point.</span></h1>
+            <p className={styles.lede}>A recurring task, information that’s hard to find, or a question about AI-OS. Start with what your team needs and the systems you already have.</p>
+            <a href="#booking" className={styles.jump}>Choose a time <span aria-hidden="true">↓</span></a>
           </div>
-
-          <div
-            className={`${styles.card} mz-rise`}
-            style={{ animationDelay: "0.3s" }}
-          >
-            <div className={styles.cardTitle}>Request a working session</div>
-            <div className={styles.host}>
-              <Image
-                className={styles.hostPhoto}
-                src={founderHeadshot.src}
-                alt={founderHeadshot.alt}
-                width={founderHeadshot.width}
-                height={founderHeadshot.height}
-                sizes="56px"
-              />
-              <div>
-                <span className={styles.hostLabel}>YOUR SESSION IS WITH</span>
-                <a
-                  className={styles.hostName}
-                  href={socialLinks.founderLinkedIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Rakesh David ↗
-                </a>
-                <span className={styles.hostRole}>Founder &amp; CEO</span>
-              </div>
+          <aside className={styles.host} aria-label="Your conversation with Maslow">
+            <Image className={styles.hostPhoto} src={founderHeadshot.src} alt={founderHeadshot.alt} width={founderHeadshot.width} height={founderHeadshot.height} sizes="80px" />
+            <div>
+              <span className={styles.hostLabel}>YOUR CONVERSATION IS WITH</span>
+              <a className={styles.hostName} href={socialLinks.founderLinkedIn} target="_blank" rel="noopener noreferrer">Rakesh David ↗</a>
+              <span className={styles.hostRole}>Founder &amp; CEO, Maslow AI</span>
             </div>
-            <ContactForm />
+            <p>We’ll discuss the task, where it gets stuck, and a useful next step. Implementation scope and fees are agreed separately.</p>
+            <div className={styles.sessionFacts}><span>30 minutes</span><span>Google Meet</span></div>
+          </aside>
+        </div>
+        <div className={styles.booking} id="booking">
+          <div className={styles.bookingHeading}>
+            <div><p className="eyebrow">YOUR NEXT STEP</p><h2>Make time for a useful conversation.</h2></div>
+            <p>Choose a date and time, then add your details. The calendar shows times in your selected timezone.</p>
           </div>
+          <BookingExperience source="contact" />
+        </div>
+        <div className={styles.links}>
+          <div><h2>Prefer to write first?</h2><p>Send your question or a short outline of the work.</p></div>
+          <a href={`mailto:${contactEmail}`}>{contactEmail} <span aria-hidden="true">↗</span></a>
+        </div>
+        <div className={styles.profiles}>
+          <a href={socialLinks.companyLinkedIn} target="_blank" rel="noopener noreferrer">Maslow AI on LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href={socialLinks.github} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </section>
     </PageShell>

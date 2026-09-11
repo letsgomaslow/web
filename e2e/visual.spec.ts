@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { calCalls, mockCalEmbed, waitForCalCall } from "./helpers/cal";
 
 const plannerRoute = "/plan-workflow";
 const mapperStateKey = "maslow.workflow-mapper-state.v1";
@@ -323,16 +324,10 @@ test.describe("workflow planner persistence and recovery", () => {
     );
   });
 
-  test("failed contact submission preserves the mapped state and brief", async ({
+  test("failed booking load preserves the mapped state and editable brief", async ({
     page,
   }) => {
-    await page.route("**/api/contact", (route) =>
-      route.fulfill({
-        status: 500,
-        contentType: "application/json",
-        body: JSON.stringify({ ok: false, error: "Unable to send" }),
-      }),
-    );
+    await mockCalEmbed(page, "failure");
     await page.goto(plannerRoute);
     await completeMapper(page);
     await page
@@ -340,19 +335,25 @@ test.describe("workflow planner persistence and recovery", () => {
       .getByRole("link", { name: "TALK THROUGH A WORKFLOW" })
       .click();
     await expect(page).toHaveURL(/\/contact$/);
-    await expect(page.getByRole("status")).toContainText(
-      "WORKFLOW MAPPER BRIEF ADDED",
+    const booking = page.getByTestId("booking-experience");
+    await expect(booking.getByTestId("booking-state")).toHaveAttribute(
+      "data-state",
+      "error",
     );
-    await page.getByLabel("Full name").fill("Test User");
-    await page.getByLabel("Work email").fill("test@example.com");
-    await page.getByLabel("Company").fill("Example Company");
-    await page
-      .getByLabel("What are you exploring?")
-      .selectOption("Workflow implementation");
-    await page.getByRole("button", { name: /request/i }).click();
-    await expect(page.locator("form").getByRole("alert")).toContainText(
-      "Unable to send",
+    const editor = booking.getByTestId("booking-brief-editor");
+    await expect(editor).toHaveValue(/Delayed deliverable: Estimate or quote/);
+    await editor.fill(`${await editor.inputValue()}\nEdited after load failure`);
+    expect(await calCalls(page, "inline")).toEqual([]);
+    const inlineCountBeforeShare = (await calCalls(page, "inline")).length;
+    await booking.getByTestId("booking-brief-use").click();
+    await expect(editor).toHaveValue(/Edited after load failure/);
+    await expect(booking.getByTestId("booking-state")).toHaveAttribute(
+      "data-state",
+      "ready",
     );
+    expect((await waitForCalCall(page, "inline", inlineCountBeforeShare))?.payload?.config).toMatchObject({
+      notes: expect.stringContaining("Edited after load failure"),
+    });
     const stored = await page.evaluate(
       ([stateKey, briefKey]) => [
         sessionStorage.getItem(stateKey),

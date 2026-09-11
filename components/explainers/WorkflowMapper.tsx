@@ -481,7 +481,7 @@ export function WorkflowMapper() {
       </div>
       <p className={styles.privacy}>
         No email required. These category choices stay in this browser unless
-        you carry the brief into the contact form.
+        you choose to share your brief when booking a conversation.
       </p>
     </div>
   );

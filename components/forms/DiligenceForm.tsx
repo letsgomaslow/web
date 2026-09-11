@@ -111,17 +111,16 @@ export function DiligenceForm() {
         className={styles.submit}
         disabled={status === "loading"}
       >
-        {status === "loading" ? "SENDING…" : "REQUEST THE PACK"}
+        {status === "loading" ? "SENDING…" : "REQUEST AVAILABLE MATERIALS"}
       </button>
       {status === "idle" && (
         <p className={styles.hint}>
-          The pack goes out from a member of our team within one business day.
+          We will confirm which materials are available and what is still in preparation.
         </p>
       )}
       {status === "success" && (
         <p className={`${styles.status} ${styles.statusOk}`} role="status">
-          Got it. The pack goes out from a member of our team within one
-          business day.
+          Your request is with Maslow. We will follow up about the available materials and any gaps.
         </p>
       )}
       {status === "error" && (

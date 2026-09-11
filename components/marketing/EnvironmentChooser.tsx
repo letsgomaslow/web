@@ -33,7 +33,7 @@ export function EnvironmentChooser() {
       <span>{path === "preview" ? "PREVIEW EVALUATION" : "CLIENT IMPLEMENTATION"}</span>
       <h3>{path === "preview" ? "Start with a technical champion." : "Start with the systems you have."}</h3>
       <p>{path === "preview" ? "Explore the development build on a dedicated x86_64 test machine. Agent accounts, permissions, and shared services are configured separately. This is not a public download or a company-wide migration." : "Maslow can configure organizational knowledge and workflows on existing infrastructure, including Ubuntu. We scope the hosting, integrations, access, and handover around your team. Installing Maslow AI-OS across the business is not required."}</p>
-      <a href="/contact">Talk through this starting point <span aria-hidden="true">↗</span></a>
+      <a href={`/contact?topic=${path === "preview" ? "ai-os-preview" : "existing-infrastructure"}`}>Talk through this starting point <span aria-hidden="true">↗</span></a>
     </div>
   </section>;
 }

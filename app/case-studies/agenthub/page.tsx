@@ -528,7 +528,7 @@ export default function AgentHubPage() {
               <p className={styles.ctaLede}>{cs.ctaLede}</p>
             </div>
             <CtaButton href="/contact" variant="inverse">
-              BOOK A WORKING SESSION
+              TALK THROUGH A WORKFLOW
             </CtaButton>
           </div>
           <div className={styles.ctaLinks}>

@@ -2,13 +2,13 @@ import Link from "next/link";
 import { CtaButton } from "@/components/ui/CtaButton";
 import styles from "./Marketing.module.css";
 
-export function MarketingIntro({ eyebrow, title, body, secondaryHref, secondaryLabel }: { eyebrow: string; title: string; body: string; secondaryHref?: string; secondaryLabel?: string }) {
+export function MarketingIntro({ eyebrow, title, body, secondaryHref, secondaryLabel, primaryHref = "/contact" }: { eyebrow: string; title: string; body: string; secondaryHref?: string; secondaryLabel?: string; primaryHref?: string }) {
   return <section className={styles.intro}>
     <div className={styles.introRule} aria-hidden="true"><span /><span /><span /></div>
     <p className="eyebrow">{eyebrow}</p>
     <h1>{title}</h1>
     <div className={styles.introBottom}><p>{body}</p><div className={styles.actions}>
-      <CtaButton href="/contact">Talk through a workflow</CtaButton>
+      <CtaButton href={primaryHref}>Talk through a workflow</CtaButton>
       {secondaryHref && <Link className={styles.textAction} href={secondaryHref}>{secondaryLabel} <span aria-hidden="true">↗</span></Link>}
     </div></div>
   </section>;
