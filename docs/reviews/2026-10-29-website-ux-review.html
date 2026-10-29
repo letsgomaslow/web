@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website UX Review</title>
+<meta name="description" content="Expert-panel review of www.maslow.ai: design, copy, ICP perception, conversion, and motion storytelling. October 29, 2026.">
+<style>
+  :root {
+    --navy: #192332;
+    --ink: #1b2333;
+    --muted: #525d6e;
+    --line: #d9dee5;
+    --surface: #f4f6f8;
+    --card: #ffffff;
+    --teal: #73c1ae;
+    --teal-text: #2f7563;
+    --pink: #ee7bb3;
+    --purple: #a070a6;
+    --crit: #b4233a;
+    --high: #b25b00;
+    --med: #6b5aa6;
+    --low: #4f6b7a;
+    --code-bg: #eef1f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #e7ebf0; --muted: #a7b0bd; --line: #2e3a4c; --surface: #111822;
+      --card: #172131; --teal-text: #8fd3c1; --code-bg: #1f2a3b;
+      --crit: #ff7b8e; --high: #ffb169; --med: #b8a6f0; --low: #9fc0cf;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e7ebf0; --muted: #a7b0bd; --line: #2e3a4c; --surface: #111822;
+    --card: #172131; --teal-text: #8fd3c1; --code-bg: #1f2a3b;
+    --crit: #ff7b8e; --high: #ffb169; --med: #b8a6f0; --low: #9fc0cf;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--surface); color: var(--ink);
+    font: 16px/1.6 "Manrope", "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  main { max-width: 1040px; margin: 0 auto; padding: 48px 16px 96px; }
+  header.doc { border-bottom: 2px solid var(--ink); padding-bottom: 24px; margin-bottom: 32px; }
+  .eyebrow { font: 600 12px/1.4 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.05; letter-spacing: -0.02em; margin: 12px 0 16px; }
+  h2 { font-size: 28px; letter-spacing: -0.01em; margin: 56px 0 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+  h3 { font-size: 19px; margin: 28px 0 8px; }
+  p, li { max-width: 72ch; }
+  a { color: var(--teal-text); }
+  code { font: 13px "IBM Plex Mono", ui-monospace, monospace; background: var(--code-bg); padding: 1px 5px; }
+  .lede { font-size: 19px; color: var(--ink); }
+  .meta { color: var(--muted); font-size: 14px; }
+  .callout { background: var(--card); border-left: 4px solid var(--navy); padding: 20px 24px; margin: 24px 0; }
+  :root[data-theme="dark"] .callout { border-left-color: var(--teal); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .callout { border-left-color: var(--teal); } }
+  .callout.decision { border-left-color: var(--pink); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 16px 0; }
+  .tile { background: var(--card); border: 1px solid var(--line); padding: 16px; }
+  .tile b { display: block; font-size: 15px; margin-bottom: 4px; }
+  .tile span { color: var(--muted); font-size: 14px; }
+  .finding { background: var(--card); border: 1px solid var(--line); padding: 16px 20px; margin: 12px 0; }
+  .finding h3 { margin-top: 0; }
+  .tag { display: inline-block; font: 600 11px/1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; padding: 5px 7px; border: 1px solid currentColor; margin-right: 6px; vertical-align: middle; }
+  .crit { color: var(--crit); } .high { color: var(--high); } .med { color: var(--med); } .low { color: var(--low); }
+  .src { color: var(--muted); }
+  blockquote { margin: 8px 0; padding-left: 12px; border-left: 2px solid var(--line); color: var(--muted); font-style: italic; }
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); font-size: 14px; min-width: 620px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  th { font: 600 12px "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .y { color: var(--teal-text); font-weight: 700; } .p { color: var(--high); font-weight: 700; } .n { color: var(--crit); font-weight: 700; }
+  ol.fixes > li { margin-bottom: 14px; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "\2610  "; color: var(--muted); }
+  footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+
+<header class="doc">
+  <div class="eyebrow">Maslow AI · Website review · October 29, 2026</div>
+  <h1>www.maslow.ai: design, copy, ICP perception and motion story</h1>
+  <p class="lede">The craft is excellent: the visual identity, the dimensional foundation story and the candor about product status. The site sells the wrong thing first. It opens with a free Linux OS that is in development and has no download, while the paid services that drive revenue sit behind about six screens of scroll. Neither half of the ICP (a business leader and their IT counterpart) is likely to book a call from the homepage.</p>
+  <p class="meta">Reviewed revision: <code>main</code> at <code>825258f</code> (deployed site, captured October 29, 2026). Status: findings only, no site changes made. Open decision below must be resolved before implementation.</p>
+</header>
+
+<section>
+  <h2>How this review was done</h2>
+  <p>An expert panel ran in parallel, each with a narrow lens, and the results were merged. Every finding is tagged with its evidence source. Where a code reading and live behavior disagreed, live behavior wins.</p>
+  <div class="grid">
+    <div class="tile"><b>ICP buyer panel</b><span>Two personas in character: a COO or VP Operations at a 200 to 2,000 person manufacturer or healthcare organization, and their IT director.</span></div>
+    <div class="tile"><b>Positioning and CRO</b><span>Offer clarity, CTA inventory, proof placement, funnel friction.</span></div>
+    <div class="tile"><b>Brand voice editor</b><span>Quantified audit against the Maslow brand book: hedges, jargon, headlines, CTA labels.</span></div>
+    <div class="tile"><b>Motion engineer</b><span>Source review of the hero handoff, the 7-chapter Three.js foundation, workspace and recipes.</span></div>
+    <div class="tile"><b>Live visual pass</b><span>Chrome at 1440x900 and 390x844 with motion enabled: hero handoff states, every foundation chapter, mobile close-ups.</span></div>
+  </div>
+  <p class="meta">Evidence tags: <b>LIVE</b> = observed on www.maslow.ai. <b>COPY</b> = extracted text of 25 live routes. <b>CODE</b> = source at <code>825258f</code>.</p>
+</section>
+
+<section>
+  <h2>What is working</h2>
+  <ul>
+    <li><b>Visual identity.</b> Premium and editorial, consistent with the Guide archetype. The 3D scenes render cleanly; the phone close-ups are well judged. <span class="src">LIVE</span></li>
+    <li><b>The hero handoff idea</b> is the best concept on the site: switching Codex, Claude Code and Hermes rotates the agent card while the "Supplier review" context visibly stays put. <span class="src">LIVE</span></li>
+    <li><b>Trust content that reduces commitment risk:</b> go/no-go gates at weeks 2, 4 and 10, "you keep the map," fixed fees quoted before work, explicit ownership and exit, the founder's CIO/CTO background, case studies that state their own limits, the no-email <code>/plan-workflow</code> planner, and the FAQ answer to "Do we have to replace Windows?" <span class="src">COPY</span></li>
+    <li><b>Motion engineering fundamentals:</b> native scroll with a sticky pin (no scroll-jacking), a working Pause motion control, reduced-motion support, offscreen and context-loss handling, and chapter poses that settle before arrival. <span class="src">CODE</span></li>
+    <li><b>Best voice models on the site:</b> <code>/services</code> and <code>/how-we-engage</code> (lowest hedge and jargon density, benefit-led). <span class="src">COPY</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Findings</h2>
+
+  <div class="finding">
+    <h3><span class="tag crit">Critical</span>The hero sells the free, unavailable product; the paid offer is a footnote</h3>
+    <blockquote>MASLOW AI-OS / FREE LINUX OS · IN DEVELOPMENT · "Your agents. One shared foundation." · "Maslow also builds paid AI workflows around your existing systems."</blockquote>
+    <p>Five-second test for the business leader: "a Linux thing for AI agents, not finished, not for me." The first booking action ("Shape a workflow with us") appears after the 7 foundation chapters and the workspace section. Root cause is a conflict inside <code>AGENTS.md</code>: line 5 says "Lead with Maslow AI-OS" while line 6 says "Lead with a buyer's workflow, constraint, deliverable, or measured result," and line 39 requires a working-session action before deep reference content. The hero follows line 5. <span class="src">COPY · LIVE</span></p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="tag crit">Critical</span>Procurement gaps stop regulated buyers at IT review</h3>
+    <blockquote>/diligence: 6 of 7 artifacts "IN PREPARATION," including the healthcare annex (PHI posture, BAA availability) and the certificate of insurance. /security: "We do not currently hold SOC 2 certification."</blockquote>
+    <p>Accurate and required by policy, but undated. For a healthcare IT lead this is a hard stop; for a manufacturer it signals "fine for a contained pilot only." <span class="src">COPY</span></p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="tag crit">Critical</span>"Infinite AI OS" (client system) collides with "Maslow AI-OS" (product)</h3>
+    <p>The site must repeatedly disclaim the difference ("These are Maslow client engagements, not deployments of the Linux AI-OS"). Proof and product cancel each other. <span class="src">COPY</span></p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="tag high">High</span>The secondary hero CTA leads to a dead end for the leader</h3>
+    <p>"Explore the AI-OS preview" goes to <code>/ai-os</code>, which states there is no public download and asks for "a technical champion" and "a dedicated x86_64 test machine." Correct for the IT evaluator; an exit for the business leader. <span class="src">COPY</span></p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="tag high">High</span>Hedge density reads as "not ready"</h3>
+    <p>Home has about 15 distinct disclaimer statements (25 hedge-term hits): "illustrative" 6, "evolving" 4, "configured for each organization" three times nearly verbatim. Per 100 words: resources 3.0, ai-os 2.5, home 1.7, versus services 0.3 and how-we-engage 0.2. The guardrails are accurate individually; together the page apologizes before it persuades. <span class="src">COPY</span></p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="tag high">High</span>Proof is buried and technical</h3>
+    <p>OpenAI Select Partner appears only on the press page. Founder credentials appear only on <code>/about</code>. Home carries zero outcome numbers although real ones exist (4 AI employees live in Teams in 90 days; go/no-go gates). Case-study outcomes read "MEASUREMENT IN PROGRESS" and "93% expected first-tool routing," which do not translate for an executive. No testimonial, no named comparison with Copilot rollouts, Big-4 programs or systems integrators. <span class="src">COPY</span></p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="tag high">High</span>CTA labels are fragmented</h3>
+    <p>Booking has 7 labels ("Talk through a workflow," "LET'S TALK," "Map a workflow," "Map a workflow first," "Shape a workflow with us," "Build a workflow with us," "Talk through this starting point"). The preview has 6. Home body carries about 21 links against 2 late booking actions. The press release, the most shareable high-intent page, has no booking action. <span class="src">COPY · CODE</span></p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="tag med">Medium</span>Jargon precedes benefit; brand positioning has drifted</h3>
+    <p>Home jargon load is 3.5 per 100 words (Codex 9, Linux 6, SharePoint 7, plus Omarchy, Qdrant, Semantica). "Linux" appears at 2% depth and agent names at 4%, before any business problem. The brand tagline "Transform with purpose" and the brand value proposition appear on 0 of 25 routes; the footer runs three different taglines. About 18 headlines share the "Your X. Already here." two-beat pattern and "useful" appears in 7 headlines or CTAs. <span class="src">COPY</span></p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="tag med">Medium</span>No price anchor anywhere</h3>
+    <p>"Fixed fees are quoted before work begins" is reassuring but leaves the leader's first question open. <span class="src">COPY</span></p>
+  </div>
+
+  <div class="finding">
+    <h3><span class="tag low">Low</span>Mechanical issues</h3>
+    <p>"Codex reviews the evidence ." (space before period), "for your  way" (double space), mixed straight and curly apostrophes, nav "How We Help" vs footer "Services," shortened footers on <code>/plan-workflow</code>, <code>/contact</code> and <code>/case-studies</code> that drop the Trust links at decision time. <span class="src">COPY</span></p>
+  </div>
+</section>
+
+<section>
+  <h2>Motion and story: is it landing?</h2>
+  <p><b>Verdict: partially.</b> The opening (files gather) and the close (layers reassemble) land on their own. The middle spends about 3.5 viewports on one repeated "a layer lifts out, a prop pops in" motion for three different ideas, and the claims that close deals (you keep control; switch agents without losing context) are told in copy rather than shown in motion.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Beat</th><th>What moves</th><th>Lands?</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Hero handoff</td><td>Agent card rotates on click; access dot pulses</td><td class="p">Partial</td><td>Click-only, so the copy has to say "TRY THE HANDOFF ABOVE." "STAYS" is a label, not a motion. Card animates <code>left</code> instead of <code>transform</code>.</td></tr>
+      <tr><td>1 Your knowledge</td><td>Document sheets gather into the knowledge layer</td><td class="y">Yes</td><td>Readable without a caption.</td></tr>
+      <tr><td>2 Find answers</td><td>Graph and passages scale in</td><td class="p">Partial</td><td>Vector and graph read as one pop-in.</td></tr>
+      <tr><td>3 Second brain</td><td>Lesson drops into library; Codex shrinks, Hermes grows</td><td class="p">Partial</td><td>Strongest beat, but approval is a text swap with no person shown.</td></tr>
+      <tr><td>4 Skills</td><td>Layer slides out; three tiles scale up</td><td class="n">No</td><td>Same motion as other layers; nothing shows reuse.</td></tr>
+      <tr><td>5 Connections</td><td>ERP/CRM, Legacy, Access tiles pop in</td><td class="p">Partial</td><td>Familiar labels; no data flows between them.</td></tr>
+      <tr><td>6 Visibility</td><td>Static line with Source/Run/Review pegs</td><td class="n">No</td><td>Copy says it "traces backward"; nothing animates backward, and the only pulse runs the opposite way. This is the IT counterpart's key chapter.</td></tr>
+      <tr><td>7 Together</td><td>Layers restack; workspace and services appear</td><td class="y">Yes</td><td>Clear "one system" payoff.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>Observed and measured</h3>
+  <ul>
+    <li><b>Scroll cost:</b> the section is <code>690svh</code> (650 on mobile), about 5.9 viewports pinned. Chapters 1 to 3 take 47% of it; Skills, Connections and Visibility get about 0.84 viewport each. <span class="src">CODE · LIVE</span></li>
+    <li><b>Legibility:</b> in-scene labels are 6 to 7px; engraved tile text ("ACCESS," "KNOWLEDGE + MEMORY") is illegible at 1440px. Phone close-ups are readable. <span class="src">LIVE · CODE</span></li>
+    <li><b>Three numbering systems at once:</b> "04 / 07," the "02 Skills" bottom nav, and the Files / Knowledge / Second brain sub-selector. <span class="src">LIVE</span></li>
+    <li><b>Performance:</b> the Three.js scene is loaded with the page (<code>dynamic(..., {ssr:false})</code> with no viewport gate, <code>components/ai-os/FoundationJourney.tsx</code>), contradicting <code>docs/ai-os-buyer-journey.md</code>. While visible it renders every frame: camera fit walks the scene each frame, line geometry is rebuilt, <code>PCFSoftShadowMap</code> at 1024 with DPR up to 1.8 (<code>components/ai-os/scene-engine.js</code>). Concept pages already gate correctly (<code>components/stories/StorySculpture.tsx</code>). <span class="src">CODE</span></li>
+    <li><b>Accessibility:</b> pause buttons change label and toggle <code>aria-pressed</code> together ("Play animation, pressed"); <code>aria-live</code> announces while scrolling; reduced-motion users are still pinned for about 6 viewports; the no-WebGL fallback is four generic labels rather than chapter states. <span class="src">CODE</span></li>
+    <li><b>To verify on a device:</b> during fast keyboard scrolling a white band briefly appeared with the sticky header displaced; it resolved once scrolling settled and may be a capture artifact. <span class="src">LIVE (unconfirmed)</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Recommended copy rewrites</h2>
+  <p class="meta">Drafts for discussion. Any number shown must come from a verified source before publishing, per <code>AGENTS.md</code>.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Where</th><th>Now</th><th>Proposed</th></tr></thead>
+    <tbody>
+      <tr><td>Home H1 (option A)</td><td>Your agents. One shared foundation.</td><td>Put your company's knowledge to work. Keep people in charge.</td></tr>
+      <tr><td>Home H1 (option B)</td><td>Your agents. One shared foundation.</td><td>AI employees for the work that waits on your busiest people. (Already the press release positioning.)</td></tr>
+      <tr><td>Home subhead</td><td>A free Linux environment being developed to keep your team's knowledge...</td><td>We connect your files, systems and approvals to the AI tools your team chooses, one workflow at a time with a go/no-go decision at every step. Maslow AI-OS, our free Linux workspace, is in preview for your technical team.</td></tr>
+      <tr><td>Hero CTAs</td><td>See how it comes together / Explore the AI-OS preview</td><td>Primary: Book a workflow review. Secondary: For IT: evaluate the AI-OS preview.</td></tr>
+      <tr><td>Proof strip</td><td>(none)</td><td>OpenAI Select Partner · Led by a former Expedia CIO and CTO · 4 AI employees live in Teams in 90 days</td></tr>
+      <tr><td>Handoff caption</td><td>Choose Codex, Claude Code, or Hermes... This is an illustration of configured shared access.</td><td>Swap the AI tool. Your brief, standards and review steps stay put. (Illustrative)</td></tr>
+      <tr><td>Chapter 6</td><td>See the work. Keep the say.</td><td>See every step. Approve every action.</td></tr>
+      <tr><td>Section H2</td><td>This is how we help AI find its place.</td><td>Built from client work already in production.</td></tr>
+      <tr><td>Case card</td><td>Company knowledge. Put to work.</td><td>4 AI employees live in Teams in 90 days.</td></tr>
+      <tr><td>Security</td><td>We do not currently hold SOC 2 certification.</td><td>SOC 2 is not yet held. Available today: NDA, DPA, incident commitments and written security answers. Insurance certificate and subprocessor list: target month to be confirmed.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Prioritized fixes</h2>
+  <ol class="fixes">
+    <li><b>Rewrite the hero around the paid outcome</b> with one primary action, "Book a workflow review," a proof strip, and the OS as an explicit IT path. Move the handoff demo below the fold as the differentiator ("never locked to one AI vendor").</li>
+    <li><b>One booking label site-wide.</b> <code>/plan-workflow</code> becomes the optional pre-step ending in "Book a review of this brief." Add the booking action to the press release and every case-study ending. Retire "Let's talk," "Shape," "Build" and "Discuss."</li>
+    <li><b>Consolidate hedges:</b> one status line under the hero plus inline ILLUSTRATIVE tags beside claims; delete restating sentences and move cost and download terms to one footnote linked to <code>/faq</code>. Claim accuracy is preserved.</li>
+    <li><b>Rename the manufacturing case study by outcome</b> and lead case studies with business results and dated measurement targets. Keep "AI-OS" for the product only.</li>
+    <li><b>Turn trust gaps into a dated plan</b> on <code>/security</code> and <code>/diligence</code>; publish an interim one-page security summary and link it from <code>/contact</code>.</li>
+    <li><b>Motion:</b> auto-play the handoff once on first view (skip under reduced motion) with a visible "STAYS" beat; rebuild Visibility as a real backward trace ending at a person approving; show a person approving in chapter 3; cut the story to about 4 viewports and one numbering model; crossfade chapter copy in sync with the sculpture.</li>
+    <li><b>Motion performance and access:</b> viewport-gate the Three.js import; render only during transitions or pointer movement; compute camera fit once per pose; cap DPR at about 1.5 and use cheaper shadows on small screens; raise scene labels to at least 10px; fix pause-button ARIA; drop the sticky pin and show static chapter frames under reduced motion; make the no-WebGL fallback chapter-aware.</li>
+    <li><b>Add a "Why Maslow vs. a Copilot rollout or a Big-4 program" section</b> and a starting-price anchor on <code>/how-we-engage</code>.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Open decision</h2>
+  <div class="callout decision">
+    <p><b>Is the homepage's job AI-OS adoption or booked services engagements?</b> Every lens in this review recommends services first, with AI-OS as the IT path and differentiator. Implementing fixes 1 to 4 requires changing <code>AGENTS.md</code> line 5 ("Lead with Maslow AI-OS") so that line 6 ("Lead with a buyer's workflow...") takes precedence on the homepage. This review does not change that rule; the owner decides.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Implementation checklist</h2>
+  <ul class="check">
+    <li>Decide the open question above and update <code>AGENTS.md</code> accordingly.</li>
+    <li>Hero, CTAs and proof strip: <code>app/page.tsx</code>, <code>app/page.module.css</code>, CTA destinations in <code>lib/brand.ts</code> (startLinks), CTA map in <code>docs/booking-and-cta-setup.md</code>.</li>
+    <li>Hedge consolidation across <code>app/page.tsx</code>, <code>components/ai-os/*</code>, <code>app/ai-os/page.tsx</code>, <code>app/resources/page.tsx</code>.</li>
+    <li>Case-study rename: <code>app/case-studies/**</code>, homepage case cards, <code>lib/routes.ts</code> redirects if the slug changes.</li>
+    <li>Handoff motion: <code>components/ai-os/HeroContinuity.tsx</code>, <code>components/ai-os/AIOSHome.module.css</code>.</li>
+    <li>Foundation story: <code>components/ai-os/FoundationJourney.tsx</code>, <code>scene-engine.js</code>, <code>scene-story-data.js</code>.</li>
+    <li>Run <code>npm test</code>, <code>npm run lint</code>, <code>npm run build</code> and the full Playwright suite; re-review first-viewport snapshots.</li>
+  </ul>
+</section>
+
+<footer>
+  Prepared October 29, 2026 from a multi-agent review session (buyer panel, positioning and CRO, brand voice, motion engineering, live visual pass). Sources: live captures of 25 routes on www.maslow.ai, source at <code>825258f</code>, <code>AGENTS.md</code>, <code>docs/ai-os-buyer-journey.md</code>, and the Maslow brand strategy book.
+</footer>
+
+</main>
+</body>
+</html>

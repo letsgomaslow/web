@@ -45,6 +45,11 @@
 - Keep repeated card labels and status metadata in normal layout flow with explicit gaps. Do not absolutely position metadata that must scale to new sectors, statuses, or viewport widths.
 - Give responsive card elements a local CSS-module class when their grid placement changes. Do not rely on styling a global utility class through a scoped CSS-module selector.
 
+## Reviews
+
+- `docs/reviews/2026-10-29-website-ux-review.html` is the current expert review of the live site (ICP perception, positioning and CTAs, copy, motion story). Read it before changing homepage copy, CTAs, case studies, diligence pages, or the foundation scene, and update its checklist as items land.
+- It records an open decision: the "Lead with Maslow AI-OS" rule above conflicts with "Lead with a buyer's workflow" on the homepage. Do not resolve it in code until the owner decides.
+
 ## Accessibility and responsive verification
 
 - Use the semantic `*-text` color tokens for readable text on light surfaces. Keep brighter accent tokens for decoration, borders, backgrounds, and text on dark surfaces.
